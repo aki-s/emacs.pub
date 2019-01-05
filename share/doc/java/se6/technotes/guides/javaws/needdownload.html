@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Java Web Start AutoInstall</title><link rel="stylesheet" href="../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table>Java Web Start AutoInstall
+<!-- 
+
+CODEBASE is the location and version of autoinstall.cab, the ActiveX
+component which downloads and installs the Java Web Start component.
+
+CLASSID is the globally unique identifier for the control referred
+to by CODEBASE.  The CLASSID value should not be changed.
+
+PARAMS
+app: the location of the application to auto-execute after install.
+cfg: the location of the .cfg file with which to initialize the client.
+back: if this value is "false", the browser will not go "back" after
+AutoInstall completes.  The default behavior is to go back.
+
+All PARAMS are optional.
+
+The ActiveX component will only work in Internet Explorer.  For other
+browsers, the deployer may include HTML inside the OBJECT tag, which
+will be displayed by browsers which cannot render the object.
+
+The OBJECT tag should look something like this:
+
+-->
+<object codebase=
+"http://java.sun.com/autoinstall/jinstall_javaws-1_2-rt.cab#Version=1,0,0,2"
+classid="clsid:5852F5ED-8BF4-11D4-A245-0080C6F74284" height="0"
+width="0"><param name="app" value=
+"http://myhost.some.com/myapp.jnlp" />
+<param name="cfg" value=
+"http://myhost.some.com/myautoconfig.jar" />
+<param name="back" value="true" />
+<!-- Alternate HTML for browsers which cannot instantiate the object -->
+<a href=
+"http://java.sun.com/cgi-bin/javawebstart-platform.sh?">Click here
+to download Java Web Start</a></object>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

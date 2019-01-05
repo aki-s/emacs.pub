@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>JDK 6 Java Print Service -related APIs & Developer
+Guides</title><link rel="stylesheet" href="../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><table>
+<tr>
+<td>
+
+<h1>Java Print Service</h1>
+
+</td>
+</tr>
+</table>
+<!-- Body text begins here -->
+<blockquote>The Java Print Service API, introduced in v1.4, allows
+printing on all Java platforms including those requiring a small
+footprint, such as a J2ME profile, but also supports the
+<code>java.awt.print.PrinterJob</code> API introduced in J2SE v1.2.
+The Java Print Service API includes an extensible print attribute
+set based on the standard attributes specified in the Internet
+Printing Protocol (IPP) 1.1 from the IETF. With the attributes,
+client and server applications can discover and select printers
+that have the capabilities specified by the attributes. In addition
+to the included <code>StreamPrintService</code>, which allows
+applications to transcode data to different formats, third parties
+can dynamically install their own print services through the
+Service Provider Interface.</blockquote>
+<h2>API Specification</h2>
+<blockquote>The Java Print Service API consists of these four
+packages:
+<p><a href=
+"../../../api/javax/print/package-summary.html"><code>javax.print</code></a>:<br />
+
+Provides the principal classes and interfaces for the Java Print
+Service API.</p>
+<p><a href=
+"../../../api/javax/print/attribute/package-summary.html"><code>javax.print.attribute</code></a>:<br />
+
+Provides classes and interfaces that describe the types of Java
+Print Service attributes and how they can be collected into
+attribute sets.</p>
+<p><a href=
+"../../../api/javax/print/attribute/standard/package-summary.html"><code>
+javax.print.attribute.standard</code></a>:<br />
+Contains classes defining specific printing attributes.</p>
+<p><a href=
+"../../../api/javax/print/event/package-summary.html"><code>javax.print.event</code></a>:<br />
+
+Contains event classes and listener interfaces for monitoring print
+services and the progress of a specific print job.</p>
+</blockquote>
+<h2>Tutorials and Programmer's Guides</h2>
+<blockquote>The Java Print Service User Guide ( <a href=
+"spec/jpsTitle.fm.html">HTML</a> | <a href=
+"http://java.sun.com/j2se/1.4.2/pdf/JPS_PDF.pdf">PDF</a> )
+describes the Java Print Service in more detail and demonstrates
+how to use the Java Print Service API to:
+<ul>
+<li>Discover and select print services based on their
+capabilities</li>
+<li>Specify the format of print data</li>
+<li>Submit print jobs to services that support the document type to
+be printed.</li>
+</ul>
+</blockquote>
+<h2>More Information</h2>
+<blockquote>See the Java Software websites:
+<ul>
+<li><a href="http://java.sun.com/printing">Printing on the Java
+Platform</a></li>
+<li><a href=
+"http://java.sun.com/aboutJava/communityprocess/final-draft/jsr006/index.html">
+JSR-006: Unified Printing API</a></li>
+<li><a href=
+"http://java.sun.com/products/java-media/2D/index.html">The Java 2D
+Home Page</a></li>
+<li><a href="http://java.sun.com/products/jfc/index.jsp">The JFC
+Home Page</a></li>
+</ul>
+</blockquote>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

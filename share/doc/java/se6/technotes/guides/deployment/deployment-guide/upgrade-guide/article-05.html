@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>java.lang.ClassNotFoundException thrown ...</title><link rel="stylesheet" href="../../../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><blockquote>
+<h2><code>java.lang.ClassNotFoundException</code> Thrown by the
+<code>ClassLoader</code> on the <code>com.ms.security</code>
+Package</h2>
+<h3><br />
+<font>Symptoms</font></h3>
+<blockquote>
+<p>When running an applet in a browser using the Sun
+Java<sup><font size="1">TM</font></sup> Runtime Environment
+(JRE<sup><font size="1">TM</font></sup>), a
+<code>java.lang.ClassNotFoundException</code> is thrown by the
+<code>ClassLoader</code> on the <code>com.ms.security</code>
+package. The same applet runs without any error under the Microsoft
+Virtual Machine (VM).</p>
+</blockquote>
+<h3><font>Cause</font></h3>
+<blockquote>
+<p>The Microsoft VM provides the proprietary
+<code>com.ms.security</code> package for applets and applications
+to access the security policy at runtime. Because this package is
+not available in the Sun JRE, a
+<code>java.lang.ClassNotFoundException</code> is thrown when the
+applet runs in a browser.</p>
+</blockquote>
+<h3><font>Resolution</font></h3>
+<blockquote>
+<p>Migrate the applet source from the <code>com.ms.security</code>
+package to the <code>java.security</code> package by using similar
+classes.<br />
+<br />
+For example, the following applet uses
+<code>com.ms.security.PolicyEngine</code> to assert the network I/O
+permission before connecting to a URL:</p>
+<blockquote>
+<p><code>public class AssertPermissionApplet extends
+java.applet.Applet<br />
+{<br />
+&nbsp;&nbsp;&nbsp; public void init()<br />
+&nbsp;&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Assert permission on network I/O<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+com.ms.security.PolicyEngine.assertPermission<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(com.ms.security.PermissionID.NETIO);&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+java.net.URL url = new
+java.net.URL(&quot;http://randomhost/randomfile&quot;);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.....<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } catch
+(java.net.MalformedURLException mue) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; catch
+(java.io.IOException ioe) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } // init<br />
+}</code></p>
+</blockquote>
+<p>In the Java technology,
+<code>java.security.AccessController</code> provides similar
+functionality for permission assertion. The following source code
+displays the functionality after migration:</p>
+<blockquote>
+<p><code>public class AssertPermissionApplet extends
+java.applet.Applet<br />
+{<br />
+&nbsp;&nbsp;&nbsp; public void init()<br />
+&nbsp;&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Assert permission on network I/O<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+java.security.AccessController.checkPermission(new
+java.net.SocketPermission("randomhost:80",
+"connect,accept"));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+java.net.URL url = new
+java.net.URL(&quot;http://randomhost/randomfile&quot;);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.....<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } catch
+(java.net.MalformedURLException mue) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; catch
+(java.io.IOException ioe) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } // init<br />
+}</code></p>
+</blockquote>
+<p>See the Java<sup><font size="1">TM</font></sup> SE technology
+API documentation for more details about security.</p>
+</blockquote>
+<h3><font>Related Information</font></h3>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; See <a href=
+"http://java.sun.com/javase/6/docs/technotes/guides/security/">Security</a>.</p>
+<p>&nbsp;</p>
+</blockquote>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

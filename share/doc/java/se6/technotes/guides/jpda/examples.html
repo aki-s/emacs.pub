@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Java Platform Debugger Architecture - Example JDI
+Applications</title><link rel="stylesheet" href="../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>Java Platform Debugger Architecture - Example JDI
+Applications</h1>
+<p>For v1.3.0 and later releases, the Java 2 SDK's
+<tt>demo/jpda</tt> directory contains source code and documentation
+for three applications written using the Java Debug Interface (JDI)
+of the <a href="./index.html">Java Platform Debugger
+Architecture</a> (JPDA). They are provided as educational tools and
+as starting points for debugger development.</p>
+<p>In increasing order of complexity:</p>
+<ul>
+<li><a href="trace.html">Trace</a> displays traces of program
+execution. It is very simple (less than 600 lines) yet uses most of
+the basic JDI functionality. It is a good starting point.</li>
+<li><a href="jdb.html">Jdb</a> is the command line debugger
+distributed with the J2SE SDK v1.3 and later releases.</li>
+<li><a href="javadt.html">Javadt</a> is the beginnings of a GUI
+debugger.</li>
+</ul>
+<p>Trace is in the <code>trace</code> directory. Jdb and Javadt
+share a package, and are in the <code>debuggers</code>
+directory.</p>
+<h3><a name="SETUP" id="SETUP">Required Set-up</a></h3>
+<p>Your classpath must include the JDI Library code, which is in
+<code>lib/tools.jar</code> directory of the Java 2 SDK. (Note that
+<tt>tools.jar</tt> is not in the Java Runtime Environment; it is
+only in the Java 2 SDK.) This is needed for both compiling the
+example code and executing it. For information on how to set the
+classpath, see the <a href=
+"../../../technotes/tools/index.html">Java SE tools
+documentation</a>.</p>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

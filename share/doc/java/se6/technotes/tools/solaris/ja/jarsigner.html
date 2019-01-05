@@ -1,0 +1,930 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="copyright" content="1998, 2010" />
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+
+ 
+<link rel="stylesheet" href="../../css/tools.css"  type="text/css" />
+<title>jarsigner - JAR 署名および検証ツール</title>
+
+</head>
+
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>jarsigner - JAR 署名および検証ツール</h1>
+
+  <blockquote><p>
+Java ARchive (JAR) ファイルの署名を生成し、署名付き JAR ファイルの署名を検証します。</p>
+  </blockquote>
+
+<h2>形式</h2>
+
+  <blockquote>
+    <pre>
+<strong>jarsigner</strong> [ <a href=
+"#Options">options</a> ] jar-file alias
+<strong>jarsigner</strong> -verify [ <a href=
+"#Options">options</a> ] jar-file 
+</pre>
+  </blockquote>
+
+<h2>説明</h2>
+
+  <blockquote>
+  <p>
+<b>jarsigner</b> ツールは、次の 2 つの目的で使用します。</p>
+
+    <ol>
+<li>Java ARchive (JAR) ファイルに署名を付ける</li>
+
+<li>署名付き JAR ファイルの署名と整合性を検証する</li>
+    </ol>
+
+<p>JAR 機能を使うと、クラスファイル、イメージ、サウンド、およびその他のデジタルデータを単一のファイルにパッケージ化できるので、ファイルを迅速かつ容易に配布できます。開発者は、<a href=     "jar.html"><b>jar</b></a> という名前のツールを使って JAR ファイルを作成できます。技術的な観点から言えば、すべての ZIP ファイルも JAR ファイルとみなすことができます。 ただし、<b>jar</b> によって作成された JAR ファイル、または <b>jarsigner</b> によって処理された JAR ファイルには、META-INF/MANIFEST.MF ファイルが含まれています。</p>
+
+<p>「デジタル署名」は、なんらかのデータ (「署名」の対象となるデータ) と、エンティティー (人、会社など) の非公開鍵とに基づいて計算されるビット列です。<i></i>手書きの署名同様、デジタル署名には多くの利点があります。</p>
+
+    <ul>
+<li>署名の生成に使われた非公開鍵と対になる公開鍵を使って計算を行うことで、デジタル署名が本物かどうかを検証できる</li>
+
+<li>非公開鍵が他人に知られない限り、デジタル署名の偽造は不可能である</li>
+
+<li>デジタル署名は、その署名が付いたデータだけを対象とするものであり、ほかのデータの署名として機能することはない</li>
+
+<li>署名付きのデータは変更できない。 データが変更された場合は、その署名によってデータが本物ではないことが検証される</li>
+    </ul>
+
+<p>ファイルに対してエンティティーの署名を生成するには、まず、エンティティーは、そのエンティティーに関連する公開鍵と非公開鍵のペアを持つ必要があります。 また、公開鍵を認証する 1 つまたは複数の証明書も必要です。「証明書」とは、あるエンティティーが発行したデジタル署名付きの文書で、別なエンティティーの公開鍵が特定の値であることを証明しています。<i></i></p>
+
+<p><b>jarsigner</b> は、「キーストア」に含まれる鍵と証明書情報を使って、JAR ファイルのデジタル署名を生成します。<i></i>キーストアは、非公開鍵と、非公開鍵に関連付けられた X.509 証明書チェーンが収められたデータベースです。キーストアの作成と管理には、<a href="keytool.html"><b>keytool</b></a> ユーティリティーを使います。</p>
+
+<p><b>jarsigner</b> は、エンティティーの非公開鍵を使って署名を生成します。署名付き JAR ファイルには、ファイルの署名に使用する非公開鍵に対応する公開鍵を保存するキーストアからとった証明書のコピーも含まれています。 <b>jarsigner</b> は、署名付き JAR ファイルのデジタル署名を、ファイル内 (の署名ブロックファイル) に含まれている証明書を使って検証することができます。</p>
+
+<p>5.0 以降では、<b>jarsigner</b> はタイムスタンプを含む署名を生成するので、システムやデプロイヤ (Java Plug-in を含む) はJAR ファイルが署名証明書の有効期間中に署名されたかどうかをチェックできます。さらに、5.0 で追加された API を使用して、アプリケーションはタイムスタンプ情報を取得できます。</p>
+
+<p>現時点では、<b>jarsigner</b> で署名できるのは、JDK の <a href="jar.html"><b>jar</b></a> ツールで作成された JAR ファイル、または ZIP ファイルだけです。JAR ファイルは ZIP ファイルと同じですが、JAR ファイルには META-INF/MANIFEST.MF ファイルが含まれている点が異なります。META-INF/MANIFEST.MF ファイルは、<b>jarsigner</b> が ZIP ファイルに署名を付けるときに自動的に作成されます。</p>
+
+<p>デフォルトでは、<b>jarsigner</b> は JAR (または ZIP) ファイルに「署名」を付けます。<i></i>署名付き JAR ファイルを「検証」する場合は、<code>-verify</code> オプションを指定します。<i></i></p>
+</blockquote>
+<h3>JDK 1.1 との互換性</h3>
+
+    <blockquote>
+<p><b>keytool</b> ツールと <b>jarsigner</b> ツールは、JDK 1.1 で提供されていた <b>javakey</b> ツールを完全に置き換えるものです。これらの新しいツールは <b>javakey</b> よりも多くの機能を備えており、キーストアと非公開鍵をパスワードで保護する機能や、署名の生成に加えて署名を検証する機能を持っています。</p>
+
+<p>新しいキーストアアーキテクチャーは、<b>javakey</b> が作成して管理していたアイデンティティーデータベースに代わるものです。キーストア形式と、JDK 1.1 の <b>javakey</b> が使っていたデータベース形式との間には下位互換性はありません。ただし、次のようなことは可能です。</p>
+
+      <ul>
+<li><b>keytool</b> の <code>-identitydb</code> コマンドを使うと、アイデンティティーデータベースの情報をキーストアにインポートできます。</li>
+
+<li><b>jarsigner</b> は、以前に <b>javakey</b> を使って署名された JAR ファイルに署名を付けることができます。</li>
+
+<li><b>jarsigner</b> は、<b>javakey</b>を使って署名された JAR ファイルを検証できます。したがって、jarsigner は、Java 2 SDK のキーストアではなく JDK 1.1 のアイデンティティーデータベースからの署名者別名を認識し、これらを対象に処理を行うことができます。</li>
+      </ul>
+
+<p>次の表は、JDK 1.1.x で署名された JAR ファイルが、Java 2 プラットフォームでどのように扱われるかを示しています。
+</p>
+      <table border="1" summary=
+      "How JAR Files Signed in JDK 1.1.X are Treated in the Java 2 Platform">
+      <tr>
+          <th>
+<p>JAR ファイルのタイプ</p>
+          </th>
+
+          <th>
+<p>1.1 データベース内のアイデンティティー</p>
+          </th>
+
+          <th>
+<p>1.1 データベースから Java 2 Platform キーストアにインポートされる信頼できるアイデンティティー (4)</p>
+          </th>
+
+          <th>
+<p>ポリシーファイルがアイデンティティー/別名に特権を与える</p>
+          </th>
+
+          <th>
+<p>与えられる特権</p>
+          </th>
+        </tr>
+
+        <tr>
+          <td>
+<p>署名付き JAR</p>
+          </td>
+
+          <td>
+<p>なし</p>
+          </td>
+
+          <td>
+<p>なし</p>
+          </td>
+
+          <td>
+<p>なし</p>
+          </td>
+
+          <td>
+<p>すべてのコードに与えられるデフォルトの特権</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+<p>署名のない JAR</p>
+          </td>
+
+          <td>
+<p>なし</p>
+          </td>
+
+          <td>
+<p>なし</p>
+          </td>
+
+          <td>
+<p>なし</p>
+          </td>
+
+          <td>
+<p>すべてのコードに与えられるデフォルトの特権</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+<p>署名付き JAR</p>
+          </td>
+
+          <td>
+<p>なし</p>
+          </td>
+
+          <td>
+<p>あり</p>
+          </td>
+
+          <td>
+<p>なし</p>
+          </td>
+
+          <td>
+<p>すべてのコードに与えられるデフォルトの特権</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+<p>署名付き JAR</p>
+          </td>
+
+          <td>
+<p>あり/信頼できない</p>
+          </td>
+
+          <td>
+<p>なし</p>
+          </td>
+
+          <td>
+<p>なし</p>
+          </td>
+
+          <td>
+<p>すべてのコードに与えられるデフォルトの特権 (3)</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+<p>署名付き JAR</p>
+          </td>
+
+          <td>
+<p>あり/信頼できない</p>
+          </td>
+
+          <td>
+<p>なし</p>
+          </td>
+
+          <td>
+<p>あり</p>
+          </td>
+
+          <td>
+<p>すべてのコードに与えられるデフォルトの特権 (1,3)</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+<p>署名付き JAR</p>
+          </td>
+
+          <td>
+<p>なし</p>
+          </td>
+
+          <td>
+<p>あり</p>
+          </td>
+
+          <td>
+<p>あり</p>
+          </td>
+
+          <td>
+<p>すべてのコードに与えられるデフォルトの特権とポリシーファイル内で与えられる特権</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+<p>署名付き JAR</p>
+          </td>
+
+          <td>
+<p>あり/信頼できる</p>
+          </td>
+
+          <td>
+<p>あり</p>
+          </td>
+
+          <td>
+<p>あり</p>
+          </td>
+
+          <td>
+<p>すべてのコードに与えられるデフォルトの特権とポリシーファイル内で与えられる特権 (2)</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+<p>署名付き JAR</p>
+          </td>
+
+          <td>
+<p>あり/信頼できる</p>
+          </td>
+
+          <td>
+<p>なし</p>
+          </td>
+
+          <td>
+<p>なし</p>
+          </td>
+
+          <td>
+<p>すべての特権</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+<p>署名付き JAR</p>
+          </td>
+
+          <td>
+<p>あり/信頼できる</p>
+          </td>
+
+          <td>
+<p>あり</p>
+          </td>
+
+          <td>
+<p>なし</p>
+          </td>
+
+          <td>
+<p>すべての特権 (1)</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+<p>署名付き JAR</p>
+          </td>
+
+          <td>
+<p>あり/信頼できる</p>
+          </td>
+
+          <td>
+<p>なし</p>
+          </td>
+
+          <td>
+<p>あり</p>
+          </td>
+
+          <td>
+<p>すべての特権 (1)</p>
+          </td>
+        </tr>
+      </table>
+
+<p>注 -</p>
+
+      <ol>
+<li>ポリシーファイル内にアイデンティティー/別名についての言及がある場合、それをキーストアにインポートして、ポリシーファイルの設定が与えられた特権に反映されるようにする必要があります。</li>
+
+<li>ポリシーファイル/キーストアの組み合わせは、アイデンティティーデータベース内の信頼できるアイデンティティーよりも優先されます。</li>
+
+<li>Java 2 プラットフォームでは、信頼できないアイデンティティーは無視されます。</li>
+
+<li>Java 2 SDK キーストアにインポートできるのは、信頼できるアイデンティティーだけです。</li>
+      </ol>
+    
+
+<h3>キーストアの別名</h3>
+
+    <blockquote>
+<p>キーストアのすべてのエントリは、一意の「別名」を介してアクセスされます。<i></i></p>
+
+<p><b>jarsigner</b> を使って JAR ファイルに署名を付けるときは、署名の生成に必要な非公開鍵を含むキーストアエントリの別名を指定する必要があります。たとえば、次の例は、working ディレクトリの mystore という名前のキーストアに含まれる別名 duke に関連付けられた非公開鍵を使って、MyJARFile.jar という名前の JAR ファイルに署名を付けます。出力ファイルは指定されていないので、MyJARFile.jar は署名付きの JAR ファイルによって上書きされます。</p>
+      <pre>
+    jarsigner -keystore /working/mystore -storepass myspass
+      -keypass dukekeypasswd MyJARFile.jar duke 
+</pre>
+
+<p>キーストアはパスワードで保護されているので、ストアのパスワード (上の例では mypass) を指定する必要があります。コマンド行でストアのパスワードを指定しないと、パスワードの入力を求められます。同様に、非公開鍵もキーストア内でパスワードによって保護されているため、非公開鍵のパスワード (上の例では dukekeypasswd) を指定する必要があります。 コマンド行で非公開鍵のパスワードを指定していない、また、指定したパスワートが保存されているパスワードと違っている場合には、非公開鍵のパスワードの入力を求められます。</p>
+    </blockquote>
+
+<h3>キーストアの場所</h3>
+
+    <blockquote><p>
+<b>jarsigner</b> には、使用するキーストアの URL を指定する <code>-keystore</code> オプションがあります。キーストアは、デフォルトではユーザーのホームディレクトリの <code>.keystore</code> という名前のファイルに格納されます。 ユーザーのホームディレクトリは、<code>user.home</code> システムプロパティーによって決まります。Solaris システムの場合、<code>user.home</code> がデフォルトでユーザーのホームディレクトリになっています。
+</p>
+<p><code>-keystore</code> オプションからの入力ストリームは、<code>KeyStore.load</code> メソッドに渡されます。URL として <code>NONE</code> が指定されている場合は、null のストリームが <code>KeyStore.load</code> メソッドに渡されます。<code>NONE</code> は、<code>KeyStore</code> がファイルベースではなく、たとえば、ハードウェアトークンデバイスに置かれている場合に指定します。</p>
+    </blockquote>
+
+<h3><a name="KeystoreImplementation"/>キーストアの実装</h3>
+
+    <blockquote><p>
+<code>java.security</code> パッケージで提供される <code>KeyStore</code> クラスには、キーストア内の情報に対するアクセスと変更を行うための明確に定義されたインタフェースが用意されています。キーストアの固定実装としては、それぞれが特定の「タイプ」のキーストアを対象とする複数の異なる実装が存在可能です。<i></i>
+</p>
+<p>現在、キーストアの実装を使用するものとして、<b>keytool</b> と <b>jarsigner</b> の 2 つのコマンド行ツールと、<b>Policy Tool</b> という名前の 1 つの GUI ベースのツールがあります。<code>KeyStore</code> は public として使用可能なので、Java 2 SDK ユーザーは KeyStore を使ったほかのセキュリティーアプリケーションも作成できます。</p>
+
+<p>キーストアには、Sun が提供する組み込みのデフォルトの実装があります。これは、JKS という名前の独自のキーストアタイプ (形式) を利用するもので、キーストアをファイルとして実装しています。この実装では、個々の非公開鍵は個別のパスワードによって保護され、キーストア全体の整合性も (非公開鍵とは別の) パスワードによって保護されます。</p>
+
+<p>キーストアの実装は、プロバイダベースです。具体的には、<code>KeyStore</code> が提供するアプリケーションインタフェースは、Service Provider Interface (SPI) という形で実装されています。つまり、対応する <code>KeystoreSpi</code> 抽象クラス (これも <code>java.security</code> パッケージに含まれている) があり、このクラスが Service Provider Interface のメソッドを定義しています。 これらのメソッドは、「プロバイダ」が実装しなければなりません。ここで、「プロバイダ」とは、Java Security API によってアクセス可能なサービスのサブセットに対し、その固定実装を提供するパッケージまたはパッケージの集合のことです。したがって、キーストアの実装を提供するには、<a href=       "../../guides/security/crypto/HowToImplAProvider.html">「Java 暗号化アーキテクチャー用プロバイダの実装方法」</a>で説明しているように、クライアントが「プロバイダ」を実装し、KeystoreSpi サブクラスの実装を提供する必要があります。</p>
+
+<p>アプリケーションでは、<code>KeyStore</code> クラスが提供する getInstance ファクトリメソッドを使うことで、さまざまなプロバイダから異なる「タイプ」のキーストアの実装を選択できます。<i></i>キーストアのタイプは、キーストア情報の格納形式とデータ形式を定義するとともに、キーストア内の非公開鍵とキーストア自体の整合性を保護するために使われるアルゴリズムを定義します。異なるタイプのキーストアの実装には、互換性はありません。</p>
+
+<p><b>keytool</b> は、任意のファイルベースのキーストア実装で動作します。keytool は、コマンド行から渡されたキーストアの場所をファイル名として扱い、これを FileInputStream に変換して、FileInputStream からキーストアの情報をロードします。一方、<b>jarsigner</b> ツールと <b>policytool</b> ツールは、URL で指定可能な任意の場所からキーストアを読み込むことができます。</p>
+
+<p><b>jarsigner</b> と <b>keytool</b> の場合、<i>-storetype</i> オプションを使ってコマンド行でキーストアのタイプを指定できます。<b>Policy Tool</b> の場合は、[Edit] メニューの [Change Keystore] コマンドを使ってキーストアのタイプを指定できます。</p>
+
+<p>キーストアのタイプを明示的に指定しない場合、keytool、jarsigner、および policytool の各ツールは、セキュリティープロパティーファイル内で指定された <code>keystore.type</code> プロパティーの値に基づいてキーストアの実装を選択します。セキュリティープロパティーファイルは、<tt>java.security</tt> という名前で SDK セキュリティープロパティーディレクトリ <code><i>java.home</i>/lib/security</code> に置かれています。<i> java.home</i> は、実行環境のディレクトリ (SDK の <tt>jre</tt> ディレクトリまたは Java 2 Runtime Environment の最上位のディレクトリ) です。</p>
+
+<p>各ツールは、<code>keystore.type</code> の値を取得し、この値で指定されたタイプのキーストアを実装しているプロバイダが見つかるまで、現在インストールされているすべてのプロバイダを調べます。目的のプロバイダが見つかると、そのプロバイダからのキーストアの実装を使います。</p>
+
+<p><code>KeyStore</code> クラスでは <code>getDefaultType</code> という名前の static メソッドが定義されており、アプリケーションとアプレットはこのメソッドを使うことで <code>keystore.type</code> プロパティーの値を取得できます。次のコードは、デフォルトのキーストアタイプ (<code>keystore.type</code> プロパティーで指定されたタイプ) のインスタンスを生成します。</p>
+      <pre>
+    KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+</pre>
+
+<p>デフォルトのキーストアタイプは JKS (Sun が提供する独自のタイプのキーストアの実装) です。これは、セキュリティープロパティーファイル内の次の行によって指定されています。</p>
+      <pre>
+    keystore.type=jks
+</pre>
+
+<p>注:キーストアのタイプの指定では、大文字と小文字は区別されません。たとえば、JKS と jks は同じものとして扱われます。</p>
+
+<p>各ツールでデフォルト以外のキーストアの実装を使用するには、上の行を変更して別のキーストアのタイプを指定します。たとえば、pkcs12 と呼ばれるタイプのキーストアの実装を提供しているプロバイダパッケージを使用するには、上の行を次のように変更します。</p>
+      <pre>
+    keystore.type=pkcs12
+</pre>
+
+<p>PKCS#11 プロバイダパッケージを使用する場合、その詳細については、「Java PKCS#11 Reference Guide」にある<a href=       "../../guides/security/p11guide.html#KeyToolJarSigner">「KeyTool and JarSigner」</a>の節を参照してください。</p>
+    </blockquote></blockquote>
+
+<h3><a name="DefaultAlgs" id="DefaultAlgs">サポートされるアルゴリズム</a></h3>
+
+    <blockquote>
+<p>デフォルトでは、<b>jarsigner</b> は次のどちらかのアルゴリズムを使って JAR ファイルに署名します。</p>
+
+      <ul>
+<li>SHA-1 ダイジェストアルゴリズムを使った DSA (デジタル署名アルゴリズム)</li>
+
+<li>MD5 ダイジェストアルゴリズムを使った RSA アルゴリズム</li>
+      </ul>
+
+<p>具体的には、署名者の公開鍵と非公開鍵が DSA 鍵である場合、<b>jarsigner</b> は SHA1withDSA アルゴリズムを使って JAR ファイルに署名を付けます。署名者の鍵が RSA 鍵である場合、<b>jarsigner</b> は MD5withRSA アルゴリズムを使って JAR ファイルに署名を付けます。</p>
+
+<p>これらのデフォルトの署名アルゴリズムは、<i>-sigalg</i> オプションを使ってオーバーライドできます。</p>
+    </blockquote>
+
+<h3><a name="DefaultAlgs"/>署名付き JAR ファイル</h3>
+
+    <blockquote>
+<p><b>jarsigner</b> を使って JAR ファイルに署名を付けた場合、出力される署名付き JAR ファイルは入力 JAR ファイルと同じですが、次の 2 つの追加ファイルが META-INF ディレクトリに置かれる点が異なります。</p>
+
+      <ul>
+<li>.SF 拡張子の付いた署名ファイル</li>
+
+<li>.DSA 拡張子の付いた署名ブロックファイル</li>
+      </ul>
+<p>これら 2 つのファイルのベースファイル名は、<code>-sigFile</code> オプションの値から作成されます。たとえば、次のようにオプションを指定したとします。</p>
+      <pre>
+  -sigFile MKSIGN
+</pre>
+
+<p>この場合、ファイル名はそれぞれ MKSIGN.SF と MKSIGN.DSA になります。</p>
+
+<p>コマンド行で <code>-sigfile</code> オプションを指定しなかった場合、.SF ファイルと .DSA ファイルのベースファイル名は、コマンド行で指定された別名の先頭の 8 文字をすべて大文字に変換したものになります。別名が 8 文字未満の場合は、別名がそのまま使われます。別名の中に、署名ファイル名に使用できない文字が含まれている場合は、該当する文字を下線 (_) に置き換えてファイル名が作成されます。使用できる文字は、アルファベット、数字、下線 (_)、ハイフンです。</p>
+
+<h4><a name="SFFile" />署名 (.SF) ファイル</h4>
+
+      <blockquote>
+      <p>
+署名ファイル (.SF ファイル) は、<b>jarsigner</b> で署名を付けた JAR ファイルに常に含まれるマニフェストファイルと似ています。つまり、マニフェストファイル同様、.SF ファイルには、JAR ファイルに含まれているソースファイルごとに、次の 3 つの行があります。</p>
+
+        <ul>
+<li>ファイル名</li>
+
+<li>使われているダイジェストアルゴリズム (SHA) の名前</li>
+
+<li>SHA ダイジェストの値</li>
+        </ul>
+	
+	<p>マニフェストファイルでは、SHA ダイジェストの値は、ソースファイルのバイナリデータのダイジェスト (ハッシュ) です。一方、.SF ファイルでは、ソースファイルのダイジェストの値は、マニフェストファイル中の該当するソースファイルに対応する 3 行のハッシュです。
+</p>
+<p>署名ファイルには、デフォルトでマニフェストファイル全体のハッシュも含まれています。後述の<a href="#Verifying">「JAR ファイルの検証」</a>で説明するように、このヘッダーの存在によって検証の最適化が可能になっています。</p>
+      </blockquote>
+
+<h4>署名ブロック (.DSA) ファイル</h4>
+
+      <blockquote><p>
+.SF ファイルには署名が付けられ、署名は .DSA ファイルに置かれます。.DSA ファイルには、キーストアからの証明書または証明書チェーンも符号化された形で含まれています。 証明書または証明書チェーンは、署名に使われた非公開鍵に対応する公開鍵を認証します。</p>
+      </blockquote>
+    </blockquote>
+
+<h3><a name="Timestamp"/>署名タイムスタンプ</h3>
+
+    <blockquote><p>
+J2SE 5.0 リリースの <code>jarsigner</code> ツールは、JAR ファイルの署名時に署名タイムスタンプを生成および格納できるようになりました。さらに、<code>jarsigner</code> は代替署名機構をサポートします。この動作は省略可能で、署名時に次の各オプションによって制御されます。</p>
+
+      <ul>
+<li><a href="#tsa"><code>-tsa url</code></a></li>
+
+<li><a href="#tsacert"><code>-tsacert alias</code></a></li>
+
+<li><a href="#altsigner"><code>-altsigner  class</code></a></li>
+
+<li><a href="#altsignerpath"><code>-altsignerpath  classpathlist</code></a></li>
+      </ul>
+<p>これらの各オプションの詳細については、後述の<a href=       "#Options">「オプション」</a>節を参照してください。</p>
+    </blockquote>
+
+<h3><a name="Verifying"/>JAR ファイルの検証</h3>
+
+    <blockquote>
+<p>JAR ファイルの検証が成功するのは、署名が有効であり、かつ署名の生成以後に JAR ファイル内のどのファイルも変更されていない場合です。JAR ファイルの検証は、次の手順で行われます。</p>
+
+      <ol>
+<li>.SF ファイルそれ自体の署名を検証します。
+
+<p>この手順では、各署名ブロック (.DSA) ファイルに格納されている署名が、実際に、公開鍵に対応する非公開鍵を使って生成されたものであることを確認します。 .DSA ファイルには、公開鍵の証明書 (または証明書チェーン) も含まれています。また、この手順では、目的の署名が、対応する署名 (.SF) ファイル内の有効な署名であるかどうかを調べ、.SF ファイルが改変されていないことも確認します。</p>
+        </li>
+
+<li>.SF ファイル内の各エントリのダイジェストをマニフェスト内の対応する各セクションと突き合わせて検証します。
+
+<p>.SF ファイルには、マニフェストファイル全体のハッシュが格納されたヘッダーがデフォルトで含まれています。このヘッダーが存在する場合は、ヘッダー内のハッシュが実際にマニフェストファイルのハッシュと一致するかどうかを検証することができます。ハッシュが一致する場合は、次の手順に進みます。</p>
+
+<p>ハッシュが一致しない場合は、効率的には劣る方法を使って検証を行います。 具体的には、.SF ファイル内の各ソースファイル情報セクションのハッシュが、マニフェストファイル内の対応するセクションのハッシュと一致するかどうかを確認します (<a href="#SFFile">「署名 (.SF) ファイル」</a>を参照)。</p>
+
+<p>.SF ファイルのヘッダーに格納されたマニフェストファイルのハッシュと、実際のマニフェストファイルのハッシュとが一致しない場合は、署名 (および .SF ファイル) の生成後に、JAR ファイルに 1 つ以上のファイルが追加 (<code>jar</code> ツールを使用) された可能性があります。<code>jar</code> ツールを使ってファイルを追加した場合、マニフェストファイルは変更されますが (新しいファイル用のセクションが追加される)、.SF ファイルは変更されません。この場合、.SF ファイルのヘッダー以外のセクションに格納されたハッシュが、マニフェストファイル内の対応するセクションのハッシュと一致するときは、署名の生成時に JAR ファイル内に存在していたファイルのうち、どのファイルも変更されていないことになり、検証は成功したものとして扱われます。</p>
+        </li>
+
+<li>JAR ファイル内のファイルのうち、.SF ファイル内にエントリを持つ各ファイルを読み込みます。読み込み中にファイルのダイジェストを計算し、結果をマニフェストセクション内の該当するファイルのダイジェストと比較します。2 つのダイジェストは同じでなければならず、そうでない場合は検証が失敗します。</li>
+      </ol>
+
+<p>検証プロセスの途中でなんらかの重大な検証エラーが発生した場合、検証プロセスは中止され、セキュリティー例外がスローされます。スローされたセキュリティー例外は、<b>jarsigner</b> がキャッチして表示します。</p>
+    </blockquote>
+
+<h3>1 つの JAR ファイルを対象とする複数の署名</h3>
+
+    <blockquote><p>
+1 つの JAR ファイルに対して <b>jarsigner</b> ツールを複数回実行し、実行のたびに、異なるユーザーの別名を指定すれば、JAR ファイルに複数のユーザーの署名を付けることができます。</p>
+      <pre>
+  jarsigner myBundle.jar susan
+  jarsigner myBundle.jar kevin
+</pre>
+<p>JAR ファイルが複数回署名されている場合、その JAR ファイルには .SF ファイルと .DSA ファイルの対が複数含まれることになります。 .SF ファイルと .DSA ファイルの対は、1 回の署名に対して 1 つ作成されます。したがって、上の例で出力される JAR ファイルには、次の名前を持つファイルが含まれます。</p>
+      <pre>
+  SUSAN.SF
+  SUSAN.DSA
+  KEVIN.SF
+  KEVIN.DSA
+</pre>
+<p>注:JAR ファイルでは、JDK 1.1 の <b>javakey</b> ツールで生成された署名と <b>jarsigner</b> で生成された署名が混在できます。つまり、すでに <b>javakey</b> を使って署名が付けられている JAR ファイルに、<b>jarsigner</b> を使って署名を付けることができます。</p>
+    </blockquote>
+
+
+<h2><a name="Options"/>オプション</h2>
+
+  <blockquote>
+<p>以下では、<b>jarsigner</b> のオプションについて説明します。注:</p>
+
+    <ul>
+<li>どのオプション名にも先頭にマイナス記号 (-) が付く</li>
+
+<li>オプションは任意の順序で指定できる</li>
+
+<li>イタリック体の項目の実際の値 (オプションの値) は、ユーザーが指定する必要がある</li>
+
+<li><code>-keystore</code>、<code>-storepass</code>、<code>-keypass</code>、<code>-sigfile</code>、<code>-sigalg</code>、<code>-digestalg</code> および <code>-signedjar</code> の各オプションを使用できるのは、JAR ファイルに署名を付ける場合だけである。 これらのオプションは、JAR ファイルを検証する場合には使用できない。同様に、別名をコマンド行で指定するのは、JAR ファイルに署名を付ける場合だけである</li>
+    </ul>
+
+    <dl>
+<dt><b><code>-keystore</code></b> <i>url</i></dt>
+
+      <dd>
+キーストアの場所を示す URL を指定します。デフォルトは、ユーザーのホームディレクトリ内のファイル <i>.keystore</i> です。 ユーザーのホームディレクトリは、user.home システムプロパティーによって決まります。
+
+<p>署名するときはキーストアが必要です。 このため、デフォルトのキーストアが存在しない場合、あるいはデフォルト以外のほかのキーストアを使用する場合は、キーストアを明示的に指定する必要があります。</p>
+
+<p>検証するときはキーストアは必要ありません。 ただし、キーストアが指定されているか、あるいはデフォルトのキーストアが存在していて、さらに <code>-verbose</code> オプションも指定されている場合は、JAR ファイルの検証に使われる証明書がキーストアに存在するかどうかについての追加情報が出力されます。<i></i></p>
+
+<p>注:<code>-keystore</code> の引数には、URL の代わりにファイル名 (とパス) を指定できます。 ファイル名 (とパス) を指定した場合は、「file:」URL として扱われます。たとえば、次のように指定できます。</p>
+        <pre>
+  -keystore <i>filePathAndName</i>
+</pre>これは、次の指定と同じものとして扱われます。
+        <pre>
+  -keystore file:<i>filePathAndName</i>
+</pre>JRE の <tt>$JAVA_HOME/lib/security</tt> ディレクトリに格納された <tt>java.security</tt> セキュリティープロパティーファイル内で Sun PKCS#11 プロバイダが設定されている場合、keytool と jarsigner は PKCS#11 トークンに基づいて動作できます。 次のオプションを指定します。
+
+        <ul>
+<li><code>-keystore NONE</code></li>
+
+<li><code>-storetype PKCS11</code></li>
+</ul>たとえば、次のコマンドは、設定された PKCS#11 トークンの内容を一覧表示します。
+
+        <blockquote>
+          <pre>
+   jarsigner -keystore NONE -storetype PKCS11 -list
+  
+</pre>
+        </blockquote>
+      </dd>
+
+<dt><b><code>-storetype</code></b> <i>storetype</i></dt>
+
+      <dd>
+インスタンスを生成するキーストアのタイプを指定します。デフォルトのキーストアタイプは、セキュリティープロパティーファイル内の keystore.type プロパティーの値で指定されたタイプです。 この値は、<code>java.security.KeyStore</code> の static <code>getDefaultType</code> メソッドで取得できます。
+
+<p><code>-storepass</code> オプションを使って PCKS#11 トークンの PIN を指定することもできます。何も指定しなかった場合、keytool と jarsigner はユーザーにトークン PIN の 入力を求めます。トークンに保護された認証パス (専用の PIN パッドや生体読み取り機など) がある場合、<tt>-protected</tt> オプションを指定する必要がありますが、パスワードオプションを指定する必要はありません。</p>
+      </dd>
+
+<dt><b><code>-storepass</code></b> <i>password</i></dt>
+
+      <dd>
+キーストアにアクセスするのに必要なパスワードを指定します。このオプションが必要なのは、JAR ファイルに署名を付けるときだけです (JAR ファイルを検証するときは不要)。署名を付けるときに、コマンド行で <code>-storepass</code> オプションを指定しなかった場合は、パスワードの入力を求められます。
+
+<p>注:テストを目的とする場合、またはセキュリティー保護されたシステムを使用している場合以外は、コマンド行やスクリプトでパスワードを指定しないでください。また、password プロンプトでパスワードを入力すると、入力したパスワードがエコーされ、そのまま画面に表示されます。 このため、周囲にほかのユーザーがいる場合は、パスワードを見られないように注意してください。</p>
+      </dd>
+
+<dt><b><code>-keypass</code></b> <i>password</i></dt>
+
+      <dd>
+コマンド行で指定された別名に対応するキーストアエントリの非公開鍵を保護するのに使うパスワードを指定します。<b>jarsigner</b> を使って JAR ファイルに署名を付けるときは、パスワードが必要です。コマンド行でパスワードが指定されておらず、必要なパスワードがストアのパスワードと異なる場合は、パスワードの入力を求められます。
+
+<p>注:テストを目的とする場合、またはセキュリティー保護されたシステムを使用している場合以外は、コマンド行やスクリプトでパスワードを指定しないでください。また、password プロンプトでパスワードを入力すると、入力したパスワードがエコーされ、そのまま画面に表示されます。 このため、周囲にほかのユーザーがいる場合は、パスワードを見られないように注意してください。</p>
+      </dd>
+
+<dt><b><code>-sigfile</code></b> <i>file</i></dt>
+
+      <dd>
+.SF ファイルと .DSA ファイルの生成に使うベースファイル名を指定します。たとえば、<i>file</i> に DUKESIGN を指定すると、生成される .SF ファイルと .DSA ファイルの名前は、それぞれ DUKESIGN.SF と DUKESIGN.DSA になります。 これらのファイルは、署名付き JAR ファイルの META-INF ディレクトリに置かれます。
+
+<p><i>file</i> に使用できる文字は「a-zA-Z0-9_-」です。つまり、文字、数字、下線、およびハイフンだけを使用できます。注:.SF および .DSA のファイル名では、小文字はすべて大文字に変換されます。</p>
+
+<p>コマンド行で <code>-sigfile</code> オプションを指定しなかった場合、.SF ファイルと .DSA ファイルのベースファイル名は、コマンド行で指定された別名の先頭の 8 文字をすべて大文字に変換したものになります。別名が 8 文字未満の場合は、別名がそのまま使われます。別名の中に、署名ファイル名に使用できない文字が含まれている場合は、該当する文字を下線 (_) に置き換えてファイル名が作成されます。</p>
+      </dd>
+
+<dt><b><code>-sigalg</code></b> <i>algorithm</i></dt>
+
+      <blockquote>
+	JAR ファイルの署名に使用する署名アルゴリズムの名前を指定します。 
+
+	<p>標準署名アルゴリズム名の一覧については、「Java Cryptography Architecture」にある <a href="../../guides/security/crypto/CryptoSpec.html#AppA">「Appendix A 」</a>を参照してください。このアルゴリズムは、JAR ファイルの署名に使用する秘密鍵と互換性のあるものでなければなりません。このオプションを指定しなかった場合、秘密鍵のタイプに応じて SHA1withDSA、MD5withRSA のいずれかが使用されます。指定されたアルゴリズムの実装を提供するプロバイダが静的にインストールされているか、あるいはユーザーがそのようなプロバイダを <i>-providerClass</i> オプションを使って指定する必要があります。 そうでない場合、コマンドの実行が失敗します。</p>
+      </blockquote>
+
+<dt><b><code>-digestalg</code></b> <i>algorithm</i></dt>
+
+      <blockquote>
+	JAR ファイルのエントリをダイジェストする際に使用するメッセージダイジェストアルゴリズムの名前を指定します。 
+
+	<p>標準メッセージダイジェストアルゴリズム名の一覧については、「Java Cryptography Architecture」にある <a href="../../guides/security/crypto/CryptoSpec.html#AppA">「Appendix A 」</a>を参照してください。このオプションを指定しなかった場合、SHA-1 が使用されます。指定されたアルゴリズムの実装を提供するプロバイダが静的にインストールされているか、あるいはユーザーがそのようなプロバイダを <i>-providerClass</i> オプションを使って指定する必要があります。 そうでない場合、コマンドの実行が失敗します。</p>
+      </blockquote>
+
+<dt><b><code>-signedjar</code></b> <i>file</i></dt>
+
+      <dd>
+署名付き JAR ファイルの名前を指定します。
+
+<p>コマンド行で名前を指定しなかった場合は、入力 JAR ファイル (署名の対象となる JAR ファイル) の名前と同じ名前が使われます。 この場合、入力 JAR ファイルは署名付き JAR ファイルによって上書きされます。</p>
+      </dd>
+
+<dt><b><code>-verify</code></b></dt>
+
+      <dd>
+コマンド行でこのオプションが指定されている場合は、指定された JAR ファイルが検証されます。JAR ファイルへの署名は行われません。 検証が成功すると、「jar が検証されました。」 というメッセージが表示されます。署名されていない JAR ファイル、またはサポートされていないアルゴリズム (RSA プロバイダのインストールを終了していない場合の RSA など) を使って署名された JAR ファイルを検証しようとすると、「jar は署名されていません。(署名が見つからないか、構文解析できません)」というメッセージが表示されます。<p>署名付き JAR ファイルは、<b>jarsigner</b> または JDK 1.1 の <b>javakey</b> ツール、あるいはその両方を使って検証できます。</p>
+
+<p>検証についての詳細は、<a href=         "#Verifying">「JAR ファイルの検証」</a>を参照してください。</p>
+      </dd>
+
+<dt><b><code>-certs</code></b></dt>
+
+      <dd>
+コマンド行で、<code>-verify</code> および <code>-verbose</code> オプションとともにこのオプションが指定されている場合は、JAR ファイルの各署名者の証明書情報も出力されます。証明書情報には次のものが含まれます。
+
+        <ul>
+<li>署名者の公開鍵を証明する (.DSA ファイルに格納された) 証明書の種類の名前</li>
+
+<li>証明書が X.509 証明書 (つまり、<code>java.security.cert.X509Certificate</code> のインスタンス) である場合は、署名者の識別名</li>
+        </ul>
+
+<p>キーストアの確認も行われます。コマンド行でキーストアの値が指定されていない場合、デフォルトのキーストアファイルがあれば、検査されます。署名者の公開鍵の証明書がキーストア内のエントリと一致した場合は、次の情報も表示されます。</p>
+
+        <ul>
+<li>署名者に該当するキーストアエントリの別名。 この別名は括弧で囲まれます。ただし、キーストアではなく JDK 1.1 のアイデンティティーデータベースに由来する署名者の場合は、括弧ではなく大括弧で囲まれます。</li>
+        </ul>
+      </dd>
+
+<dt><b><code>-verbose</code></b></dt>
+
+<dd>コマンド行でこのオプションが指定されている場合、<b>jarsigner</b> は「冗長」モードで動作し、JAR の署名または検証の進行状況に関する追加情報を出力します。</dd>
+
+<dt><b><code>-internalsf</code></b></dt>
+
+<dd>以前は、JAR ファイルの署名時に生成された .DSA (署名ブロック) ファイルの中に、生成された .SF ファイル (署名ファイル) の完全なコピーが符号化された形で含まれていました。この動作は変更されました。この動作は変更になり、現在では、出力 JAR ファイル全体のサイズを小さくするために、デフォルトでは .SF ファイルが .DSA ファイルに含まれないようになっています。ただし、コマンド行で <code>-internalsf</code> オプションを指定すると、以前と同じように動作します。<b>このオプションは、テストを行う場合には便利ですが、それ以外には使用しないでください。 このオプションを使用すると、有益な最適化が行われなくなります。</b></dd>
+
+<dt><b><code>-sectionsonly</code></b></dt>
+
+      <dd>
+コマンド行でこのオプションが指定されている場合、JAR ファイルの署名時に生成される .SF ファイル (署名ファイル) には、マニフェストファイル全体のハッシュを含むヘッダーは追加されません。<i></i>この場合、.SF ファイルに含まれるのは、JAR ファイル内の各ソースファイルに関する情報およびハッシュだけです。 詳細は、<a href="#SFFile">「署名 (.SF) ファイル」</a>を参照してください。
+
+<p>デフォルトでは、最適化を行うために、マニフェストファイル全体のハッシュを含むヘッダーが追加されます。ヘッダーが存在する場合は、JAR ファイルの検証時に、まずヘッダー内のハッシュが、マニフェストファイル全体のハッシュと実際に一致するかどうかが確認されます。ハッシュが一致する場合、検証は次の手順に進みます。ハッシュが一致しない場合は、効率的には劣る方法を使って検証を行います。 具体的には、.SF ファイル内の各ソースファイル情報セクションのハッシュが、マニフェストファイル内の対応するセクションのハッシュと一致するかどうかを確認します。</p>
+
+<p>詳細は、<a href="#Verifying">「JAR ファイルの検証」</a>を参照してください。</p>
+
+<p><b>このオプションは、テストを行う場合には便利ですが、それ以外には使用しないでください。 このオプションを使用すると、有益な最適化が行われなくなります。</b></p>
+      </dd>
+     
+<!-- ************ new -protected option to be inserted here ***** -->
+<p></p><dt><code><b>-protected</b></code>
+</dt><dd>
+<code>true</code> または <code>false</code> のいずれか。専用 PIN リーダーなどの保護された認証パスを介してパスワードを指定する必要がある場合には、この値に <code>true</code> を指定してください。
+<p></p></dd></dl>
+<!-- ************ new -protected option to be inserted here ***** -->
+
+
+<dt><b><code>-provider</code></b> <i>provider-class-name</i></dt>
+
+      <dd>
+サービスプロバイダがセキュリティープロパティーファイル (<tt>java.security</tt>) のリストに入っていないときに、暗号化サービスプロバイダのマスタークラスファイルの名前を指定します。
+
+<p><code>-providerArg</code> <i>ConfigFilePath</i> オプションと組み合わせて使用します。 keytool と jarsigner はプロバイダを動的にインストールします (ここで、<i>ConfigFilePath</i> はトークン設定ファイルへのパスです)。セキュリティープロパティーファイル内で Sun PKCS#11 プロバイダが設定されていない場合に PKCS#11 キーストアを一覧表示するコマンドの例を次に示します。</p>
+
+        <blockquote>
+          <pre>
+jarsigner -keystore NONE -storetype PKCS11 \
+          -providerClass sun.security.pkcs11.SunPKCS11 \
+          -providerArg /foo/bar/token.config \
+          -list
+</pre>
+        </blockquote>
+      </dd>
+ 
+<dt><b><code>-providerName</code></b> <i>providerName</i></dt>
+
+      <dd>
+<tt>java.security</tt> セキュリティープロパティーファイル内で 2 つ以上のプロバイダが設定されている場合、<tt>-providerName</tt> オプションを使って特定のプロバイダインスタンスを選択できます。このオプションの引数は、プロバイダの名前です。
+
+<p>Sun PKCS#11 プロバイダの場合、<i>providerName</i> は <tt>SunPKCS11-<i>TokenName</i></tt> という形式になります。 ここで「<tt><i>TokenName</i></tt>」は、プロバイダインスタンスが構成された名前の接尾辞です。 詳細は<a href=         "../../guides/security/p11guide.html#ATTRS">構成属性の表</a>を参照してください。たとえば、以下のコマンドでは、名前接尾辞 <tt>SmartCard</tt> の PKCS#11 キーストアプロバイダインスタンスの内容をリストします。</p>
+
+        <blockquote>
+          <pre>
+jarsigner -keystore NONE -storetype PKCS11 \
+        -providerName SunPKCS11-SmartCard \
+        -list
+</pre>
+        </blockquote>
+      </dd>
+
+<dt><b><code>-J</code></b><i>javaoption</i></dt>
+
+      <dd>
+指定された <i>javaoption</i> 文字列を Java インタプリタに直接渡します。(<b>jarsigner</b> は、実際には Java インタプリタに対する「ラッパー」です。このオプションには、空白を含めることはできません。このオプションは、実行環境またはメモリー使用を調整する場合に便利です。指定できるインタプリタオプションを一覧表示するには、コマンド行で <code>java -h</code> または <code>java -X</code> と入力してください。
+
+        <p><a name="tsa" id="tsa"></a></p>
+      </dd>
+
+<dt><b><code>-tsa</code></b> <i>url</i></dt>
+
+      <dd>
+JAR ファイルの署名時にコマンド行に「<code>-tsa http://example.tsa.url</code>」が表示される場合、署名のタイムスタンプが生成されます。URL <code>http://example.tsa.url</code> は、TSA (Time Stamping Authority) の場所を特定します。これは、<code>-tsacert</code> オプションで検出された URL をオーバーライドします。<code>-tsa</code> オプションでは、TSA の公開鍵証明書をキーストアに配置する必要はありません。
+
+<p>タイムスタンプを生成するため、<code>jarsigner</code> は <a href=         "http://www.ietf.org/rfc/rfc3161.txt">RFC 3161</a> で定義されている TSP (Time-Stamp Protocol) を使用して TSA と通信します。成功すると、TSA から返されたタイムスタンプトークンは署名ブロックファイルの署名とともに保存されます。</p>
+
+        <p><a name="tsacert" id="tsacert"></a></p>
+      </dd>
+
+<dt><b><code>-tsacert</code></b> <i>alias</i></dt>
+
+      <dd>
+JAR ファイルの署名時にコマンド行に「<code>-tsacert alias</code>」が表示される場合、署名のタイムスタンプが生成されます。<code>alias</code> は、キーストア内の現在有効な TSA の公開鍵証明書を特定します。エントリの証明書で、TSA の場所を特定する URL を含む Subject Information Access 拡張機能が確認されます。
+
+<p>TSA の公開鍵証明書は、<code>-tsacert</code> を使った場合、キーストアに配置されている必要があります。</p>
+
+        <p><a name="altsigner" id="altsigner"></a></p>
+      </dd>
+
+<dt><b><code>-altsigner</code></b> <i>class</i></dt>
+
+      <dd>
+代替署名機構を使用することを指定します。完全修飾クラス名は、<code>com.sun.jarsigner.ContentSigner</code> の abstract クラスを拡張するクラスファイルを特定します。このクラスファイルへのパスは、<code>-altsignerpath</code> オプションによって定義されます。<code>-altsigner</code> オプションを使用した場合、<code>jarsigner</code> は指定されたクラスが提供する署名機構を使用します。または、<code>jarsigner</code> はデフォルトの署名機構を使用します。
+
+<p>たとえば、<code>com.sun.sun.jarsigner.AuthSigner</code> というクラスが提供する署名機構を使用するには、<code>jarsigner</code> オプション「<code>-altsigner com.sun.jarsigner.AuthSigner</code>」を使用します。</p>
+
+        <p><a name="altsignerpath" id="altsignerpath"></a></p>
+      </dd>
+
+<dt><b><code>-altsignerpath</code></b> <i>classpathlist</i></dt>
+
+      <dd>
+クラスファイル (クラスファイル名は上記のように <code>-altsigner</code> オプションで指定される) およびそれが依存する JAR ファイルへのパスを指定します。クラスファイルが JAR ファイル内にある場合、以下の例のように JAR ファイルへのパスが指定されます。
+
+<p>絶対パスまたは現在のディレクトリからの相対パスを指定できます。<code>classpathlist</code> には、複数のパスまたは JAR ファイルを含めることができます。 その場合、各パスまたは JAR ファイルを、Solaris の場合にはコロン (<code>:</code>)、Windows の場合にはセミコロン (<code>;</code>) で区切ります。目的のクラスがすでに検索パス内にある場合は、このオプションは不要です。</p>
+
+<p>クラスファイルを含む、JAR ファイルへのパスを指定する例を示します。</p>
+
+        <blockquote><p>
+<code>-altsignerpath /home/user/lib/authsigner.jar</code></p>
+        </blockquote>
+	<p>JAR ファイル名が含まれていることに注意してください。</p>
+
+<p>クラスファイルを含む JAR ファイルへのパスを指定する例を示します。</p>
+
+        <blockquote><p>
+<code>-altsignerpath /home/user/classes/com/sun/tools/jarsigner/</code></p>
+        </blockquote>
+	<p>JAR ファイル名は含まれていないことに留意してください。</p>
+      </dd>
+    
+  </blockquote>
+
+<h2>例</h2>
+
+  <blockquote>
+<h3>JAR ファイルの署名</h3>
+
+    <blockquote>
+<p>bundle.jar という名前の JAR ファイルがあるとします。 このファイルに、キーストアの別名が jane であるユーザーの非公開鍵を使って、署名を付けるとします。キーストアは、mystore という名前で、C ドライブの working ディレクトリにあり、キーストアのパスワードは mypass、<i>jane</i> の非公開鍵のパスワードは j638klm とします。この場合、次のコマンドを実行すると、JAR ファイルに署名を付けて sbundle.jar という署名付き JAR ファイルを作成できます。</p>
+      <pre>
+    jarsigner -keystore /working/mystore -storepass myspass
+      -keypass j638klm -signedjar sbundle.jar bundle.jar jane 
+</pre>
+
+<p>上のコマンドでは <code>-sigfile</code> オプションが指定されていないため、署名付き JAR ファイルに格納される .SF ファイルと .DSA ファイルの名前は、別名からデフォルト名がつけられます。つまり、<code>JANE.SF</code> と <code>JANE.DSA</code> になります。</p>
+
+<p>ストアのパスワードと非公開鍵のパスワードをあとで入力する場合は、上のコマンドを短縮して次のように入力できます。</p>
+      <pre>
+    jarsigner -keystore /working/mystore
+      -signedjar sbundle.jar bundle.jar jane 
+</pre>
+
+<p>デフォルトのキーストア (ホームディレクトリ内の .keystore という名前のキーストア) を使用する場合は、次に示すように、キーストアの指定を省略できます。</p>
+      <pre>
+    jarsigner -signedjar sbundle.jar bundle.jar jane 
+</pre>
+<p>また、署名付き JAR ファイルで入力 JAR ファイル (<code>bundle.jar</code>) を上書きする場合は、<code>-signedjar</code> オプションの指定も省略できます。</p>
+      <pre>
+    jarsigner bundle.jar jane 
+</pre>
+    </blockquote>
+
+<h3>署名付き JAR ファイルの検証</h3>
+
+    <blockquote>
+    <p>
+次に示すのは、署名付き JAR ファイルを検証し、署名が有効で JAR ファイルが改変されていないことを確認するためのコマンド例です。</p>
+      <pre>
+    jarsigner -verify sbundle.jar 
+</pre>
+
+<p>検証が成功すると、次のようなメッセージが表示されます。</p>
+      <pre>
+    jar が検証されました。
+</pre>
+<p>というメッセージが表示されます。検証が成功しなかった場合は、エラーメッセージが表示されます。</p>
+
+<p><code>-verbose</code> オプションを使うと、より多くの情報が表示されます。次に示すのは、<code>-verbose</code> オプションを指定した <b>jarsigner</b> の実行例とその出力結果です。</p>
+      <pre>
+    jarsigner -verify -verbose sbundle.jar
+
+           198 Fri Sep 26 16:14:06 PDT 1997 META-INF/MANIFEST.MF
+           199 Fri Sep 26 16:22:10 PDT 1997 META-INF/JANE.SF
+          1013 Fri Sep 26 16:22:10 PDT 1997 META-INF/JANE.DSA
+    smk   2752 Fri Sep 26 16:12:30 PDT 1997 AclEx.class
+    smk    849 Fri Sep 26 16:12:46 PDT 1997 test.class
+
+      s = 署名が検証されました。
+      m = エントリがマニフェスト内にリストされます。
+      k = 1 つ以上の証明書がキーストアで検出されました。
+
+    jar が検証されました。
+</pre>
+
+<h3>証明書情報を使った検証</h3>
+      
+<p>検証時に、<code>-verify</code> と <code>-verbose</code> オプションに加えて <code>-certs</code> オプションを指定した場合は、JAR ファイル内の各署名者の証明書情報も出力されます。 これには、証明書のタイプ、署名者の識別名情報 (X.509 証明書の場合)、および JAR ファイルの公開鍵の証明書がキーストアエントリの公開鍵の証明書と一致する場合には、括弧で囲まれた署名者のキーストア別名が含まれます。次に例を示します。</p>
+      <pre>
+    jarsigner -keystore /working/mystore -verify -verbose -certs myTest.jar
+
+           198 Fri Sep 26 16:14:06 PDT 1997 META-INF/MANIFEST.MF
+           199 Fri Sep 26 16:22:10 PDT 1997 META-INF/JANE.SF
+          1013 Fri Sep 26 16:22:10 PDT 1997 META-INF/JANE.DSA
+           208 Fri Sep 26 16:23:30 PDT 1997 META-INF/JAVATEST.SF
+          1087 Fri Sep 26 16:23:30 PDT 1997 META-INF/JAVATEST.DSA
+    smk   2752 Fri Sep 26 16:12:30 PDT 1997 Tst.class
+
+      X.509, CN=Test Group, OU=Java Software, O=Sun Microsystems, L=CUP, S=CA, C=US (javatest)
+      X.509, CN=Jane Smith, OU=Java Software, O=Sun, L=cup, S=ca, C=us (jane)
+
+      s = 署名が検証されました。
+      m = エントリがマニフェスト内にリストされます。
+      k = 1 つ以上の証明書がキーストアで検出されました。
+
+    jar が検証されました。 
+</pre>
+<p>署名者の証明書が X.509 証明書でない場合は、識別名情報は表示されません。その場合には、証明書のタイプと別名だけが表示されます。たとえば、証明書が PGP 証明書で、別名が bob の場合は、次のように表示されます。</p>
+      <pre>
+      PGP, (bob)
+</pre>
+
+<h3>アイデンティティーデータベースの署名者を含む JAR ファイルの検証</h3>
+<p>JAR ファイルが、JDK 1.1 の <b>javakey</b> ツールを使って署名されている場合、署名者はアイデンティティーデータベース内の別名です。 この場合、検証の出力には i という記号が含まれます。JAR ファイルが、アイデンティティーデータベース内の別名とキーストア内の別名の両方によって署名されている場合は、k と i の両方が表示されます。</p>
+
+<p><code>-certs</code> オプションを指定した場合、キーストアの別名は括弧で囲まれるのに対し、アイデンティティーデータベース内の別名は角括弧で囲まれて表示されます。例を示します。</p>
+      <pre>
+    jarsigner -keystore /working/mystore -verify -verbose -certs writeFile.jar
+
+           198 Fri Sep 26 16:14:06 PDT 1997 META-INF/MANIFEST.MF
+           199 Fri Sep 26 16:22:10 PDT 1997 META-INF/JANE.SF
+          1013 Fri Sep 26 16:22:10 PDT 1997 META-INF/JANE.DSA
+           199 Fri Sep 27 12:22:30 PDT 1997 META-INF/DUKE.SF
+          1013 Fri Sep 27 12:22:30 PDT 1997 META-INF/DUKE.DSA
+   smki   2752 Fri Sep 26 16:12:30 PDT 1997 writeFile.html
+
+      X.509, CN=Jane Smith, OU=Java Software, O=Sun, L=cup, S=ca, C=us (jane)
+      X.509, CN=Duke, OU=Java Software, O=Sun, L=cup, S=ca, C=us [duke]
+
+      s = 署名が検証されました。
+      m = エントリがマニフェスト内にリストされます。
+      k = 1 つ以上の証明書がキーストアで検出されました。
+      i = 1 つ以上の証明書がアイデンティティースコープで検出されました。
+
+    jar が検証されました。
+</pre>
+<p>別名 duke は角括弧で囲まれているので、この別名はキーストアの別名ではなく、アイデンティティーデータベースの別名です。</p>
+    </blockquote>
+  </blockquote>
+
+<h2>関連項目</h2>
+
+  <blockquote>
+    <ul>
+<li><a href="jar.html">jar</a> ツールのドキュメント</li>
+
+<li><a href="keytool.html">keytool</a> ツールのドキュメント</li>
+
+<li><b>jarsigner</b> ツールの使用例については、<a href=       "http://java.sun.com/docs/books/tutorial/index.html"><b>「Java Tutorial」</b></a>の<a href=       "http://java.sun.com/docs/books/tutorial/security/index.html"><b>「Security」</b></a>を参照</li>
+    </ul>
+  </blockquote>
+
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

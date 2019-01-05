@@ -1,0 +1,1108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>: Class LWTextComponent</title><link rel="stylesheet" href="../../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top" id="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan="2" bgcolor="#EEEEFF" id="NavBarCell1"><a name=
+"navbar_top_firstrow" id="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+<tr align="center" valign="top">
+<td bgcolor="#FFFFFF" id="NavBarCell1Rev">&nbsp;<font id=
+"NavBarFont1Rev"><b>Class</b></font>&nbsp;</td>
+<td bgcolor="#EEEEFF" id="NavBarCell1"><a href=
+"overview-tree.html"><font id=
+"NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+<td bgcolor="#EEEEFF" id="NavBarCell1"><a href=
+"index-all.html"><font id=
+"NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align="right" valign="top" rowspan="3"></td>
+</tr>
+<tr>
+<td bgcolor="white" id="NavBarCell2"><font size="-2">&nbsp;<a href=
+"ActiveClient.html"><b>PREV CLASS</b></a>&nbsp; &nbsp;NEXT
+CLASS</font></td>
+<td bgcolor="white" id="NavBarCell2"><font size="-2"><a href=
+"index.html" target="_top"><b>FRAMES</b></a> &nbsp; &nbsp;<a href=
+"LWTextComponent.html" target="_top"><b>NO
+FRAMES</b></a></font></td>
+</tr>
+<tr>
+<td valign="top" id="NavBarCell3"><font size="-2">SUMMARY:
+&nbsp;INNER&nbsp;|&nbsp;<a href=
+"#fields_inherited_from_class_java.awt.Component">FIELD</a>&nbsp;|&nbsp;<a href="#constructor_summary">CONSTR</a>&nbsp;|&nbsp;<a href="#method_summary">METHOD</a></font></td>
+<td valign="top" id="NavBarCell3"><font size="-2">DETAIL:
+&nbsp;FIELD&nbsp;|&nbsp;<a href=
+"#constructor_detail">CONSTR</a>&nbsp;|&nbsp;<a href=
+"#method_detail">METHOD</a></font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+<hr />
+<!-- ======== START OF CLASS DATA ======== -->
+<h2>Class LWTextComponent</h2>
+<pre>
+<a href=
+"../../../../api/java/lang/Object.html">java.lang.Object</a>
+  |
+  +--<a href=
+"../../../../api/java/awt/Component.html">java.awt.Component</a>
+        |
+        +--<b>LWTextComponent</b>
+</pre>
+<dl>
+<dt><b>Direct Known Subclasses:</b></dt>
+<dd><a href="ActiveClient.html">ActiveClient</a></dd>
+</dl>
+<hr />
+<dl>
+<dt>public class <b>LWTextComponent</b></dt>
+<dt>extends <a href=
+"../../../../api/java/awt/Component.html">Component</a></dt>
+<dt>implements <a href=
+"../../../../api/java/awt/event/KeyListener.html">KeyListener</a>,
+<a href=
+"../../../../api/java/awt/event/FocusListener.html">FocusListener</a></dt>
+</dl>
+<p>Implements a very simple lightweight text editing component. It
+lets the user edit a single line of text using the keyboard. The
+only special character that it knows about is backspace; all other
+characters are added to the text. Selections are not supported, so
+there's only a simple caret indicating the insertion point. The
+component also displays a component name above the editable text
+line, and draws a black frame whose thickness indicates whether the
+component has the focus.</p>
+<p>The component can be initialized to enable or disable input
+through input methods. Other than that, it doesn't do anything to
+support input methods, so input method interaction (if any) will
+occur in a separate composition window. However, the component is
+designed to be easily extended with full input method support. It
+distinguishes between "displayed text" and "committed text" - here,
+they're the same, but in a subclass that supports on-the-spot
+input, the displayed text would be the combination of committed
+text and composed text. The component also uses TextLayout to draw
+the text, so it can be easily extended to handle input method
+highlights.</p>
+<dl>
+<dt><b>See Also:</b></dt>
+<dd><a href="serialized-form.html#LWTextComponent">Serialized
+Form</a></dd>
+</dl>
+<hr />
+<p><!-- ======== INNER CLASS SUMMARY ======== -->
+ <!-- =========== FIELD SUMMARY =========== -->
+ <a name="fields_inherited_from_class_java.awt.Component" id=
+"fields_inherited_from_class_java.awt.Component"><!-- --></a></p>
+<table border="1" cellpadding="3" cellspacing="0" width="100%">
+<tr bgcolor="#EEEEFF" id="TableSubHeadingColor">
+<td><b>Fields inherited from class java.awt.<a href=
+"../../../../api/java/awt/Component.html">Component</a></b></td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td><code><a href=
+"../../../../api/java/awt/Component.html#BOTTOM_ALIGNMENT">BOTTOM_ALIGNMENT</a>,
+<a href=
+"../../../../api/java/awt/Component.html#CENTER_ALIGNMENT">CENTER_ALIGNMENT</a>,
+<a href=
+"../../../../api/java/awt/Component.html#LEFT_ALIGNMENT">LEFT_ALIGNMENT</a>,
+<a href=
+"../../../../api/java/awt/Component.html#RIGHT_ALIGNMENT">RIGHT_ALIGNMENT</a>,
+<a href=
+"../../../../api/java/awt/Component.html#TOP_ALIGNMENT">TOP_ALIGNMENT</a></code></td>
+</tr>
+</table>
+&nbsp; <!-- ======== CONSTRUCTOR SUMMARY ======== -->
+ <a name="constructor_summary" id="constructor_summary">
+<!-- --></a>
+<table border="1" cellpadding="3" cellspacing="0" width="100%">
+<tr bgcolor="#CCCCFF" id="TableHeadingColor">
+<td colspan="2"><font size="+2"><b>Constructor
+Summary</b></font></td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td><code><b><a href=
+"LWTextComponent.html#LWTextComponent(java.lang.String,%20boolean)">
+LWTextComponent</a></b>(<a href=
+"../../../../api/java/lang/String.html">String</a>&nbsp;name,
+boolean&nbsp;enableInputMethods)</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constructs
+a LWTextComponent.</td>
+</tr>
+</table>
+&nbsp; <!-- ========== METHOD SUMMARY =========== -->
+ <a name="method_summary" id="method_summary"><!-- --></a>
+<table border="1" cellpadding="3" cellspacing="0" width="100%">
+<tr bgcolor="#CCCCFF" id="TableHeadingColor">
+<td colspan="2"><font size="+2"><b>Method Summary</b></font></td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td align="right" valign="top" width="1%"><font size=
+"-1"><code>&nbsp;void</code></font></td>
+<td><code><b><a href=
+"LWTextComponent.html#focusGained(java.awt.event.FocusEvent)">focusGained</a></b>(<a href="../../../../api/java/awt/event/FocusEvent.html">FocusEvent</a>&nbsp;event)</code><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Turns
+on drawing of the component's thicker frame and the caret.</td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td align="right" valign="top" width="1%"><font size=
+"-1"><code>&nbsp;void</code></font></td>
+<td><code><b><a href=
+"LWTextComponent.html#focusLost(java.awt.event.FocusEvent)">focusLost</a></b>(<a href="../../../../api/java/awt/event/FocusEvent.html">FocusEvent</a>&nbsp;event)</code><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Turns
+off drawing of the component's thicker frame and the caret.</td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td align="right" valign="top" width="1%"><font size=
+"-1"><code>&nbsp;<a href=
+"../../../../api/java/awt/font/TextHitInfo.html">TextHitInfo</a></code></font></td>
+<td><code><b><a href=
+"LWTextComponent.html#getCaret()">getCaret</a></b>()</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns
+a text hit info indicating the current caret (insertion
+point).</td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td align="right" valign="top" width="1%"><font size=
+"-1"><code>&nbsp;<a href=
+"../../../../api/java/awt/Rectangle.html">Rectangle</a></code></font></td>
+<td><code><b><a href=
+"LWTextComponent.html#getCaretRectangle()">getCaretRectangle</a></b>()</code><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns
+a 0-width caret rectangle.</td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td align="right" valign="top" width="1%"><font size=
+"-1"><code>&nbsp;<a href=
+"../../../../api/java/awt/Rectangle.html">Rectangle</a></code></font></td>
+<td><code><b><a href=
+"LWTextComponent.html#getCaretRectangle(java.awt.font.TextHitInfo)">
+getCaretRectangle</a></b>(<a href=
+"../../../../api/java/awt/font/TextHitInfo.html">TextHitInfo</a>&nbsp;caret)</code><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns
+a 0-width caret rectangle for the given text index.</td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td align="right" valign="top" width="1%"><font size=
+"-1"><code>&nbsp;<a href=
+"../../../../api/java/text/AttributedCharacterIterator.html">AttributedCharacterIterator</a></code></font></td>
+<td><code><b><a href=
+"LWTextComponent.html#getCommittedText()">getCommittedText</a></b>()</code><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns
+the text that the user has entered and committed.</td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td align="right" valign="top" width="1%"><font size=
+"-1"><code>&nbsp;<a href=
+"../../../../api/java/text/AttributedCharacterIterator.html">AttributedCharacterIterator</a></code></font></td>
+<td><code><b><a href=
+"LWTextComponent.html#getCommittedText(int,%20int)">getCommittedText</a></b>(int&nbsp;beginIndex,
+int&nbsp;endIndex)</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns
+a subrange of the text that the user has entered and
+committed.</td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td align="right" valign="top" width="1%"><font size=
+"-1"><code>&nbsp;int</code></font></td>
+<td><code><b><a href=
+"LWTextComponent.html#getCommittedTextLength()">getCommittedTextLength</a></b>()</code><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns
+the length of the text that the user has entered and
+committed.</td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td align="right" valign="top" width="1%"><font size=
+"-1"><code>&nbsp;<a href=
+"../../../../api/java/text/AttributedCharacterIterator.html">AttributedCharacterIterator</a></code></font></td>
+<td><code><b><a href=
+"LWTextComponent.html#getDisplayText()">getDisplayText</a></b>()</code><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns
+the text that the user has entered.</td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td align="right" valign="top" width="1%"><font size=
+"-1"><code>&nbsp;<a href=
+"../../../../api/java/awt/font/TextLayout.html">TextLayout</a></code></font></td>
+<td><code><b><a href=
+"LWTextComponent.html#getTextLayout()">getTextLayout</a></b>()</code><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns
+a text layout for the text that the user has entered.</td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td align="right" valign="top" width="1%"><font size=
+"-1"><code>&nbsp;<a href=
+"../../../../api/java/awt/Point.html">Point</a></code></font></td>
+<td><code><b><a href=
+"LWTextComponent.html#getTextOrigin()">getTextOrigin</a></b>()</code><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns
+the origin of the text.</td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td align="right" valign="top" width="1%"><font size=
+"-1"><code>&nbsp;void</code></font></td>
+<td><code><b><a href=
+"LWTextComponent.html#insertCharacter(char)">insertCharacter</a></b>(char&nbsp;c)</code><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inserts
+the given character at the end of the text.</td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td align="right" valign="top" width="1%"><font size=
+"-1"><code>&nbsp;void</code></font></td>
+<td><code><b><a href=
+"LWTextComponent.html#invalidateTextLayout()">invalidateTextLayout</a></b>()</code><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invalidates
+the cached text layout.</td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td align="right" valign="top" width="1%"><font size=
+"-1"><code>&nbsp;void</code></font></td>
+<td><code><b><a href=
+"LWTextComponent.html#keyPressed(java.awt.event.KeyEvent)">keyPressed</a></b>(<a href="../../../../api/java/awt/event/KeyEvent.html">KeyEvent</a>&nbsp;event)</code><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ignores
+key pressed events.</td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td align="right" valign="top" width="1%"><font size=
+"-1"><code>&nbsp;void</code></font></td>
+<td><code><b><a href=
+"LWTextComponent.html#keyReleased(java.awt.event.KeyEvent)">keyReleased</a></b>(<a href="../../../../api/java/awt/event/KeyEvent.html">KeyEvent</a>&nbsp;event)</code><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ignores
+key released events.</td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td align="right" valign="top" width="1%"><font size=
+"-1"><code>&nbsp;void</code></font></td>
+<td><code><b><a href=
+"LWTextComponent.html#keyTyped(java.awt.event.KeyEvent)">keyTyped</a></b>(<a href="../../../../api/java/awt/event/KeyEvent.html">KeyEvent</a>&nbsp;event)</code><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Handles
+the key typed event.</td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td align="right" valign="top" width="1%"><font size=
+"-1"><code>&nbsp;void</code></font></td>
+<td><code><b><a href=
+"LWTextComponent.html#paint(java.awt.Graphics)">paint</a></b>(<a href="../../../../api/java/awt/Graphics.html">Graphics</a>&nbsp;g)</code><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Draws
+the component.</td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td align="right" valign="top" width="1%"><font size=
+"-1"><code>&nbsp;void</code></font></td>
+<td><code><b><a href=
+"LWTextComponent.html#setFontSize(int)">setFontSize</a></b>(int&nbsp;size)</code><br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>
+</table>
+&nbsp;<a name="methods_inherited_from_class_java.awt.Component" id=
+"methods_inherited_from_class_java.awt.Component"><!-- --></a>
+<table border="1" cellpadding="3" cellspacing="0" width="100%">
+<tr bgcolor="#EEEEFF" id="TableSubHeadingColor">
+<td><b>Methods inherited from class java.awt.<a href=
+"../../../../api/java/awt/Component.html">Component</a></b></td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td><code><a href=
+"../../../../api/java/awt/Component.html#action(java.awt.Event,%20java.lang.Object)">
+action</a>, <a href=
+"../../../../api/java/awt/Component.html#add(java.awt.PopupMenu)">add</a>,
+<a href=
+"../../../../api/java/awt/Component.html#addComponentListener(java.awt.event.ComponentListener)">
+addComponentListener</a>, <a href=
+"../../../../api/java/awt/Component.html#addFocusListener(java.awt.event.FocusListener)">
+addFocusListener</a>, <a href=
+"../../../../api/java/awt/Component.html#addInputMethodListener(java.awt.event.InputMethodListener)">
+addInputMethodListener</a>, <a href=
+"../../../../api/java/awt/Component.html#addKeyListener(java.awt.event.KeyListener)">
+addKeyListener</a>, <a href=
+"../../../../api/java/awt/Component.html#addMouseListener(java.awt.event.MouseListener)">
+addMouseListener</a>, <a href=
+"../../../../api/java/awt/Component.html#addMouseMotionListener(java.awt.event.MouseMotionListener)">
+addMouseMotionListener</a>, <a href=
+"../../../../api/java/awt/Component.html#addNotify()">addNotify</a>,
+<a href=
+"../../../../api/java/awt/Component.html#addPropertyChangeListener(java.beans.PropertyChangeListener)">
+addPropertyChangeListener</a>, <a href=
+"../../../../api/java/awt/Component.html#addPropertyChangeListener(java.lang.String,%20java.beans.PropertyChangeListener)">
+addPropertyChangeListener</a>, <a href=
+"../../../../api/java/awt/Component.html#bounds()">bounds</a>,
+<a href=
+"../../../../api/java/awt/Component.html#checkImage(java.awt.Image,%20java.awt.image.ImageObserver)">
+checkImage</a>, <a href=
+"../../../../api/java/awt/Component.html#checkImage(java.awt.Image,%20int,%20int,%20java.awt.image.ImageObserver)">
+checkImage</a>, <a href=
+"../../../../api/java/awt/Component.html#coalesceEvents(java.awt.AWTEvent,%20java.awt.AWTEvent)">
+coalesceEvents</a>, <a href=
+"../../../../api/java/awt/Component.html#contains(int,%20int)">contains</a>,
+<a href=
+"../../../../api/java/awt/Component.html#contains(java.awt.Point)">contains</a>,
+<a href=
+"../../../../api/java/awt/Component.html#createImage(java.awt.image.ImageProducer)">
+createImage</a>, <a href=
+"../../../../api/java/awt/Component.html#createImage(int,%20int)">createImage</a>,
+<a href=
+"../../../../api/java/awt/Component.html#deliverEvent(java.awt.Event)">
+deliverEvent</a>, <a href=
+"../../../../api/java/awt/Component.html#disable()">disable</a>,
+<a href=
+"../../../../api/java/awt/Component.html#disableEvents(long)">disableEvents</a>,
+<a href=
+"../../../../api/java/awt/Component.html#dispatchEvent(java.awt.AWTEvent)">
+dispatchEvent</a>, <a href=
+"../../../../api/java/awt/Component.html#doLayout()">doLayout</a>,
+<a href=
+"../../../../api/java/awt/Component.html#enable()">enable</a>,
+<a href=
+"../../../../api/java/awt/Component.html#enable(boolean)">enable</a>,
+<a href=
+"../../../../api/java/awt/Component.html#enableEvents(long)">enableEvents</a>,
+<a href=
+"../../../../api/java/awt/Component.html#enableInputMethods(boolean)">
+enableInputMethods</a>, <a href=
+"../../../../api/java/awt/Component.html#firePropertyChange(java.lang.String,%20java.lang.Object,%20java.lang.Object)">
+firePropertyChange</a>, <a href=
+"../../../../api/java/awt/Component.html#getAlignmentX()">getAlignmentX</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getAlignmentY()">getAlignmentY</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getBackground()">getBackground</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getBounds()">getBounds</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getBounds(java.awt.Rectangle)">
+getBounds</a>, <a href=
+"../../../../api/java/awt/Component.html#getColorModel()">getColorModel</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getComponentAt(int,%20int)">
+getComponentAt</a>, <a href=
+"../../../../api/java/awt/Component.html#getComponentAt(java.awt.Point)">
+getComponentAt</a>, <a href=
+"../../../../api/java/awt/Component.html#getComponentOrientation()">
+getComponentOrientation</a>, <a href=
+"../../../../api/java/awt/Component.html#getCursor()">getCursor</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getDropTarget()">getDropTarget</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getFont()">getFont</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getFontMetrics(java.awt.Font)">
+getFontMetrics</a>, <a href=
+"../../../../api/java/awt/Component.html#getForeground()">getForeground</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getGraphics()">getGraphics</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getHeight()">getHeight</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getInputContext()">getInputContext</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getInputMethodRequests()">getInputMethodRequests</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getLocale()">getLocale</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getLocation()">getLocation</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getLocation(java.awt.Point)">
+getLocation</a>, <a href=
+"../../../../api/java/awt/Component.html#getLocationOnScreen()">getLocationOnScreen</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getMaximumSize()">getMaximumSize</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getMinimumSize()">getMinimumSize</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getName()">getName</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getParent()">getParent</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getPeer()">getPeer</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getPreferredSize()">getPreferredSize</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getSize()">getSize</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getSize(java.awt.Dimension)">
+getSize</a>, <a href=
+"../../../../api/java/awt/Component.html#getToolkit()">getToolkit</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getTreeLock()">getTreeLock</a>,
+<a href=
+"../../../../api/java/awt/Component.html#getWidth()">getWidth</a>,
+<a href="../../../../api/java/awt/Component.html#getX()">getX</a>,
+<a href="../../../../api/java/awt/Component.html#getY()">getY</a>,
+<a href=
+"../../../../api/java/awt/Component.html#gotFocus(java.awt.Event,%20java.lang.Object)">
+gotFocus</a>, <a href=
+"../../../../api/java/awt/Component.html#handleEvent(java.awt.Event)">
+handleEvent</a>, <a href=
+"../../../../api/java/awt/Component.html#hasFocus()">hasFocus</a>,
+<a href="../../../../api/java/awt/Component.html#hide()">hide</a>,
+<a href=
+"../../../../api/java/awt/Component.html#imageUpdate(java.awt.Image,%20int,%20int,%20int,%20int,%20int)">
+imageUpdate</a>, <a href=
+"../../../../api/java/awt/Component.html#inside(int,%20int)">inside</a>,
+<a href=
+"../../../../api/java/awt/Component.html#invalidate()">invalidate</a>,
+<a href=
+"../../../../api/java/awt/Component.html#isDisplayable()">isDisplayable</a>,
+<a href=
+"../../../../api/java/awt/Component.html#isDoubleBuffered()">isDoubleBuffered</a>,
+<a href=
+"../../../../api/java/awt/Component.html#isEnabled()">isEnabled</a>,
+<a href=
+"../../../../api/java/awt/Component.html#isFocusTraversable()">isFocusTraversable</a>,
+<a href=
+"../../../../api/java/awt/Component.html#isLightweight()">isLightweight</a>,
+<a href=
+"../../../../api/java/awt/Component.html#isOpaque()">isOpaque</a>,
+<a href=
+"../../../../api/java/awt/Component.html#isShowing()">isShowing</a>,
+<a href=
+"../../../../api/java/awt/Component.html#isValid()">isValid</a>,
+<a href=
+"../../../../api/java/awt/Component.html#isVisible()">isVisible</a>,
+<a href=
+"../../../../api/java/awt/Component.html#keyDown(java.awt.Event,%20int)">
+keyDown</a>, <a href=
+"../../../../api/java/awt/Component.html#keyUp(java.awt.Event,%20int)">
+keyUp</a>, <a href=
+"../../../../api/java/awt/Component.html#layout()">layout</a>,
+<a href="../../../../api/java/awt/Component.html#list()">list</a>,
+<a href=
+"../../../../api/java/awt/Component.html#list(java.io.PrintStream)">
+list</a>, <a href=
+"../../../../api/java/awt/Component.html#list(java.io.PrintStream,%20int)">
+list</a>, <a href=
+"../../../../api/java/awt/Component.html#list(java.io.PrintWriter)">
+list</a>, <a href=
+"../../../../api/java/awt/Component.html#list(java.io.PrintWriter,%20int)">
+list</a>, <a href=
+"../../../../api/java/awt/Component.html#locate(int,%20int)">locate</a>,
+<a href=
+"../../../../api/java/awt/Component.html#location()">location</a>,
+<a href=
+"../../../../api/java/awt/Component.html#lostFocus(java.awt.Event,%20java.lang.Object)">
+lostFocus</a>, <a href=
+"../../../../api/java/awt/Component.html#minimumSize()">minimumSize</a>,
+<a href=
+"../../../../api/java/awt/Component.html#mouseDown(java.awt.Event,%20int,%20int)">
+mouseDown</a>, <a href=
+"../../../../api/java/awt/Component.html#mouseDrag(java.awt.Event,%20int,%20int)">
+mouseDrag</a>, <a href=
+"../../../../api/java/awt/Component.html#mouseEnter(java.awt.Event,%20int,%20int)">
+mouseEnter</a>, <a href=
+"../../../../api/java/awt/Component.html#mouseExit(java.awt.Event,%20int,%20int)">
+mouseExit</a>, <a href=
+"../../../../api/java/awt/Component.html#mouseMove(java.awt.Event,%20int,%20int)">
+mouseMove</a>, <a href=
+"../../../../api/java/awt/Component.html#mouseUp(java.awt.Event,%20int,%20int)">
+mouseUp</a>, <a href=
+"../../../../api/java/awt/Component.html#move(int,%20int)">move</a>,
+<a href=
+"../../../../api/java/awt/Component.html#nextFocus()">nextFocus</a>,
+<a href=
+"../../../../api/java/awt/Component.html#paintAll(java.awt.Graphics)">
+paintAll</a>, <a href=
+"../../../../api/java/awt/Component.html#paramString()">paramString</a>,
+<a href=
+"../../../../api/java/awt/Component.html#postEvent(java.awt.Event)">
+postEvent</a>, <a href=
+"../../../../api/java/awt/Component.html#preferredSize()">preferredSize</a>,
+<a href=
+"../../../../api/java/awt/Component.html#prepareImage(java.awt.Image,%20java.awt.image.ImageObserver)">
+prepareImage</a>, <a href=
+"../../../../api/java/awt/Component.html#prepareImage(java.awt.Image,%20int,%20int,%20java.awt.image.ImageObserver)">
+prepareImage</a>, <a href=
+"../../../../api/java/awt/Component.html#print(java.awt.Graphics)">print</a>,
+<a href=
+"../../../../api/java/awt/Component.html#printAll(java.awt.Graphics)">
+printAll</a>, <a href=
+"../../../../api/java/awt/Component.html#processComponentEvent(java.awt.event.ComponentEvent)">
+processComponentEvent</a>, <a href=
+"../../../../api/java/awt/Component.html#processEvent(java.awt.AWTEvent)">
+processEvent</a>, <a href=
+"../../../../api/java/awt/Component.html#processFocusEvent(java.awt.event.FocusEvent)">
+processFocusEvent</a>, <a href=
+"../../../../api/java/awt/Component.html#processInputMethodEvent(java.awt.event.InputMethodEvent)">
+processInputMethodEvent</a>, <a href=
+"../../../../api/java/awt/Component.html#processKeyEvent(java.awt.event.KeyEvent)">
+processKeyEvent</a>, <a href=
+"../../../../api/java/awt/Component.html#processMouseEvent(java.awt.event.MouseEvent)">
+processMouseEvent</a>, <a href=
+"../../../../api/java/awt/Component.html#processMouseMotionEvent(java.awt.event.MouseEvent)">
+processMouseMotionEvent</a>, <a href=
+"../../../../api/java/awt/Component.html#remove(java.awt.MenuComponent)">
+remove</a>, <a href=
+"../../../../api/java/awt/Component.html#removeComponentListener(java.awt.event.ComponentListener)">
+removeComponentListener</a>, <a href=
+"../../../../api/java/awt/Component.html#removeFocusListener(java.awt.event.FocusListener)">
+removeFocusListener</a>, <a href=
+"../../../../api/java/awt/Component.html#removeInputMethodListener(java.awt.event.InputMethodListener)">
+removeInputMethodListener</a>, <a href=
+"../../../../api/java/awt/Component.html#removeKeyListener(java.awt.event.KeyListener)">
+removeKeyListener</a>, <a href=
+"../../../../api/java/awt/Component.html#removeMouseListener(java.awt.event.MouseListener)">
+removeMouseListener</a>, <a href=
+"../../../../api/java/awt/Component.html#removeMouseMotionListener(java.awt.event.MouseMotionListener)">
+removeMouseMotionListener</a>, <a href=
+"../../../../api/java/awt/Component.html#removeNotify()">removeNotify</a>,
+<a href=
+"../../../../api/java/awt/Component.html#removePropertyChangeListener(java.beans.PropertyChangeListener)">
+removePropertyChangeListener</a>, <a href=
+"../../../../api/java/awt/Component.html#removePropertyChangeListener(java.lang.String,%20java.beans.PropertyChangeListener)">
+removePropertyChangeListener</a>, <a href=
+"../../../../api/java/awt/Component.html#repaint()">repaint</a>,
+<a href=
+"../../../../api/java/awt/Component.html#repaint(int,%20int,%20int,%20int)">
+repaint</a>, <a href=
+"../../../../api/java/awt/Component.html#repaint(long)">repaint</a>,
+<a href=
+"../../../../api/java/awt/Component.html#repaint(long,%20int,%20int,%20int,%20int)">
+repaint</a>, <a href=
+"../../../../api/java/awt/Component.html#requestFocus()">requestFocus</a>,
+<a href=
+"../../../../api/java/awt/Component.html#reshape(int,%20int,%20int,%20int)">
+reshape</a>, <a href=
+"../../../../api/java/awt/Component.html#resize(java.awt.Dimension)">
+resize</a>, <a href=
+"../../../../api/java/awt/Component.html#resize(int,%20int)">resize</a>,
+<a href=
+"../../../../api/java/awt/Component.html#setBackground(java.awt.Color)">
+setBackground</a>, <a href=
+"../../../../api/java/awt/Component.html#setBounds(int,%20int,%20int,%20int)">
+setBounds</a>, <a href=
+"../../../../api/java/awt/Component.html#setBounds(java.awt.Rectangle)">
+setBounds</a>, <a href=
+"../../../../api/java/awt/Component.html#setComponentOrientation(java.awt.ComponentOrientation)">
+setComponentOrientation</a>, <a href=
+"../../../../api/java/awt/Component.html#setCursor(java.awt.Cursor)">
+setCursor</a>, <a href=
+"../../../../api/java/awt/Component.html#setDropTarget(java.awt.dnd.DropTarget)">
+setDropTarget</a>, <a href=
+"../../../../api/java/awt/Component.html#setEnabled(boolean)">setEnabled</a>,
+<a href=
+"../../../../api/java/awt/Component.html#setFont(java.awt.Font)">setFont</a>,
+<a href=
+"../../../../api/java/awt/Component.html#setForeground(java.awt.Color)">
+setForeground</a>, <a href=
+"../../../../api/java/awt/Component.html#setLocale(java.util.Locale)">
+setLocale</a>, <a href=
+"../../../../api/java/awt/Component.html#setLocation(int,%20int)">setLocation</a>,
+<a href=
+"../../../../api/java/awt/Component.html#setLocation(java.awt.Point)">
+setLocation</a>, <a href=
+"../../../../api/java/awt/Component.html#setName(java.lang.String)">
+setName</a>, <a href=
+"../../../../api/java/awt/Component.html#setSize(java.awt.Dimension)">
+setSize</a>, <a href=
+"../../../../api/java/awt/Component.html#setSize(int,%20int)">setSize</a>,
+<a href=
+"../../../../api/java/awt/Component.html#setVisible(boolean)">setVisible</a>,
+<a href="../../../../api/java/awt/Component.html#show()">show</a>,
+<a href=
+"../../../../api/java/awt/Component.html#show(boolean)">show</a>,
+<a href="../../../../api/java/awt/Component.html#size()">size</a>,
+<a href=
+"../../../../api/java/awt/Component.html#toString()">toString</a>,
+<a href=
+"../../../../api/java/awt/Component.html#transferFocus()">transferFocus</a>,
+<a href=
+"../../../../api/java/awt/Component.html#update(java.awt.Graphics)">
+update</a>, <a href=
+"../../../../api/java/awt/Component.html#validate()">validate</a></code></td>
+</tr>
+</table>
+&nbsp;<a name="methods_inherited_from_class_java.lang.Object" id=
+"methods_inherited_from_class_java.lang.Object"><!-- --></a>
+<table border="1" cellpadding="3" cellspacing="0" width="100%">
+<tr bgcolor="#EEEEFF" id="TableSubHeadingColor">
+<td><b>Methods inherited from class java.lang.<a href=
+"../../../../api/java/lang/Object.html">Object</a></b></td>
+</tr>
+<tr bgcolor="white" id="TableRowColor">
+<td><code><a href=
+"../../../../api/java/lang/Object.html#clone()">clone</a>, <a href=
+"../../../../api/java/lang/Object.html#equals(java.lang.Object)">equals</a>,
+<a href=
+"../../../../api/java/lang/Object.html#finalize()">finalize</a>,
+<a href=
+"../../../../api/java/lang/Object.html#getClass()">getClass</a>,
+<a href=
+"../../../../api/java/lang/Object.html#hashCode()">hashCode</a>,
+<a href=
+"../../../../api/java/lang/Object.html#notify()">notify</a>,
+<a href=
+"../../../../api/java/lang/Object.html#notifyAll()">notifyAll</a>,
+<a href="../../../../api/java/lang/Object.html#wait()">wait</a>,
+<a href=
+"../../../../api/java/lang/Object.html#wait(long)">wait</a>,
+<a href=
+"../../../../api/java/lang/Object.html#wait(long,%20int)">wait</a></code></td>
+</tr>
+</table>
+&nbsp;
+<p><!-- ============ FIELD DETAIL =========== -->
+ <!-- ========= CONSTRUCTOR DETAIL ======== -->
+ <a name="constructor_detail" id="constructor_detail">
+<!-- --></a></p>
+<table border="1" cellpadding="3" cellspacing="0" width="100%">
+<tr bgcolor="#CCCCFF" id="TableHeadingColor">
+<td colspan="1"><font size="+2"><b>Constructor
+Detail</b></font></td>
+</tr>
+</table>
+<a name="LWTextComponent(java.lang.String, boolean)"><!-- --></a>
+<h3>LWTextComponent</h3>
+<pre>
+public <b>LWTextComponent</b>(<a href=
+"../../../../api/java/lang/String.html">String</a>&nbsp;name,
+                       boolean&nbsp;enableInputMethods)
+</pre>
+<dl>
+<dd>Constructs a LWTextComponent.</dd>
+<dd>
+<dl>
+<dt><b>Parameters:</b></dt>
+<dd><code>name</code> - the component name to be displayed above
+the text</dd>
+<dd><code>enableInputMethods</code> - whether to enable input
+methods for this component</dd>
+</dl>
+</dd>
+</dl>
+<!-- ============ METHOD DETAIL ========== -->
+<a name="method_detail" id="method_detail"><!-- --></a>
+<table border="1" cellpadding="3" cellspacing="0" width="100%">
+<tr bgcolor="#CCCCFF" id="TableHeadingColor">
+<td colspan="1"><font size="+2"><b>Method Detail</b></font></td>
+</tr>
+</table>
+<a name="setFontSize(int)"><!-- --></a>
+<h3>setFontSize</h3>
+<pre>
+public void <b>setFontSize</b>(int&nbsp;size)
+</pre>
+<hr />
+<a name="paint(java.awt.Graphics)"><!-- --></a>
+<h3>paint</h3>
+<pre>
+public void <b>paint</b>(<a href=
+"../../../../api/java/awt/Graphics.html">Graphics</a>&nbsp;g)
+</pre>
+<dl>
+<dd>Draws the component. The following items are drawn:
+<ul>
+<li>the component's background</li>
+<li>a frame, thicker if the component has the focus</li>
+<li>the component name</li>
+<li>the text that the user has entered</li>
+<li>the caret, if the component has the focus</li>
+</ul>
+</dd>
+<dd>
+<dl>
+<dt><b>Overrides:</b></dt>
+<dd><a href=
+"../../../../api/java/awt/Component.html#paint(java.awt.Graphics)">paint</a>
+in class <a href=
+"../../../../api/java/awt/Component.html">Component</a></dd>
+</dl>
+</dd>
+</dl>
+<hr />
+<a name="getCommittedText()"><!-- --></a>
+<h3>getCommittedText</h3>
+<pre>
+public <a href=
+"../../../../api/java/text/AttributedCharacterIterator.html">AttributedCharacterIterator</a> <b>getCommittedText</b>()
+</pre>
+<dl>
+<dd>Returns the text that the user has entered and committed. Since
+this component does not support on-the-spot input, there's no
+composed text, so all text that has been entered is committed.</dd>
+<dd>
+<dl>
+<dt><b>Returns:</b></dt>
+<dd>an AttributedCharacterIterator for the text that the user has
+entered and committed</dd>
+</dl>
+</dd>
+</dl>
+<hr />
+<a name="getCommittedText(int, int)"><!-- --></a>
+<h3>getCommittedText</h3>
+<pre>
+public <a href=
+"../../../../api/java/text/AttributedCharacterIterator.html">AttributedCharacterIterator</a> <b>getCommittedText</b>(int&nbsp;beginIndex,
+                                                    int&nbsp;endIndex)
+</pre>
+<dl>
+<dd>Returns a subrange of the text that the user has entered and
+committed. Since this component does not support on-the-spot input,
+there's no composed text, so all text that has been entered is
+committed.</dd>
+<dd>
+<dl>
+<dt><b>Parameters:</b></dt>
+<dd><code>beginIndex</code> - the index of the first character of
+the subrange</dd>
+<dd><code>endIndex</code> - the index of the character following
+the subrange</dd>
+<dt><b>Returns:</b></dt>
+<dd>an AttributedCharacterIterator for a subrange of the text that
+the user has entered and committed</dd>
+</dl>
+</dd>
+</dl>
+<hr />
+<a name="getCommittedTextLength()"><!-- --></a>
+<h3>getCommittedTextLength</h3>
+<pre>
+public int <b>getCommittedTextLength</b>()
+</pre>
+<dl>
+<dd>Returns the length of the text that the user has entered and
+committed. Since this component does not support on-the-spot input,
+there's no composed text, so all text that has been entered is
+committed.</dd>
+<dd>
+<dl>
+<dt><b>Returns:</b></dt>
+<dd>the length of the text that the user has entered and
+committed</dd>
+</dl>
+</dd>
+</dl>
+<hr />
+<a name="getDisplayText()"><!-- --></a>
+<h3>getDisplayText</h3>
+<pre>
+public <a href=
+"../../../../api/java/text/AttributedCharacterIterator.html">AttributedCharacterIterator</a> <b>getDisplayText</b>()
+</pre>
+<dl>
+<dd>Returns the text that the user has entered. As TextLayout
+requires a font to be defined for each character, the default font
+is applied to the entire text. A subclass that supports on-the-spot
+input must override this method to include composed text.</dd>
+<dd>
+<dl>
+<dt><b>Returns:</b></dt>
+<dd>the text that the user has entered</dd>
+</dl>
+</dd>
+</dl>
+<hr />
+<a name="getTextLayout()"><!-- --></a>
+<h3>getTextLayout</h3>
+<pre>
+public <a href=
+"../../../../api/java/awt/font/TextLayout.html">TextLayout</a> <b>getTextLayout</b>()
+</pre>
+<dl>
+<dd>Returns a text layout for the text that the user has entered.
+This text layout is created from the text returned by
+getDisplayText. The text layout is cached until
+invalidateTextLayout is called.</dd>
+<dd>
+<dl>
+<dt><b>Returns:</b></dt>
+<dd>a text layout for the text that the user has entered, or
+null</dd>
+<dt><b>See Also:</b></dt>
+<dd><a href=
+"LWTextComponent.html#invalidateTextLayout()"><code>invalidateTextLayout()</code></a>,
+<a href=
+"LWTextComponent.html#getDisplayText()"><code>getDisplayText()</code></a></dd>
+</dl>
+</dd>
+</dl>
+<hr />
+<a name="invalidateTextLayout()"><!-- --></a>
+<h3>invalidateTextLayout</h3>
+<pre>
+public void <b>invalidateTextLayout</b>()
+</pre>
+<dl>
+<dd>Invalidates the cached text layout. This must be called
+whenever the component's text is modified.</dd>
+<dd>
+<dl>
+<dt><b>See Also:</b></dt>
+<dd><a href=
+"LWTextComponent.html#getTextLayout()"><code>getTextLayout()</code></a></dd>
+</dl>
+</dd>
+</dl>
+<hr />
+<a name="getTextOrigin()"><!-- --></a>
+<h3>getTextOrigin</h3>
+<pre>
+public <a href=
+"../../../../api/java/awt/Point.html">Point</a> <b>getTextOrigin</b>()
+</pre>
+<dl>
+<dd>Returns the origin of the text. This is the leftmost point on
+the baseline of the text.</dd>
+<dd>
+<dl>
+<dt><b>Returns:</b></dt>
+<dd>the origin of the text</dd>
+</dl>
+</dd>
+</dl>
+<hr />
+<a name="getCaretRectangle()"><!-- --></a>
+<h3>getCaretRectangle</h3>
+<pre>
+public <a href=
+"../../../../api/java/awt/Rectangle.html">Rectangle</a> <b>getCaretRectangle</b>()
+</pre>
+<dl>
+<dd>Returns a 0-width caret rectangle. This rectangle is derived
+from the caret returned by getCaret. getCaretRectangle returns null
+iff getCaret does.</dd>
+<dd>
+<dl>
+<dt><b>Returns:</b></dt>
+<dd>the caret rectangle, or null</dd>
+<dt><b>See Also:</b></dt>
+<dd><a href=
+"LWTextComponent.html#getCaret()"><code>getCaret()</code></a></dd>
+</dl>
+</dd>
+</dl>
+<hr />
+<a name="getCaretRectangle(java.awt.font.TextHitInfo)"><!-- --></a>
+<h3>getCaretRectangle</h3>
+<pre>
+public <a href=
+"../../../../api/java/awt/Rectangle.html">Rectangle</a> <b>getCaretRectangle</b>(<a href="../../../../api/java/awt/font/TextHitInfo.html">TextHitInfo</a>&nbsp;caret)
+</pre>
+<dl>
+<dd>Returns a 0-width caret rectangle for the given text index. It
+is calculated based on the text layout returned by getTextLayout,
+so this method can be used for the entire displayed text.</dd>
+<dd>
+<dl>
+<dt><b>Parameters:</b></dt>
+<dd><code>caret</code> - the text index for which to calculate a
+caret rectangle</dd>
+<dt><b>Returns:</b></dt>
+<dd>the caret rectangle</dd>
+</dl>
+</dd>
+</dl>
+<hr />
+<a name="getCaret()"><!-- --></a>
+<h3>getCaret</h3>
+<pre>
+public <a href=
+"../../../../api/java/awt/font/TextHitInfo.html">TextHitInfo</a> <b>getCaret</b>()
+</pre>
+<dl>
+<dd>Returns a text hit info indicating the current caret (insertion
+point). This class always returns a caret at the end of the text
+that the user has entered. Subclasses may return a different caret
+or null.</dd>
+<dd>
+<dl>
+<dt><b>Returns:</b></dt>
+<dd>the caret, or null</dd>
+</dl>
+</dd>
+</dl>
+<hr />
+<a name="insertCharacter(char)"><!-- --></a>
+<h3>insertCharacter</h3>
+<pre>
+public void <b>insertCharacter</b>(char&nbsp;c)
+</pre>
+<dl>
+<dd>Inserts the given character at the end of the text.</dd>
+<dd>
+<dl>
+<dt><b>Parameters:</b></dt>
+<dd><code>c</code> - the character to be inserted</dd>
+</dl>
+</dd>
+</dl>
+<hr />
+<a name="keyTyped(java.awt.event.KeyEvent)"><!-- --></a>
+<h3>keyTyped</h3>
+<pre>
+public void <b>keyTyped</b>(<a href=
+"../../../../api/java/awt/event/KeyEvent.html">KeyEvent</a>&nbsp;event)
+</pre>
+<dl>
+<dd>Handles the key typed event. If the character is backspace, the
+last character is removed from the text that the user has entered.
+Otherwise, the character is appended to the text. Then, the text is
+redrawn.</dd>
+<dd>
+<dl>
+<dt><b>Specified by:</b></dt>
+<dd><a href=
+"../../../../api/java/awt/event/KeyListener.html#keyTyped(java.awt.event.KeyEvent)">
+keyTyped</a> in interface <a href=
+"../../../../api/java/awt/event/KeyListener.html">KeyListener</a></dd>
+</dl>
+</dd>
+</dl>
+<hr />
+<a name="keyPressed(java.awt.event.KeyEvent)"><!-- --></a>
+<h3>keyPressed</h3>
+<pre>
+public void <b>keyPressed</b>(<a href=
+"../../../../api/java/awt/event/KeyEvent.html">KeyEvent</a>&nbsp;event)
+</pre>
+<dl>
+<dd>Ignores key pressed events.</dd>
+<dd>
+<dl>
+<dt><b>Specified by:</b></dt>
+<dd><a href=
+"../../../../api/java/awt/event/KeyListener.html#keyPressed(java.awt.event.KeyEvent)">
+keyPressed</a> in interface <a href=
+"../../../../api/java/awt/event/KeyListener.html">KeyListener</a></dd>
+</dl>
+</dd>
+</dl>
+<hr />
+<a name="keyReleased(java.awt.event.KeyEvent)"><!-- --></a>
+<h3>keyReleased</h3>
+<pre>
+public void <b>keyReleased</b>(<a href=
+"../../../../api/java/awt/event/KeyEvent.html">KeyEvent</a>&nbsp;event)
+</pre>
+<dl>
+<dd>Ignores key released events.</dd>
+<dd>
+<dl>
+<dt><b>Specified by:</b></dt>
+<dd><a href=
+"../../../../api/java/awt/event/KeyListener.html#keyReleased(java.awt.event.KeyEvent)">
+keyReleased</a> in interface <a href=
+"../../../../api/java/awt/event/KeyListener.html">KeyListener</a></dd>
+</dl>
+</dd>
+</dl>
+<hr />
+<a name="focusGained(java.awt.event.FocusEvent)"><!-- --></a>
+<h3>focusGained</h3>
+<pre>
+public void <b>focusGained</b>(<a href=
+"../../../../api/java/awt/event/FocusEvent.html">FocusEvent</a>&nbsp;event)
+</pre>
+<dl>
+<dd>Turns on drawing of the component's thicker frame and the
+caret.</dd>
+<dd>
+<dl>
+<dt><b>Specified by:</b></dt>
+<dd><a href=
+"../../../../api/java/awt/event/FocusListener.html#focusGained(java.awt.event.FocusEvent)">
+focusGained</a> in interface <a href=
+"../../../../api/java/awt/event/FocusListener.html">FocusListener</a></dd>
+</dl>
+</dd>
+</dl>
+<hr />
+<a name="focusLost(java.awt.event.FocusEvent)"><!-- --></a>
+<h3>focusLost</h3>
+<pre>
+public void <b>focusLost</b>(<a href=
+"../../../../api/java/awt/event/FocusEvent.html">FocusEvent</a>&nbsp;event)
+</pre>
+<dl>
+<dd>Turns off drawing of the component's thicker frame and the
+caret.</dd>
+<dd>
+<dl>
+<dt><b>Specified by:</b></dt>
+<dd><a href=
+"../../../../api/java/awt/event/FocusListener.html#focusLost(java.awt.event.FocusEvent)">
+focusLost</a> in interface <a href=
+"../../../../api/java/awt/event/FocusListener.html">FocusListener</a></dd>
+</dl>
+</dd>
+</dl>
+<!-- ========= END OF CLASS DATA ========= -->
+<hr />
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_bottom" id="navbar_bottom"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan="2" bgcolor="#EEEEFF" id="NavBarCell1"><a name=
+"navbar_bottom_firstrow" id="navbar_bottom_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+<tr align="center" valign="top">
+<td bgcolor="#FFFFFF" id="NavBarCell1Rev">&nbsp;<font id=
+"NavBarFont1Rev"><b>Class</b></font>&nbsp;</td>
+<td bgcolor="#EEEEFF" id="NavBarCell1"><a href=
+"overview-tree.html"><font id=
+"NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+<td bgcolor="#EEEEFF" id="NavBarCell1"><a href=
+"index-all.html"><font id=
+"NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+</tr>
+</table>
+</td>
+<td align="right" valign="top" rowspan="3"></td>
+</tr>
+<tr>
+<td bgcolor="white" id="NavBarCell2"><font size="-2">&nbsp;<a href=
+"ActiveClient.html"><b>PREV CLASS</b></a>&nbsp; &nbsp;NEXT
+CLASS</font></td>
+<td bgcolor="white" id="NavBarCell2"><font size="-2"><a href=
+"index.html" target="_top"><b>FRAMES</b></a> &nbsp; &nbsp;<a href=
+"LWTextComponent.html" target="_top"><b>NO
+FRAMES</b></a></font></td>
+</tr>
+<tr>
+<td valign="top" id="NavBarCell3"><font size="-2">SUMMARY:
+&nbsp;INNER&nbsp;|&nbsp;<a href=
+"#fields_inherited_from_class_java.awt.Component">FIELD</a>&nbsp;|&nbsp;<a href="#constructor_summary">CONSTR</a>&nbsp;|&nbsp;<a href="#method_summary">METHOD</a></font></td>
+<td valign="top" id="NavBarCell3"><font size="-2">DETAIL:
+&nbsp;FIELD&nbsp;|&nbsp;<a href=
+"#constructor_detail">CONSTR</a>&nbsp;|&nbsp;<a href=
+"#method_detail">METHOD</a></font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

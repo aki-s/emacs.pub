@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <title>XRD access</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <meta name="generator" content="PhD" />
+
+  <link rel="start" href="index.html" title="PEAR Manual" />
+  <link rel="up" href="package.networking.net-webfinger.html" title="Net_WebFinger" />
+  <link rel="prev" href="package.networking.net-webfinger.http-adapter.html" title="Custom HTTP adapters" />
+  <link rel="next" href="package.networking.net-webfinger.references.html" title="References" />
+ </head>
+ <body>
+<div class="navheader">
+ <table style="width: 100%;">
+  <tr><th colspan="3" style="text-align: center">XRD access</th></tr>
+  <tr>
+   <td style="width: 40%; text-align: left;"><a href="package.networking.net-webfinger.http-adapter.html" title="Custom HTTP adapters">Prev</a></td>
+   <td style="width: 20%;"></td>
+   <td style="width: 40%; text-align: right;"><a href="package.networking.net-webfinger.references.html" title="References">Next</a></td>
+  </tr>
+ </table>
+ <hr/>
+</div>
+<div id="body">
+<div class="section" id="package.networking.net-webfinger.xrd">
+ <div class="info">
+  <h1>XRD access</h1>
+
+ </div>
+
+ <p class="para">
+  The WebFinger lookup process involves loading two XRD files.
+  Under normal circumstances you don&#039;t need them, but if you have special
+  needs you can access them in the reaction&#039;s
+  <a href="http://pear.php.net/package/Net_WebFinger/docs/latest/Net_WebFinger/Net_WebFinger_Reaction.html#var$hostMetaXrd" class="apidoclink">$hostMetaXrd</a>
+  and
+  <a href="http://pear.php.net/package/Net_WebFinger/docs/latest/Net_WebFinger/Net_WebFinger_Reaction.html#var$userXrd" class="apidoclink">$userXrd</a>
+  properties.
+  They are <code class="literal">NULL</code> if the file could not be found, or the XRD
+  not be loaded.
+ </p>
+
+ <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'Net/WebFinger.php'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$wf&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Net_WebFinger</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$react&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$wf</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">finger</span><span style="color: #007700">(</span><span style="color: #DD0000">'user@example.org'</span><span style="color: #007700">);<br /><br />foreach&nbsp;(</span><span style="color: #0000BB">$react</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">hostMetaXrd&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$link</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">rel&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">':&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$link</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">href&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+
+</div>
+</div>
+<div class="navfooter">
+ <hr />
+ <table style="width: 100%;">
+  <tr>
+   <td style="width: 40%; text-align: left;"><a accesskey="p" href="package.networking.net-webfinger.http-adapter.html">Prev</a></td>
+   <td style="width: 20%; text-align: center;"><a accesskey="h" href="package.networking.net-webfinger.html">Net_WebFinger</a></td>
+   <td style="width: 40%; text-align: right;"><a accesskey="n" href="package.networking.net-webfinger.references.html">Next</a></td>
+  </tr>
+  <tr>
+   <td style="text-align: left; vertical-align: top;">Custom HTTP adapters</td>
+   <td style="text-align: center;"><a accesskey="h" href="index.html">PEAR Manual</a></td>
+   <td style="text-align: right; vertical-align: top;">References</td>
+  </tr>
+ </table>
+</div>
+</body></html>

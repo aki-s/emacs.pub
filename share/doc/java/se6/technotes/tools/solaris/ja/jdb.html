@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="copyright" content="1995, 2010" />
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+
+<link rel="stylesheet" href="../../css/tools.css"  type="text/css" />
+<title>jdb - Java デバッガ</title>
+
+</head>
+
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table>  
+<h1>jdb - Java デバッガ</h1>
+
+  <blockquote>
+ 
+  <p>
+<b>jdb</b> は、Java 言語プログラムのバグを見つけて修正するために使用するツールです。</p>
+    
+  </blockquote>
+
+<h2>形式</h2>
+
+  <blockquote>
+    <pre>
+<b>jdb</b> [ options ] [ class ] [ arguments ] 
+</pre>
+  </blockquote>
+
+  <blockquote>
+    <dl>
+<dt><a href="#options"><code>options</code></a></dt>
+
+<dd>次に示すコマンド行オプション</dd>
+
+<dt><code>class</code></dt>
+
+<dd>デバッグを開始するクラスの名前</dd>
+
+<dt><code>arguments</code></dt>
+
+<dd><code>class</code> の <code>main()</code> メソッドに渡す引数</dd>
+    </dl>
+  </blockquote>
+
+<h2><a name="description"/> 説明</h2>
+
+  <blockquote>
+  <p>
+Java デバッガ <b>jdb</b> は、Java クラス用の簡単なコマンド行デバッガです。<a href="../../guides/jpda/index.html">Java Platform Debugger Architecture</a> を視覚的に実行し、ローカルまたはリモートの Java Virtual Machine の検査とデバッグを行うことができます。
+</p>
+<h3>jdb セッションの開始</h3>
+
+    <blockquote>
+    <p>
+jdb セッションを開始するにはさまざまな方法があります。もっとも頻繁に使われるのは、デバッグするアプリケーションのメインクラスを使用して、<b>jdb</b> から新しい Java 仮想マシン (VM) を起動する方法です。コマンド行で、 <b>java</b> の代わりに <b>jdb</b> コマンドを入力します。たとえば、アプリケーションのメインクラスが MyClass の場合は、JDB 環境でデバッグするときに次のコマンドを使用します。</p>
+      
+      <pre>
+ % jdb MyClass 
+</pre>
+
+<p>この方法で起動すると、<b>jdb</b> は、指定されたパラメータを使って 2 つ目の Java VM を呼び出します。 次に、指定されたクラスをロードして、クラスの最初の命令を実行する前に VM を停止させます。</p>
+
+<p><b>jdb</b> のもう 1 つの使用方法は、すでに起動している Java VM に jdb を接続することです。jdb が接続する VM を、その実行中に起動するための構文を次に示します。これは、インプロセスデバッグ用ライブラリをロードし、接続の種類を指定します。
+</p>
+<pre>
+-agentlib:jdwp=transport=dt_socket,server=y,suspend=n
+</pre>
+
+<p>たとえば、次のコマンドは、MyClass アプリケーションを実行して、<b>jdb</b> があとでそのアプリケーションに接続できるようにします。</p>
+      <pre>
+ % java -agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n MyClass
+</pre>
+<p>次のコマンドを使用して、<b>jdb</b> を VM に接続できます。</p>
+      <pre>
+ % jdb -attach 8000 
+</pre>
+<p>この場合、<b>jdb</b> は新しい VM を起動する代わりに既存の VM に接続されるため、<b>jdb</b> コマンド行には「MyClass」は指定しません。</p>
+
+<p>デバッガを VM に接続するにはほかにもさまざまな方法があり、すべて <b>jdb</b> でサポートされています。接続オプションについては、Java Platform Debugger Architecture の<a href=       "../../guides/jpda/conninv.html">ドキュメント</a>を参照してください。<b>jdb</b> で使用するために J2SE 1.4.2 以前の VM を起動する方法については、<a href=       "http://java.sun.com/j2se/1.4.2/docs/guide/jpda/conninv.html">1.4.2 のドキュメント</a>を参照してください。</p>
+
+<h3>基本 jdb コマンド</h3>
+      
+<p>基本的な <b>jdb</b> コマンドの一覧を示します。Java デバッガがサポートするコマンドはこれ以外にもあり、それらは <b>jdb</b> の <tt>help</tt> コマンドを使用して表示できます。</p>
+
+      <blockquote>
+        <dl>
+<dt><b>help</b> または <b>?</b></dt>
+
+<dd>もっとも重要な <b>jdb</b> コマンド <tt>help</tt> は、認識されたコマンドのリストに簡潔な説明を付けて表示します。</dd>
+
+<dt><b>run</b></dt>
+
+<dd><b>jdb</b> を起動して必要なブレークポイントを設定したあとに、このコマンドを使用して、デバッグするアプリケーションの実行を開始できます。このコマンドは、既存の VM に接続している場合とは異なり、デバッグするアプリケーションが <b>jdb</b> から起動したときにだけ使用できます。</dd>
+
+<dt><b>cont</b></dt>
+
+<dd>ブレークポイント、例外、またはステップ実行のあとで、デバッグするアプリケーションの実行を継続します。</dd>
+
+<dt><b>print</b></dt>
+
+          <dd>
+Java オブジェクトおよびプリミティブ値を表示します。プリミティブ型の変数またはフィールドの場合には、実際の値が出力されます。オブジェクトの場合には、短い説明が出力されます。オブジェクトについては、以降の <tt>dump</tt> コマンドの説明を参照してください。
+
+<p><em>注:局所変数を表示するには、その変数を含むクラスが <a href=             "javac.html">javac</a> <i>-g</i> オプションでコンパイルされていなければなりません。</em></p>
+
+<p><tt>print</tt> では、メソッドの呼び出しを含む多数の簡単な Java 式がサポートされています。 次に例を示します。</p>
+
+            <ul>
+<li><tt>print MyClass.myStaticField</tt></li>
+
+<li><tt>print myObj.myInstanceField</tt></li>
+
+<li><tt>print i + j + k</tt>        (i、j、および k はプリミティブであり、フィールドまたは局所変数のいずれか)<i></i></li>
+
+<li><tt>print myObj.myMethod()</tt> (myMethod  が null 以外を返す場合)<i></i></li>
+
+<li><tt>print new java.lang.String(&quot;Hello&quot;).length()</tt></li>
+            </ul>
+          </dd>
+
+<dt><b>dump</b></dt>
+
+          <dd>
+プリミティブ値の場合には、このコマンドは <tt>print</tt> と同じです。オブジェクトの場合には、オブジェクト内に定義されている各フィールドの現在の値が出力されます。static フィールドと instance フィールドが出力されます。
+
+<p><tt>dump</tt> コマンドでは、<tt>print</tt> コマンドと同じ式がサポートされます。</p>
+          </dd>
+
+<dt><b>threads</b></dt>
+
+          <dd>
+現在実行中のスレッドを一覧表示します。スレッドごとに、名前と現在の状態、およびほかのコマンドに使用できるインデックスが出力されます。 次に例を示します。
+
+            <blockquote>
+              <pre>
+4. (java.lang.Thread)0x1 main      running
+</pre>
+            </blockquote>
+	    
+	    この例では、スレッドインデックスは 4 であり、スレッドは java.lang.Thread のインスタンスです。 スレッドの名前は「main」であり、現在実行中です。
+          </dd>
+
+<dt><b>thread</b></dt>
+
+<dd>現在のスレッドにするスレッドを選択します。多くの <b>jdb</b> コマンドは、現在のスレッドの設定に基づいて実行されます。スレッドは、<tt>threads</tt> コマンドで説明したスレッドインデックスとともに指定します。</dd>
+
+<dt><b>where</b></dt>
+
+          <dd>
+引数を指定しないで <code>where</code> を実行すると、現在のスレッドのスタックがダンプされます。<code> where all</code> コマンドは、現在のスレッドグループにあるスレッドのスタックを、すべてダンプします。<code> where</code> <i>threadindex</i> は、指定されたスレッドのスタックをダンプします。
+
+<p>現在のスレッドが (ブレークポイントか <tt>suspend</tt> コマンドによって) 中断している場合は、局所変数とフィールドは <tt>print</tt> コマンドと <tt>dump</tt> コマンドで表示できます。<tt>up</tt> コマンドと <tt>down</tt> コマンドで、どのスタックフレームをカレントにするかを選ぶことができます。</p>
+          </dd>
+        </dl>
+      </blockquote>
+
+<h3>ブレークポイント</h3>
+
+      <blockquote>
+      <p>
+ブレークポイントは、行番号またはメソッドの最初の命令で <b>jdb</b> に設定できます。 次に例を示します。
+</p>
+        <ul>
+<li><tt>stop at MyClass:22</tt>   (MyClass が含まれるソースファイルの 22 行目の最初の命令にブレークポイントを設定)<i></i></li>
+
+<li><tt>stop in java.lang.String.length</tt> (<tt>java.lang.String.length</tt> メソッドの最初にブレークポイントを設定)<i></i></li>
+
+<li><tt>stop in MyClass.&lt;init&gt;</tt> (&lt;init&gt; は MyClass コンストラクタを識別)<i></i></li>
+
+<li><tt>stop in MyClass.&lt;clinit&gt;</tt> (&lt;clinit&gt; は MyClass の静的初期化コードを識別)<i></i></li>
+        </ul>
+
+<p>メソッドがオーバーロードされている場合には、メソッドの引数の型も指定して、ブレークポイントに対して適切なメソッドが選択されるようにしなければなりません。たとえば、「<tt>MyClass.myMethod(int,java.lang.String)</tt>」または「<tt>MyClass.myMethod()</tt>」と指定します。</p>
+
+<p><tt>clear</tt> コマンドは、「<tt>clear&nbsp;MyClass:45</tt>」のような構文を使用してブレークポイントを削除します。<tt>clear</tt> を使用するか、引数を指定しないでコマンドを使用すると、現在設定されているすべてのブレークポイントが表示されます。<tt>cont</tt> コマンドは実行を継続します。</p>
+      </blockquote>
+
+<h3>ステップ実行</h3>
+
+      <blockquote>
+      <p>
+<tt>step</tt> コマンドは、現在のスタックフレームまたは呼び出されたメソッド内で、次の行を実行します。<tt>next</tt> コマンドは、現在のスタックフレームの次の行を実行します。</p>
+      </blockquote>
+
+<h3>例外</h3>
+
+      <blockquote>
+      <p>
+スローしているスレッドの呼び出しスタック上のどこにも catch 文がない場合に例外が発生すると、VM は通常、例外トレースを出力して終了します。ただし、<b>jdb</b> 環境で実行している場合は、例外が発生すると <b>jdb</b> に制御が戻ります。次に、<b>jdb</b> を使用して例外の原因を診断します。
+</p>
+<p>たとえば、「<tt>catch java.io.FileNotFoundException</tt>」または「<tt>catch mypackage.BigTroubleException</tt>」のように <tt>catch</tt> コマンドを使用すると、デバッグされたアプリケーションは、ほかの例外がスローされたときに停止します。例外が特定のクラス (またはサブクラス) のインスタンスの場合は、アプリケーションは例外がスローされた場所で停止します。</p>
+
+<p><tt>ignore</tt> コマンドを使うと、以前の <tt>catch</tt> コマンドの効果が無効になります。</p>
+
+<p><em>注:<tt>ignore</tt> コマンドでは、デバッグされる VM は例外を無視せず、デバッガだけが例外を無視します。</em></p>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+
+<h2><a name="options"/>コマンド行オプション</h2>
+
+  <blockquote>
+  <p>
+コマンド行で Java アプリケーション起動ツールの代わりに <b>jdb</b> を使用する場合、<b>jdb</b> は、<tt>-D</tt>、<tt>-classpath</tt>、<tt>-X&lt;option&gt;</tt> など、<a href="java.html#options">java</a> コマンドと同じ数のオプションを受け入れます。</p>
+
+<p><b>jdb</b> は、そのほかに次のオプションを受け入れます。</p>
+
+    <dl>
+<dt><b>-help</b></dt>
+
+<dd>ヘルプメッセージを表示します。</dd>
+
+<dt><b>-sourcepath <i>&lt;dir1:dir2:...&gt;</i></b></dt>
+
+<dd>指定されたパスを使用して、ソースファイルを検索します。このオプションが指定されていない場合は、デフォルトパスの「.」が使われます。</dd>
+
+<dt><b>-attach <i>&lt;address&gt;</i></b></dt>
+
+<dd>デフォルトの接続機構を使用して、すでに実行中の VM にデバッガを接続します。</dd>
+
+<dt><b>-listen <i>&lt;address&gt;</i></b></dt>
+
+<dd>実行中の VM が標準のコネクタを使って指定されたアドレスに接続するのを待機します。</dd>
+
+<dt><b>-listenany</b></dt>
+
+<dd>実行中の VM が標準のコネクタを使って利用可能な任意のアドレスに接続するのを待機します。</dd>
+
+<dt><b>-launch</b></dt>
+
+<dd>デバッグするアプリケーションを jdb の起動後ただちに起動します。このオプションによって、<tt>run</tt> コマンドを使用する必要がなくなります。デバッグするアプリケーションは、起動後、初期アプリケーションクラスがロードされる直前に停止します。その時点で、必要なブレークポイントを設定し、<tt>cont</tt> を使用して実行を継続できます。</dd>
+
+<dt><b>-listconnectors</b></dt>
+
+<dd>この VM で利用できるコネクタを一覧表示します。</dd>
+
+<dt><b>-connect <i>&lt;connector-name&gt;:&lt;name1&gt;=&lt;value1&gt;,...</i></b></dt>
+
+<dd>一覧表示された引数の値と指定のコネクタを使ってターゲット VM に接続します。</dd>
+
+<dt><b>-dbgtrace [flags]</b></dt>
+
+<dd>jdb のデバッグ情報を出力します。</dd>
+
+<dt><b>-tclient</b></dt>
+
+<dd>Java HotSpot(tm) VM (クライアント) 内でアプリケーションを実行します。</dd>
+
+<dt><b>-tserver</b></dt>
+
+<dd>Java HotSpot(tm) VM (サーバー) 内でアプリケーションを実行します。</dd>
+
+<dt><b>-J</b><i>option</i></dt>
+
+<dd>jdb の実行に使用される Java 仮想マシンに <i>option</i> を渡します。(アプリケーション Java 仮想マシンに対するオプションは、<b>run</b> コマンドに渡される)。たとえば、<b>-J-Xms48m</b> と指定すると、スタートアップメモリーは 48M バイトに設定されます。</dd>
+    </dl>
+
+<p>デバッガとデバッグを行う VM を接続するための代替機構に対して、その他のオプションがサポートされています。その他の接続オプションについては、Java Platform Debugger Architecture の<a href=     "../../guides/jpda/conninv.html">ドキュメント</a>を参照してください。</p>
+
+<h3>デバッグ対象のプロセスに転送されるオプション</h3>
+
+    <dl>
+<dt><b>-v -verbose[:class|gc|jni]</b></dt>
+
+<dd>冗長モードにします。</dd>
+
+<dt><b>-D<i>&lt;name&gt;=&lt;value&gt;</i></b></dt>
+
+<dd>システムプロパティーを設定します。</dd>
+
+<dt><b>-classpath <i>&lt;directories separated by &quot;:&quot;&gt;</i></b></dt>
+
+<dd>クラスを検索するディレクトリを一覧表示します。</dd>
+
+<dt><b>-X<i>&lt;option&gt;</i></b></dt>
+
+<dd>非標準ターゲット VM オプションです。</dd>
+    </dl>
+  </blockquote>
+
+<h2><a name="seealso">関連項目</a></h2>
+
+  <blockquote>
+<p><a href="javac.html"> javac</a>、<a href=     "java.html">java</a>、<a href="javah.html">javah</a>、<a href=     "javap.html">javap</a>、<a href="javadoc.html">javadoc</a></p>
+  </blockquote>
+
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

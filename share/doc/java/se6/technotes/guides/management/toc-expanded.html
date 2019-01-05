@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Java SE Monitoring and Management Guide</title><link rel="stylesheet" href="../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><!--stopindex-->
+<table>
+<tr>
+<td width="100%" valign="top">
+<div class="indent"></div>
+<!--startindex-->
+<b><a href="toc.html">--</a></b>
+<p class="toc level1"><a href="monitoringguide.html">Document
+Information</a></p>
+<p class="toc level1 tocsp"><a href="preface.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href=
+"overview.html">1.&nbsp;&nbsp;Overview of Java SE Monitoring and
+Management</a></p>
+<p class="toc level2"><a href="overview.html#gentextid-207">Key
+Monitoring and Management Features</a></p>
+<p class="toc level3"><a href="overview.html#gdevp">Java VM
+Instrumentation</a></p>
+<p class="toc level3"><a href="overview.html#gdeue">Monitoring and
+Management API</a></p>
+<p class="toc level3"><a href="overview.html#gdeva">Monitoring and
+Management Tools</a></p>
+<p class="toc level3"><a href="overview.html#gdeus">Java Management
+Extensions (JMX) Technology</a></p>
+<p class="toc level4"><a href="overview.html#gdevc">What are
+MBeans?</a></p>
+<p class="toc level4"><a href="overview.html#gdevr">MBean
+Server</a></p>
+<p class="toc level4"><a href="overview.html#gdevu">Creating and
+Registering MBeans</a></p>
+<p class="toc level4"><a href="overview.html#gdeuy">Instrumenting
+Applications</a></p>
+<p class="toc level2 tocsp"><a href="overview.html#gdeug">Platform
+MXBeans</a></p>
+<p class="toc level2"><a href="overview.html#gdeuw">Platform MBean
+Server</a></p>
+<p class="toc level1 tocsp"><a href=
+"agent.html">2.&nbsp;&nbsp;Monitoring and Management Using JMX
+Technology</a></p>
+<p class="toc level2"><a href="agent.html#gdepe">Setting System
+Properties</a></p>
+<p class="toc level2"><a href="agent.html#gcykd">Enabling the
+Out-of-the-Box Management</a></p>
+<p class="toc level3"><a href="agent.html#gcyjz">Local Monitoring
+and Management</a></p>
+<p class="toc level4"><a href="agent.html#gdemy">Local Monitoring
+and Management Using JConsole</a></p>
+<p class="toc level3 tocsp"><a href="agent.html#gdenl">Remote
+Monitoring and Management</a></p>
+<p class="toc level4"><a href="agent.html#gdenv">Using Password
+Authentication</a></p>
+<p class="toc level4"><a href="agent.html#gdeng">Disabling Password
+Authentication</a></p>
+<p class="toc level4"><a href="agent.html#gdemv">Using SSL</a></p>
+<p class="toc level4"><a href="agent.html#gdfmq">Enabling RMI
+Registry Authentication</a></p>
+<p class="toc level4"><a href="agent.html#gdepp">Enabling SSL
+Client Authentication</a></p>
+<p class="toc level4"><a href="agent.html#gdevj">Disabling
+SSL</a></p>
+<p class="toc level4"><a href="agent.html#gdevb">Disabling
+Security</a></p>
+<p class="toc level4"><a href="agent.html#gdevs">Remote Monitoring
+with JConsole</a></p>
+<p class="toc level5"><a href="agent.html#gdevk">Remote Monitoring
+with JConsole with SSL Disabled</a></p>
+<p class="toc level5"><a href="agent.html#gdevo">Remote Monitoring
+with JConsole with SSL Enabled</a></p>
+<p class="toc level2 tocsp"><a href="agent.html#gdeup">Using
+Password and Access Files</a></p>
+<p class="toc level3"><a href="agent.html#gdeuj">Password
+Files</a></p>
+<p class="toc level3"><a href="agent.html#gdeuc">Access
+Files</a></p>
+<p class="toc level2 tocsp"><a href=
+"agent.html#gdevf">Out-of-the-Box Monitoring and Management
+Properties</a></p>
+<p class="toc level3"><a href="agent.html#gdevd">Configuration
+Errors</a></p>
+<p class="toc level2 tocsp"><a href="agent.html#gdevg">Connecting
+to the JMX Agent Programmatically</a></p>
+<p class="toc level3"><a href="agent.html#gdhkz">Setting up
+Monitoring and Management Programmatically</a></p>
+<p class="toc level2 tocsp"><a href="agent.html#gdfvv">Mimicking
+Out-of-the-Box Management Using the JMX Remote API</a></p>
+<p class="toc level3"><a href="agent.html#gdfxb">Example of
+Mimicking Out-of-the-Box Management</a></p>
+<p class="toc level4"><a href="agent.html#gdjou">Monitoring
+Applications through a Firewall</a></p>
+<p class="toc level4"><a href="agent.html#gdjpk">Using an Agent
+Class to Instrument an Application</a></p>
+<p class="toc level1 tocsp"><a href=
+"jconsole.html">3.&nbsp;&nbsp;Using JConsole</a></p>
+<p class="toc level2"><a href=
+"jconsole.html#gentextid-1095">Starting JConsole</a></p>
+<p class="toc level3"><a href="jconsole.html#gcykv">Command
+Syntax</a></p>
+<p class="toc level4"><a href="jconsole.html#gddam">Setting up
+Local Monitoring</a></p>
+<p class="toc level4"><a href="jconsole.html#gddav">Setting up
+Remote Monitoring</a></p>
+<p class="toc level4"><a href="jconsole.html#gdfmc">Setting up
+Secure Remote Monitoring</a></p>
+<p class="toc level3 tocsp"><a href=
+"jconsole.html#gddaw">Connecting to a JMX Agent</a></p>
+<p class="toc level4"><a href="jconsole.html#gddax">Dynamic
+Attach</a></p>
+<p class="toc level4"><a href="jconsole.html#gddah">Connecting
+JConsole to a Local Process</a></p>
+<p class="toc level4"><a href="jconsole.html#gddyo">Connecting
+JConsole to a Remote Process</a></p>
+<p class="toc level4"><a href="jconsole.html#gddzm">Connecting
+Using a JMX Service URL</a></p>
+<p class="toc level2 tocsp"><a href=
+"jconsole.html#gddyr">Presenting the JConsole Tabs</a></p>
+<p class="toc level3"><a href="jconsole.html#gddzo">Viewing
+Overview Information</a></p>
+<p class="toc level4"><a href="jconsole.html#gentextid-1278">Saving
+Chart Data</a></p>
+<p class="toc level3 tocsp"><a href=
+"jconsole.html#gddzq">Monitoring Memory Consumption</a></p>
+<p class="toc level4"><a href="jconsole.html#gdeah">Heap and
+Non-Heap Memory</a></p>
+<p class="toc level4"><a href="jconsole.html#gdean">Memory Pools
+and Memory Managers</a></p>
+<p class="toc level4"><a href="jconsole.html#gddzt">Garbage
+Collection</a></p>
+<p class="toc level3 tocsp"><a href=
+"jconsole.html#gdeaj">Monitoring Thread Use</a></p>
+<p class="toc level4"><a href="jconsole.html#gdeba">Detecting
+Deadlocked Threads</a></p>
+<p class="toc level3 tocsp"><a href=
+"jconsole.html#gdead">Monitoring Class Loading</a></p>
+<p class="toc level3"><a href="jconsole.html#gdeaw">Viewing VM
+Information</a></p>
+<p class="toc level3"><a href="jconsole.html#gdeap">Monitoring and
+Managing MBeans</a></p>
+<p class="toc level4"><a href="jconsole.html#gdfub">Constructing
+the MBean Tree</a></p>
+<p class="toc level4"><a href="jconsole.html#gdeby">MBean
+Attributes</a></p>
+<p class="toc level4"><a href="jconsole.html#gdehi">MBean
+Operations</a></p>
+<p class="toc level4"><a href="jconsole.html#gdeiy">MBean
+Notifications</a></p>
+<p class="toc level4"><a href="jconsole.html#gdeif">HotSpot
+Diagnostic MXBean</a></p>
+<p class="toc level3 tocsp"><a href="jconsole.html#gdeje">Creating
+Custom Tabs</a></p>
+<p class="toc level1 tocsp"><a href=
+"mxbeans.html">4.&nbsp;&nbsp;Using the Platform MBean Server and
+Platform MXBeans</a></p>
+<p class="toc level2"><a href="mxbeans.html#gentextid-1746">Using
+the Platform MBean Server</a></p>
+<p class="toc level2"><a href="mxbeans.html#gdfbj">Accessing
+Platform MXBeans</a></p>
+<p class="toc level3"><a href="mxbeans.html#gdfap">Accessing
+Platform MXBeans via the <tt>ManagementFactory</tt> Class</a></p>
+<p class="toc level3"><a href="mxbeans.html#gdfaz">Accessing
+Platform MXBeans via an MXBean Proxy</a></p>
+<p class="toc level3"><a href="mxbeans.html#gdfao">Accessing
+Platform MXBeans via the <tt>MBeanServerConnection</tt>
+Class</a></p>
+<p class="toc level2 tocsp"><a href="mxbeans.html#gdfbk">Using Sun
+Microsystems' Platform Extension</a></p>
+<p class="toc level3"><a href="mxbeans.html#gdfbt">Accessing MXBean
+Attributes Directly</a></p>
+<p class="toc level3"><a href="mxbeans.html#gdfcb">Accessing MXBean
+Attributes via <tt>MBeanServerConnection</tt></a></p>
+<p class="toc level2 tocsp"><a href="mxbeans.html#gdfbw">Monitoring
+Thread Contention and CPU Time</a></p>
+<p class="toc level2"><a href="mxbeans.html#gdgsw">Managing the
+Operating System</a></p>
+<p class="toc level2"><a href="mxbeans.html#gdeul">Logging
+Management</a></p>
+<p class="toc level2"><a href="mxbeans.html#gdfba">Detecting Low
+Memory</a></p>
+<p class="toc level3"><a href="mxbeans.html#gdfbx">Memory
+Thresholds</a></p>
+<p class="toc level4"><a href="mxbeans.html#gdfav">Usage
+Threshold</a></p>
+<p class="toc level4"><a href="mxbeans.html#gdfbu">Collection Usage
+Threshold</a></p>
+<p class="toc level4"><a href="mxbeans.html#gdfvy">Memory
+MXBean</a></p>
+<p class="toc level4"><a href="mxbeans.html#gdgrk">Memory Pool
+MXBean</a></p>
+<p class="toc level3 tocsp"><a href=
+"mxbeans.html#gdfbv">Polling</a></p>
+<p class="toc level3"><a href="mxbeans.html#gdfbf">Threshold
+Notifications</a></p>
+<p class="toc level1 tocsp"><a href="snmp.html">5.&nbsp;&nbsp;SNMP
+Monitoring and Management</a></p>
+<p class="toc level2"><a href="snmp.html#gentextid-2010">Enabling
+the SNMP Agent</a></p>
+<p class="toc level3"><a href="snmp.html#gdfak">Access Control List
+File</a></p>
+<p class="toc level3"><a href="snmp.html#gdfcj">To Enable the SNMP
+Agent in a Single-user Environment</a></p>
+<p class="toc level3"><a href="snmp.html#gdfca">To Enable the SNMP
+Agent in a Multiple-user Environment</a></p>
+<p class="toc level2 tocsp"><a href="snmp.html#gdfbs">SNMP
+Monitoring and Management Properties</a></p>
+<p class="toc level3"><a href="snmp.html#gdfat">Configuration
+Errors</a></p>
+<p class="toc level1 tocsp"><a href=
+"security-windows.html">A.&nbsp;&nbsp;Additional Security
+Information For Microsoft Windows</a></p>
+<p class="toc level2"><a href="security-windows.html#gdecf">How to
+Secure a Password File on Microsoft Windows Systems</a></p>
+<p class="toc level3"><a href="security-windows.html#gdebe">To
+Secure a Password File on Windows XP Professional Edition</a></p>
+<p class="toc level3"><a href="security-windows.html#gdfoi">To
+Secure a Password File on Windows XP Home Edition</a></p>
+<!--stopindex-->
+<!-- END CENTRAL COLUMN COMPONENTS --></td>
+</tr>
+<!-- BEGIN SPACER ROW -->
+<tr>
+<td><img src="css/a.gif" width="780" height="1" border="0" alt=
+"" /></td>
+</tr>
+<!-- END SPACER ROW -->
+<tr>
+<td></td>
+</tr>
+</table>
+<!-- END WRAPPER TABLE, 1 COLUMN, MAIN -->
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

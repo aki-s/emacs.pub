@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>JDK 6 Java Naming and Directory Interface-related APIs &
+Developer Guides -- from Sun Microsystems</title>
+<title>Java Naming and Directory Interface</title><link rel="stylesheet" href="../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><table summary="layout" border="0" width="100%">
+<tr>
+<td>
+
+<h1>Java Naming and Directory Interface</h1>
+
+</td>
+</tr>
+</table>
+<!-- Body text begins here -->
+<blockquote>The Java Naming and Directory Interface (JNDI) provides
+naming and directory functionality to applications written in the
+Java programming language. It is designed to be independent of any
+specific naming or directory service implementation. Thus a variety
+of services--new, emerging, and already deployed ones--can be
+accessed in a common way.
+<p>The JNDI architecture consists of an API (Application
+Programming Interface) and an SPI (Service Provider Interface).
+Java applications use this API to access a variety of naming and
+directory services. The SPI enables a variety of naming and
+directory services to be plugged in transparently, allowing the
+Java application using the API of the JNDI technology to access
+their services.</p>
+</blockquote>
+<a name="1changes"></a> <font size="+2"><b>Enhancements in Java SE
+6</b></font>
+<blockquote>
+<dl>
+<dt><b>New APIs to get the InitialContext</b><br />
+Shorthand methods are provided for getting the InitialContext.</dt>
+<dd>
+<ul>
+<li>&nbsp;<a href=
+"../../../api/javax/naming/InitialContext.html#doLookup(javax.naming.Name)">doLookup(Name
+name)</a></li>
+<li>&nbsp;<a href=
+"../../../api/javax/naming/InitialContext.html#doLookup(java.lang.String)">doLookup(String
+name)</a></li>
+</ul>
+</dd>
+<dt><b>LDAP Service Provider</b></dt>
+<dd>
+<ul>
+<li>Provided a way to specify <a href="jndi-ldap.html#timeout">read
+timeout</a> for LDAP operations.<br /></li>
+<li>Support added for pooling of connections created when <a href=
+"jndi-ldap.html#pooling">custom socket factories</a> are
+used.<br /></li>
+</ul>
+</dd>
+<dt><b>RMI Service Provider</b></dt>
+<dd>
+<ul>
+<li>Provided a property for specifying a <a href=
+"jndi-rmi.html#SOCKPROP">socket factory</a> for use by RMI
+connections.<br /></li>
+</ul>
+</dd>
+</dl>
+</blockquote>
+<h2>API and SPI Specification</h2>
+<ul>
+<li><b><a href="reference.html">JNDI API and SPI
+Specification</a></b> - A list of the packages included in the JNDI
+technology.</li>
+</ul>
+<h2>Tutorials</h2>
+<ul>
+<li><b><a href=
+"http://java.sun.com/products/jndi/tutorial/index.html">JNDI
+Tutorial</a></b> - A tutorial introduction to the JNDI technology
+with programming examples.</li>
+</ul>
+<h2>API Enhancements</h2>
+<ul>
+<li>See <a href="enhancements.html"><b>JNDI Enhancements in Earlier
+Releases</b></a></li>
+</ul>
+<h2>More Information</h2>
+<ul>
+<li>The <a href=
+"http://java.sun.com/javase/technologies/core/jndi/index.jsp">JNDI
+Home Page</a></li>
+<li>Subscribe to the <a href=
+"http://java.sun.com/products/jndi/staytouch.html">JNDI-INTEREST
+list</a></li>
+<li>See a <a href=
+"http://java.sun.com/products/jndi/">demonstration namespace
+browser</a> written using JNDI and Swing</li>
+<li><a href="http://java.sun.com/products/jndi/docs.html">Related
+documents</a></li>
+<li>JNDI Architecture Documents:
+<ul>
+<li><b><a href="spec/jndi/index.html">JNDI API</a></b> - also
+available in <a href=
+"http://java.sun.com/j2se/1.5/pdf/jndi.pdf">PDF</a></li>
+<li><b><a href="spec/spi/spicover.frame.html">JNDI SPI</a></b> -
+also available in <a href=
+"http://java.sun.com/j2se/1.5/pdf/jndispi.pdf">PDF</a></li>
+</ul>
+</li>
+<li>JNDI Service Providers:<br />
+To use JNDI with a particular naming or directory service, you need
+a JNDI <em>service provider</em>, which is a module that plugs in
+beneath the JNDI API to access the naming or directory service. The
+JNDI web site maintains a list of <a href=
+"http://java.sun.com/products/jndi/serviceproviders.html">service
+providers</a> available for JNDI.
+<p>Java 2 SDK, v 1.4 and later releases include the following
+service providers:</p>
+<ul>
+<li><a href="jndi-ldap.html">The LDAP Service Provider</a></li>
+<li><a href="jndi-cos.html">The COS Naming Service
+Provider</a></li>
+<li><a href="jndi-rmi.html">The RMI Registry Service
+Provider</a></li>
+<li><a href="jndi-dns.html">The DNS Service Provider</a></li>
+</ul>
+</li>
+</ul>
+<!-- Body text ends here -->
+<!-- ============================================================== -->
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

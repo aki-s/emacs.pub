@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>java.lang.InstantiationException: Either &quot;code&quot; or
+&quot;object&quot; ...</title>
+
+<style type="text/css">
+/*<![CDATA[*/
+p, li {font-family: arial; font-size: 10pt;}
+/*]]>*/
+</style><link rel="stylesheet" href="../../../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><blockquote>
+<h2><code>java.lang.InstantiationException: either code or object
+should be specified, but not both</code></h2>
+<h3><br />
+<font>Symptoms</font></h3>
+<blockquote>
+<p>When running an applet in a browser using the Sun
+Java<sup><font size="1">TM</font></sup> Runtime Environment
+(JRE<sup><font size="1">TM</font></sup>) implementation, a
+<code>java.lang.InstantiationException</code> is thrown. The same
+applet runs without any errors with the Microsoft&nbsp; Virtual
+Machine (VM).</p>
+</blockquote>
+<h3><font>Cause</font></h3>
+<blockquote>
+<p>There are two possible causes.</p>
+<ul>
+<li>Both <code>code</code> and <code>object</code> attributes are
+specified in the <code>&lt;APPLET&gt;</code> tag:<br />
+<br />
+<code>&lt;APPLET code=MyApplet object=MyApplet.ser width=100
+height=100&gt;</code><br />
+<code>&lt;/APPLET&gt;</code><br />
+<br />
+The Sun JRE can access the <code>code</code> or the
+<code>object</code> attribute, and not both.<br />
+&nbsp;</li>
+<li>A <code>code</code> attribute is specified in the
+<code>&lt;APPLET&gt;</code> tag, and an <code>object</code>
+attribute is specified in a <code>&lt;PARAM&gt;</code> tag as shown
+in the following code:<br />
+<br />
+<code>&lt;APPLET code=MyApplet width=100
+height=100&gt;</code><br />
+<code>&lt;PARAM name=&quot;object&quot;
+value=&quot;someValue&quot;&gt;</code><br />
+<code>&lt;/APPLET&gt;</code><br />
+<br />
+<code>public class MyApplet extends java.applet.Applet</code><br />
+<code>{</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>public void
+init()</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>{</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<code>String value = getParameter(&quot;object&quot;);</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>}</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>....</code><br />
+<code>}</code><br />
+<br />
+The Sun JRE does not support <code>object</code> as a parameter
+name.</li>
+</ul>
+</blockquote>
+<h3><font>Resolution</font></h3>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the first cause
+eliminate the <code>code</code> attribute in the
+<code>&lt;APPLET&gt;</code> tag as shown in the following
+code:<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;APPLET object=MyApplet.ser
+width=100 height=100&gt;</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/APPLET&gt;</code><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the second cause
+change the parameter name to a different name as shown in the
+following code:<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;APPLET code=MyApplet
+width=100 height=100&gt;</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;PARAM
+name=&quot;property1&quot;
+value=&quot;someValue&quot;&gt;</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/APPLET&gt;</code><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public class MyApplet extends
+java.applet.Applet</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public void init()</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String value =
+getParameter(&quot;property1&quot;);</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;....</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</code></p>
+<h3><font>Related Information</font></h3>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; None.</p>
+<p>&nbsp;</p>
+</blockquote>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="copyright" content="2004, 2010" />
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+
+  
+<link rel="stylesheet" href="../../css/tools.css"  type="text/css" />
+<title>jstatd - 仮想マシン jstat デーモン</title>
+
+</head>
+
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>jstatd - 仮想マシン jstat デーモン</h1>
+
+  <ul>
+<li><a href="#synopsis">形式</a></li>
+
+<li><a href="#parameters">パラメータ</a></li>
+
+<li><a href="#description">説明</a></li>
+
+<li><a href="#options">オプション</a></li>
+
+<li><a href="#security">セキュリティー</a></li>
+
+<li><a href="#remote-interface">リモートインタフェース</a></li>
+
+<li><a href="#examples">例</a></li>
+
+<li><a href="#seealso">関連項目</a></li>
+  </ul>
+
+<h2><a name="synopsis"/>形式</h2>
+<blockquote>
+<pre>
+jstatd [ <i>options</i> ]<br />
+</pre>
+</blockquote>
+<h2><a name="parameters"/>パラメータ</h2>
+  <blockquote>
+
+  <dl>
+<dt><a href="#options"><code>options</code></a></dt>
+
+<dd>コマンド行オプション。オプションは任意の順序で指定できます。重複または矛盾するオプションがある場合、最後に指定したオプションが優先されます。</dd>
+  </dl>
+
+</blockquote>
+<h2><a name="description"/> 説明</h2>
+<blockquote>
+<p><b>jstatd</b> ツールは、計測された HotSpot Java 仮想マシン (JVM) の作成と終了を監視し、ローカルシステム上で実行している Java 仮想マシンに、リモート監視ツールが接続できるようにするためのインタフェースを提供する RMI サーバーアプリケーションです。</p>
+
+<p><b>jstatd</b> サーバーでは、ローカルホストに RMI レジストリが存在することが必要になります。<b>jstatd</b> サーバーは、デフォルトポートまたは <i>-p port</i> オプションで指定されたポート上の RMI レジストリに接続しようとします。RMI レジストリが見つからない場合、<i>-p port</i> オプションで指定されたポート、または <i>-p port</i> が省略されている場合は、デフォルト RMI レジストリにバインドされた <b>jstatd</b> アプリケーション内に、1 つの RMI レジストリが作成されます。内部 RMI レジストリの作成は、<i>-nr</i> オプションを指定することによって禁止することができます。</p>
+
+<p><b>注:</b> このユーティリティーはサポート対象外であり、将来の JDK のバージョンでは利用できなくなる可能性があります。現在、Windows 98 および Windows Me プラットフォームでは使用できません。</p>
+</blockquote>
+<h2><a name="options"/>オプション</h2>
+<blockquote>
+<p><b>jstatd</b> コマンドは次のオプションをサポートしています。</p>
+
+  <dl>
+<dt><b>-nr</b></dt>
+
+<dd>既存の RMI レジストリが見つからない場合、<i>jstatd</i> プロセス内に内部 RMI レジストリを作成しないようにします。</dd>
+
+<dt><b>-p</b>&nbsp; <i>port</i></dt>
+
+<dd>RMI レジストリがあると予想されるポート番号です。 見つからない場合は、<i>-nr</i> が指定されていなければ作成されます。</dd>
+
+<dt><b>-n</b>&nbsp; <i>rminame</i></dt>
+
+<dd>RMI レジストリにおいて、リモート RMI オブジェクトがバインドされる名前です。デフォルト名は <i>JStatRemoteHost</i> です。複数の <b>jstatd</b> サーバーが同じホスト上で起動している場合、各サーバーのエクスポートした RMI オブジェクトの名前は、このオプションを指定することによって、一意の名前にすることができます。ただし、このオプションを使用する場合、監視クライアントの <i>hostid</i> および <i>vmid</i> 文字列に、その一意のサーバー名を含める必要があります。</dd>
+
+<dt><b>-J</b><i>option</i></dt>
+
+<dd><b>javac</b> が呼び出す <b>java</b> 起動ツールに、<i>option</i> を渡します。たとえば、<b>-J-Xms48m</b> と指定すると、スタートアップメモリーは 48M バイトに設定されます。<b>-J</b> を使って、Java で記述されたアプリケーションを実行する背後の VM にオプション渡すことは、よく行われています。</dd>
+  </dl>
+</blockquote>
+<h2><a name="security"/>セキュリティー</h2>
+<blockquote>
+<p><b>jstatd</b> サーバーは、有効なネイティブアクセス権を持つ JVM だけを監視できます。したがって、<b>jstatd</b> プロセスは、ターゲット JVM と同じユーザー資格で実行している必要があります。一部のユーザー資格は、Unix(TM) ベースのシステムにおける <i>root</i> ユーザーのように、システム上の任意の JVM によってエクスポートされたインストゥルメンテーションへのアクセス権を持っています。このような資格で実行している <b>jstatd</b> プロセスは、システム上のすべての JVM を監視できますが、セキュリティー上の別の問題が起こります。</p>
+
+<p><b>jstatd</b> サーバーは、リモートクライアントの認証を一切与えません。そのため、<b>jstatd</b> サーバープロセスを実行すると、<b>jstatd</b> プロセスがアクセス権を持つすべての JVM によるインストゥルメンテーションのエクスポートを、ネットワーク上のすべてのユーザーに公開することになります。この無防備な状態は、環境的に望ましくない場合があります。 特に実稼働環境または安全でないネットワークでは、<b>jstatd</b> プロセスを起動する前に、ローカルセキュリティーポリシーを検討する必要があります。</p>
+
+<p><b>jstatd</b> サーバーは、他のセキュリティーマネージャーがインストールされていない場合には、RMISecurityPolicy のインスタンスをインストールします。 そのため、セキュリティーポリシーファイルを指定する必要があります。ポリシーファイルは、デフォルトポリシー実装の<a href=   "../../guides/security/PolicyFiles.html">ポリシーファイルの構文</a>に準拠する必要があります。</p>
+
+<p>次のポリシーファイルの場合、<b>jstatd</b> サーバーは一切のセキュリティー例外を使用せずに実行できます。このポリシーは、すべてのコードベースへのあらゆるアクセス権を認めるポリシーよりも自由度は低いですが、<b>jstatd</b> サーバーを実行するために最低限必要なアクセス権しか認めないポリシーよりも自由度は高くなっています。</p>
+  <pre>
+grant codebase "file:${java.home}/../lib/tools.jar" {<br />
+   permission java.security.AllPermission;<br />
+};<br />
+</pre>
+
+<p>このポリシーを使用するには、このテキストを <i>jstatd.all.policy</i> というファイルにコピーし、次のように <b>jstatd</b> サーバーを実行します。</p>
+  <pre>
+jstatd -J-Djava.security.policy=jstatd.all.policy<br />
+</pre>
+
+<p>より厳しいセキュリティーを実施するサイトの場合、カスタムポリシーファイルを使用して、特定の信頼できるホストまたはネットワークにアクセスを制限することができます。 ただし、このような方法は、IP アドレスの盗聴攻撃を受けやすくなります。セキュリティーの問題について、カスタマイズしたポリシーファイルでも対処できない場合は、<b>jstatd</b> サーバーを実行せずに、<b>jstat</b> と <b>jps</b> ツールをローカルで使用することがもっとも安全な方法になります。</p>
+</blockquote>
+<h2><a name="remote-interface"/>リモートインタフェース</h2>
+<blockquote>
+<p><b>jstatd</b> プロセスがエクスポートするインタフェースは、独自に開発したものであり変更される予定です。ユーザーおよび開発者は、このインタフェースへの書き込みを行わないでください。</p>
+</blockquote>
+<h2><a name="examples"/>例</h2>
+<blockquote>
+<p>次に <b>jstatd</b> を起動する例を紹介します。<b>jstatd</b> スクリプトによって、サーバーはバックグラウンドで自動的に起動します。</p>
+
+<h3><a name="simple"/>内部 RMI レジストリの使用</h3>
+
+<p>この例は、内部 RMI レジストリを使用した <b>jstatd</b> の起動を表しています。この例では、デフォルトの RMI レジストリポート (ポート 1099) には、他のサーバーはバインドされていないと想定しています。</p>
+  <pre>
+jstatd -J-Djava.security.policy=all.policy
+</pre>
+
+<h3><a name="with-RMI-registry"/>外部 RMI レジストリの使用</h3>
+
+<p>この例は、外部 RMI レジストリを使用した <b>jstatd</b> の起動を表しています。</p>
+  <pre>
+rmiregistry&amp;
+jstatd -J-Djava.security.policy=all.policy
+</pre>
+
+<p>この例は、ポート 2020 の外部 RMI レジストリを使用した <b>jstatd</b> の起動を表しています。</p>
+  <pre>
+rmiregistry 2020&amp;
+jstatd -J-Djava.security.policy=all.policy -p 2020
+</pre>
+
+<p>この例は、AlternateJstatdServerName の名前にバインドされた、ポート 2020 の外部 RMI レジストリを使用した <b>jstatd</b> の起動を表しています。</p>
+  <pre>
+rmiregistry 2020&amp;
+jstatd -J-Djava.security.policy=all.policy -p 2020 -n AlternateJstatdServerName
+</pre>
+
+<h3><a name="prevent-RMI-registry"/>インプロセス RMI レジストリの作成の禁止</h3>
+
+<p>この例は、RMI レジストリが見つからない場合に RMI レジストリを作成しない <b>jstatd</b> の起動を表しています。この例では、RMI レジストリがすでに実行していると想定しています。実行していない場合は、該当するエラーメッセージが表示されます。</p>
+  <pre>
+jstatd -J-Djava.security.policy=all.policy -nr
+</pre>
+
+<h3><a name="troubleshooting"/>RMI ログ機能の有効化</h3>
+
+<p>この例は、RMI ログ機能を有効にした <b>jstatd</b> の起動を表しています。この方法は、トラブルシューティングまたはサーバー活動の監視に役立ちます。</p>
+  <pre>
+jstatd -J-Djava.security.policy=all.policy -J-Djava.rmi.server.logCalls=true
+</pre>
+</blockquote>
+<h2><a name="seealso">関連項目</a></h2>
+
+  <ul>
+<li>「<a href="../index.html#java">java</a> - Java アプリケーション起動ツール」</li>
+
+<li>「<a href="jps.html">jps</a> - Java 仮想マシンプロセスステータスツール」</li>
+
+<li>「<a href="jstat.html">jstat</a> - Java 仮想マシン統計データ監視ツール」</li>
+
+<li>「<a href="../index.html#rmi">rmiregistry</a> - Java リモートオブジェクトレジストリ」</li>
+  </ul>
+
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

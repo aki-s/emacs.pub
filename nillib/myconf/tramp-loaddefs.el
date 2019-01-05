@@ -1,0 +1,7 @@
+;(autoload 'tramp-gw     "tramp-gw" "tramp-")
+;(autoload 'tramp-sh     "tramp-sh" "tramp-sh")
+;(autoload 'tramp-smb    "tramp-smb" "tramp-")
+;(autoload 'tramp-cache  "tramp-cache" "tramp-")
+;(autoload 'tramp-ftp    "tramp-ftp" "tramp-")
+;(autoload 'tramp-cmds   "tramp-cmds" "tramp-")
+(provide 'tramp-loaddefs)

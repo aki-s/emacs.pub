@@ -1,0 +1,62 @@
+<project default="compile">
+
+    <target name="compile">
+        <mkdir dir="classes"/>
+        <javac srcdir="." destdir="classes" fork="yes" executable="${JAVAC}">
+            <compilerarg value="-Xlint:unchecked"/>
+        </javac>
+    </target>
+
+    <target name="clean">
+        <delete dir="classes"/>
+        <delete dir="lib"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="lib"/> 
+        <copy todir="classes" >  
+            <fileset dir=".">
+                <include name="*.jpg"/>
+                <include name="images/**"/>
+            </fileset>
+        </copy>
+        <jar destfile="lib/2d_images.jar" manifest="manifest.mf" basedir="classes"/>
+        <java jvm="${JAVA}" jar="${ANTCLIENTJAR}"
+           fork="true"
+           failonerror="true">
+           <arg value="-file_to_sign"/>
+           <arg path="lib/2d_images.jar"/>
+           <arg value="-user jsedteam"/>
+           <arg value="-pass sign2jsedteam"/>
+           <arg value="-signed_location"/>
+           <arg path="lib"/>
+           <arg value="-sign_method java2"/>   
+       </java>
+        
+<!--
+
+           <apply executable="java" parallel="false" verbose="true" force="true">
+                
+                <mapper type="regexp" from="^(.*)/([^/]*)$" to="dist/\1"/>
+                <arg line="-jar"/>
+                <arg path="${ANTCLIENTJAR}"/>
+                <arg value="-file_to_sign"/>
+                <srcfile/>
+                <arg value="-user jsedteam"/>
+                <arg value="-pass sign2jsedteam"/>
+                <arg value="-signed_location"/>
+                <targetfile/>
+                <arg value="-sign_method java2"/>
+                <fileset dir="dist">
+                    <include name="**/*.jar"/>
+                </fileset>
+            </apply>
+            
+-->
+        
+        
+        
+    </target>
+
+</project>
+

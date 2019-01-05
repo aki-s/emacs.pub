@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="copyright" content="2006, 2010" />
+
+
+  <title>jrunscript - command line script shell</title>
+
+  <link rel="stylesheet" href="../../css/tools.css" type="text/css" />
+</head>
+
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table>  <h1>jrunscript - command line script shell</h1>
+
+  <ul>
+    <li><a href="#synopsis">Synopsis</a></li>
+
+    <li><a href="#parameters">Parameters</a></li>
+
+    <li><a href="#description">Description</a></li>
+
+    <li><a href="#options">Options</a></li>
+
+    <li><a href="#arguments">Arguments</a></li>
+
+    <li><a href="#examples">Examples</a></li>
+
+    <li><a href="#seealso">See Also</a></li>
+  </ul>
+
+  <h2><a name="synopsis" id="synopsis">SYNOPSIS</a></h2>
+    <blockquote>
+      <pre><b>jrunscript</b> [ <i>options</i> ] [ arguments... ]</pre>
+</blockquote>
+  <h2><a name="parameters"/>PARAMETERS</h2>
+
+    <blockquote>
+      <dl>
+        <dt><a href="#options">options</a></dt>
+
+        <dd>Options, if used, should follow immediately after the command name.</dd>
+
+        <dt><a href="#arguments">arguments</a></dt>
+        <dd>Arguments, if used, should follow immediately after options or command name.</dd>
+
+      </dl>
+    </blockquote>
+    <h2><a name="description"/>DESCRIPTION</h2>
+    <blockquote>
+      <p><b>jrunscript</b> is a command line script shell. jrunscript
+        supports both an interactive (read-eval-print) mode and a batch (-f option)
+        mode of script execution. This is a scripting language independent shell. 
+        By default, JavaScript is the language used, but the -l option can be used to
+        specify a different language.
+        Through Java to scripting language communication, jrunscript supports
+        "exploratory programming" style. 
+      
+      </p><p><b>NOTE:</b> This tool is <b>experimental</b> and may <b>not</b> be
+        available in future versions of the JDK.</p>
+    </blockquote>
+  <h2><a name="options"/>OPTIONS</h2>
+  <blockquote>
+      <dl>
+        <dt><b>-classpath</b> <i>path</i></dt>
+
+        <dd>Specify where to find the user's .class files that are accessed by the script.</dd>
+
+        <dt><b>-cp</b> <i>path</i></dt>
+
+        <dd>This is a synonym for -classpath <i>path</i>
+
+        </dd><dt><b>-D</b><i>name</i>=<i>value</i></dt>
+
+        <dd>Set a Java system property.</dd>
+
+        <dt><b>-J&lt;flag&gt;</b></dt>
+
+        <dd>Pass &lt;flag&gt; directly to the Java virtual machine on which jrunscript is run.</dd>
+
+        <dt><b>-l</b> <i>language</i></dt>
+
+        <dd>Use the specified scripting language. By default, JavaScript is used. Note that to use
+        other scripting languages, you also need to specify the corresponding script engine's jar file
+        using -cp or -classpath option.</dd>
+
+        <dt><b>-e</b> <i>script</i></dt>
+
+        <dd>Evaluate the given script. This option can be used to run "one liner" scripts
+        specified completely on the command line.</dd>
+
+        <dt><b>-encoding</b> <i>encoding</i></dt>
+
+        <dd>Specify the character encoding used while reading script files.</dd>
+
+        <dt><b>-f</b> <i>script-file</i></dt>
+
+        <dd>Evaluate the given script file (batch mode).</dd>
+
+        <dt><b>-f</b> <i>-</i></dt>
+
+        <dd>Read and evaluate a script from standard input (interactive mode).</dd>
+
+        <dt><b>-help</b>&nbsp;</dt>
+
+        <dd>Output help message and exit.</dd>
+
+        <dt><b>-?</b>&nbsp;</dt>
+
+        <dd>Output help message and exit.</dd>
+
+        <dt><b>-q</b>&nbsp;</dt>
+
+        <dd>List all script engines available and exit.</dd>
+
+      </dl>
+</blockquote>
+
+  <h2><a name="arguments">ARGUMENTS</a></h2>
+  <p>
+  If [arguments...] are present and if no <b>-e</b> or <b>-f</b> option is used, then the
+  first argument is the script file and the rest of the arguments, if any, are passed
+  as script arguments. If [arguments..] and <b>-e</b> or <b>-f</b> option are used, then
+  all [arguments..] are passed as script arguments. If [arguments..], <b>-e</b> and <b>-f</b>
+  are missing, interactive mode is used. Script arguments are available to a script in an engine 
+  variable named "arguments" of type String array.
+  </p>
+
+  <h2><a name="examples">EXAMPLES</a></h2>
+
+  <h4>Executing inline scripts</h4>
+  <blockquote>
+    <pre>jrunscript -e "print('hello world')"
+jrunscript -e "cat('http://java.sun.com')"</pre>
+  </blockquote>
+  <h4>Use specified language and evaluate given script file</h4>
+  <blockquote>
+    <pre>jrunscript -l js -f test.js</pre>
+  </blockquote>
+  <h4>Interactive mode</h4>
+  <blockquote>
+    <pre>jrunscript
+js&gt;print('hello world');
+hello world
+js&gt;34 + 55
+89
+js&gt; thread(function() { print('hello world'); }
+hello world
+js&gt;</pre>
+  </blockquote>
+  <h4>Run script file with script arguments</h4>
+<blockquote>
+  <pre>jrunscript test.js arg1 arg2 arg3
+</pre>
+   </blockquote>
+   test.js is script file to execute and arg1, arg2 and arg3 are passed to script
+   as script arguments. Script can access these using "arguments" array.
+
+  <a name="seealso"></a>
+  <h2>SEE ALSO</h2>
+  <p>
+  If JavaScript is used, then before evaluating any user defined script, 
+  jrunscript initializes certain built-in functions and objects. 
+  These JavaScript built-ins are documented in <a href="jsdocs/index.html">jsdocs</a>.
+  </p>
+
+  <ul>
+
+    </li>
+  </ul>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

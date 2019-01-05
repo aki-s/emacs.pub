@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Deployment: Internet</title><link rel="stylesheet" href="../../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>Internet Deployment</h1>
+<form name="form1" id="form1"><select name="menu1" onchange=
+"Eminem_jumpMenu('parent',this,1)"><script src="menu_script.js"
+language="JavaScript" type="text/javascript">
+</script></select></form>
+<h2><br />
+Deploying Java Plug-in with Internet Explorer</h2>
+<p>With Internet Explorer it is recommended that you use the
+<code>APPLET</code> tag for internet deployment. However, you could
+use the <code>OBJECT</code> tag in certain cases; e.g., if you want
+users to use a particular version of Java Plug-in. In the case that
+the you chose to use the <code>OBJECT</code> tag, the following is
+recommended.</p>
+<table summary="layout" width="90%" border="1" cellpadding="5"
+align="center" bgcolor="#FFFFCC" cellspacing="0">
+<tr>
+<td>
+<h3 align="left"><u>Recommendations</u></h3>
+<p>The following is recommeded for long-term reliability:</p>
+<ul>
+<li>For the <code>codebase</code> attribute in the
+<code>OBJECT</code> tag, it is recommended that you use the
+<code>.exe</code> version, rather than the <code>.cab</code>
+version, on <code>java.sun.com</code>. That <code>.cab</code>
+version on <code>java.sun.com</code> may point to an updated
+version that you do not want to use for your deployment.</li>
+<li>It is also recommend that you create your own download site for
+the versions you need so that you do not rely on
+<code>java.sun.com</code>. Downloads on <code>java.sun.com</code>
+frequently change.</li>
+</ul>
+</td>
+</tr>
+</table>
+<p>These are the same recommendations as for the intranet
+environment.</p>
+<h2>Deploying Java Plug-in with Mozilla</h2>
+<p>With supported Mozilla browsers it is recommended that you use
+the APPLET tag for internet deployment.</p>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

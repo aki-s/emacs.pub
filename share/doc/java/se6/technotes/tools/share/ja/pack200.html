@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="copyright" content="2004, 2010" />
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+
+  
+<link rel="stylesheet" href="../../css/tools.css"  type="text/css" />
+<title>pack200 - JAR パックツール</title>
+
+  <meta http-equiv="Content-Type" content=
+  "text/html" />
+</head>
+
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>pack200 - JAR パックツール</h1>
+
+  <ul>
+<li><a href="#synopsis">形式</a></li>
+
+<li><a href="#description">説明</a></li>
+
+<li><a href="#options">オプション</a></li>
+
+<li><a href="#exitstatus">終了ステータス</a></li>
+
+<li><a href="#seealso">関連項目</a></li>
+
+<li><a href="#notes">説明</a></li>
+  </ul><!-- ============================================== -->
+ 
+
+<h2> <a name="synopsis"/>形式</h2>
+
+  <blockquote>
+<p><code><strong>pack200</strong> [ <em>options</em> ] <em>output-file</em> <em>JAR-file</em></code></p>
+
+<p>オプションの指定順序に決まりはありません。コマンド行または properties ファイルに指定された最後のオプションが、それ以前に指定されたすべてのオプションより優先されます。</p>
+
+    <blockquote>
+      <dl>
+<dt><a href="#options"><code><em>options</em></code></a></dt>
+
+<dd>コマンド行オプション。</dd>
+
+<dt><code><em>output-file</em></code></dt>
+
+<dd>出力ファイルの名前。</dd>
+
+<dt><code><em>JAR-file</em></code></dt>
+
+<dd>入力ファイルの名前。</dd>
+      </dl>
+    </blockquote>
+  </blockquote>
+  <!-- ============================================== -->
+  
+
+<h2><a name="description"/> 説明</h2>
+
+  <blockquote>
+<p><code>pack200</code> ツールは、Java <code>gzip</code> 圧縮プログラムを使用して、JAR ファイルを <code>pack200</code> 圧縮ファイルに変換する Java アプリケーションです。<code>pack200</code> ファイルは高圧縮のファイルで、帯域幅の節約やダウンロード時間の短縮や直接配備することができます。</p>
+
+<p><code>pack200</code> ツールには、圧縮エンジンの設定や微調整を行うオプションが用意されています。</p>
+
+<h3>一般的な使用方法:</h3>
+
+    <blockquote>
+<p><code>% pack200 myarchive.pack.gz myarchive.jar</code></p>
+    </blockquote>
+
+<p>この例では、デフォルトの <code>pack200</code> 設定で、<code>myarchive.pack.gz</code> が作成されます。</p>
+  </blockquote>
+  <!-- ============================================== -->
+  
+
+<h2><a name="options"/>オプション</h2>
+
+  <blockquote>
+<p><strong><code>-r --repack</code></strong></p>
+
+    <blockquote>
+<p><code>myarchive.jar</code> ファイルをパックした後にアンパックすることにより、JAR ファイルを生成します。生成されたファイルは、<code>jarsigner(1)</code> ツールの入力ファイルとして使用できます。</p>
+
+      <blockquote>
+<p><code>% pack200 --repack myarchive-packer.jar myarchive.jar</code></p>
+
+<p><code>% pack200 --repack myarchive.jar</code></p>
+      </blockquote>
+    </blockquote>
+
+<p><strong><code>-g --no-gzip</code></strong></p>
+
+    <blockquote>
+<p><code>pack200</code> ファイルを生成します。このオプションを指定するときは、適切な圧縮ツールを使用する必要があります。 また、ターゲットシステムでは、対応する圧縮解除ツールを使用する必要があります。</p>
+
+      <blockquote>
+<p><code>% pack200 --no-gzip myarchive.pack myarchive.jar</code></p>
+      </blockquote>
+    </blockquote>
+
+<p><strong><code>-G --strip-debug</code></strong></p>
+
+    <blockquote>
+<p>出力からデバッグ用の属性を削除します。対象となる属性には、<code>SourceFile</code>、<code>LineNumberTable</code>、<code>LocalVariableTable</code>、および <code>LocalVariableTypeTable</code> などがあります。これらの属性を削除すれば、ダウンロードとインストールのサイズは小さくなりますが、デバッガの機能は制限されます。</p>
+    </blockquote>
+
+<p><strong><code>-O --no-keep-file-order</code></strong></p>
+
+    <blockquote>
+<p>パックツールは、すべての要素を並べ替えて転送します。また、JAR ディレクトリ名を削除します。このため、ダウンロードのサイズは小さくなりますが、インデックスをはじめとする JAR ファイルの最適化機能は正常に動作しなくなることがあります。</p>
+    </blockquote>
+
+<p><code><strong>-Svalue --segment-limit=</strong><em>value</em></code></p>
+
+    <blockquote>
+<p>この値は、各アーカイブセグメントの予想ターゲットサイズ N (バイト単位) です。N バイト以上を必要とする単一の入力ファイルには、<br />独立したアーカイブセグメントが割り当てられます。たとえば、これは特殊な例ですが、値が <code>-1</code> の場合、すべての入力ファイルを含む単一の巨大なセグメントが生成されます。 一方、値が <code>0</code> の場合、クラスごとにセグメントが 1 つずつ生成されます。アーカイブセグメントのサイズが大きければ大きいほど断片化は起こりにくく、圧縮率も高くなります。しかし、こうしたセグメントを処理するためには、大量のメモリーが必要になります。</p>
+
+<p>各セグメントのサイズは、セグメント内で転送される入力ファイルのサイズと、このファイルの名前のサイズ、およびその他の転送プロパティーによって予測されます。</p>
+
+<p>デフォルトのサイズは <code>1000000</code> (100 万バイト) です。これは、標準サイズの入力 JAR ファイルを単一セグメント内で転送できるサイズです。パックツールおよびアンパックツールのメモリー要件には制限が課されます。</p>
+
+<p>この制限が課されていない 10M バイトの JAR パックファイルは通常、元の 10% 程度のサイズにパックされます。 しかし、パックツールでより大きな Java ヒープ (セグメントの制限の約 10 倍) を必要とする場合もあります。</p>
+    </blockquote>
+
+<p><code><strong>-Evalue --effort=</strong><em>value</em></code></p>
+
+    <blockquote>
+<p>単一の 10 進数値を指定した場合、パックツールは、指定された圧縮率でアーカイブを圧縮します。レベル <code>1</code> の場合、圧縮速度は速くても圧縮率はそれほど高くありません。 レベル <code>9</code> の場合、圧縮速度は遅くても圧縮率は高くなります。特殊な値 <code>0</code> を指定した場合は、元の JAR ファイルを圧縮なしで直接コピーします。JSR 200 標準では、すべてのアンパックツールはこの特殊な処理をアーカイブ全体のパススルーとして理解する必要があります。</p>
+
+<p>デフォルト値は <code>5</code> です。 この場合、標準的な時間で、適度な圧縮が行われます。</p>
+    </blockquote>
+
+<p><code><strong>-Hvalue --deflate-hint=</strong><em>value</em></code></p>
+
+    <blockquote>
+<p>デフォルト値を上書きし、入力情報を保持します。 転送されるアーカイブのサイズは大きくなります。可能な値:</p>
+
+      <dl>
+<dt><code>true</code></dt>
+
+<dt><code>false</code></dt>
+
+<dd>どちらの場合でも、パックツールはデフレーションヒントを出力アーカイブに設定します。 アーカイブ要素の個々のデフレーションヒントは転送しません。</dd>
+      </dl>
+
+      <dl>
+<dt><code>keep</code></dt>
+
+<dd>入力 JAR 内のデフレーションヒントを保持します (デフォルト)。</dd>
+      </dl>
+    </blockquote>
+
+<p><code><strong>-mvalue --modification-time=</strong><em>value</em></code></p>
+
+    <blockquote>
+<p>可能な値:</p>
+
+      <dl>
+<dt><code>latest</code></dt>
+
+<dd>パックツールは、元のアーカイブの全エントリの最終更新時刻か、そのセグメントのすべてのエントリの最終更新時刻を特定しようとします。この単一の値はセグメントの一部として転送され、各セグメントの全エントリに適用されます。この場合、すべてのインストールファイルに単一の日付が設定されるという問題はありますが、アーカイブの転送サイズを少し小さくすることができます。</dd>
+
+<dt><code>keep</code></dt>
+
+<dd>入力 JAR 内の更新時刻を保持します (デフォルト)。</dd>
+      </dl>
+    </blockquote>
+
+<p><code><strong>-Pfile --pass-file=</strong><em>file</em></code></p>
+
+    <blockquote>
+<p>ファイルを圧縮せず、バイト単位で転送するように指定します。このオプションを繰り返し使用して、複数のファイルを指定できます。パス名の変換は行われません。 システムファイルの区切り文字が JAR ファイルの区切り文字「<code>/</code>」で置き換えられるだけです。ファイル名は、JAR ファイル内の文字列と完全に一致していなければなりません。file にディレクトリ名を指定した場合、そのディレクトリ内のすべてのファイルが転送されます。</p>
+    </blockquote>
+
+<p><code><strong>-Uaction --unknown-attribute=</strong><em>action</em></code></p>
+
+    <blockquote>
+<p>デフォルトの動作を無効にします。 たとえば、不明な属性を含むクラスファイルを指定したアクションで転送します。アクションとして指定可能な値:</p>
+
+      <dl>
+<dt><code>error</code></dt>
+
+<dd><code>pack200</code> の操作に失敗し、適切な解説が表示されます。</dd>
+
+<dt><code>strip</code></dt>
+
+<dd>属性はドロップされます。注: VM 必須属性を削除すると、クラスローダーの障害が発生することがあります。</dd>
+
+<dt><code>pass</code></dt>
+
+<dd>この属性が検出された場合、クラス全体が 1 つのリソースとして転送されます。</dd>
+      </dl>
+    </blockquote>
+
+<p><code><strong>-Cattribute-name=</strong><em>layout</em> <strong>--class-attribute=</strong><em>attribute-name=action</em></code><br />
+
+<code><strong>-Fattribute-name=</strong><em>layout</em> <strong>--field-attribute=</strong><em>attribute-name=action</em></code><br />
+
+<code><strong>-Mattribute-name=</strong><em>layout</em> <strong>--method-attribute=</strong><em>attribute-name=action</em></code><br />
+
+<code><strong>-Dattribute-name=</strong><em>layout</em> <strong>--code-attribute=</strong><em>attribute-name=action</em></code></p>
+
+    <blockquote>
+<p>これら 4 つのオプションでは、クラスエンティティーに Class 属性、Field 属性、Method 属性、Code 属性などの属性のレイアウトを指定できます。attribute-name には、これからレイアウトまたはアクションを定義する属性の名前を指定します。アクションとして指定可能な値:</p>
+
+      <dl>
+<dt><code><em>(一部のレイアウト文字列)</em></code></dt>
+
+        <dd>
+レイアウト言語は、JSR 200 仕様に定義されています。
+
+<p>例:<code> --class-attribute=SourceFile=RUH</code></p>
+        </dd>
+
+<dt><code>error</code></dt>
+
+<dd>この属性が検出された場合、pack200 の操作に失敗し、適切な解説が表示されます。</dd>
+
+<dt><code>strip</code></dt>
+
+<dd>この属性が検出された場合、属性は出力から削除されます。注: VM 必須属性を削除すると、クラスローダーの障害が発生することがあります。</dd>
+      </dl>
+
+<p>例: <code>--class-attribute=CompilationID=pass</code> というこの属性を含むクラスファイルを転送します。 パックツールは、その他のアクションを行いません。</p>
+    </blockquote>
+
+<p><code><strong>-f</strong> <em>pack.properties</em> <strong>--config-file=</strong><em>pack.properties</em></code></p>
+
+    <blockquote>
+<p>コマンド行に、パックツールを初期化するための Java プロパティーが含まれている設定ファイルを指定できます。</p>
+
+      <blockquote>
+<p><code>% pack200 -f pack.properties myarchive.pack.gz myarchive.jar<br /> % more pack.properties<br /> # Generic properties for the packer.<br /> modification.time=latest<br /> deflate.hint=false<br /> keep.file.order=false<br /> # This option will cause the files bearing new attributes to<br /> # be reported as an error rather than passed uncompressed.<br /> unknown.attribute=error<br /> # Change the segment limit to be unlimited.<br /> segment.limit=-1</code></p>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+
+  <blockquote>
+<p><strong><code>-v --verbose</code></strong></p>
+
+    <blockquote>
+<p>最小限のメッセージを出力します。このオプションを複数指定すると、より長いメッセージが出力されます。</p>
+    </blockquote>
+
+<p><strong><code>-q --quiet</code></strong></p>
+
+    <blockquote>
+<p>メッセージを表示せずに動作します。</p>
+    </blockquote>
+
+<p><code><strong>-lfilename --log-file=</strong><em>filename</em></code></p>
+
+    <blockquote>
+<p>出力メッセージのログファイルを指定します。</p>
+    </blockquote>
+
+<p><strong><code>-Joption</code></strong></p>
+
+    <blockquote>
+<p><code>pack200</code> によって呼び出される Java 起動ツールにオプションを渡します。たとえば、<code>-J-Xms48m</code> と指定すると、スタートアップメモリーは 48M バイトに設定されます。このオプションは <code>-X</code> で始まっていませんが、<code>pack200</code> の標準オプションではありません。<code>-J</code> を使って、Java で記述されたアプリケーションを実行する背後の VM にオプション渡すことは、よく行われています。</p>
+    </blockquote>
+  </blockquote>
+  <!-- ============================================== -->
+  
+
+<h2><a name="exitstatus"/>終了ステータス</h2>
+
+  <blockquote>
+<p>次の終了値が返されます。</p>
+
+    <blockquote>
+<p><code>&nbsp;0</code> &quot;成功&quot;</p>
+
+<p><code>&gt;0</code> &quot;エラー&quot;</p>
+    </blockquote>
+  </blockquote>
+  <!-- ============================================== -->
+  
+
+<h2><a name="seealso">関連項目</a></h2>
+
+  <ul>
+<li><a href="unpack200.html">「unpack200 - JAR アンパックツール」</a></li>
+
+<li><a href="../../../index.html">Java SE のドキュメント</a></li>
+
+<li><a href=     "../../guides/deployment/deployment-guide/pack200.html">「Java 配備ガイド - Pack200」</a></li>
+
+<li><a href="../index.html#jar">「<code>jar</code></a> - Java Archive ツール」</li>
+
+<li>「<a href="../index.html#jarsigner"><code>jarsigner</code></a> - JAR 署名および検証ツール」</li>
+<li><code>attributes(5)</code> のマニュアルページ</li>
+  </ul>
+  <!-- ============================================== -->
+  
+
+<h2><a name="notes"/>注意事項</h2>
+
+  <blockquote>
+<p>このコマンドと <code>pack(1)</code> を混同しないでください。これらは別製品です。</p>
+
+<p>SDK に付属する Java SE API 仕様との相違が見つかった場合には、仕様を優先してください。</p>
+  </blockquote>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

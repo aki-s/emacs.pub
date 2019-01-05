@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Java IDL: Running The "Hello World" Example on Two
+Machines</title><link rel="stylesheet" href="../../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>Java IDL: The "Hello World" Example on Two
+Machines</h1>
+<p>To enable the Hello World Tutorial to run on two machines,
+follow the steps as directed in the <a href=
+"../jidlExample.html">tutorial</a>, with the following changes.
+This tutorial was written for the Java (tm) 2 Platform, Standard
+Edition (J2Se(tm)), version 1.4. In this example, the client,
+stubs, and skeletons are located on the client machine, and the
+server and name server are located on the server machine. This
+scenario can be changed to meet your needs and is provided simply
+as an introduction to one way to distribute an application across
+two machines.</p>
+<ol>
+<li>Create (as shown in the tutorial) and compile the
+<tt>Hello.idl</tt> file on the client machine:
+<pre>
+   
+   idlj -fall Hello.idl
+</pre></li>
+<li>Create <tt>HelloClient.java</tt> on the <b>client</b> machine.
+Compile the <tt>*.java</tt> files, including the stubs and
+skeletons (which are in the directory <tt>HelloApp</tt>):
+<pre>
+   javac *.java HelloApp/*.java
+</pre></li>
+<li>Create <tt>HelloServer.java</tt> on the <b>server</b> machine.
+Compile the <tt>.java</tt> files:
+<pre>
+   javac *.java
+</pre></li>
+<li>Start the Java Object Request Broker Daemon, <tt>orbd</tt>,
+which includes a Naming Service, on the server machine. To do this
+on Unix:
+<pre>
+   orbd -ORBInitialPort 1050 -ORBInitialHost <em>servermachinename</em>&
+</pre>
+<p>To do this on Windows:</p>
+<pre>
+   start orbd -ORBInitialPort 1050 -ORBInitialHost <em>servermachinename</em>
+</pre>
+<p>Both <tt>-ORBInitialPort</tt> and <tt>-ORBInitialHost</tt> are
+required arguments on the <tt>orbd</tt> command line. This example
+starts the name server on port <tt>1050</tt>, because on Solaris
+you must become root to start a process on a port under 1024. If
+you want to use a different <em>nameserverport</em>, replace 1050
+with the correct port number throughout this example.</p>
+<p>When using <tt>orbd</tt>, the ORBD must be run on the same
+machine as the machine on which the servers will be activated.
+Another Naming Service, <tt>tnameserv</tt>, could be used if you
+prefer to run the Naming Service on a machine other than the
+machine on which the servers will be activated.</p>
+</li>
+<li>On the server machine, start the Hello server, as follows:
+<pre>
+   java HelloServer -ORBInitialPort 1050
+</pre>
+<p>If you used a different <em>nameserverport</em>, replace 1050
+with the correct port number. You do not need to specify the
+<tt>-ORBInitialHost</tt> argument because the Hello server will be
+running on the same host as the name server in this example. If the
+Name Server were running on a different machine, you would specify
+which machine using the <tt>-ORBInitialHost nameserverhost</tt>
+argument.</p>
+</li>
+<li>On the client machine, run the Hello application client. From a
+DOS prompt or shell, type:
+<pre>
+   java HelloClient -ORBInitialHost <em>nameserverhost</em> -ORBInitialPort 1050
+</pre>
+<p>Note that <em>nameserverhost</em> is the host on which the IDL
+name server is running. In this case, it is the server machine.</p>
+<p>If you used a different <em>nameserverport</em>, replace 1050
+with the correct port number.</p>
+</li>
+<li>Kill or stop <tt>orbd</tt> when finished. The name server will
+continue to wait for invocations until it is explicitly
+stopped.</li>
+</ol>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

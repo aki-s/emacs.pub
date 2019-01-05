@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Overview -- Applet Security Basics</title><link rel="stylesheet" href="../../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>Overview&#8212;Applet Security Basics</h1>
+<form name="form1" id="form1"><select name="menu1" onchange=
+"Eminem_jumpMenu('parent',this,1)"><script src="menu_script.js"
+language="JavaScript" type="text/javascript">
+</script></select></form>
+<h2><br />
+Applet Security Basics</h2>
+<p>Below are the basic facts regarding applet security and Java
+Plug-in. More details can be found in the next chapter, <a href=
+"rsa_how.html">Verification of RSA Signed Applets in Java
+Plug-in</a>.</p>
+<ul>
+<li>All <u>unsigned applets</u> are run under the standard applet
+security model.</li>
+<li>If <code><a href="rsa_how.html#use">usePolicy</a></code>
+<strong>is not defined</strong> in the <code>java.policy</code>
+file, then a <u>signed applet</u> has the
+<code>AllPermission</code> permission only if Java Plug-in can
+verify the signers, and the user agrees to granting the
+<code>AllPermission</code> permission when prompted.</li>
+<li>If <code>usePolicy</code> is <strong>defined</strong>, then a
+<u>signed applet</u> has only the permissions defined in
+<code>java.policy</code> and no prompting occurs.</li>
+</ul>
+<p>Moreover, note that Java Plug-in now handles certificate
+management; i.e., the certificate verification task is no longer
+passed on to the browser.<br /></p>
+<h2><b>Running Signed Applets on Windows Vista</b></h2>
+<p>Signed applets on Windows Vista have less privileges compared to
+the applets running on other Windows operating systems such as
+Windows XP Home or Windows XP Professional. This is due to the fact
+that browser process has low level of integrity. Low level
+integrity implies lesser privileges than an Administrator. This
+causes the signed applet not to write and delete files in specific
+medium and high integrity level directories.</p>
+<p>If you run a signed applet in Windows Vista, a dialog box with a
+security warning appears. Click <span style=
+"font-weight: bold;">Run</span>, to allow the applet to run with
+all permissions except write or delete permissions for files on
+local drive.</p>
+<h2><a name="secureversioning" id="secureversioning"></a>Secure
+Versioning</h2>
+<p>Java applets using Java SE 5.0 Update 6 or earlier versions
+could specify the exact version of the JRE on which they can be
+run. This allowed Java applets to run with a JRE that might not
+have the latest security fixes.</p>
+<p>Java SE 6 allows all the applets to be executed with the latest
+installed JRE version.This is a new enhancement that provides
+additional security.</p>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

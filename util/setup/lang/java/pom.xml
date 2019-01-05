@@ -1,0 +1,92 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.emacs.aki</groupId>
+  <artifactId>setup-java</artifactId>
+  <version>0.0.0</version>
+  <description>
+    [Usage] $ mvn [options] [plugin:goal] [phase]
+    $ mvn -f `this-pom.xml` checkstyle:check validate
+  </description>
+  <parent>
+    <groupId>com.emacs.aki</groupId>
+    <artifactId>setup</artifactId>
+    <version>3.0.0-SNAPSHOT</version>
+    <relativePath>${project.basedir}/../../setup</relativePath>
+    <!-- ref --> <!-- session.executionRootDirectory -->
+  </parent>
+
+  <properties>
+    <!-- # v6.11.2 -->
+    <!-- <_checkstyle.version>6.11.2</_checkstyle.version> -->
+    <_checkstyle.suppressions.file>${user.home}/.emacs.d/share/checkstyle/suppressions.xml</_checkstyle.suppressions.file>
+    <_checkstyle.header.file>${user.home}/.emacs.d/share/checkstyle/java.header</_checkstyle.header.file>
+
+    <!-- # v7.1 -->
+    <_checkstyle.version>7.1</_checkstyle.version>
+    <!-- <_checkstyle.config>${user.home}/.emacs.d/share/checkstyle/checkstyle_checks.xml</_checkstyle.config> -->
+    <_checkstyle.config>${user.home}/.emacs.d/util/setup/lang/java/checkstyle/sun_checks-checkstyle7.1.xml</_checkstyle.config>
+    <checkstyle.regexp.header.file>${user.home}/.emacs.d/share/checkstyle/checkstyle/java_regexp.header</checkstyle.regexp.header.file>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-checkstyle-plugin</artifactId>
+      <version>2.17</version>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>com.puppycrawl.tools</groupId>
+      <artifactId>checkstyle</artifactId>
+      <version>${_checkstyle.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>2.17</version>
+        <dependencies>
+          <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
+            <version>${_checkstyle.version}</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <id>validate</id>
+            <phase>validate</phase>
+            <configuration>
+              <!--# ConfigVars https://maven.apache.org/plugins/maven-checkstyle-plugin/checkstyle-mojo.html -->
+              <!--# 7.1 -->
+              <configLocation>${_checkstyle.config}</configLocation>
+              <suppressionsLocation>${_checkstyle.suppressions.file}</suppressionsLocation>
+              <headerLocation>${_checkstyle.header.file}</headerLocation>
+              <sourceDirectory>${user.dir}</sourceDirectory> <!-- user.dir is the place mvn is executed. -->
+
+              <encoding>UTF-8</encoding>
+              <consoleOutput>true</consoleOutput>
+              <violationSeverity>warning</violationSeverity>
+              <failsOnError>true</failsOnError>
+              <linkXRef>false</linkXRef>
+
+              <!--# Values can be used in checkstyle.config, but variable like ${user.home} was not expanded -->
+              <propertiesLocation>${user.home}/.emacs.d/util/setup/lang/java/checkstyle/checkstyle7.properties</propertiesLocation>
+
+              <!--# 6.11.2 -->
+              <!-- `suppressionsFile` is deprecated. see: https://maven.apache.org/plugins/maven-checkstyle-plugin/checkstyle-mojo.html -->
+              <suppressionsFile>${_checkstyle.suppressions.file}</suppressionsFile>
+            </configuration>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

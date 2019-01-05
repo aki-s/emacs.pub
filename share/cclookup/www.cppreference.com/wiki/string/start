@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+ lang="en" dir="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>string:start</title>
+<meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2010-11-12T05:28:12-0800" />
+<meta name="keywords" content="string,start" />
+<link rel="search" type="application/opensearchdescription+xml" href="http://www.cppreference.com/wiki/lib/exe/opensearch.php" title="C++ Reference" />
+<link rel="start" href="../../index.html" />
+<link rel="contents" href="http://www.cppreference.com/wiki/string/start?do=index" title="Sitemap" />
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="http://www.cppreference.com/wiki/feed.php" />
+<link rel="alternate" type="application/rss+xml" title="Current Namespace" href="http://www.cppreference.com/wiki/feed.php?mode=list&amp;ns=string" />
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://www.cppreference.com/wiki/_export/xhtml/string/start" />
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://www.cppreference.com/wiki/_export/raw/string/start" />
+<link rel="canonical" href="start" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php@t=custom1&amp;tseed=1289693594" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php@s=all&amp;t=custom1&amp;tseed=1289693594" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php@s=print&amp;t=custom1&amp;tseed=1289693594" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='string';var JSINFO = {"id":"string:start","namespace":"string"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php@tseed=1289693594" ></script>
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="start#strings_library" class="toc">Strings library</a></span></div>
+<ul class="toc">
+<li class="clear">
+
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="start#char_traits" class="toc">Char traits</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="start#strings" class="toc">Strings</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="start#c-style_strings" class="toc">C-style strings</a></span></div></li></ul>
+</li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1"><a name="strings_library" id="strings_library">Strings library</a></h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Strings library" [1-29] -->
+<h3 class="sectionedit2"><a name="char_traits" id="char_traits">Char traits</a></h3>
+<div class="level3">
+
+<p>
+
+Strings library provides <a href="char_traits" class="wikilink1" title="string:char_traits">char_traits</a>, a template class, defining types and functions for a character container. Several specializations are defined in header <code>&lt;string&gt;</code>:
+
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>char_traits&lt; char &gt;</code> </td><td class="col1"> template specialization, defining operations with <code>char</code> character type </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> <code>char_traits&lt; wchar_t &gt;</code> </td><td class="col1"> template specialization, defining operations with <code>wchar_t</code> character type </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>char_traits&lt; char16_t &gt;</code> </td><td class="col1"> template specialization, defining operations with <code>char16_t</code> character type (<a href="../c_0x" class="wikilink1" title="c_0x">C++0x</a> feature)</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>char_traits&lt; char32_t &gt;</code> </td><td class="col1"> template specialization, defining operations with <code>char32_t</code> character type (<a href="../c_0x" class="wikilink1" title="c_0x">C++0x</a> feature)</td>
+	</tr>
+</table></div>
+<!-- EDIT3 TABLE [228-705] -->
+</div>
+<!-- EDIT2 SECTION "Char traits" [30-706] -->
+<h3 class="sectionedit4"><a name="strings" id="strings">Strings</a></h3>
+<div class="level3">
+
+</div>
+
+<h5><a name="basic_string" id="basic_string">basic_string</a></h5>
+<div class="level5">
+
+<p>
+
+Header <code>&lt;string&gt;</code> defines class template <a href="basic_string/start" class="wikilink1" title="string:basic_string:start">basic_string</a> which generalizes the way how sequences of characters are manipulated and stored. It is defined as follows:
+</p>
+<pre class="cpp code cpp"><span class="kw2">template</span><span class="sy1">&lt;</span>
+    <span class="kw2">typename</span> Char,
+    <span class="kw2">typename</span> Traits <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">char_traits</span><span class="sy1">&lt;</span>Char<span class="sy1">&gt;</span>,
+    <span class="kw2">typename</span> Allocator <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">allocator</span><span class="sy1">&lt;</span>Char<span class="sy1">&gt;</span> <span class="sy1">&gt;</span>
+<span class="sy1">&gt;</span> <span class="kw2">class</span> basic_string<span class="sy4">;</span></pre>
+<p>
+Also, several specializations of the class <code>basic_string</code> are provided:
+</p>
+<pre class="cpp code cpp"><span class="kw4">typedef</span> basic_string<span class="sy1">&lt;</span> <span class="kw4">char</span> <span class="sy1">&gt;</span>     string<span class="sy4">;</span>
+<span class="kw4">typedef</span> basic_string<span class="sy1">&lt;</span> <span class="kw4">wchar_t</span> <span class="sy1">&gt;</span>  wstring<span class="sy4">;</span>
+<span class="kw4">typedef</span> basic_string<span class="sy1">&lt;</span> char16_t <span class="sy1">&gt;</span> u16string<span class="sy4">;</span>    <span class="co1">//C++0x feature</span>
+<span class="kw4">typedef</span> basic_string<span class="sy1">&lt;</span> char32_t <span class="sy1">&gt;</span> u32string<span class="sy4">;</span>    <span class="co1">//C++0x feature</span></pre>
+</div>
+
+<h5><a name="functions" id="functions">Functions</a></h5>
+<div class="level5">
+<div class="table sectionedit5"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><a href="getline" class="wikilink1" title="string:getline">getline</a></td><td class="col1">read data from an I/O stream into a string</td>
+	</tr>
+</table></div>
+<!-- EDIT5 TABLE [1399-1455] -->
+</div>
+
+<h5><a name="numeric_conversions" id="numeric_conversions">Numeric conversions</a></h5>
+<div class="level5">
+
+<p>
+
+The header <code>&lt;string&gt;</code> provides the following functions performing numeric conversion functions:
+
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><a href="stoi" class="wikilink1" title="string:stoi"> stoi, stol, stoll, stoul, stoull</a> </td><td class="col1"> converts the given string to an integer (<a href="../c_0x" class="wikilink1" title="c_0x">C++0x</a> feature) </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"><a href="http://www.cppreference.com/wiki/string/stof" class="wikilink2" title="string:stof" rel="nofollow"> stof, stod, stold</a> </td><td class="col1"> converts the given string to an floating point value (<a href="../c_0x" class="wikilink1" title="c_0x">C++0x</a> feature) </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"><a href="http://www.cppreference.com/wiki/string/to_string" class="wikilink2" title="string:to_string" rel="nofollow">to_string</a> </td><td class="col1"> converts the given integral or floating point value to <code>string</code> (<a href="../c_0x" class="wikilink1" title="c_0x">C++0x</a> feature) </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"><a href="http://www.cppreference.com/wiki/string/to_wstring" class="wikilink2" title="string:to_wstring" rel="nofollow">to_wstring</a> </td><td class="col1"> converts the given integral or floating point value to <code>wstring</code> (<a href="../c_0x" class="wikilink1" title="c_0x">C++0x</a> feature) </td>
+	</tr>
+</table></div>
+<!-- EDIT6 TABLE [1581-2012] -->
+</div>
+
+<h5><a name="hash_support" id="hash_support">Hash support</a></h5>
+<div class="level5">
+
+<p>
+
+The header <code>&lt;string&gt;</code> provides the following specializations of class template <code>hash</code> (see <a href="http://www.cppreference.com/wiki/utility/hash" class="wikilink2" title="utility:hash" rel="nofollow">hash</a>)
+
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>hash&lt; string &gt;</code> </td><td class="col1"> template specialization, providing hash support for <code>string</code> string type (<a href="../c_0x" class="wikilink1" title="c_0x">C++0x</a> feature)</td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> <code>hash&lt; wstring &gt;</code> </td><td class="col1"> template specialization, providing hash support for <code>wstring</code> string type (<a href="../c_0x" class="wikilink1" title="c_0x">C++0x</a> feature)</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>hash&lt; u16string &gt;</code> </td><td class="col1"> template specialization, providing hash support for <code>u16string</code> string type (<a href="../c_0x" class="wikilink1" title="c_0x">C++0x</a> feature)</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>hash&lt; u32string &gt;</code> </td><td class="col1"> template specialization, providing hash support for <code>u32string</code> string type (<a href="../c_0x" class="wikilink1" title="c_0x">C++0x</a> feature)</td>
+	</tr>
+</table></div>
+<!-- EDIT7 TABLE [2146-2639] -->
+</div>
+<!-- EDIT4 SECTION "Strings" [707-2640] -->
+<h3 class="sectionedit8"><a name="c-style_strings" id="c-style_strings">C-style strings</a></h3>
+<div class="level3">
+
+<p>
+
+<a href="c/start" class="wikilink1" title="string:c:start"> Null-terminated strings</a>
+</p>
+
+<p>
+<a href="cw/start" class="wikilink1" title="string:cw:start"> Null-terminated wide strings</a>
+
+</p>
+
+</div>
+<!-- EDIT8 SECTION "C-style strings" [2641-] --></div>
+</body>
+</html>

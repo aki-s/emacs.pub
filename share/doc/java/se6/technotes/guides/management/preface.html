@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Preface - Java SE Monitoring and Management Guide</title><link rel="stylesheet" href="../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><!--stopindex-->
+<!-- BEGIN WRAPPER TABLE, 1 COLUMN, MAIN -->
+<table border="0" cellpadding="0" cellspacing="10" width="100%">
+<tr valign="bottom">
+<td width="100%" valign="top">
+<!-- BEGIN CENTRAL COLUMN COMPONENTS -->
+<!-- BEGIN PAGE CONTROL ROW -->
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td colspan="5"></td>
+</tr>
+<tr>
+<td></td>
+<td style="width: 60%">&nbsp;</td>
+<td><a href="monitoringguide.html"><img style="padding-right: 3px"
+src="graphics/prev.gif" border="0" alt="" />Previous</a></td>
+<td><a href="toc.html">Contents</a></td>
+<td></td>
+<td><a href="overview.html">Next<img style="padding-left: 3px" src=
+"graphics/next.gif" border="0" /></a></td>
+</tr>
+</table>
+<!-- END PAGE CONTROL ROW --></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><a name="skip2content" id=
+"skip2content"></a> <!--startindex-->
+<div class="maincontent"><a name="preface" id="preface"></a>
+<h3>Preface</h3>
+<p>The Java Platform, Standard Edition (Java SE platform) 6
+features utilities that allow you to monitor and manage the
+performance of a Java Virtual Machine (Java VM) and the Java
+applications that are running in it. The <i>Java SE Monitoring and
+Management Guide</i> describes those monitoring and management
+utilities.</p>
+<a name="gcxbw" id="gcxbw"></a>
+<h3>Who Should Use This Book</h3>
+<p>The <i>Java SE Monitoring and Management Guide</i> is intended
+for experienced users of the Java language, such as systems
+administrators and software developers, for whom the performance of
+the Java platform and their applications is of vital
+importance.</p>
+<a name="gcxdh" id="gcxdh"></a>
+<h3>Before You Read This Book</h3>
+<p>It is recommended that users are familiar with several other
+features of the Java SE platform. The following documentation might
+be of use.</p>
+<ul>
+<li>
+<p><a href=
+"http://java.sun.com/javase/6/docs/technotes/guides/jmx/index.html">
+Java Management Extensions (JMX) Technology</a></p>
+</li>
+<li>
+<p><a href=
+"http://java.sun.com/javase/technologies/hotspot/index.jsp">Java
+HotSpot Technology</a></p>
+</li>
+<li>
+<p><a href=
+"http://java.sun.com/javase/6/docs/technotes/guides/vm/index.html">Java
+Virtual Machine Technology</a></p>
+</li>
+<li>
+<p><a href="http://java.sun.com/docs/hotspot/">Performance
+Documentation for the Java HotSpot VM</a></p>
+</li>
+</ul>
+<a name="gcxct" id="gcxct"></a>
+<h3>How This Book Is Organized</h3>
+<p>This book covers the following topics.</p>
+<ul>
+<li>
+<p><a href="overview.html">Chapter&nbsp;1, Overview of Java SE
+Monitoring and Management</a> introduces the monitoring and
+management utilities provides with the Java SE platform.</p>
+</li>
+<li>
+<p><a href="agent.html">Chapter&nbsp;2, Monitoring and Management
+Using JMX Technology</a> describes how to configure your platform
+to allow monitoring and management using the JMX API.</p>
+</li>
+<li>
+<p><a href="jconsole.html">Chapter&nbsp;3, Using JConsole</a>
+introduces the JConsole graphical user interface.</p>
+</li>
+<li>
+<p><a href="mxbeans.html">Chapter&nbsp;4, Using the Platform MBean
+Server and Platform MXBeans</a> presents the MBeans that are
+provided with the Java SE platform for monitoring and management
+purposes.</p>
+</li>
+<li>
+<p><a href="snmp.html">Chapter&nbsp;5, SNMP Monitoring and
+Management</a> explains how to perform monitoring and management
+using the Simple Network Management Protocol (SNMP).</p>
+</li>
+<li>
+<p><a href="security-windows.html">Appendix&nbsp;A, Additional
+Security Information For Microsoft Windows</a> provides security
+configuration information specific to Windows platforms.</p>
+</li>
+</ul>
+<a name="eqqfd" id="eqqfd"></a>
+<h3>Related Third-Party Web Site References</h3>
+<p>Third-party URLs are referenced in this document and provide
+additional, related information.</p>
+<hr />
+<p><b>Note -</b> Sun is not responsible for the availability of
+third-party web sites mentioned in this document. Sun does not
+endorse and is not responsible or liable for any content,
+advertising, products, or other materials that are available on or
+through such sites or resources. Sun will not be responsible or
+liable for any actual or alleged damage or loss caused or alleged
+to be caused by or in connection with use of or reliance on any
+such content, goods, or services that are available on or through
+such sites or resources.</p>
+<hr />
+<a name="gcxcb" id="gcxcb"></a>
+<h3>Documentation, Support, and Training</h3>
+<p>The Sun web site provides information about the following
+additional resources:</p>
+<ul>
+<li>
+<p><a href=
+"http://www.sun.com/documentation/">Documentation</a></p>
+</li>
+<li>
+<p><a href="http://www.sun.com/support/">Support</a></p>
+</li>
+<li>
+<p><a href="http://www.sun.com/training/">Training</a></p>
+</li>
+</ul>
+<a name="gcxdm" id="gcxdm"></a>
+<h3>Typographic Conventions</h3>
+<p>The following table describes the typographic conventions that
+are used in this book.</p>
+<a name="fwbjp" id="fwbjp"></a>
+<h6>Table&nbsp;P-1 Typographic Conventions</h6>
+<table border="1">
+<col width="80*" />
+<col width="179*" />
+<col width="137*" />
+<tr>
+<th align="left" valign="top" scope="column">
+<p>Typeface</p>
+</th>
+<th align="left" valign="top" scope="column">
+<p>Meaning</p>
+</th>
+<th align="left" valign="top" scope="column">
+<p>Example</p>
+</th>
+</tr>
+<tr>
+<td align="left" valign="top" scope="row">
+<p><tt>AaBbCc123</tt></p>
+</td>
+<td align="left" valign="top" scope="row">
+<p>The names of commands, files, and directories, and onscreen
+computer output</p>
+</td>
+<td align="left" valign="top" scope="row">
+<p>Edit your <tt>.login</tt> file.</p>
+<p>Use <tt>ls <tt>-a</tt></tt> to list all files.</p>
+<p><tt>machine_name% you have mail.</tt></p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" scope="row">
+<p><tt><b>AaBbCc123</b></tt></p>
+</td>
+<td align="left" valign="top" scope="row">
+<p>What you type, contrasted with onscreen computer output</p>
+</td>
+<td align="left" valign="top" scope="row">
+<p><tt>machine_name%</tt> <tt><b>su</b></tt></p>
+<p><tt>Password:</tt></p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" scope="row">
+<p><i>aabbcc123</i></p>
+</td>
+<td align="left" valign="top" scope="row">
+<p>Placeholder: replace with a real name or value</p>
+</td>
+<td align="left" valign="top" scope="row">
+<p>The command to remove a file is <tt>rm</tt> <i>filename</i>.</p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" scope="row">
+<p><b>AaBbCc123</b></p>
+</td>
+<td align="left" valign="top" scope="row">
+<p>Book titles, new terms, and terms to be emphasized</p>
+</td>
+<td align="left" valign="top" scope="row">
+<p>Read Chapter 6 in the <i>User's Guide</i>.</p>
+<p>A <b>cache</b> is a copy that is stored locally.</p>
+<p>Do <b>not</b> save the file.</p>
+<p><b>Note:</b> Some emphasized items appear bold online.</p>
+</td>
+</tr>
+</table>
+<a name="fwbsd" id="fwbsd"></a>
+<h3>Shell Prompts in Command Examples</h3>
+<p>The following table shows the default UNIX<sup>&reg;</sup>
+system prompt and superuser prompt for the C shell, Bourne shell,
+and Korn shell.</p>
+<a name="fwbsz" id="fwbsz"></a>
+<h6>Table&nbsp;P-2 Shell Prompts</h6>
+<table border="1">
+<col width="198*" />
+<col width="198*" />
+<tr>
+<th align="left" valign="top" scope="column">
+<p>Shell</p>
+</th>
+<th align="left" valign="top" scope="column">
+<p>Prompt</p>
+</th>
+</tr>
+<tr>
+<td align="left" valign="top" scope="row">
+<p>C shell</p>
+</td>
+<td align="left" valign="top" scope="row">
+<p><tt>machine_name%</tt></p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" scope="row">
+<p>C shell for superuser</p>
+</td>
+<td align="left" valign="top" scope="row">
+<p><tt>machine_name#</tt></p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" scope="row">
+<p>Bourne shell and Korn shell</p>
+</td>
+<td align="left" valign="top" scope="row">
+<p><tt>$</tt></p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" scope="row">
+<p>Bourne shell and Korn shell for superuser</p>
+</td>
+<td align="left" valign="top" scope="row">
+<p><tt>#</tt></p>
+</td>
+</tr>
+</table>
+</div>
+<!--stopindex-->
+<!-- END CENTRAL COLUMN COMPONENTS --></td>
+</tr>
+<!-- BEGIN SPACER ROW -->
+<tr>
+<td><img src="css/a.gif" width="780" height="1" border="0" alt=
+"" /></td>
+</tr>
+<!-- END SPACER ROW -->
+<tr>
+<td><!-- BEGIN PAGE CONTROL ROW -->
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr valign="bottom">
+<td></td>
+<td style="width: 60%"></td>
+<td><a href="monitoringguide.html"><img style="padding-right: 3px"
+src="graphics/prev.gif" border="0" alt="" />Previous</a></td>
+<td><a href="toc.html">Contents</a></td>
+<td></td>
+<td><a href="overview.html">Next<img style="padding-left: 3px" src=
+"graphics/next.gif" border="0" /></a></td>
+</tr>
+</table>
+<!-- END PAGE CONTROL ROW --></td>
+</tr>
+</table>
+<!-- END WRAPPER TABLE, 1 COLUMN, MAIN -->
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

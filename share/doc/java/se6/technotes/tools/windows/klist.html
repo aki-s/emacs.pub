@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+  <title>klist - Kerberos tool</title>
+<link rel="stylesheet" href="../../../technotes/css/guide.css" />
+</head>
+
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table>  <h1>klist - <font size="+1">Kerberos display entries in
+  credentials cache and keytab</font></h1>
+
+  <blockquote>
+    <p><code>klist</code> allows the user to view entries in the
+    local credentials cache and key table.</p>
+  </blockquote>
+
+  <h2>SYNOPSIS</h2>
+
+  <blockquote>
+    <p><b><code>klist [ <a href="#commands">commands</a>
+    ]</code></b></p>
+  </blockquote>
+
+  <h2>DESCRIPTION</h2>
+
+  <blockquote>
+    <p><code>klist</code> displays the entries in the local
+    credentials cache and key table. After the user has modified
+    the credentials cache with <code>kinit</code> or modified the
+    keytab with <code>ktab</code>, the only way to verify the
+    changes is to view the contents of the credentials cache and/or
+    keytab using <code>klist</code>. <code>klist</code> does not
+    change the Kerberos database.</p>
+  </blockquote>
+
+  <h2><a name="commands" id="commands"></a>COMMANDS</h2>
+
+  <blockquote>
+    <p><b>Usage: <code>klist [-c [-fe]] [-k [-tK]]
+    [&lt;<i><em>name</em></i>&gt;] [-help]</code></b></p>
+
+    <blockquote>
+      <table width="433" border="1" cellspacing="2" cellpadding="2"
+      summary=
+      "List of klist Command Line Option Names and Descriptions">
+        <tr>
+          <th>Command Option</th>
+
+          <th>Description</th>
+        </tr>
+
+        <tr>
+          <td><code>-c</code></td>
+
+          <td>Specifes that the credential cache entries are to be
+          listed.</td>
+        </tr>
+
+        <tr>
+          <td><code>-k</code></td>
+
+          <td>Specifies that the key tab entries are to be
+          listed.</td>
+        </tr>
+
+        <tr>
+          <td><code>&lt;<i><em>name</em></i>&gt;</code></td>
+
+          <td>Specifies the credential cache name or the keytab
+          name. If the name is not specified default values for
+          cache name and the keytab are used. The default values
+          for the cache and the keytab are specified in the
+          <a href="kinit.html">man page for kinit</a>.</td>
+        </tr>
+
+        <tr>
+          <td width="70"><code>-help</code></td>
+
+          <td width="354">Displays instructions.</td>
+        </tr>
+      </table>
+
+      <table width="433" border="1" cellspacing="2" cellpadding="2"
+      summary=
+      "klist Command Line Options and Descriptions for use with the -c option">
+      <tr>
+          <th colspan="2">If the <code>-c</code> option is
+          specified (options for credential cache):</th>
+        </tr>
+
+        <tr>
+          <td width="47">&nbsp;<code>-f</code></td>
+
+          <td width="377">Shows credentials flags.</td>
+        </tr>
+
+        <tr>
+          <td width="47"><code>-e</code></td>
+
+          <td width="377">Shows the encryption type.</td>
+        </tr>
+      </table>
+
+      <table width="433" border="1" cellspacing="2" cellpadding="2"
+      summary=
+      "klist Command Line Options and Descriptions for use with the -k option">
+      <tr>
+          <th colspan="2">If the <code>-k</code> option is
+          specified (options available for keytabs):</th>
+        </tr>
+
+        <tr>
+          <td width="45">&nbsp;<code>-t</code></td>
+
+          <td width="379">Shows keytab entry timestamps.</td>
+        </tr>
+
+        <tr>
+          <td width="45"><code>-K</code></td>
+
+          <td width="379">Shows keytab entry DES keys.</td>
+        </tr>
+      </table>
+    </blockquote>
+  </blockquote>
+
+  <h2>EXAMPLES</h2>
+
+  <blockquote>
+    <dl>
+      <dt>List entries in the keytable specified including keytab
+      entry timestamps and DES keys:</dt>
+    </dl>
+
+    <blockquote>
+      <dl>
+        <dt><code>klist -k -t -K FILE:\temp\mykrb5cc</code></dt>
+
+        <dt>&nbsp;</dt>
+      </dl>
+    </blockquote>
+
+    <dl>
+      <dt>List entries in the credentials cache specified including
+      credentials flag and address list:</dt>
+    </dl>
+
+    <blockquote>
+      <dl>
+        <dt><code>klist -c -f FILE:\temp\mykrb5cc</code></dt>
+      </dl>
+    </blockquote>
+  </blockquote>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

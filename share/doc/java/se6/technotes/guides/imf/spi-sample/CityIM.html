@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>City Input Method</title><link rel="stylesheet" href="../../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><table border="0" width="100%" summary="layout">
+<tr>
+<td>
+
+<h1>City Input Method</h1>
+
+</td>
+</tr>
+</table>
+<!-- Body text begins here -->
+<h2>Contents</h2>
+<ol>
+<li><a href="#About%20City%20Input%20Method">About City Input
+Method</a></li>
+<li><a href=
+"#Installing%20and%20Selecting%20the%20Input%20Method">Installing
+and Selecting the Input Method</a></li>
+<li><a href=
+"#Using%20the%20Input%20Method%20for%20the%20First%20Time">Using
+the Input Method for the First Time</a></li>
+<li><a href="#Using%20the%20Input%20Method">Using the Input
+Method</a></li>
+<li><a href="#Controlling%20the%20Status%20Window">Controlling the
+Status Window</a></li>
+<li><a href="#Supported%20Cities%20and%20Locales">Supported Cities
+and Locales</a></li>
+</ol>
+<hr />
+<h2><a name="About City Input Method"></a>1. About City Input
+Method</h2>
+<p>City Input Method is a simple input method that lets users enter
+city names by just typing a three-character airport code and
+converting it to a corresponding city name. If the user enters more
+than one airport code (up to three at a time are possible), the
+input method creates a short phrase such as "From San Francisco to
+Beijing via Tokyo". For each city, the input method knows the city
+names and phrases in a number of different languages (or, more
+precisely, locales). City names and phrases in all supported
+languages can be freely mixed in any input operation. The input
+method can be used to enter text into any text component that
+supports input methods, such as a Swing text component.</p>
+<hr />
+<h2><a name="Installing and Selecting the Input Method"></a>2.
+Installing and Selecting the Input Method</h2>
+<p>To make the input method available to applications, its jar file
+must be installed into the extensions directory of a Java 2 runtime
+environment. After launching a Java application with a text
+component that supports input methods, the input method can be
+selected using the input method selection user interface provided
+by the runtime environment. First, make sure that a text component
+has the focus - typically, the text component indicates this by
+showing an insertion point. Then, for Sun's Java 2 Runtime
+Environment, choose the "Select Input Method" menu from the menu
+that can be pulled down from the top left corner of the window (the
+System menu on Windows, Window menu on Solaris), then choose "City
+Input Method" and the desired locale from the popup menu. Note that
+correct text display in some languages depends on the font
+configuration, so you may want to pick the locale of the host
+operating system or a language that is supported by most fonts,
+such as English or German.</p>
+<hr />
+<h2><a name="Using the Input Method for the First Time"></a>3.
+Using the Input Method for the First Time</h2>
+<p>After selecting the input method, type "SFO", the code for San
+Francisco International Airport. You will see that the text is
+input into the text component, but highlighted to indicate that it
+is still being composed (for Sun's Java 2 Runtime Environment, the
+text is inverted on Solaris, underlined on Windows). Then type a
+Space character to start conversion. You will see that the airport
+code is replaced with the name of San Francisco in the language
+that you selected. The text is still highlighted, although the
+highlight may now look somewhat different. Type Space again. A
+lookup window opens, which shows the city name in all available
+languages, with the originally displayed name selected. Continue
+typing Space. You will see that the selection cycles through all
+the names, and that the selected name is also shown in the text
+component. Type Return. The lookup window disappears, and the most
+recently selected name is now shown in the text component without
+any highlight - it is committed.</p>
+<hr />
+<h2><a name="Using the Input Method"></a>4. Using the Input
+Method</h2>
+<h4>Entering Raw Text</h4>
+<p>Raw text is any text that is entered through the input method,
+but hasn't been converted yet. From the moment you type the first
+character of an airport until you start conversion the input method
+is in raw text mode. In this mode, letters from "a" to "z" or their
+uppercase variants (the input method is case insensitive) are added
+to the raw text input. You can use backspace to delete a character,
+and you can click into the text using the mouse to move the
+insertion point.</p>
+<h4>Converting to City Names</h4>
+<p>You can start the conversion process from airport codes to city
+names when the raw text includes one, two, or three airport codes -
+that is, three, six, or nine characters. To start conversion, type
+Space. A single airport code is converted to just a city name. Two
+or three airport codes are converted to phrases such as "From San
+Francisco to Frankfurt" for two codes or "From San Francisco to
+Frankfurt via Chicago" for three codes. Each city name is
+considered a separate segment. One of the segments is selected,
+that is, it can be further converted using the lookup window. If
+there are multiple segments, the segment selection can be changed
+by clicking into a segment or by using the Arrow Right and Arrow
+Left keys.</p>
+<h4>Continuing Conversion Using the Lookup Window</h4>
+<p>The lookup window is a temporary window that shows the city
+names in all available languages for the airport code of the
+selected segment, and lets the user choose a different name. To
+show the window, select a segment, then type Space. The window
+opens just below or, if there's not enough space, in another
+location near the segment's text. The currently selected city name
+is outlined. To change the name selection, type Space, Arrow Down,
+or Arrow Up to cycle through all available names. To confirm a
+selected name, you usually commit as described in the next section.
+To select a name and close the lookup window without committing,
+type the number in front of the desired name.</p>
+<h4>Committing the Input</h4>
+<p>Committing the input text means to end input method processing
+of it, and make it a normal part of the text component's text body.
+All input method highlighting is removed from committed text. You
+can commit the entire input text at any time by typing Return. If
+you entered more than one airport code and have started conversion,
+you can also perform a partial commit: typing Control-Arrow Down
+commits the text up to the currently selected segment, but leaves
+following segments available for further conversion.</p>
+<p>Conversion is requested using the Space character. During
+conversion, the input method first offers the city name in the
+selected language (if that name is available). If the user does not
+accept this selection, a second step brings up a choice window that
+offers all available names for the city, with the corresponding
+locale name.</p>
+<hr />
+<h2><a name="Controlling the Status Window"></a>5. Controlling the
+Status Window</h2>
+<p>The input method provides a little status window that shows the
+currently selected locale. Initially this window is positioned near
+the lower right corner of the screen, but it can be moved to a
+different location. To request that the status window automatically
+positions itself below the window containing the currently focussed
+text component, double-click into the status window's content
+area.</p>
+<hr />
+<h2><a name="Supported Cities and Locales"></a>6. Supported Cities
+and Locales</h2>
+<p>The input method's knowledge of the world is limited - airport
+codes it knows include: SFO, NYC, JFK, LGA, ORD, FRA, MUC, TYO,
+NRT, HND, KIX, ITM, PEK, BJS, SHA, HKG, TPE. It currently supports
+the following languages: English, German, Japanese (normal and
+yomi), Simplified Chinese, Traditional Chinese.</p>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

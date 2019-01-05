@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>NIO Examples</title><link rel="stylesheet" href="../../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><table>
+<tr>
+<td align="center">
+<h1>NIO Examples</h1>
+</td>
+<td align="right" valign="top"><font size="-1"><a href=
+"../../../../index.html"></a><br />
+<a href="../index.html">NIO</a></font></td>
+</tr>
+</table>
+<blockquote>The examples in the following table show how to use the
+NIO APIs.
+<table summary="source files and descriptions" cellspacing="10">
+<tr>
+<th valign="top"><b>Source File</b></th>
+<th valign="top"><b>Description</b></th>
+</tr>
+<tr>
+<td valign="top"><code><a href=
+"Grep.java">Grep.java</a></code></td>
+<td valign="top">Searches a list of files for lines that match a
+given regular-expression pattern. Demonstrates NIO mapped byte
+buffers, charsets, and regular expressions.</td>
+</tr>
+<tr>
+<td valign="top"><code><a href="Sum.java">Sum.java</a></code></td>
+<td valign="top">Computes 16-bit checksums for a list of files.
+Uses NIO mapped byte buffers for speed.</td>
+</tr>
+<tr>
+<td valign="top"><code><a href=
+"TimeQuery.java">TimeQuery.java</a></code></td>
+<td valign="top">Asks a list of hosts what time it is. Is a simple,
+blocking program that demonstrates NIO socket channels (connection
+and reading), buffer handling, charsets, and regular
+expressions.</td>
+</tr>
+<tr>
+<td valign="top"><code><a href=
+"TimeServer.java">TimeServer.java</a></code></td>
+<td valign="top">Listens for connections and tells callers what
+time it is. Is a simple, blocking program that demonstrates NIO
+socket channels (accepting and writing), buffer handling, charsets,
+and regular expressions.</td>
+</tr>
+<tr>
+<td valign="top"><code><a href=
+"Ping.java">Ping.java</a></code></td>
+<td valign="top">Connects to each of a list of hosts and measures
+the time required to complete the connection. Uses a selector and
+two additional threads to demonstrate non-blocking connects and the
+multithreaded use of a selector.</td>
+</tr>
+<tr>
+<td valign="top"><code><a href=
+"NBTimeServer.java">NBTimeServer.java</a></code></td>
+<td valign="top">Implements a non-blocking Internet time
+server.</td>
+</tr>
+</table>
+</blockquote>
+<!-- ============================================================== -->
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

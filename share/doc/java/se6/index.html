@@ -1,0 +1,677 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Java SE 6 Documentation</title>
+
+<style type="text/css">
+<!--
+a.ahead {FONT-SIZE: 80%; COLOR: black; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+a.ahead:visited {FONT-SIZE: 80%; COLOR: black; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+a.atext {FONT-SIZE: 100%;COLOR: black; FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+a.atext:visited {FONT-SIZE: 100%;COLOR: black; FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-WEIGHT: bold; TEXT-DECORATION: none}
+a:hover { TEXT-DECORATION:underline }
+
+.table {BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+.tdbody {PADDING-RIGHT: 0.4em; PADDING-LEFT: 0.4em; VERTICAL-ALIGN: middle; LINE-HEIGHT: 90%; HEIGHT: 1.7em; TEXT-ALIGN: center
+}
+.tdhead {BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0.5em; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; VERTICAL-ALIGN: middle; TEXT-ALIGN: right; BORDER-RIGHT-WIDTH: 0px
+}
+.tdleftside {BORDER-TOP-WIDTH: 2px; PADDING-LEFT: 0.25em; BORDER-LEFT-WIDTH: 2px; BORDER-BOTTOM-WIDTH: 2px; VERTICAL-ALIGN: middle; TEXT-ALIGN: left; BORDER-RIGHT-WIDTH: 0px
+}
+.tdrightside {PADDING-RIGHT: 0.25em; PADDING-LEFT: 0.25em; VERTICAL-ALIGN: middle; TEXT-ALIGN: center
+}
+
+/***********************************************/
+/* Layout div styles                           */
+/***********************************************/
+
+#pageNav{
+        float: left;
+        width:178px;
+        padding: 0px;
+        background-color: #F5f7f7;
+        border-right: 1px solid #cccccc;
+        border-bottom: 1px solid #cccccc;
+        font: small Verdana,sans-serif;
+}
+
+#content{
+        padding: 0px 10px 0px 0px;
+        margin:0px 0px 0px 178px;
+        border-left: 1px solid #ccd2d2;
+}
+
+/***********************************************/
+/* HTML tag styles                             */
+/***********************************************/
+body{
+        font-family: Arial,sans-serif;
+        color: #333333;
+        line-height: 1.166;
+        margin: 0px;
+        padding: 0px;
+
+}
+
+/******* hyperlink and anchor tag styles *******/
+
+
+a:hover{
+        text-decoration: underline;
+}
+
+/************** header tag styles **************/
+
+
+h3{
+ font: bold 100% Arial,sans-serif;
+ color: #334d55;
+ margin: 0px;
+ padding: 0px;
+}
+
+h4{
+ font: 100% Arial,sans-serif;
+ color: #333333;
+ margin: 0px;
+ padding: 0px;
+}
+
+h5{
+ font: 100% Arial,sans-serif;
+ color: #334d55;
+ margin: 0px;
+ padding: 0px;
+}
+
+/************** feature styles *****************/
+
+.feature{
+        padding: 0px 0px 10px 10px;
+        font-size: 100%;
+        min-height: 200px;
+        height: 200px;
+}
+html>body .feature {height: auto;}
+
+.feature h3{
+        font: bold 175% Arial,sans-serif;
+        color: #000000;
+        padding: 30px 0px 5px 0px;
+}
+
+.feature img{
+        float: left;
+        padding: 0px 10px 0px 0px;
+}
+
+
+/*************** story styles ******************/
+
+.story {
+        padding: 10px 0px 0px 10px;
+        font-size: 100%;
+}
+
+.story h3{
+        font: bold 125% Arial,sans-serif;
+        color: #000000;
+}
+
+.story p {
+        padding: 0px 0px 10px 0px;
+}
+
+.story a {
+        font:  Arial,sans-serif;
+}
+
+.story a:hover {
+                text-decoration: underline;
+}
+
+.story a.capsule{
+        font: bold 1em Arial,sans-serif;
+        color: #005FA9;
+        display:block;
+        padding-bottom: 5px;
+}
+
+.story a.capsule:hover{
+        text-decoration: underline;
+}
+
+.story a.notHref {
+text-decoration:none;
+}
+
+td.storyLeft{
+        padding-right: 12px;
+}
+
+.storyLeft a {
+        font: bold 100% Arial,sans-serif;
+}
+
+/************* relatedLinks styles **************/
+
+.relatedLinks{
+        margin: 0px;
+        padding: 0px 0px 10px 10px;
+        border-bottom: 1px solid #cccccc;
+        font: 90% Verdana,sans-serif;
+
+}
+
+.relatedLinks h3{
+        padding: 10px 0px 2px 0px;
+}
+
+.relatedLinks a{
+        display: block;
+        text-decoration: none;
+}
+
+
+-->
+</style>
+<link rel="stylesheet" href="technotes/css/guide.css" />
+</head><body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="images/javalogo.gif"></td><td valign="bottom" align="right"><a href="index.html"><font size="-1">Documentation Contents</font></a></td></tr></table>
+
+
+
+<h1>Java SE 6 Documentation</h1>
+<br/>
+  <div id="pageNav">
+  <div class="relatedLinks">
+	  	<img src="images/res.gif" alt="components" width="30" height="30" style="float: right;" />
+      <h3>What's New </h3>
+	  <table summary="layout" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td bgcolor="#999999"><img src="images/spacer.gif" alt="transparent" width="1" height="5" /></td>
+        </tr>
+      </table>
+      <ul>
+			  <li><a href="#NewFeature">Documentation</a></li>
+        <li><a href="http://java.sun.com/javase/6/webnotes/ReleaseNotes.html">Release Notes</a></li>
+      </ul>
+	</div>
+
+
+  <div class="relatedLinks">
+    	<img src="images/tt.png" alt="components" width="30" height="30" style="float: right;"/>
+      <h3>JDK Components  </h3>
+	  <table  summary="layout" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td bgcolor="#999999"><img src="images/spacer.gif" alt="transparent" width="1" height="5" /></td>
+        </tr>
+      </table>
+      <ul><li><a href="technotes/guides/index.html#base">Base Libraries  </a></li>
+        <li> <a href="technotes/guides/io/index.html">Java I/O  </a></li>
+        <li> <a href="technotes/guides/idl/index.html">CORBA</a> </li>
+        <li><a href="technotes/guides/vm/index.html">Java Virtual Machine </a> </li>
+        <li><a href="technotes/guides/jdbc/index.html">JDBC</a> </li>
+        <li><a href="technotes/guides/net/index.html">Java Networking </a> </li>
+        <li><a href="technotes/guides/security/index.html">Java Security </a> </li>
+        <li><a href="technotes/guides/xml/index.html">XML</a> </li>
+        <li><a href="technotes/tools/index.html">Tools and Utilities </a> </li>
+      </ul>
+	</div>
+	<div class="relatedLinks">	
+    	<img src="images/training_smaller.gif" alt="training" width="30" height="30" style="float: right;" />
+      <h3>Tutorials and Training </h3>
+	  <table  summary="layout" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td bgcolor="#999999"><img src="images/spacer.gif" alt="transparent" width="1" height="5" /></td>
+        </tr>
+      </table>
+      <ul><li><a href="http://java.sun.com/docs/books/tutorial/">The Java Tutorials</a></li>
+        <li> <a href="http://java.sun.com/developer/onlineTraining/">Online Training</a></li>
+        
+        <li> <a href="http://java.sun.com/">Developer Resources</a></li>
+        <li> <a href="http://www.sun.com/training/catalog/java/index.xml">Courses and Certification </a></li>
+        
+      </ul>
+	</div>
+   <div class="relatedLinks">
+     <img src="images/moreinfo.png" alt="moreinfo" width="28" height="28" 	 style="float: right;"/> 
+      <h3>More Information </h3>
+      <table  summary="layout" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td bgcolor="#999999"><img src="images/spacer.gif" alt="transparent" width="1" height="5" /></td>
+        </tr>
+      </table>
+	  <ul>
+				<li><a href="http://java.sun.com/javase/6/webnotes/install/">Installation Instructions</a></li>
+  			    <li><a href="http://java.sun.com/javase/6/webnotes/install/system-configurations.html">Supported Systems Configurations</a></li>
+				<li> <a href="http://java.sun.com/docs/books/jls/third_edition/html/j3TOC.html">Java Language Specification </a></li>
+				<li> <a href="http://java.sun.com/docs/books/jvms/second_edition/html/VMSpecTOC.doc.html">Java VM Specification</a> </li>
+				<li> <a href="http://java.sun.com/javase/whitepapers.jsp">Java SE White Papers </a> </li>
+				<li><a href="http://java.sun.com/javase/6/webnotes/trouble/">Troubleshooting Java SE  </a></li>
+                <li><a href="legal/SMICopyright.html">Legal Notices </a></li>
+      </ul>
+     </div>  
+      <div class="relatedLinks">
+			 <img src="images/resources.png" alt="resource" width="30" height="30" style="float: right;" />
+       <h3>Resources </h3>
+	  <table summary="layout" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td bgcolor="#999999"><img src="images/spacer.gif" alt="transparent" width="1" height="5" /></td>
+        </tr>
+      </table>
+      <ul><li><a href="http://www.sun.com/software/javaseforbusiness/"> Java for Business</a></li>
+        
+        <li> <a href="http://openjdk.java.net/">Open JDK </a> </li>
+        
+        <li><a href="http://bugs.sun.com/bugdatabase/">Bugs Database</a> </li>
+    </ul></div>
+	  <div class="relatedLinks">
+    	 <img src="images/dwnld.jpg" alt="download" width="30" height="30" style="float: right;" />
+      <h3>Downloads </h3>
+      <table  summary="layout" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td bgcolor="#999999"><img src="images/spacer.gif" alt="transparent" width="1" height="5" /></td>
+        </tr>
+      </table>
+	  <ul>
+        <li><a href="http://java.sun.com/javase/downloads/index.jsp">JDK / JRE</a></li> 
+        <li> <a href="http://java.sun.com/javase/downloads/index.jsp#docs">Java SE Documentation</a></li>
+    </ul>
+   </div>  
+      <div class="relatedLinks">
+			<img src="images/comm.gif" alt="community" width="30" height="30" style="float: right;" />
+      <h3>Community </h3>
+	  <table  summary="layout" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td bgcolor="#999999"><img src="images/spacer.gif" alt="transparent" width="1" height="5" /></td>
+        </tr>
+      </table>
+      <ul>
+	  <li><a href="http://forums.sun.com/index.jspa">Forums </a></li>	  
+	  <li><a href="http://planetjdk.org/">Blogs </a></li>
+	  <li><a href="http://java.sun.com/community/usergroups/">User Groups  </a></li>
+	  <li><a href="http://wikis.sun.com/dashboard.action">Wikis </a></li>
+	  <li><a href="http://developers.sun.com/newsletters/index.html">Newsletters </a></li>
+	  <li><a href="http://developers.sun.com/events/">Events </a></li>
+    </ul></div>		
+    <div class="relatedLinks">
+  		<img src="images/othrtech.png" alt="othrtech" width="20" height="20" style="float: right;" />
+      <h3>Other Technologies  </h3>
+	  <table  summary="layout" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td bgcolor="#999999"><img src="images/spacer.gif" alt="transparent" width="1" height="5" /></td>
+        </tr>
+      </table>
+      <ul>
+        <li><a href="http://java.sun.com/javaee/">Java EE  </a></li>
+        <li> <a href="http://java.sun.com/javame/index.jsp">Java ME  </a></li>
+        <li> <a href="http://javafx.com/">Java FX   </a></li>
+		<li> <a href="https://glassfish.dev.java.net/">GlassFish  </a></li>
+		<li> <a href="http://www.netbeans.org/">NetBeans  </a> </li>
+    </ul> </div>
+    
+  </div>
+  <div id="content">
+    <div class="feature">
+      <p>The  two principal products in the Java SE platform  are:  Java Development Kit   (JDK) and Java SE Runtime   Environment (JRE).<br />
+	  <br />
+      The JDK is a superset of the JRE, and contains   everything that is in the JRE, plus tools such as the compilers and debuggers   necessary for developing applets and applications. The Java Runtime Environment (JRE) provides the libraries, the Java Virtual   Machine, and other components to run applets and applications written in the   Java programming language. </br>
+	  <br />The following conceptual diagram illustrates all the component   technologies in Java SE platform and how they fit together. </p>
+	  
+	  <table  summary="layout" class="table" border="1" width="80%" bordercolor="#c0c0c0" cellpadding="0" cellspacing="0">
+        <!-- TAB GRAPHIC -->
+        <tr>
+          <td class="tdhead" colspan="4"></td>
+          <td class="tdhead" colspan="1">
+            <table  summary="layout" class="table" bgcolor="#ffffff" cellpadding="0px" cellspacing="0px">
+              <tr>
+                <td></td>
+              </tr>
+          </table></td>
+        </tr>
+        <!-- JDK -->
+        <tr>
+          <td class="tdleftside" rowspan="8" colspan="1" title="Java SE Development Kit">
+			        <a href="technotes/guides/index.html#jre-jdk" class="atext">JDK</a></td>
+          <td style="border-width: 0px 0px 0px 0px;" width="3" rowspan="9">&nbsp;</td>
+          <!-- Java Language -->
+          <td class="tdhead" colspan="2"  title="Java programming language">
+            <a href="technotes/guides/language/index.html" class="ahead" alt="Java programming language" > <b>Java Language</b> </a> </td>
+          <td colspan="1" style="border-width: 0px 0px 0px 0px;" ><!-- Java Language -->
+              <table  summary="layout" class="table" width="100%" bgcolor="#eeeeee" cellpadding="2px" cellspacing="1px">
+                <tr>
+                  <td class="tdbody" bgcolor="#BDBEC0">
+                    <a href="technotes/guides/language/index.html" class="atext" alt="Java Programming Language"> Java Language </a> </td>
+                </tr>
+            </table></td>
+        </tr>
+        <!-- Tools & Tool APIs -->
+        <tr>
+          <td class="tdhead" colspan="2"
+        title="Tools and Tool APIs">
+  `        <a href="technotes/tools/index.html" class="ahead" alt="Tools and APIs for software development"> <b>Tools &amp;<br />
+            Tool APIs</b> </a></td>
+          <td style="border-width: 0px 0px 0px 0px;" colspan="1"><table  summary="layout" class="table" width="100%" bgcolor="#eeeeee" cellpadding="2px" cellspacing="1px">
+              <!-- TOOLS: java   javac   javadoc   apt   jar   javap   JPDA   Other -->
+              <tr>
+                <td class="tdbody" bgcolor="#A3B8CB"
+              title="Java runtime launcher">
+                <a href="technotes/tools/windows/java.html" class="atext" alt="Java runtime launcher"> java </a> </td>
+                <td class="tdbody" bgcolor="#A3B8CB"  title="Java compiler">
+									<a href="technotes/guides/javac/index.html" class="atext" alt="Compile Java language code"> javac </a> </td>
+                <td class="tdbody" bgcolor="#A3B8CB" title="Java documentation generator">
+                  <a href="technotes/guides/javadoc/index.html" class="atext" alt="Generate HTML pages that describe classes and class members."> javadoc </a> </td>
+                <td class="tdbody" bgcolor="#A3B8CB" title="Annotation Processing Tool">
+									<a href="technotes/guides/apt/index.html" class="atext" alt="Annotation Processing Tool">apt </a> </td>
+                <td class="tdbody" bgcolor="#A3B8CB" title="Java archive tool">
+                  <a href="technotes/guides/jar/index.html" class="atext" alt="Java archive tool"> jar </a> </td>
+                <td class="tdbody" bgcolor="#A3B8CB"  title="Java class file disassembler">
+                  <a href="technotes/tools/windows/javap.html" class="atext" alt="Java class file disassembler">javap </a></td>
+                <td class="tdbody" bgcolor="#A3B8CB" title="Java Platform Debugger Architecture">
+                  <a href="technotes/guides/jpda/index.html" class="atext" alt="Java Platform Debugger Architecture"> JPDA </a> </td>
+                <td class="tdbody" bgcolor="#A3B8CB" title="jconsole">
+                  <a href="technotes/tools/index.html#jconsole" class="atext" alt="jconsole"> JConsole </a> </td>
+                <td class="tdbody" bgcolor="#A3B8CB" title="Java VisualVM">
+                  <a href="technotes/guides/visualvm/index.html" class="atext" alt="Java VisualVM"> Java VisualVM </a> </td>
+                <td class="tdbody" bgcolor="#A3B8CB" title="Java DB">
+                  <a href="http://download.oracle.com/javadb/index_jdk6.html" class="atext" alt="Java DB"> Java DB</a> </td>
+              </tr>
+              <!-- TOOLS: Security   Int'l   RMI   IDL   Deploy   Monitoring   Troubleshooting   Scripting JVM TI -->
+              <tr>
+                <td class="tdbody" bgcolor="#A3B8CB" title="Security tools">
+                 <a href="technotes/tools/index.html#security" class="atext" alt="Security tools"> Security </a> </td>
+                <td class="tdbody" bgcolor="#A3B8CB" title="Internationalization tools">
+                  <a href="technotes/tools/index.html#intl" class="atext" alt="Internationalization tools"> Int'l </a> </td>
+                <td class="tdbody" bgcolor="#A3B8CB"  title="Remote Method Invocation tools">
+                  <a href="technotes/tools/index.html#rmi" class="atext" alt="Remote Method Invocation tools"> RMI </a> </td>
+                <td class="tdbody" bgcolor="#A3B8CB" title="Interface Definition Language and RMI-IIOP tools">
+                  <a href="technotes/tools/index.html#idl" class="atext" alt="IDL and RMI-IIOP tools"> IDL </a> </td>
+                <td class="tdbody" bgcolor="#A3B8CB" title="Deployment, Plug-in and Web Start tools">
+                  <a href="technotes/tools/index.html#deployment" class="atext" alt="Deployment, Plug-in and Web Start tools"> Deploy </a> </td>
+                <td class="tdbody" bgcolor="#A3B8CB" title="Monitoring and Management tools">
+                  <a href="technotes/tools/index.html#monitor" class="atext" alt="Monitoring and management tools"> Monitoring </a> </td>
+                <td class="tdbody" bgcolor="#A3B8CB" title="Troubleshooting tools">
+                  <a href="technotes/tools/index.html#troubleshoot" class="atext" alt="Troubleshooting tools"> Troubleshoot </a> </td>
+                <td class="tdbody" bgcolor="#A3B8CB" title="Troubleshooting tools">
+                  <a href="technotes/tools/index.html#scripting" class="atext" alt="Scripting tools"> Scripting </a> </td>
+                <td class="tdbody" bgcolor="#A3B8CB" colspan="2" title="Java Virtual Machine Tool Interface">
+                  <a href="technotes/guides/jvmti/index.html" class="atext" alt="Java Virtual Machine Tool Interface"> JVM TI</a> </td>
+              </tr>
+          </table></td>
+        </tr>
+        <tr>
+          <!-- JRE -->
+          <td class="tdleftside" colspan="1" rowspan="6" title="Java Runtime Environment">
+            <a href="technotes/guides/index.html#jre-jdk" class="atext">JRE</a> </td>
+          <!-- Deployment Technologies -->
+          <td class="tdhead" title="Deployment Technologies">
+            <a href="technotes/guides/jweb/index.html" class="ahead" alt="Rich Internet Applications"> <b>RIAs<a/></b></a>
+          </td>
+          <td style="border-width: 0px 0px 0px 0px;" colspan="1"><!-- Deployment   Java Web Start   Java Plug-in -->
+              <table  summary="layout" class="table" width="100%" bgcolor="#eeeeee" cellpadding="2px" cellspacing="1px">
+                <tr>
+                  <td class="tdbody" bgcolor="#ED9B4F"  style="padding:6px 0px" title="Deployment of Java platform, control panel, applications and applets">
+                    <a href="technotes/guides/jweb/index.html" class="atext" alt="Development and Deployment Of JavaTM  Web Apps"> </a> </td>
+                  <td class="tdbody" bgcolor="#ED9B4F" title="Java Web Start">
+                    <a href="technotes/guides/javaws/index.html" class="atext" alt="Seamlessly download and launch a Java application"> Java Web Start </a> </td>
+                  <td class="tdbody" bgcolor="#ED9B4F" title="Java Plug-In for browsers">
+                    <a href="technotes/guides/jweb/applet/applet_dev_guide.html" class="atext" alt="Use the Sun JRE in your browser to run applets or Java beans"> Applet
+                    / Java Plug-in </a> </td>
+                </tr>
+            </table></td>
+        </tr>
+        <!-- User Interface Toolkits -->
+        <tr>
+          <td class="tdhead" colspan="1" title="User Interface programming">
+            <a href="technotes/guides/index.html#userinterface" class="ahead"> <b>User Interface<br />
+            Toolkits</b> </a> </td>
+          <td style="border-width: 0px 0px 0px 0px;" ><!-- AWT   Swing   Java 2D -->
+              <table  summary="layout" class="table" width="100%" bgcolor="#eeeeee" cellpadding="2px" cellspacing="1px">
+                <tr>
+                  <td class="tdbody" colspan="3" bgcolor="#E76F00" title="Abstract Window Toolkit">
+                    <a href="technotes/guides/awt/index.html" class="atext" alt="Abstract Window Toolkit for graphical user interface programming"> AWT </a> </td>
+                  <td class="tdbody" colspan="4" bgcolor="#E76F00" title="Graphical user interface components">
+                    <a href="technotes/guides/swing/index.html" class="atext" alt="GUI components for creating graphical user interfaces with pluggable look and feel"> Swing </a> </td>
+                  <td class="tdbody" colspan="3" bgcolor="#E76F00" title="2D graphics, text and images">
+                    <a href="technotes/guides/2d/index.html" class="atext" alt="Incorporate high-quality 2D graphics, text and images"> Java 2D </a> </td>
+                </tr>
+                <!-- Accessibility   Drag n Drop   Input Methods   Image I/O   Print Service   Sound -->
+                <tr>
+                  <td class="tdbody" bgcolor="#E76F00" title="Assistive technologies for user interfaces">
+                    <a href="technotes/guides/access/index.html" class="atext" alt="Enable assistive technologies for user interfaces"> Accessibility </a></td>
+                  <td class="tdbody" colspan="2" bgcolor="#E76F00" title="Drag and drop data transfer">
+                     <a href="technotes/guides/dragndrop/index.html" class="atext" alt="Drag and drop support between Java applications and native applications"> Drag n Drop </a></td>
+                  <td class="tdbody"  colspan="2" bgcolor="#E76F00" title="Input Method Framework">
+                     <a href="technotes/guides/imf/index.html" class="atext" alt="Input Method Framework for text editing components and input methods"> Input Methods </a> </td>
+                  <td class="tdbody" colspan="2" bgcolor="#E76F00" title="Image input/output API">
+                     <a href="technotes/guides/imageio/index.html" class="atext" alt="Pluggable architecture for images accessed across a network"> Image I/O </a> </td>
+                  <td class="tdbody" colspan="2" bgcolor="#E76F00" title="Print service API">
+                     <a href="technotes/guides/jps/index.html" class="atext" alt="API for printing"> Print Service </a> </td>
+                  <td class="tdbody" colspan="1"  bgcolor="#E76F00" title="MIDI API">
+                     <a href="technotes/guides/sound/index.html" class="atext" alt="API for capturing, processing, and playing back audio and MIDI data"> Sound </a> </td>
+                </tr>
+            </table></td>
+          <td style="border-width: 0px 0px 0px 0px;" rowspan="9" width="3">&nbsp;</td>
+          <!-- Java SE API -->
+          <td class="tdrightside" style="border-width: 2px 2px 2px 0px;" rowspan="4" title="Java SE Application Programming Interface">
+            <a href="api/index.html" class="atext"> Java SE<br />
+          API </a> </td>
+        </tr>
+        <!-- Integration Libraries -->
+        <tr>
+          <td class="tdhead" title="Integration libraries">
+            <a href="technotes/guides/index.html#integration" class="ahead"><b>Integration<br />
+            Libraries</b> </a> </td>
+          <td style="border-width: 0px 0px 0px 0px;" ><!-- IDL   JDBC   JNDI   RMI   RMI-IIOP Scripting -->
+              <table  summary="layout" class="table" width="100%" bgcolor="#eeeeee" cellpadding="2px" cellspacing="1px">
+                <tr>
+                  <td class="tdbody" colspan="2" bgcolor="#B2BC00"  style="padding:6px 0px" title="CORBA Interface Definition Language API">
+                    <a href="technotes/guides/idl/index.html" class="atext" alt="Interfaces defined in CORBA Interface Definition Language"> IDL </a></td>
+                  <td class="tdbody" colspan="2" bgcolor="#B2BC00" title="Java Database Connectivity API">
+                    <a href="technotes/guides/jdbc/index.html" class="atext" alt="Java Database Connectivity"> JDBC</a> </td>
+                  <td class="tdbody" colspan="2" bgcolor="#B2BC00" title="Java Naming and Directory Interface API">
+                    <a href="technotes/guides/jndi/index.html" class="atext" alt="Java Naming and Directory Interface"> JNDI</a></td>
+                  <td class="tdbody" colspan="2" bgcolor="#B2BC00" title="Remote Method Invocation API">
+                    <a href="technotes/guides/rmi/index.html" class="atext" alt="Remote Method Invocation"> RMI </a> </td>
+                  <td class="tdbody" colspan="2" bgcolor="#B2BC00" title="RMI interfaces over IIOP">
+                    <a href="technotes/guides/rmi-iiop/index.html" class="atext" alt="RMI interfaces using IIOP as the underlying transport"> RMI-IIOP </a> </td>
+                  <td class="tdbody" colspan="2" bgcolor="#B2BC00" title="Scripting for the Java Platform">
+                    <a href="technotes/guides/scripting/index.html" class="atext" alt="Scripting for the Java Platform">
+                    Scripting </a> </td>
+                </tr>
+            </table></td>
+        </tr>
+        <!-- Other Base Libraries -->
+        <tr>
+          <td class="tdhead" colspan="1" title="Base libraries other than java.lang and java.util">
+            <a href="technotes/guides/index.html#otherbase" class="ahead" alt="Base libraries other than lang and util"><b>Other Base<br />
+            Libraries</b> </a> </td>
+          <td style="border-width: 0px 0px 0px 0px;" ><!-- Beans   Intl Support   I/O    JMX   JNI   Math -->
+              <table  summary="layout" class="table" width="100%" bgcolor="#eeeeee" cellpadding="2px" cellspacing="1px">
+                <tr>
+                  <td class="tdbody" bgcolor="#C69200" title="Java Beans component API">
+                    <a href="technotes/guides/beans/index.html" class="atext" alt="Java Beans component API"> Beans </a></td>
+                  <td class="tdbody" colspan="2" bgcolor="#C69200" title="Internationalization of applications">
+                    <a href="technotes/guides/intl/index.html" class="atext" alt="Application internationalization"> Intl Support </a></td>
+                  <td class="tdbody" colspan="2" bgcolor="#C69200" title="Input/Output API">
+                    <a href="technotes/guides/io/index.html" class="atext" alt="Input and output through data streams, serialization and file systems"> Input/Output</a></td>
+                  <td class="tdbody" colspan="2" bgcolor="#C69200" title="Java Management Extensions">
+                    <a href="technotes/guides/jmx/index.html" class="atext" alt="Java Management Extensions"> JMX </a> </td>
+                  <td class="tdbody" colspan="2" bgcolor="#C69200" title="Java Native Interface">
+                    <a href="technotes/guides/jni/index.html" class="atext" alt="Java Native Interface"> JNI </a> </td>
+                  <td class="tdbody" bgcolor="#C69200" title="Math classes">
+                    <a href="technotes/guides/math/index.html" class="atext" alt="Floating point and arbitrary-precision math"> Math </a> </td>
+                </tr>
+                <!-- Networking   Std. Override Mechanism    Security   Serialization   Extension Mechanism   XML JAXP -->
+                <tr>
+                  <td class="tdbody" bgcolor="#C69200" title="Networking API">
+									  <a href="technotes/guides/net/index.html" class="atext" alt="Networking API"> Networking </a> </td>
+                  <td class="tdbody" colspan="2" bgcolor="#C69200" title="Endorsed Standards Override Mechanism">
+                    <a href="technotes/guides/standards/index.html" class="atext" alt="Endorsed Standards Override Mechanism"> Override Mechanism </a> </td>
+                  <td class="tdbody" colspan="2" bgcolor="#C69200" title="Security API">
+                    <a href="technotes/guides/security/index.html" class="atext" alt="Writing secure applications"> Security </a></td>
+                  <td class="tdbody" colspan="2" bgcolor="#C69200" title="Object Serialization">
+                    <a href="technotes/guides/serialization/index.html" class="atext" alt="Java input/output classes with object support serialization"> Serialization</a> </td>
+                  <td class="tdbody" colspan="2" bgcolor="#C69200" title="Package extension mechanism">
+	                  <a href="technotes/guides/extensions/index.html" class="atext" alt="Mechanism for JVM to use optional packages"> Extension Mechanism </a> </td>
+                  <td class="tdbody" bgcolor="#C69200" nowrap="nowrap" title="Java API for XML Processing">
+                    <a href="technotes/guides/xml/index.html" class="atext" alt="Java API for Extensible Markup Language Processing"> XML JAXP </a> </td>
+                </tr>
+            </table></td>
+        </tr>
+        <!-- lang and util Base Libraries -->
+        <tr>
+          <td class="tdhead" colspan="1" title="java.lang and java.util libraries">
+            <a href="technotes/guides/index.html#langutil" class="ahead"><b>lang and util<br />
+            Base Libraries</b> </a> </td>
+          <td style="border-width: 0px 0px 0px 0px;" ><table  summary="layout" class="table" width="100%" bgcolor="#eeeeee" cellpadding="2px" cellspacing="1px">
+              <!-- lang and util   Collections    Concurrency Utilities    JAR   Logging   Management   -->
+              <tr>
+                <td class="tdbody" colspan="1" bgcolor="#FFC726" title="java.lang and java.util packages">
+                  <a href="technotes/guides/lang/index.html" class="atext" alt="java.lang and java.util packages"> lang and util </a> </td>
+                <td class="tdbody" colspan="2" bgcolor="#FFC726" title="Collections framework">
+                  <a href="technotes/guides/collections/index.html" class="atext" alt="Framework for representing and manipulating collections"> Collections </a></td>
+                <td class="tdbody" colspan="2" bgcolor="#FFC726" title="Concurrency utilities">
+                  <a href="technotes/guides/concurrency/index.html" class="atext" alt="Concurrency utilities"> Concurrency Utilities </a></td>
+                <td class="tdbody" colspan="2" bgcolor="#FFC726" title="Java archive file format">
+                  <a href="technotes/guides/jar/index.html" class="atext" alt="Platform-independent file format that aggregates many files into one"> JAR </a></td>
+                <td class="tdbody" colspan="2" bgcolor="#FFC726" title="Logging API">
+                  <a alt="Logging features" href="technotes/guides/logging/index.html" class="atext"> Logging </a> </td>
+                <td class="tdbody" colspan="2" bgcolor="#FFC726" title="JVM Monitoring and Management">
+                  <a href="technotes/guides/management/index.html" class="atext" alt="Java virtual machine monitoring and management"> Management </a> </td>
+              </tr>
+              <!-- Preferences   Ref Objects   Reflection   Regular Expressions   Versioning   Zip   Instrument  -->
+              <tr>
+                <td class="tdbody" colspan="1" bgcolor="#FFC726" title="Preferences API">
+                  <a alt="Preferences" href="technotes/guides/preferences/index.html" class="atext"> Preferences API</a></td>
+                <td class="tdbody" colspan="2" bgcolor="#FFC726" title="Reference Objects API">
+                  <a alt="Reference Objects API" href="api/java/lang/ref/package-summary.html" class="atext"> Ref Objects </a></td>
+                <td class="tdbody" colspan="2" bgcolor="#FFC726" title="Reflection API">
+                  <a href="technotes/guides/reflection/index.html" class="atext" alt="Introspection of loaded classes and objects"> Reflection </a> </td>
+                <td class="tdbody" colspan="2" bgcolor="#FFC726" title="Regular expressions">
+                  <a alt="Regular expressions" href="api/java/util/regex/package-summary.html" class="atext"> Regular Expressions </a> </td>
+                <td class="tdbody" colspan="2" bgcolor="#FFC726" title="Package version identification">
+                  <a href="technotes/guides/versioning/index.html" class="atext" alt="Package Version Identification"> Versioning </a> </td>
+                <td class="tdbody" colspan="1" bgcolor="#FFC726" title="Zip and gzip file formats">
+                  <a href="api/java/util/zip/package-summary.html" class="atext" alt="Reading and writing ZIP and GZIP file formats"> Zip </a> </td>
+                <td class="tdbody" colspan="1" bgcolor="#FFC726" title="Instrumentation">
+                  <a href="technotes/guides/instrumentation/index.html" class="atext" alt="instrumentation"> Instrumentation</a> </td>
+              </tr>
+          </table></td>
+        </tr>
+        <!-- Java Virtual Machine -->
+        <tr>
+          <td class="tdhead" width="117" colspan="1" rowspan="1" title="Java Virtual Machine">
+            <a alt="Write Once, Run Anywhere (TM)" href="technotes/guides/vm/index.html" class="ahead"> <b>Java Virtual<br />
+            Machine</b> </a> </td>
+          <td style="border-width: 0px 0px 0px 0px;" colspan="1"><!-- Java Hotspot Server VM   Java Hotspot Client VM -->
+              <table  summary="layout" class="table" border="0" width="100%" bgcolor="#eeeeee" cellpadding="2px" cellspacing="1px">
+                <tr>
+                  <td class="tdbody" colspan="10" rowspan="1" bgcolor="#C5D5A9"  style="padding:6px 0px" title="Client and Server virtual machine">
+                    <a alt="Write Once, Run Anywhere (TM)" href="technotes/guides/vm/index.html" class="atext"> Java
+                    Hotspot Client and Server VM</a></td>
+                </tr>
+            </table></td>
+        </tr>
+        
+      </table>
+	  <p>&nbsp;</p>
+    </div>
+	<div class="story">
+      <h3><a href="api/">Java SE 6 API Documentation</a></h3>      
+    </div>
+    <div class="story">
+      <h3><a name="NewFeature" id="NewFeature" class="notHref"></a>What's New in Java SE Documentation</h3>
+      <p>Java SE documentation is regularly updated to provide developers with in-depth information about new features in the Java platform. Some recent updates include: </p>
+    </div>
+    
+    <div class="story">
+      <table  summary="layout" width="100%" cellpadding="10px" cellspacing="0" summary="layout">
+        <tr valign="top">
+          <td width="50%" class="storyLeft">
+            <a href="technotes/guides/jweb/customizeRIALoadingExperience.html" class="capsule">Customizing the RIA Loading Experience</a> 
+            Customize the rich Internet application loading experience by providing a splash screen or a customized 
+            loading progress indicator to engage the end user when the RIA is loading and 
+            to communicate measurable progress information. 
+            <p>See the following topics for more information:</p> 
+            <ul>
+                <li><a href="technotes/guides/jweb/customizeRIALoadingExperience.html">Customizing the RIA Loading Experience</a> topic for conceptual information</li>
+                <li><a href="http://download.oracle.com/javase/tutorial/deployment/doingMoreWithRIA/customizeRIALoadingExperience.html">Customizing the Loading Experience</a> 
+                topic in the Java Tutorials for step-by-step instructions and examples</li>
+            </ul>            
+          </td>
+
+          <td width="50%" class="storyLeft">
+            <a href="technotes/guides/jweb/mixed_code.html" class="capsule">Mixing Signed and Unsigned Code</a> 
+            Signed Java Web Start applications and applets that contain signed and unsigned components could 
+            potentially be unsafe unless the mixed code was intended by the application vendor. 
+            As of the 6 update 19 release, when mixed code is detected in a program, a warning dialog is raised. 
+            <a href="technotes/guides/jweb/mixed_code.html">Mixing Signed and Unsigned Code</a> 
+            explains this warning dialog and options that the user, 
+            system administrator, developer, and deployer have to manage it. 
+            <p>See <a href="http://www.oracle.com/technology/deploy/security/critical-patch-updates/javacpumar2010.html">Oracle 
+            Java SE and Java for Business Critical Patch Update Advisory - March 2010</a> 
+            for details.</p>  
+          </td>
+        </tr>
+				
+        <tr valign="top">          
+          <td width="50%" class="storyLeft">
+           <a href="technotes/guides/jweb/index.html" class="capsule">Java Rich Internet Applications Development and Deployment</a> 
+					    Rich Internet Applications can be developed and deployed as applets or Java Web Start applications.
+                        The <a href="http://java.sun.com/javase/6/webnotes/6u10/plugin2/index.html">next generation Java Plug-in</a> 
+    					introduced in Java SE 6 update 10 provides powerful capabilities to applets.                         					          
+          </td>
+
+          <td width="50%" class="storyLeft">
+
+	  </td> 
+        </tr>
+
+        
+      </table>
+    </div>
+    
+	<div class="story">
+      <h3>Technical Articles  </h3>
+			<p>View these and <a href="http://java.sun.com/javase/reference/techart.jsp">other technical articles</a> to stay current with features and improvements in the Java platform.</p>
+      <ul>
+						<li><a href="http://java.sun.com/developer/technicalArticles/appletAspIntegration/">Java Applets, ASP.net - Can You Play Together?</a><br/>
+						This article describes how to develop and deploy Java Rich Internet Applications that work seamlessly with ASP.net technology.
+						</li>    
+            <li><a href="http://java.sun.com/developer/technicalArticles/GUI/mixing_components/index.html">Mixing Heavyweight and Lightweight Components </a><br/>
+							This article describes how heavyweight and lightweight components can play well together, used in the same container, in your Swing application. 
+					  </li>
+						<li><a href="http://blip.tv/file/2847674">Monetize Your Desktop Applications</a><br/>
+						View this screencast to learn how to convert a desktop application into a Java Web Start application.
+						</li>    			
+      </ul>
+    </div>
+	</br>
+	</br>
+	<p>&nbsp; Watch this page for more Java SE 6 features and updates! </p>
+  </div>
+  
+
+
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

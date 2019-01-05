@@ -1,0 +1,3 @@
+*.sdic filter=git-crypt diff=git-crypt
+/elnode  filter=git-crypt diff=git-crypt
+*.creole filter=git-crypt diff=git-crypt

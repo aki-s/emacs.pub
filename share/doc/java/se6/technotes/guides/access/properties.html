@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Accessibility Properties</title><link rel="stylesheet" href="../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><table summary="layout" border="0" width="100%">
+<tr>
+<td>
+
+<h1>Accessibility Properties</h1>
+
+</td>
+</tr>
+</table>
+<!-- Body text begins here -->
+<!-- ============================================================== -->
+<hr noshade="noshade" width="100%" />
+<h3>Available Properties</h3>
+<blockquote>The <tt>javax.accessibility</tt> package provides the
+following properties:
+<ul>
+<li><tt>assistive_technologies</tt></li>
+<li><tt>screen_magnifier_present</tt></li>
+<li><tt>screen_reader_present</tt></li>
+</ul>
+<p><b>Loading Assistive Technologies</b></p>
+<p>The <tt>assistive_technologies</tt> property specifies the
+assistive technologies to load into the JVM. It takes a
+comma-delimited list as input.</p>
+<p><b>Indicating the Presence of a Screen Magnifier</b></p>
+<p>When the <tt>screen_magnifier_present</tt> property is set to
+<tt>true</tt>, it lets the Java platform libraries know that a
+screen magnifier is present on the system. Application developers
+can check this property, and if a screen magnifier is present,
+developers should make sure their applications are compatible with
+screen magnification. For example, on Microsoft Windows operating
+systems, the reference implementation of the Java
+2D<sup><font size="-2">TM</font></sup> API checks this property and
+if <tt>true</tt>, turns off Microsoft DirectDraw to avoid problems
+with the screen magnifier. (Some screen magnifiers may not be able
+to magnify DirectDraw graphics.)</p>
+<p><b>Indicating the Presence of a Screen Reader</b><br /></p>
+<p>When the <tt>screen_reader_present</tt> property is set to
+<tt>true</tt>, it lets the Java platform libraries know that a
+screen reader is present on the system. Application developers can
+check this property. If an application is self-voicing and a screen
+reader is present, developers can turn off the self-voicing.</p>
+</blockquote>
+<h3>Setting Properties</h3>
+<blockquote>
+<p>You can set a property at run time or in a properties file. To
+set a property at run time, enter a command such as the
+following:</p>
+<p><tt>java -Djavax.accessibility.screen_magnifier_present=true
+foo.class</tt></p>
+<p>The reference implementation includes an
+<tt>accessibility.properties</tt> file in the <tt>jre/lib</tt>
+directory. To set a property in the
+<tt>accessibility.properties</tt> file, add a line or lines such as
+the following:</p>
+<p><tt>assistive_technologies=Ferret,Monkey</tt><br />
+<tt>screen_magnifier_present=true</tt><br />
+<tt>screen_reader_present=true</tt></p>
+</blockquote>
+<br />
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

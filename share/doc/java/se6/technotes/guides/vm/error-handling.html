@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Error Reporting</title><link rel="stylesheet" href="../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><table summary="layout" border="0" width="100%">
+<tr>
+<td align="center">
+<h1>Error Reporting</h1>
+</td>
+</tr>
+</table>
+When the Java Virtual Machine (JVM) detects a crash in native code
+such as JNI code written by the developer or when the JVM itself
+crashes, it will print debug information about the crash. This
+error message normally will include information such as the
+function name, library name, source-file name and line number at
+which the error occurred. (Currently, information about file name
+and line number are available only available on Microsoft Windows
+platforms.) For an example of a message emitted by the error
+handler, see <a href="error-example.txt">JNI Error example</a>.
+<p>The information provided by the new error-reporting mechanism
+will allow developers to more easily and efficiently debug their
+applications. If an error message indicates a problem in the JVM
+code itself, it will allow a developer to submit a more accurate
+and helpful bug report.</p>
+<p>Sometimes the error-reporting mechanism won't be able to
+determine the information that might be helpful in locating the
+source of a crash. To get the most out of the error handler,
+developers should be aware of the following guidelines and
+limitations.</p>
+<p><b>Compile in debug mode</b><br /></p>
+<blockquote>In some circumstances, the error-reporting mechanism
+won't be able to determine symbol names. The most common reason for
+this is that the binary code that crashed was not compiled in debug
+mode and therefore doesn't have symbol tables. Developers should
+compile their code in debug mode to ensure that it contains the
+necessary debug information. In Visual Studio, for example, this
+means choosing "Debug" rather than "Release" as the project's build
+mode. When using gcc or cc on Linux or on the
+Solaris<sup><font size="-2">TM</font></sup> operating environment,
+compile using the <tt>-g</tt> command-line option.</blockquote>
+<p><b>Non-exported functions</b></p>
+<blockquote>Even without debug information in the binary code, the
+error handler can still print the function name of the crash site.
+However, the function name might not be correct if the problematic
+function is not "exported" from the dynamic library. On Linux and
+Solaris, all functions are exported except those declared static.
+On Microsoft Windows platforms, <i>no</i> functions are exported
+unless explicitly declared so (using <tt>JNIEXPORT</tt> or
+<tt>__declspec(dllexport)</tt>).</blockquote>
+<p><b>Visual Studio limitation on Windows 98 and Windows
+NT</b><br /></p>
+<blockquote>On Windows 98 and Windows NT platforms, the error
+handler uses the system's <tt>imagehlp.dll</tt> file to help
+determine the function name, source file, and line number of a
+crash site. (Windows 2000 and Windows ME use two files,
+<tt>imagehlp.dll</tt> and <tt>debughlp.dll</tt> to perform this
+task.) However, the <tt>imagehlp.dll</tt> file in Windows 98 and
+Windows NT does not work well with binary code and DLLs generated
+by Visual Studio 6.0.
+<p>This problem may cause the error handler to generate error
+messages with incorrect information about the function name, source
+file and line number of the crash site, though other information in
+the error message will be correct.</p>
+</blockquote>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

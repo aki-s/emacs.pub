@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="copyright" content="2004, 2010" />
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+
+
+<link rel="stylesheet" href="../../css/tools.css"  type="text/css" />
+<title>jstack - スタックトレース</title>
+
+</head>
+
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>jstack - スタックトレース<br /></h1>
+
+  <ul>
+<li><a href="#synopsis">形式</a></li>
+
+<li><a href="#parameters">パラメータ</a><br /></li>
+
+<li><a href="#description">説明</a></li>
+
+<li><a href="#options">オプション</a></li>
+
+<li><a href="#seealso">関連項目</a></li>
+
+<li><a href="#KNOWN_BUGS">既知のバグ</a><br /></li>
+  </ul>
+
+<h2><a name="synopsis">形式</a></h2>
+
+  <blockquote>
+    <pre>
+<b>jstack</b> [ option ] pid
+<b>jstack</b> [ option ] executable core
+<b>jstack</b> [ option ] [server-id@]remote-hostname-or-IP
+</pre>
+  </blockquote>
+
+<h2><a name="parameters">パラメータ</a></h2>
+
+  <blockquote>
+  <p>
+各オプションは互いに排他的です。オプションを使用する場合、コマンド名の直後に記述します。<a href=     "#options">オプション</a>を参照してください。
+</p>
+    <dl>
+<dt><span style="font-weight: bold;">pid</span></dt>
+<dd>印刷するスタックトレースのプロセス ID です。プロセスは Java プロセスである必要があります。マシン上で実行している Java プロセスの一覧を取得するには、<a href="jps.html">jps</a> を使用します。</dd>
+    </dl>
+
+    <dl>
+<dt><span style=       "font-weight: bold;">executable</span><br /></dt>
+<dd>コアダンプの作成元の Java 実行可能ファイルです。</dd>
+
+      <dd><br /></dd>
+<dt><span style="font-weight: bold;">core</span><br /></dt>
+<dd>印刷するスタックトレースのコアファイルです。</dd>
+
+      <dd><br /></dd>
+<dt><span style="font-weight: bold;">remote-hostname-or-IP</span><br /></dt>
+
+<dd>リモートデバッグサーバー (<a href=       "jsadebugd.html">jsadebugd</a> を参照) のホスト名または IP アドレスです。</dd>
+
+      <dd><br /></dd>
+<dt><span style=       "font-weight: bold;">server-id<br /></span></dt>
+
+<dd>複数のデバッグサーバーが同一のリモートホストで実行している場合の、オプション固有の ID です。</dd>
+    </dl>
+  </blockquote>
+
+<h2><a name="description">説明</a></h2>
+
+  <blockquote>
+  <p>
+<b>jstack</b> は、指定された Java プロセスやコアファイルまたはリモートデバッグサーバーに対する Java スレッドの Java スタックトレースを印刷します。Java フレームごとに、フルクラス名、メソッド名、「bci」(バイトコードインデックス)、および行番号 (利用可能な場合) が印刷されます。-m オプションを使用すると、jstack は、すべてのスレッドの Java フレームとネイティブフレームの両方を、「pc」(プログラムカウンタ) とともに印刷します。ネイティブフレームごとに、「pc」にもっとも近いネイティブシンボル (利用可能な場合) が印刷されます。C++ 分解名は分解解除されません。C++ 名を分解解除するには、このコマンドの出力を <b>c++filt</b> にパイプします。指定されたプロセスが 64 ビット VM 上で実行されている場合、<i>-J-d64</i> オプションを指定しなければならない場合があります。 次に例を示します。 <br />
+</p><blockquote><pre>jstack -J-d64 -m pid</pre></blockquote>
+<p><b>注 - このユーティリティーはサポート対象外であり、将来の JDK のバージョンでは利用できなくなる可能性があります。Windows プラットフォーム上で使用可能な唯一の jstack 形式は、次のとおりです。</b></p>
+<b><pre>    jstack [-l] pid </pre>
+</b>
+    <p></p>
+  </blockquote>
+
+<h2><a name="options">オプション</a></h2>
+
+  <blockquote>
+    <dl>
+<dt><b>-F</b></dt>
+
+<dd>「jstack [-l] pid」が応答しない場合にスタックダンプを強制します。</dd>
+<dt><b>-l</b></dt>
+
+<dd>長形式のリスト。所有 java.util.concurrent の<a href="../../../api/java/util/concurrent/locks/AbstractOwnableSynchronizer.html">所有できるシンクロナイザ</a>の一覧など、ロックについての追加情報を印刷します。
+      </dd>
+
+<dt><b>-m</b></dt>
+
+<dd>混合モード (Java およびネイティブ C/C++ フレームの両方) のスタックトレースを印刷します。</dd>
+
+<dt><b>-h</b></dt>
+
+<dd>ヘルプメッセージを印刷します。<br /> <br /></dd>
+
+<dt><b>-help</b></dt>
+
+<dd>ヘルプメッセージを印刷します。<br /></dd>
+    </dl>
+  </blockquote>
+
+<h2><a name="seealso">関連項目</a></h2>
+
+    <ul>
+<li>pstack(1)</li>
+<li>c++filt(1)</li>
+<li><a href="jps.html">jps</a></li>
+<li><a href="jsadebugd.html">jsadebugd</a></li>
+    </ul>
+
+<h2><a name="knownbugs">既知のバグ</a><a name="KNOWN_BUGS"></a></h2>
+
+  <blockquote>
+  <p>
+混合モードのスタックトレース (-m オプション使用) は、リモートデバッグサーバーでは機能しません。
+    </p>
+  </blockquote>
+
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

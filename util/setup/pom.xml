@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.emacs.aki</groupId>
+  <artifactId>setup</artifactId>
+  <version>3.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Setup External Libraries For Emacs</name>
+  <description>
+    [About] Top level pom to setup external libraries used in my emacs.
+    [Usage] $ cd to-this-dir; mvn install; mvn clean:clean;
+    [Docs] [[https://maven.apache.org/pom.html XSD]]
+    [[https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html Dependency]]
+    [Info] Alternative ways.
+
+    1) Configure pom.xml (Keep structured) then,
+    $ mvn dependency:copy-dependencies -DoutputDirectory=OUTPUT_DIR
+    # Copied to `target/dependency` by default.
+
+    1') Directly download jars.
+    $ mvn dependency:get -DremoteRepositories=http://repo1.maven.org/maven2/ \
+                   -DgroupId=junit -DartifactId=junit -Dversion=4.8.2 \
+                   -Dtransitive=false
+  </description>
+  <prerequisites>
+    <maven>3.2.3</maven>
+  </prerequisites>
+
+  <profiles>
+    <profile>
+      <id>install-all</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+    </profile>
+  </profiles>
+
+  <modules>
+    <module>lang/java</module>
+  </modules>
+
+  <!-- <properties> -->
+  <!--   <emacs.lib.dir>${user.home}/.emacs.d/share/lib/</emacs.lib.dir> -->
+  <!-- </properties> -->
+
+</project>

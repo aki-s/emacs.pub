@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="copyright" content="2004, 2010" />
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+
+
+<link rel="stylesheet" href="../../css/tools.css"  type="text/css" />
+<title>jsadebugd - サービスアビリティーエージェントデバッグデーモン</title>
+
+</head>
+
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>jsadebugd - サービスアビリティーエージェントデバッグデーモン</h1>
+
+  <ul>
+<li><a href="#synopsis">形式</a></li>
+
+<li><a href="#parameters">パラメータ</a></li>
+
+<li><a href="#description">説明</a></li>
+
+<li><a href="#seealso">関連項目</a></li>
+  </ul>
+
+<h2><a name="synopsis"/>形式</h2>
+
+  <blockquote>
+    <pre>
+<b>jsadebugd</b> pid [ server-id ]
+<b>jsadebugd</b> executable core [ server-id ]
+</pre>
+  </blockquote>
+
+<h2><a name="parameters"/>パラメータ</h2>
+
+  <blockquote>
+    <dl>
+<dt><span style="font-weight: bold;">pid</span></dt>
+
+<dd>デバッグサーバーが接続するプロセスのプロセス ID です。プロセスは Java プロセスである必要があります。マシン上で実行している Java プロセスの一覧を取得するには、<a href=       "jps.html">jps</a> を使用します。単一のプロセスに接続できるデバッグサーバーのインスタンスは、1 つに制限されます。</dd>
+    </dl>
+
+    <dl>
+<dt><span style="font-weight: bold;">executable</span></dt>
+    </dl>
+
+    <dl style="margin-left: 40px;">
+<dt>コアダンプの作成元になる Java 実行可能ファイルです。</dt>
+    </dl>
+
+    <dl>
+<dt><span style="font-weight: bold;">core</span></dt>
+
+<dd>デバッグサーバーを接続するコアファイルです。</dd>
+    </dl>
+    <dl>
+    <dt>
+<span style="font-weight: bold;">server-id</span></dt>
+
+    <dd>
+複数のデバッグサーバーが同一のマシン上で実行している場合に必要になる、オプション固有の ID です。この ID は、リモートクライアントが、接続先のデバッグサーバーを特定するために使用する必要があります。この ID は、単一のマシン内で一意でなければなりません。
+    </dd></dl>
+  </blockquote>
+
+<h2><a name="description" id="description">説明</a></h2>
+
+  <blockquote>
+  <p>
+<b>jsadebugd</b> は、Java プロセスまたはコアファイルに接続し、デバッグサーバーとして機能します。<a href=     "jstack.html">jstack</a>、<a href="jmap.html">jmap</a>、および <a href="jinfo.html">jinfo</a> などのリモートクライアントは、Java Remote Method Invocation (RMI) を使用しているサーバーに接続できます。<code>jsadebugd</code> を起動する前に、次のように指定して <a href=     "../index.html#rmi">rmiregistry</a> を起動する必要があります。
+</p>
+    <blockquote>
+      <pre>
+<code>rmiregistry -J-Xbootclasspath/p:$JAVA_HOME/lib/sajdi.jar</code>
+</pre>
+    </blockquote>
+    <p>
+ここで、<code>$JAVA_HOME</code> は、JDK のインストールディレクトリです。rmiregistry が起動していない場合、jsadebugd は標準 (1099) ポートの rmiregistry を内部で起動します。デバッグサーバーは、SIGINT を送信する (Ctrl+C を押す) ことにより停止できます。
+</p>
+<p><b>注 - このユーティリティーはサポート対象外であり、将来の JDK のバージョンでは利用できなくなる可能性があります。 jsadebugd は、現時点では、Windows プラットフォームでは使用できません。</b></p>
+  </blockquote>
+
+<h2><a name="seealso">関連項目</a></h2>
+
+    <ul>
+<li><a href="jinfo.html">jinfo</a></li>
+
+<li><a href="jmap.html">jmap</a></li>
+
+<li><a href="jps.html">jps</a></li>
+
+<li><a href="jstack.html">jstack</a></li>
+
+<li><a href="../index.html#rmi">rmiregistry</a></li>
+    </ul>
+
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

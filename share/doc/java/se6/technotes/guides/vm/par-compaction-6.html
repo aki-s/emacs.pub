@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Parallel Compaction</title><link rel="stylesheet" href="../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>Parallel Compaction</h1>
+<ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#enabling">Enabling Parallel Compaction</a></li>
+<li><a href="#more_info">More Information</a></li>
+</ul>
+<h1><a name="description" id="description">Description</a></h1>
+<p>Parallel compaction complements the existing parallel collector
+by performing full GCs in parallel to take advantage of
+multiprocessor (or multi-threaded) hardware. As the name suggests,
+it is best suited to platforms that have two or more CPUs or two or
+more hardware threads. It was first made available in <a href=
+"http://java.sun.com/j2se/1.5.0/">JDK 5.0</a> update&nbsp;6; the
+implementation in JDK&nbsp;6 contains significant performance
+improvements.</p>
+<p>Prior to the availability of parallel compaction, the parallel
+collector would perform young generation collections (young GCs) in
+parallel, but full&nbsp;GCs were performed single-threaded. (During
+a young GC, only the young generation is collected; during a full
+GC the entire heap is collected. See the documents referenced below
+for more details on generations and garbage collection.) Parallel
+compaction performs full GCs in parallel, resulting in lower
+garbage collection overhead and better application performance,
+particularly for applications with large heaps running on
+multiprocessor hardware.</p>
+<h1><a name="enabling" id="enabling">Enabling Parallel
+Compaction</a></h1>
+<p>Parallel compaction is not enabled by default; add the
+option</p>
+<p align="center"><code><b>-XX:+UseParallelOldGC</b></code></p>
+<p>to the <code>java</code> command line to enable parallel
+compaction. (Parallel compaction will likely be enabled by default
+on multiprocessor hardware in a future release.)</p>
+<p>Note that parallel compaction is not available in combination
+with the concurrent mark sweep collector; it can only be used with
+the parallel young generation collector. The documents referenced
+below provide more information on the available collectors and
+recommendations for their use.</p>
+<h1><a name="more_info" id="more_info">More Information</a></h1>
+<p>The HotSpot <a href=
+"https://java.sun.com/j2se/reference/whitepapers/memorymanagement_whitepaper.pdf">
+memory management whitepaper</a> describes the various collectors
+available in HotSpot and includes recommendations on when to use
+parallel compaction as well as a high-level description of the
+algorithm.</p>
+<p>The HotSpot <a href=
+"http://java.sun.com/docs/hotspot/index.html">documentation
+page</a> contains links to Garbage Collection Tuning Guides,
+specific to each release, which include guidelines for choosing the
+garbage collector that best suits your requirements and techniques
+that can help reduce garbage collection overhead.</p>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

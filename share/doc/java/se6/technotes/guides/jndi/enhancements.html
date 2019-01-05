@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>JNDI Enhancements in Earlier Releases</title><link rel="stylesheet" href="../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table>
+<h2>JNDI Enhancements in Earlier Releases</h2>
+
+<p><a name="15changes"></a></p>
+<h3>Enhancements in Version 5.0</h3>
+<blockquote>
+<dl>
+<dt><b>Support for retrieving an absolute name from the
+NameClassPair class</b><br />
+This feature enables getting the LDAP Distinguished Name from the
+SearchResult. To support this, two new methods have been added to
+the javax.naming.NameClassPair class:</dt>
+<dd>
+<ul>
+<li>&nbsp;<a href=
+"../../../api/javax/naming/NameClassPair.html#getNameInNamespace()">getNameInNamespace()</a></li>
+<li>&nbsp;<a href=
+"../../../api/javax/naming/NameClassPair.html#setNameInNamespace(java.lang.String)">setNameInNamespace()</a></li>
+</ul>
+</dd>
+<dt><b>Support for standard LDAP controls</b><br />
+The necessary LDAP controls are already supported in the LDAP
+Booster Pack extension package which is available for the JNDI/LDAP
+service provider. The LDAP controls have been recently standardized
+in RFCs. These are made available in the javax.naming.ldap package
+of J2SE through the following classes.</dt>
+<dd>
+<ul>
+<li>ManageReferralControl (<a href=
+"http://www.ietf.org/rfc/rfc3296.txt">RFC 3296</a>)</li>
+<li>PagedResultsControl (<a href=
+"http://www.ietf.org/rfc/rfc2696">RFC 2696</a>)</li>
+<li>PagedResultsResponseControl</li>
+<li>SortControl (<a href="http://www.ietf.org/rfc/rfc2891.txt">RFC
+2891</a>)</li>
+<li>SortKey</li>
+<li>SortResponseControl</li>
+<li>BasicControl</li>
+</ul>
+</dd>
+<dt><b>Support for manipulation of LDAP names</b><br />
+This feature enables easy manipulation of LDAP Names to build
+distinguished names or relative distinguished names methodically,
+and enables formatting them into their strings representation as
+defined by RFC 2253. To support this, two new classes have been
+added to the javax.naming.ldap package.</dt>
+<dd>
+<ul>
+<li><a href=
+"../../../api/javax/naming/ldap/LdapName.html">LdapName</a></li>
+<li><a href="../../../api/javax/naming/ldap/Rdn.html">Rdn</a></li>
+</ul>
+</dd>
+</dl>
+</blockquote>
+<a name="141changes"></a>
+<h3>Enhancements in Version 1.4.1</h3>
+<blockquote>
+<dl>
+<dt><b>LDAP Service Provider</b></dt>
+<dd>
+<ul>
+<li>Support for <a href="jndi-ldap.html#URLs">LDAPS URLs</a>.</li>
+</ul>
+</dd>
+</dl>
+</blockquote>
+<p><a name="14changes"></a></p>
+<h3>Enhancements in Version 1.4.0</h3>
+<blockquote>
+<dl>
+<dt><b>DNS Service Provider</b></dt>
+<dd>
+<ul>
+<li>Support for <a href="jndi-dns.html#TIMEOUT">controlling
+timeouts</a> when submitting UDP queries.</li>
+<li>Support for <a href="jndi-dns.html#URL">automatic discovery of
+DNS service</a>.</li>
+</ul>
+</dd>
+<dt><b>LDAP Service Provider</b></dt>
+<dd>
+<ul>
+<li>Support for <a href="jndi-ldap.html#POOL">connection
+pooling</a>.</li>
+<li>Support for <a href="jndi-ldap.html#URLs">automatic discovery
+of LDAP service via DNS</a>.</li>
+<li>Support for <a href="jndi-ldap-gl.html#url">use of multiple
+URLs</a> for configuration.</li>
+</ul>
+</dd>
+</dl>
+</blockquote>
+<p><a name="13changes"></a></p>
+<h3>Enhancements in Version 1.3</h3>
+<blockquote>
+<dl>
+<dt><b>DNS Service Provider</b></dt>
+<dd><a href="jndi-dns.html">An Internet Domain Naming System (DNS)
+service provider</a> has been added. This component enables
+applications to read data stored in the DNS.</dd>
+<dt><b>Security Enhancements to the LDAP Service Provider</b></dt>
+<dd>These enhancements bring the LDAP service provider in
+conformance with standard LDAP security requirements (<a href=
+"http://www.ietf.org/rfc/rfc2829.txt">RFC 2829</a>) and promote
+better interoperability with widely deployed LDAP servers.
+<ul>
+<li>Support for the "Start TLS" (Transport Layer Security)
+extension (<a href="http://www.ietf.org/rfc/rfc2830.txt">RFC
+2830</a>) and External SASL authentication mechanism. This enables
+applications to establish secure sessions over existing LDAP
+connections. This feature introduces two new classes.
+<ul>
+<li><a href=
+"../../../api/javax/naming/ldap/StartTlsRequest.html">javax.naming.ldap.StartTlsRequest</a></li>
+<li><a href=
+"../../../api/javax/naming/ldap/StartTlsResponse.html">javax.naming.ldap.StartTlsResponse</a></li>
+</ul>
+</li>
+<li>Support for the GSS-API/Kerberos v5 SASL authentication
+mechanism (<a href="http://www.ietf.org/rfc/rfc2222.txt">RFC
+2222</a>). This enables secure, authenticated access to the Windows
+2000 and XP Active Directory servers.</li>
+<li>Support for the Digest-MD5 SASL authentication mechanism
+(<a href="http://www.ietf.org/rfc/rfc2831.txt">RFC 2831</a>).</li>
+</ul>
+<p>See the <a href="jndi-ldap.html">LDAP Service Provider
+documentation</a> and the <a href=
+"http://java.sun.com/products/jndi/tutorial/ldap/security/">JNDI
+Tutorial</a> for details and examples.</p>
+</dd>
+<dt><b>"corbaname" and "corbaloc" URL Support</b></dt>
+<dd>The <a href="jndi-cos.html">COS naming service provider</a>
+supports the <a href=
+"ftp://ftp.omg.org/pub/docs/ptc/99-12-03.pdf">Interoperable Naming
+Service (INS) specification (99-12-03)</a>. This enables
+applications to use the "corbaname" URL from the initial context
+and to configure the provider by using the "corbaname" and
+"corbaloc" URLs.</dd>
+</dl>
+</blockquote>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

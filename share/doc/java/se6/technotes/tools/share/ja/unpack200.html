@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="copyright" content="2004, 2010" />
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+
+
+<link href="../../css/tools.css" rel="stylesheet" type="text/css" />
+<title>unpack200 - JAR アンパックツール</title>
+
+  <meta http-equiv="Content-Type" content="text/html" /><link rel="stylesheet" href="../../../../technotes/css/guide.css" />
+</head>
+
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>unpack200 - JAR アンパックツール</h1>
+
+  <ul>
+<li><a href="#synopsis">形式</a></li>
+
+<li><a href="#description">説明</a></li>
+
+<li><a href="#options">オプション</a></li>
+
+<li><a href="#exitstatus">終了ステータス</a></li>
+
+<li><a href="#seealso">関連項目</a></li>
+
+<li><a href="#notes">説明</a></li>
+  </ul><!-- ============================================== -->
+  
+
+<h2><a name="synopsis"/>形式</h2>
+
+  <blockquote>
+<p><code><strong>unpack200</strong> [ <em>options</em> ] <em>input-file</em> <em>JAR-file</em></code></p>
+
+<p>オプションの指定順序に決まりはありません。コマンド行に指定された最後のオプションが、それ以前に指定されたすべてのオプションより優先されます。</p>
+
+    <blockquote>
+      <dl>
+<dt><code><em>input-file</em></code></dt>
+
+<dd>入力ファイルの名前。 入力ファイルは通常、pack200 gzip ファイルか pack200 ファイルです。このほかに、0 を設定すれば pack200(1) から作成された JAR ファイルも入力ファイルとして使用できます。 この場合、入力ファイルの内容が Pack200 マーカーとともに出力 JAR ファイルにコピーされます。</dd>
+
+<dt><code><em>JAR-file</em></code></dt>
+
+<dd>出力 JAR ファイル名。</dd>
+      </dl>
+    </blockquote>
+  </blockquote>
+  <!-- ============================================== -->
+  
+
+<h2><a name="description"/> 説明</h2>
+
+  <blockquote>
+<p><code>unpack200</code> は、<code>pack200</code>(1) で作成されたパックファイルを JAR ファイルに変換するネイティブ実装です。一般的な使用方法:</p>
+
+    <blockquote>
+<p><code>% unpack200 myarchive.pack.gz myarchive.jar</code></p>
+    </blockquote>
+
+<p>この例では、デフォルトの <code>unpack200</code> 設定で、<code>myarchive.jar</code> から <code>myarchive.pack.gz</code> が作成されます。</p>
+  </blockquote>
+  <!-- ============================================== -->
+ 
+
+<h2><a name="options"/>オプション</h2>
+
+<h3>標準オプション</h3>
+
+  <blockquote>
+<p><code><strong>-Hvalue --deflate-hint=</strong><em>value</em></code></p>
+
+    <blockquote>
+<p>JAR ファイル内のすべてのエントリに <code>true</code>、<code>false</code>、<code>keep</code> としてデフレーションを設定します。デフォルトモードは <code>keep</code> です。<code>true</code> または <code>false</code> の場合、デフォルトの動作をオーバーライドして、出力 JAR ファイル内のすべてのエントリのデフレーションモードを設定します。</p>
+    </blockquote>
+  </blockquote>
+
+<h3>非標準オプション</h3>
+
+  <blockquote>
+<p><strong><code>-r --remove-pack-file</code></strong></p>
+
+    <blockquote>
+<p>入力パックファイルを削除します。</p>
+    </blockquote>
+
+<p><strong><code>-v --verbose</code></strong></p>
+
+    <blockquote>
+<p>最小限のメッセージを出力します。このオプションを複数指定すると、より長いメッセージが出力されます。</p>
+    </blockquote>
+
+<p><strong><code>-q --quiet</code></strong></p>
+
+    <blockquote>
+<p>メッセージを表示せずに動作します。</p>
+    </blockquote>
+
+<p><code><strong>-lfilename --log-file=</strong><em>filename</em></code></p>
+
+    <blockquote>
+<p>出力メッセージのログファイルを指定します。</p>
+    </blockquote>
+  </blockquote>
+  <!-- ============================================== -->
+  
+
+<h2><a name="exitstatus"/>終了ステータス</h2>
+
+  <blockquote>
+<p>次の終了値が返されます。</p>
+
+    <blockquote>
+<p><code>&nbsp;0</code> &quot; 成功&quot;</p>
+
+<p><code>&gt;0</code> &quot; エラー&quot;</p>
+    </blockquote>
+  </blockquote>
+  <!-- ============================================== -->
+  
+
+<h2><a name="seealso">関連項目</a></h2>
+
+  <ul>
+<li><a href="pack200.html">「pack200 - JAR パックツール」</a></li>
+
+<li><a href="../../../index.html">Java SE のドキュメント</a></li>
+<li><a href=     "../../guides/deployment/deployment-guide/pack200.html">「Java 配備ガイド - Pack200」</a></li>
+<li><a href="../index.html#jar">「<code>jar</code></a> - Java Archive ツール」</li>
+<li>「<a href="../index.html#jarsigner"><code>jarsigner</code></a> - JAR 署名および検証ツール」</li>
+<li><code>attributes(5)</code> のマニュアルページ</li>
+    </ul>
+  <!-- ============================================== -->
+  
+
+<h2><a name="notes"/>注意事項</h2>
+
+  <blockquote>
+<p>このコマンドと <code>unpack(1)</code> を混同しないでください。これらは別製品です。</p>
+
+<p>SDK に付属する Java SE API 仕様との相違が見つかった場合には、仕様を優先してください。</p>
+  </blockquote>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

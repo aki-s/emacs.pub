@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+  <title>ktab - Kerberos tool</title>
+<link rel="stylesheet" href="../../../technotes/css/guide.css" />
+</head>
+
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table>  <h1>ktab - <font size="+1">Kerberos key table manager</font></h1>
+
+  <blockquote>
+    <p><code>ktab</code> allows the user to manage the principal
+    names and service keys stored in a local key table. Principal
+    and key pairs listed in the keytab allow services running on a
+    host to authenticate themselves to the Key Distribution Center
+    (KDC). Before a server can be setup to use Kerberos, the user
+    must setup a keytab on the host running the server. Note that
+    any updates made to the keytab using <code>ktab</code> do not
+    affect the Kerberos database. If you change the keys in the
+    keytab, you must also make the corresponding changes to the
+    Kerberos database.</p>
+  </blockquote>
+
+  <h2>SYNOPSIS</h2>
+
+  <blockquote>
+    <p><b><code>ktab [ <a href="#commands">commands</a>
+    ]</code></b></p>
+  </blockquote>
+
+  <h2>DESCRIPTION</h2>
+
+  <blockquote>
+    <p><code>ktab</code> manages principal name and key pairs in
+    the key table. ktab allows the user to list, add, update or
+    delete principal names and key pairs in the key table. None of
+    these operations affect the Kerberos database.</p>
+
+    <div style="margin-left: 2em">
+      <dl>
+        <dt><b>Keytab</b></dt>
+
+        <dd>A keytab is a host's copy of its own keylist, which is
+        analogous to a user's password. An application server that
+        needs to authenticate itself to the Key Distribution Center
+        (KDC) must have a keytab which contains its own principal
+        and key. Just as it is important for users to protect their
+        passwords, it is equally important for hosts to protect
+        their keytabs. You should always store keytab files on the
+        local disk and make them readable only by root. You should
+        never send a keytab file over a network in the clear.</dd>
+      </dl>
+    </div>
+  </blockquote>
+
+  <h2><a name="commands" id="commands"></a>COMMANDS</h2>
+
+  <blockquote>
+    <p><b>Usage:</b> The command line options are <i>not</i>
+    case-sensitive.</p>
+
+    <blockquote>
+      <b><code>ktab -help</code></b>
+
+      <p><b><code>ktab -l [-k
+      &lt;<i><em>keytab_name</em></i>&gt;]</code></b></p>
+
+      <p><b><code>ktab [-a &lt;<i><em>principal_name</em></i>&gt;
+      &lt;<i><em>password</em></i>&gt;] [-k
+      &lt;<i><em>keytab_name</em></i>&gt;]</code></b></p>
+
+      <p><b><code>ktab [-d &lt;<i><em>principal_name</em></i>&gt;]
+      [-k &lt;<i><em>keytab_name</em></i>&gt;]</code></b></p>
+
+      <table width="550" border="1" cellspacing="2" cellpadding="2"
+      summary="List of ktab Command Options and Descriptions">
+        <tr>
+          <th>Command Option</th>
+
+          <th>Description</th>
+        </tr>
+
+        <tr>
+          <td width="119"><code>-l</code></td>
+
+          <td width="431">List the keytab name and entries.</td>
+        </tr>
+
+        <tr>
+          <td width="119"><code>-a
+          &lt;<i><em>principal_name</em></i>&gt;
+          &lt;<i><em>password</em></i>&gt;</code></td>
+
+          <td width="431">Add an entry to the keytab. No changes
+          are made to the Kerberos database. (DO NOT SPECIFY YOUR
+          PASSWORD ON COMMAND LINE OR IN A SCRIPT.)</td>
+        </tr>
+
+        <tr>
+          <td width="119"><code>-d
+          &lt;<i><em>principal_name</em></i>&gt;</code></td>
+
+          <td width="431">Delete an entry from the keytab. No
+          changes are made to the Kerberos database.</td>
+        </tr>
+
+        <tr>
+          <td width="119"><code>-k
+          &lt;<i><em>keytab_name</em></i>&gt;</code></td>
+
+          <td width="431">Specify keytab name and path with the
+          prefix <code>FILE:</code></td>
+        </tr>
+
+        <tr>
+          <td width="119"><code>-help</code></td>
+
+          <td width="431">Displays instructions.</td>
+        </tr>
+      </table>
+    </blockquote>
+  </blockquote>
+
+  <h2>EXAMPLES</h2>
+
+  <blockquote>
+    <dl>
+      <dt>To list all the entries in the default keytable:</dt>
+
+      <dd><code>ktab -l</code></dd>
+    </dl>
+
+    <dl>
+      <dt>To add a new principal to the key table (note that you
+      will be prompted for your password):</dt>
+
+      <dd><code>ktab -a duke@java.sun.com</code></dd>
+    </dl>
+
+    <dl>
+      <dt>To delete a principal from the key table:</dt>
+
+      <dd><code>ktab -d duke@java.sun.com</code></dd>
+    </dl>
+  </blockquote>
+
+  <h2>SECURITY ALERT</h2>
+
+  <blockquote>
+    <p>Do not specify your password on the command line. Doing so
+    is a security hole. For example, an attacker could discover
+    your password while running the Unix <code>ps</code>
+    command.</p>
+  </blockquote>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

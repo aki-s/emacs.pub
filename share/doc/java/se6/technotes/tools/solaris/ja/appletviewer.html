@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="copyright" content="1995, 2010" />
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+
+  
+<link rel="stylesheet" href="../../css/tools.css"  type="text/css" />
+<title>appletviewer - Java アプレットビューア</title>
+
+</head>
+
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>appletviewer - Java アプレットビューア</h1>
+
+  <blockquote>
+<p><b>appletviewer</b> コマンドは Web ブラウザの外でアプレットを実行させます。</p>
+  </blockquote>
+
+<h2>形式</h2>
+
+  <blockquote>
+<p><b><code>appletviewer</code></b> <code>[</code> <a href=     "#Options"><code>options</code></a> <code>] <i>urls</i> ...</code></p>
+  </blockquote>
+
+<h2>説明</h2>
+
+  <blockquote><p>
+<b>appletviewer</b> コマンドは <i>urls</i> に指定されたドキュメントあるいはリソースと接続して、そのドキュメントが参照するそれぞれのアプレットを独自のウィンドウで表示します。注: <i>urls</i> によって参照されたドキュメントが、<i>OBJECT</i>、<i>EMBED</i>、または <i>APPLET</i> タグでどのアプレットも参照していない場合、<b>appletviewer</b> は何も行いません。<b>appletviewer</b> でサポートされる HTML タグの詳細については、<a href=     "../appletviewertags.html">「アプレットビューアのタグ」</a>を参照してください。
+</p>
+<p><b>注:</b> <b>appletviewer</b> は、RFC2396 で規定されたエスケープ機構に従って符号化された URL を必要とします。サポートされるのは、符号化された URL だけです。ただし、ファイル名については、RFC2396 に指定された方法で符号化を解除しておく必要があります。</p>
+  </blockquote>
+
+
+
+<h2><a name="Options"/>オプション</h2>
+
+  <blockquote>
+    <dl>
+<dt><b>-debug</b></dt>
+
+<dd>Java デバッガ <a href=       "jdb.html"><b>jdb</b></a> でアプレットビューアを開始します。 これにより、ドキュメント中のアプレットをデバッグすることができます。</dd>
+
+<dt><b>-encoding</b> <i>&nbsp; &nbsp;encoding name</i></dt>
+
+<dd>入力 HTML ファイルのエンコーディング名を指定します。</dd>
+
+<dt><b>-J</b><i>javaoption</i></dt>
+
+<dd>文字列 <i>javaoption</i> は、appletviewer を実行する Java インタプリタに 1 つの引数として渡されます。引数にスペースを含めてはいけません。複数の引数は、各引数のすべてを接頭辞 <b>-J</b> で始めることにより区分する必要があります。これは、コンパイラの実行環境、またはメモリーの利用に有効です。</dd>
+    </dl>
+  </blockquote>
+
+  <p>
+  <!-- PENDING: put in a SEE ALSO link to hotjava after the ADR --></p>
+
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

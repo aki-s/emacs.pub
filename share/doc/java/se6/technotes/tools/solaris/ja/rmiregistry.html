@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="copyright" content="1997, 2010" />
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+
+<link rel="stylesheet" href="../../css/tools.css"  type="text/css" />
+
+
+<title>rmiregistry - Java リモートオブジェクトレジストリ</title>
+
+</head>
+
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>rmiregistry - Java リモートオブジェクトレジストリ</h1>
+
+  <blockquote>
+  <p>
+<b>rmiregistry</b> コマンドは、現在のホストの指定したポート上にリモートオブジェクトレジストリを開始します。</p>
+  </blockquote>
+
+<h2>形式</h2>
+
+  <blockquote>
+    <pre>
+rmiregistry [<i>port</i>]
+</pre>
+  </blockquote>
+
+<h2>説明</h2>
+
+  <blockquote>
+  <p>
+<b>rmiregistry</b> コマンドは、現在のホストの指定 <i>port</i> 上にリモートオブジェクトレジストリを作成し、開始します。<i>port</i> の指定を省略した場合、レジストリはポート 1099 で開始します。<b>rmiregistry</b> コマンドに、出力機能はありません。通常、これはバックグラウンドで実行されます。例を示します。</p>
+
+<p><code>rmiregistry&amp;</code></p>
+
+<p>リモートオブジェクトレジストリは、ブートストラップのネームサービスです。 同一ホストの RMI サーバーが、リモートオブジェクトを名前にバインドするために使用されます。次に、ローカルおよびリモートホストのクライアントはリモートオブジェクトを検索し、リモートメソッドの呼び出しを行います。</p>
+
+<p>レジストリは、一般的に、最初のリモートオブジェクトの位置を指定します。 そこで、アプリケーションはメソッドを呼び出す必要があります。代わって、そのオブジェクトはアプリケーション指定のサポートを提供し、他のオブジェクトを探します。</p>
+
+<p><code>java.rmi.registry.LocateRegistry</code> クラスのメソッドは、ローカルホスト、またはローカルホストとポートで動作するレジストリを取得するために使用されます。</p>
+
+<p><code>java.rmi.Naming</code> クラスの URL ベースのメソッドは、レジストリで動作し、任意のホストおよびローカルホスト上のリモートオブジェクトの検索に使用されます。リモートオブジェクトに単純な (文字列) 名前をバインドしたり、新しい名前をリバインド (古いバインドにオーバーライド) します。 またリモートオブジェクトをアンバインドしたり、レジストリにバインドされた URL を出力します。</p>
+  </blockquote>
+
+<h2><a name="Options"/>オプション</h2>
+
+  <blockquote>
+    <dl>
+<dt><b>-J</b></dt>
+
+<dd><TT>-J</TT> の後ろに続くオプションを <tt>java</tt> インタプリタに引き渡します。<tt> java</tt> オプションと組み合わせて使います (<tt>-J</tt> と <tt>java</tt> オプションの間にスペースは入れない)。</dd>
+    </dl>
+  </blockquote>
+
+<h2>関連項目</h2>
+
+  <blockquote><p>
+<a href="java.html">java</a>、<a href=     "../../../api/java/rmi/registry/LocateRegistry.html"><code>java.rmi.registry.LocateRegistry</code></a>、および <a href=     "../../../api/java/rmi/Naming.html"><code>java.rmi.Naming</code></a></p>
+  </blockquote>
+
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

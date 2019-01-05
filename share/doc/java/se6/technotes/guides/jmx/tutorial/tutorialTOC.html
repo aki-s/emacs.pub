@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Contents</title><link rel="stylesheet" href="../../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><a href="#skip" title="Skip navigation bar"></a>
+<table summary="layout" id="layout" width="100%">
+<tr>
+<td align="center">
+<p>&#160;</p>
+<h1>Java Management Extensions (JMX) Technology Tutorial</h1>
+<h2>Java Management Extensions (JMX)<br />
+Java Platform, Standard Edition 6</h2>
+<h4>October, 2006</h4>
+</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td align="left">Contents | Previous | <a accesskey="n" href=
+"preface.html">Next</a></td>
+</tr>
+</table>
+<a name="skip" id="skip"></a> <a name="wp3686" id="wp3686"></a>
+<h2 class="pChapTitle">Contents</h2>
+<a name="wp45150" id="wp45150"></a>
+<p class="pTOC2"><a href="preface.html#wp146">Preface</a></p>
+<a name="wp45152" id="wp45152"></a>
+<p class="pTOC2"><a href="intro.html#wp5529">1. Getting
+Started</a></p>
+<a name="wp45154" id="wp45154"></a>
+<p class="pTOC3"><a href="intro.html#wp1001685">1.1 Platform
+Information</a></p>
+<a name="wp45156" id="wp45156"></a>
+<p class="pTOC3"><a href="intro.html#wp1001689">1.2 Examples
+Directory</a></p>
+<a name="wp45158" id="wp45158"></a>
+<p class="pTOC3"><a href="intro.html#wp1001696">1.3 Working
+Directory</a></p>
+<a name="wp45160" id="wp45160"></a>
+<p class="pTOC2"><a href="essential.html#wp1053098">2. Essentials
+of the JMX API</a></p>
+<a name="wp45162" id="wp45162"></a>
+<p class="pTOC3"><a href="essential.html#wp1053106">2.1 Standard
+MBeans</a></p>
+<a name="wp45164" id="wp45164"></a>
+<p class="pTOC4"><a href="essential.html#wp1053109">2.1.1 MBean
+Interface</a></p>
+<a name="wp45166" id="wp45166"></a>
+<p class="pTOC4"><a href="essential.html#wp1053360">2.1.2 MBean
+Implementation</a></p>
+<a name="wp45168" id="wp45168"></a>
+<p class="pTOC4"><a href="essential.html#wp1053168">2.1.3 Managing
+a Resource</a></p>
+<a name="wp45170" id="wp45170"></a>
+<p class="pTOC4"><a href="essential.html#wp1053244">2.1.4 Running
+the Standard MBean Example</a></p>
+<a name="wp45172" id="wp45172"></a>
+<p class="pTOC3"><a href="essential.html#wp1053200">2.2 Sending
+Notifications</a></p>
+<a name="wp45174" id="wp45174"></a>
+<p class="pTOC4"><a href="essential.html#wp1053861">2.2.1
+NotificationBroadcaster Interface</a></p>
+<a name="wp45176" id="wp45176"></a>
+<p class="pTOC4"><a href="essential.html#wp1054006">2.2.2 Running
+the MBean Notification Example</a></p>
+<a name="wp45178" id="wp45178"></a>
+<p class="pTOC3"><a href="essential.html#wp1054551">2.3 Introducing
+MXBeans</a></p>
+<a name="wp45180" id="wp45180"></a>
+<p class="pTOC4"><a href="essential.html#wp1054679">2.3.1
+QueueSamplerMXBean Interface</a></p>
+<a name="wp45182" id="wp45182"></a>
+<p class="pTOC4"><a href="essential.html#wp1054728">2.3.2
+QueueSampler Class</a></p>
+<a name="wp45184" id="wp45184"></a>
+<p class="pTOC4"><a href="essential.html#wp1054813">2.3.3
+QueueSample Class</a></p>
+<a name="wp45186" id="wp45186"></a>
+<p class="pTOC4"><a href="essential.html#wp1054889">2.3.4 Creating
+and Registering the MXBean in the MBean Server</a></p>
+<a name="wp45188" id="wp45188"></a>
+<p class="pTOC4"><a href="essential.html#wp1055076">2.3.5 Running
+the MXBean Example</a></p>
+<a name="wp45190" id="wp45190"></a>
+<p class="pTOC3"><a href="essential.html#wp1055639">2.4 MBean
+Descriptors</a></p>
+<a name="wp45192" id="wp45192"></a>
+<p class="pTOC4"><a href="essential.html#wp1055357">2.4.1
+DescriptorKey Annotations</a></p>
+<a name="wp45194" id="wp45194"></a>
+<p class="pTOC4"><a href="essential.html#wp1055451">2.4.2 Using
+MBean Descriptors</a></p>
+<a name="wp45196" id="wp45196"></a>
+<p class="pTOC4"><a href="essential.html#wp1055487">2.4.3 Running
+the MBean Descriptors Example</a></p>
+<a name="wp45198" id="wp45198"></a>
+<p class="pTOC2"><a href="connectors.html#wp5529">3. JMX
+Connectors</a></p>
+<a name="wp45200" id="wp45200"></a>
+<p class="pTOC3"><a href="connectors.html#wp1056865">3.1 Accessing
+Standard and Dynamic MBeans via the RMI Connector</a></p>
+<a name="wp45202" id="wp45202"></a>
+<p class="pTOC4"><a href="connectors.html#wp997327">3.1.1 Analyzing
+the Example Classes</a></p>
+<a name="wp45204" id="wp45204"></a>
+<p class="pTOC5"><a href="connectors.html#wp1000632">3.1.1.1
+Server.java</a></p>
+<a name="wp45206" id="wp45206"></a>
+<p class="pTOC5"><a href="connectors.html#wp997727">3.1.1.2
+SimpleStandardMBean.java</a></p>
+<a name="wp45208" id="wp45208"></a>
+<p class="pTOC5"><a href="connectors.html#wp1001692">3.1.1.3
+SimpleStandard.java</a></p>
+<a name="wp45210" id="wp45210"></a>
+<p class="pTOC5"><a href="connectors.html#wp1067264">3.1.1.4
+SimpleDynamic.java</a></p>
+<a name="wp45212" id="wp45212"></a>
+<p class="pTOC5"><a href="connectors.html#wp1025470">3.1.1.5
+ClientListener.java</a></p>
+<a name="wp45214" id="wp45214"></a>
+<p class="pTOC5"><a href="connectors.html#wp998855">3.1.1.6
+Client.java</a></p>
+<a name="wp45216" id="wp45216"></a>
+<p class="pTOC4"><a href="connectors.html#wp1005075">3.1.2 Running
+the MBean Example</a></p>
+<a name="wp45218" id="wp45218"></a>
+<p class="pTOC2"><a href="lookup.html#wp996923">4. Lookup
+Services</a></p>
+<a name="wp45220" id="wp45220"></a>
+<p class="pTOC3"><a href="lookup.html#wp999517">4.1 Initial
+Configuration</a></p>
+<a name="wp45222" id="wp45222"></a>
+<p class="pTOC4"><a href="lookup.html#wp1007724">4.1.1 External RMI
+Registry</a></p>
+<a name="wp45224" id="wp45224"></a>
+<p class="pTOC4"><a href="lookup.html#wp1007800">4.1.2 External
+CORBA Naming Service</a></p>
+<a name="wp45226" id="wp45226"></a>
+<p class="pTOC4"><a href="lookup.html#wp1007836">4.1.3 External
+LDAP Registry</a></p>
+<a name="wp45228" id="wp45228"></a>
+<p class="pTOC3"><a href="lookup.html#wp999728">4.2 Service
+Location Protocol (SLP) Lookup Service</a></p>
+<a name="wp45230" id="wp45230"></a>
+<p class="pTOC4"><a href="lookup.html#wp999246">4.2.1 Analyzing the
+Example Classes</a></p>
+<a name="wp45232" id="wp45232"></a>
+<p class="pTOC5"><a href="lookup.html#wp999306">4.2.1.1
+Server.java</a></p>
+<a name="wp45234" id="wp45234"></a>
+<p class="pTOC5"><a href="lookup.html#wp1004897">4.2.1.2
+Client.java</a></p>
+<a name="wp45236" id="wp45236"></a>
+<p class="pTOC4"><a href="lookup.html#wp1024594">4.2.2 Running the
+SLP Lookup Service Example</a></p>
+<a name="wp45238" id="wp45238"></a>
+<p class="pTOC5"><a href="lookup.html#wp1008837">4.2.2.1 Setting up
+the SLP Lookup Service Example</a></p>
+<a name="wp45240" id="wp45240"></a>
+<p class="pTOC5"><a href="lookup.html#wp1008814">4.2.2.2 Running
+the SLP Lookup Service Example</a></p>
+<a name="wp45242" id="wp45242"></a>
+<p class="pTOC3"><a href="lookup.html#wp998474">4.3 Jini Lookup
+Service</a></p>
+<a name="wp45244" id="wp45244"></a>
+<p class="pTOC4"><a href="lookup.html#wp999481">4.3.1 Analyzing the
+Example Classes</a></p>
+<a name="wp45246" id="wp45246"></a>
+<p class="pTOC5"><a href="lookup.html#wp999487">4.3.1.1
+Server.java</a></p>
+<a name="wp45248" id="wp45248"></a>
+<p class="pTOC5"><a href="lookup.html#wp999488">4.3.1.2
+Client.java</a></p>
+<a name="wp45250" id="wp45250"></a>
+<p class="pTOC5"><a href="lookup.html#wp1032312">4.3.1.3
+java.policy</a></p>
+<a name="wp45252" id="wp45252"></a>
+<p class="pTOC5"><a href="lookup.html#wp1003019">4.3.1.4
+jini.properties.template</a></p>
+<a name="wp45254" id="wp45254"></a>
+<p class="pTOC4"><a href="lookup.html#wp997715">4.3.2 Running the
+Jini Lookup Service Example</a></p>
+<a name="wp45256" id="wp45256"></a>
+<p class="pTOC5"><a href="lookup.html#wp1009715">4.3.2.1 Setting up
+the Jini Lookup Service Example</a></p>
+<a name="wp45258" id="wp45258"></a>
+<p class="pTOC5"><a href="lookup.html#wp1009733">4.3.2.2 Running
+the Jini Lookup Service Example</a></p>
+<a name="wp45260" id="wp45260"></a>
+<p class="pTOC3"><a href="lookup.html#wp996900">4.4 Java Naming and
+Directory Interface (JNDI) / LDAP Lookup Service</a></p>
+<a name="wp45262" id="wp45262"></a>
+<p class="pTOC4"><a href="lookup.html#wp999476">4.4.1 Analyzing the
+Example Classes</a></p>
+<a name="wp45264" id="wp45264"></a>
+<p class="pTOC5"><a href="lookup.html#wp999477">4.4.1.1
+Server.java</a></p>
+<a name="wp45266" id="wp45266"></a>
+<p class="pTOC5"><a href="lookup.html#wp1004117">4.4.1.2
+Client.java</a></p>
+<a name="wp45268" id="wp45268"></a>
+<p class="pTOC5"><a href="lookup.html#wp1003104">4.4.1.3
+jmx-schema.txt</a></p>
+<a name="wp45270" id="wp45270"></a>
+<p class="pTOC5"><a href="lookup.html#wp1014860">4.4.1.4
+60jmx-schema.ldif</a></p>
+<a name="wp45272" id="wp45272"></a>
+<p class="pTOC4"><a href="lookup.html#wp999479">4.4.2 Running the
+JNDI/LDAP Lookup Service Example</a></p>
+<a name="wp45274" id="wp45274"></a>
+<p class="pTOC5"><a href="lookup.html#wp1010119">4.4.2.1 Setting up
+the JNDI/LDAP Lookup Service Example</a></p>
+<a name="wp45276" id="wp45276"></a>
+<p class="pTOC5"><a href="lookup.html#wp1010131">4.4.2.2 Running
+the JNDI/LDAP Lookup Service Example With an RMI Connector</a></p>
+<a name="wp45278" id="wp45278"></a>
+<p class="pTOC2"><a href="security.html#wp997030">5.
+Security</a></p>
+<a name="wp45280" id="wp45280"></a>
+<p class="pTOC3"><a href="security.html#wp997044">5.1 Simple
+Security</a></p>
+<a name="wp45282" id="wp45282"></a>
+<p class="pTOC4"><a href="security.html#wp997047">5.1.1 RMI
+Connectors With Simple Security</a></p>
+<a name="wp45284" id="wp45284"></a>
+<p class="pTOC5"><a href="security.html#wp997331">5.1.1.1
+Server.java</a></p>
+<a name="wp45286" id="wp45286"></a>
+<p class="pTOC5"><a href="security.html#wp1005491">5.1.1.2
+SimpleStandardMBean.java</a></p>
+<a name="wp45288" id="wp45288"></a>
+<p class="pTOC5"><a href="security.html#wp997093">5.1.1.3
+SimpleStandard.java</a></p>
+<a name="wp45290" id="wp45290"></a>
+<p class="pTOC5"><a href="security.html#wp997100">5.1.1.4
+ClientListener.java</a></p>
+<a name="wp45292" id="wp45292"></a>
+<p class="pTOC5"><a href="security.html#wp997102">5.1.1.5
+Client.java</a></p>
+<a name="wp45294" id="wp45294"></a>
+<p class="pTOC4"><a href="security.html#wp997110">5.1.2 Running the
+RMI Connector Example With Simple Security</a></p>
+<a name="wp45296" id="wp45296"></a>
+<p class="pTOC3"><a href="security.html#wp997056">5.2 Subject
+Delegation</a></p>
+<a name="wp45298" id="wp45298"></a>
+<p class="pTOC4"><a href="security.html#wp997059">5.2.1 Secure RMI
+Connectors With Subject Delegation</a></p>
+<a name="wp45300" id="wp45300"></a>
+<p class="pTOC5"><a href="security.html#wp997060">5.2.1.1
+Server.java</a></p>
+<a name="wp45302" id="wp45302"></a>
+<p class="pTOC5"><a href="security.html#wp1019573">5.2.1.2
+java.policy</a></p>
+<a name="wp45304" id="wp45304"></a>
+<p class="pTOC5"><a href="security.html#wp1000562">5.2.1.3
+SimpleStandardMBean.java</a></p>
+<a name="wp45306" id="wp45306"></a>
+<p class="pTOC5"><a href="security.html#wp1005519">5.2.1.4
+SimpleStandard.java</a></p>
+<a name="wp45308" id="wp45308"></a>
+<p class="pTOC5"><a href="security.html#wp1000567">5.2.1.5
+ClientListener.java</a></p>
+<a name="wp45310" id="wp45310"></a>
+<p class="pTOC5"><a href="security.html#wp998359">5.2.1.6
+Client.java</a></p>
+<a name="wp45312" id="wp45312"></a>
+<p class="pTOC4"><a href="security.html#wp1001471">5.2.2 Running
+the Secure RMI Connector Example With Subject Delegation</a></p>
+<a name="wp45314" id="wp45314"></a>
+<p class="pTOC3"><a href="security.html#wp997065">5.3 Fine-Grained
+Security</a></p>
+<a name="wp45316" id="wp45316"></a>
+<p class="pTOC4"><a href="security.html#wp1001853">5.3.1 RMI
+Connectors With Fine-Grained Security</a></p>
+<a name="wp45318" id="wp45318"></a>
+<p class="pTOC5"><a href="security.html#wp1001905">5.3.1.1 The
+files will be analyzed in the following
+sections.Server.java</a></p>
+<a name="wp45320" id="wp45320"></a>
+<p class="pTOC5"><a href="security.html#wp1046649">5.3.1.2
+java.policy</a></p>
+<a name="wp45322" id="wp45322"></a>
+<p class="pTOC5"><a href="security.html#wp1001938">5.3.1.3
+SimpleStandardMBean.java</a></p>
+<a name="wp45324" id="wp45324"></a>
+<p class="pTOC5"><a href="security.html#wp1005539">5.3.1.4
+SimpleStandard.java</a></p>
+<a name="wp45326" id="wp45326"></a>
+<p class="pTOC5"><a href="security.html#wp1001940">5.3.1.5
+ClientListener.java</a></p>
+<a name="wp45328" id="wp45328"></a>
+<p class="pTOC5"><a href="security.html#wp1001948">5.3.1.6
+Client.java</a></p>
+<a name="wp45330" id="wp45330"></a>
+<p class="pTOC4"><a href="security.html#wp1001949">5.3.2 Running
+the RMI Connector Example With Fine-Grained Security</a></p>
+<a name="wp3483" id="wp3483"></a>
+<p class="pBodySmall"></p>
+<p>&#160;</p>
+<table summary="layout">
+<tr>
+<td align="left">Contents | Previous | <a href=
+"preface.html">Next</a></td>
+</tr>
+<tr>
+<td>
+<p>&#160;</p>
+</td>
+</tr>
+</table>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

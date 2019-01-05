@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Java IDL: Distributed Application Concepts</title><link rel="stylesheet" href="../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>Distributed Application Concepts</h1>
+<p>Topics discussed in this section include:</p>
+<ul>
+<li><a href="#nTierApps">Multi-Tiered Applications</a></li>
+<li><a href="#client">User-Interface Tier</a></li>
+<li><a href="#server">Service (Server) Tier</a></li>
+<li><a href="#data">Data Store (Database) Tier</a></li>
+</ul>
+<h2><a name="nTierApps" id="nTierApps">Multi-Tiered
+Applications</a></h2>
+<p>Traditional enterprise applications are, for the most part,
+self-contained monolithic programs which have limited access to one
+another's procedures and data. They are usually cumbersome to build
+and expensive to maintain because even simple changes require the
+entire program to be recompiled and retested.</p>
+<p>By contrast, applications built using distributed objects such
+as CORBA naturally lend themselves to a multitiered architecture,
+fostering a neat separation of concerns. A three-tiered application
+has a user interface code layer, a computation code (or business
+logic) layer, and a database access layer. All interaction between
+the layers occurs via the interfaces that all CORBA objects must
+publish. The diagram below illustrates the transition from
+monolithic applications to multi-tiered, modular applications.</p>
+<img src="images/ntiertransition.gif" alt=
+"[ntiertransition image]" />
+<h2><a name="client" id="client">User-Interface Tier</a></h2>
+<p>The user-interface tier is the layer of user interaction. Its
+focus is on efficient user interface design and accessibility
+throughout your organization. The user interface tier can reside on
+the user's desktop, on your organization's intranet, or on the
+World Wide Web (Internet). Several user interface implementations
+may be deployed which access the same server. The UI tier usually
+invokes methods on the business logic tier and thus acts as a
+client of the business logic servers.</p>
+<h2><a name="server" id="server">Service (Server) Tier</a></h2>
+<p>The service, or business logic layer, is server-based code with
+which the client code interacts. The business logic layer is made
+up of business objects - CORBA objects that perform logical
+business functions such as inventory control, budget, sales orders,
+and billing. These objects invoke methods on Data Store tier
+objects.</p>
+<h2><a name="data" id="data">Data Store (Database) Tier</a></h2>
+<p>The data store layer is made up of objects that encapsulate
+database routines and interact directly with the DBMS product(s).
+For example, a hypothetical <code>get_Sales_Sum</code> method might
+be implemented to obtain data from a relational database via the
+appropriate SQL <code>SELECT</code> statements.</p>
+
+<hr />
+Distributed Application Concepts | <a href="corba.html">CORBA and
+the Java Platform</a> | <a href="jidlGlossary.html">Glossary</a>
+<table summary="layout" cellpadding="8" cellspacing="4">
+<tr>
+<td align="center"><a href="index.html">Home</a></td>
+</tr>
+</table>
+
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

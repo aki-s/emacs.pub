@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Java Image I/O API Guide: 2 - Goals</title><link rel="stylesheet" href="../../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><table summary="layout" width="100%">
+<tr>
+<td>
+<!-- Bug in Communicator w/font: NavBar text disappears for Times 14pt pref. -->
+<!-- font size="-1" --><a href=
+"imageio_guideTOC.fm.html">CONTENTS</a> | <a href=
+"goals.fm1.html">PREV</a> | <a href="apps.fm1.html">NEXT</a> 
+<!-- | <a href="copyright.fm.html">INDEX</a>  -->
+<!-- /font --></td>
+</tr>
+</table>
+<br />
+<h2><a name="997090"><i>2.2</i> Non-Goals</a></h2>
+<blockquote><a name="997091"><!-- --></a> <i><b>Thread
+Safety</b></i></blockquote>
+<blockquote><a name="997092"><!-- --></a> A particular instance of
+an <code>ImageReader</code> or <code>ImageWriter</code> is not
+required to support re-entrant (simultaneous) calls to its methods
+(with the exception of the <code>abort</code> method that requests
+current read or writes to halt). However, it must be possible for
+multiple instances of the same plug-in class to operate
+simultaneously. For the sake of brevity, we will only discuss
+reader plug-ins below.
+<p><a name="997115"><!-- --></a> Supporting full re-entrancy would
+require that the reader bundle all of its state information (e.g.,
+the current input source) into a separate state object, which would
+allow methods in progress to continue to work with the settings
+that were in effect at the time they began, while allowing a
+separate thread to modify the state to be used by the next
+operation.</p>
+<p><a name="997112"><!-- --></a> Rather than forcing each
+<code>ImageReader</code> to keep track of its state in this way, it
+is simpler to require the application to instantiate multiple
+instances of the same <code>ImageReader</code> class if it wishes
+to perform multithreaded processing. This means that the state of
+an <code>ImageReader</code> must be maintained using non-static
+instance variables only, which should not be a burden for plug-in
+developers.</p>
+</blockquote>
+<br />
+<hr />
+<!-- Bug in Communicator w/font: NavBar text disappears for Times 14pt pref. -->
+<!-- font size="-1" --><a href=
+"imageio_guideTOC.fm.html">CONTENTS</a> | <a href=
+"goals.fm1.html">PREV</a> | <a href="apps.fm1.html">NEXT</a> 
+<!-- | <a href="copyright.fm.html">INDEX</a>  -->
+<!-- /font -->
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

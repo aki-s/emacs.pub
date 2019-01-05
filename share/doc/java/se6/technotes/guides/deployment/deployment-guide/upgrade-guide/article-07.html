@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Deadlock in AWT if methods of the applet are
+over-synchronized</title>
+
+<style type="text/css">
+/*<![CDATA[*/
+p, li {font-family: arial; font-size: 10pt;}
+/*]]>*/
+</style><link rel="stylesheet" href="../../../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><blockquote>
+<h2>Deadlock in AWT if methods of the applet are
+over-synchronized</h2>
+<h3><br />
+<font>Symptoms</font></h3>
+<blockquote>
+<p>When running an applet in a browser using the Sun
+Java<sup><font size="1">TM</font></sup> Runtime Environment
+(JRE<sup><font size="1">TM</font></sup>), deadlock may occur
+if&nbsp; methods of the applet are over-synchronized, especially
+those inherited from <code>java.awt.Component</code>. The same
+applet runs under the Microsoft Virtual Machine (VM).</p>
+</blockquote>
+<h3><font>Cause</font></h3>
+<blockquote>
+<p>The AWT class libraries are sometimes used by developers as
+thread-safe class libraries. Applets performed actions through the
+AWT using multiple threads, with the assumption that the class
+libraries would take care of synchronization issues.<br />
+<br />
+However , the AWT class libraries guarantee thread safety only when
+calls are made from the AWT event dispatch thread.&nbsp;Because the
+implementation of the Microsoft VM and Sun differs, thread-unsafe
+code that runs without incident under one VM might fail under
+another.</p>
+<p>One bad practice used by some applets is to synchronize every
+method of an applet to avoid possible race conditions or deadlocks
+in the Microsoft VM. However, this practice may result in
+deadlocks.</p>
+</blockquote>
+<h3><font>Resolution</font></h3>
+<blockquote>
+<p>To work around this problem, use synchronization in the applet
+only where it is really needed, and remove unnecessary
+synchronization. For example:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>public
+synchronized void paint(Graphics g) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ....<br />
+&nbsp;&nbsp;&nbsp; }<br />
+<br />
+&nbsp;&nbsp;&nbsp; public synchronized void dispose()
+{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; super.dispose();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .....<br />
+&nbsp;&nbsp;&nbsp; }</code></p>
+<p><code>&nbsp;&nbsp;&nbsp; public synchronized void stop() {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ....<br />
+&nbsp;&nbsp;&nbsp; }<br />
+<br />
+&nbsp;&nbsp;&nbsp; public synchronized void destroy() {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ....<br />
+&nbsp;&nbsp;&nbsp; }</code></p>
+<p>In this case, the <code>synchronized</code> keyword in the
+<code>paint</code>, <code>dispose</code>, <code>stop</code>, and
+<code>destroy</code> methods should be removed because they are
+always called from a dedicated thread: <code>paint</code> and
+<code>dispose</code> by the AWT event dispatching thread;
+<code>stop</code> and <code>destroy</code> by the applet thread.
+The code should be changed as follows:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>public void
+paint(Graphics g) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ....<br />
+&nbsp;&nbsp;&nbsp; }<br />
+<br />
+&nbsp;&nbsp;&nbsp; public void dispose()
+{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; super.dispose();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .....<br />
+&nbsp;&nbsp;&nbsp; }</code></p>
+<p><code>&nbsp;&nbsp;&nbsp; public void stop() {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ....<br />
+&nbsp;&nbsp;&nbsp; }<br />
+<br />
+&nbsp;&nbsp;&nbsp; public void destroy() {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ....<br />
+&nbsp;&nbsp;&nbsp; }</code></p>
+</blockquote>
+<h3><font>Related Information</font></h3>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>The Java
+Tutorial</em> discusses thread issues and techniques that apply
+both to AWT and Swing programs: <a href=
+"http://java.sun.com/docs/books/tutorial/uiswing/misc/threads.html">
+How to Use Threads</a>.</p>
+<p>&nbsp;</p>
+</blockquote>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

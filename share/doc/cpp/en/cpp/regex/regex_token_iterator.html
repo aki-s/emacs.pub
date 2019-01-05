@@ -1,0 +1,795 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr" class="client-nojs">
+
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>std::regex_token_iterator - cppreference.com</title>
+<meta charset="UTF-8">
+<meta name="generator" content="MediaWiki 1.18.2">
+
+
+<link rel="shortcut icon" href="../../../favicon.ico">
+
+
+
+<link rel="stylesheet" href="../../../common/load202e.css">
+<meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="../../../common/load7fe1.css">
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}a.new,#quickbar a.new{color:#ba0000}#toc{display:none}.editsection{display:none}
+
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-css:4:b677bc2b5ec37947892a2d0853532528 */</style>
+<script src="../../../common/load404e.php"></script>
+<script>if(window.mw){
+	mw.config.set({"wgCanonicalNamespace": "", "wgCanonicalSpecialPageName": false, "wgNamespaceNumber": 0, "wgPageName": "cpp/regex/regex_token_iterator", "wgTitle": "cpp/regex/regex token iterator", "wgCurRevisionId": 45751, "wgArticleId": 2290, "wgIsArticle": true, "wgAction": "view", "wgUserName": null, "wgUserGroups": ["*"], "wgCategories": [], "wgBreakFrames": false, "wgRestrictionEdit": [], "wgRestrictionMove": []});
+}
+</script><script>if(window.mw){
+	mw.loader.load(["mediawiki.page.startup"]);
+}
+</script>
+<style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/cppreference2/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_regex_regex_token_iterator action-view skin-cppreference2 cpp-navbar">
+        <!-- header -->
+        
+        <!-- /header -->
+        <!-- content -->
+        <div id="cpp-content-base">
+            <div id="content">
+                <a id="top"></a>
+                <div id="mw-js-message" style="display:none;"></div>
+                                <!-- firstHeading -->
+                <h1 id="firstHeading" class="firstHeading">
+<span style="font-size:0.7em; line-height:130%">std::</span>regex_token_iterator</h1>
+                <!-- /firstHeading -->
+                <!-- bodyContent -->
+                <div id="bodyContent">
+                                        <!-- tagline -->
+                    <div id="siteSub">From cppreference.com</div>
+                    <!-- /tagline -->
+                                        <!-- subtitle -->
+                    <div id="contentSub"><span class="subpages">&lt; <a href="../../cpp.html" title="cpp">cpp</a> | <a href="../regex.html" title="cpp/regex">regex</a></span></div>
+                    <!-- /subtitle -->
+                                                            <!-- bodycontent -->
+                    <div lang="en" dir="ltr" class="mw-content-ltr">
+<div class="t-navbar" style="">
+<div class="t-navbar-sep"> </div>
+<div class="t-navbar-head">
+<a href="../../cpp.html" title="cpp"> C++</a><div class="t-navbar-menu"><div>
+<div>
+<table class="t-sb-list" cellpadding="0" style="line-height:1.1em;">
+
+<tr>
+<td colspan="5">  <a href="../language.html" title="cpp/language"> Language</a>
+</td>
+</tr>
+
+<tr>
+<td colspan="5">  <a href="../header.html" title="cpp/header"> Standard library headers</a>
+</td>
+</tr>
+
+<tr>
+<td colspan="5">  <a href="../concept.html" title="cpp/concept"> Concepts</a>
+</td>
+</tr>
+
+<tr>
+<td colspan="5">  <a href="../utility.html" title="cpp/utility"> Utilities library</a>
+</td>
+</tr>
+
+<tr>
+<td colspan="5">  <a href="../string.html" title="cpp/string"> Strings library</a>
+</td>
+</tr>
+
+<tr>
+<td colspan="5">  <a href="../container.html" title="cpp/container"> Containers library</a>
+</td>
+</tr>
+
+<tr>
+<td colspan="5">  <a href="../algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td>
+</tr>
+
+<tr>
+<td colspan="5">  <a href="../iterator.html" title="cpp/iterator"> Iterators library</a>
+</td>
+</tr>
+
+<tr>
+<td colspan="5">  <a href="../numeric.html" title="cpp/numeric"> Numerics library</a>
+</td>
+</tr>
+
+<tr>
+<td colspan="5">  <a href="../io.html" title="cpp/io"> Input/output library</a>
+</td>
+</tr>
+
+<tr>
+<td colspan="5">  <a href="../locale.html" title="cpp/locale"> Localizations library</a>
+</td>
+</tr>
+
+<tr>
+<td colspan="5">  <a href="../regex.html" title="cpp/regex"> Regular expressions library</a> <span class="t-mark">(C++11)</span>
+</td>
+</tr>
+
+<tr>
+<td colspan="5">  <a href="../atomic.html" title="cpp/atomic"> Atomic operations library</a> <span class="t-mark">(C++11)</span>
+</td>
+</tr>
+
+<tr>
+<td colspan="5">  <a href="../thread.html" title="cpp/thread"> Thread support library</a> <span class="t-mark">(C++11)</span>
+</td>
+</tr>
+</table>
+</div>
+<div></div>
+</div></div>
+</div>
+<div class="t-navbar-sep"> </div>
+<div class="t-navbar-head">
+<a href="../regex.html" title="cpp/regex"> Regular expressions library</a><div class="t-navbar-menu"><div>
+<div>
+<table class="t-sb-list" cellpadding="0" style="">
+
+<tr class="t-sb-list-h1">
+<td colspan="5">  Classes
+</td>
+</tr>
+
+<tr>
+<td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="basic_regex.html" title="cpp/regex/basic regex">basic_regex</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td>
+</tr>
+
+<tr>
+<td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="sub_match.html" title="cpp/regex/sub match">sub_match</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td>
+</tr>
+
+<tr>
+<td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="match_results.html" title="cpp/regex/match results">match_results</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td>
+</tr>
+
+<tr class="t-sb-list-h1">
+<td colspan="5">  Algorithms
+</td>
+</tr>
+
+<tr>
+<td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="regex_match.html" title="cpp/regex/regex match">regex_match</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td>
+</tr>
+
+<tr>
+<td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="regex_search.html" title="cpp/regex/regex search">regex_search</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td>
+</tr>
+
+<tr>
+<td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="regex_replace.html" title="cpp/regex/regex replace">regex_replace</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td>
+</tr>
+
+<tr class="t-sb-list-h1">
+<td colspan="5">  Iterators
+</td>
+</tr>
+
+<tr>
+<td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="regex_iterator.html" title="cpp/regex/regex iterator">regex_iterator</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td>
+</tr>
+
+<tr>
+<td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><strong class="selflink">regex_token_iterator</strong></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td>
+</tr>
+
+<tr class="t-sb-list-h1">
+<td colspan="5">  Exceptions
+</td>
+</tr>
+
+<tr>
+<td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="regex_error.html" title="cpp/regex/regex error">regex_error</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td>
+</tr>
+
+<tr class="t-sb-list-h1">
+<td colspan="5">  Traits
+</td>
+</tr>
+
+<tr>
+<td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="regex_traits.html" title="cpp/regex/regex traits">regex_traits</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td>
+</tr>
+
+<tr class="t-sb-list-h1">
+<td colspan="5">  Constants
+</td>
+</tr>
+
+<tr>
+<td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="syntax_option_type.html" title="cpp/regex/syntax option type">syntax_option_type</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td>
+</tr>
+
+<tr>
+<td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="match_flag_type.html" title="cpp/regex/match flag type">match_flag_type</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td>
+</tr>
+
+<tr>
+<td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="error_type.html" title="cpp/regex/error type">error_type</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td>
+</tr>
+</table>
+</div>
+<div></div>
+</div></div>
+</div>
+<div class="t-navbar-sep"> </div>
+<div class="t-navbar-head">
+<strong class="selflink"><code>std::regex_token_iterator</code></strong><div class="t-navbar-menu"><div>
+<div>
+<table class="t-sb-list" cellpadding="0" style="">
+
+<tr class="t-sb-list-h1">
+<td colspan="5">  Member Functions
+</td>
+</tr>
+
+<tr>
+<td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="regex_token_iterator/regex_token_iterator.html" title="cpp/regex/regex token iterator/regex token iterator">regex_token_iterator::regex_token_iterator</a></td></tr></table>
+</td>
+</tr>
+
+<tr>
+<td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php" class="new" title="cpp/regex/regex token iterator/operator= (page does not exist)">regex_token_iterator::operator=</a></td></tr></table>
+</td>
+</tr>
+
+<tr class="t-sb-list-h2">
+<td colspan="5">  Comparisons
+</td>
+</tr>
+
+<tr>
+<td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php" class="new" title="cpp/regex/regex token iterator/operator comp (page does not exist)">regex_token_iterator::operator==<br>regex_token_iterator::operator!=</a></td></tr></table>
+</td>
+</tr>
+
+<tr class="t-sb-list-h2">
+<td colspan="5">  Observers
+</td>
+</tr>
+
+<tr>
+<td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php" class="new" title="cpp/regex/regex token iterator/operator* (page does not exist)">regex_token_iterator::operator*<br>regex_token_iterator::operator-&gt;</a></td></tr></table>
+</td>
+</tr>
+
+<tr class="t-sb-list-h2">
+<td colspan="5">  Modifiers
+</td>
+</tr>
+
+<tr>
+<td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php" class="new" title="cpp/regex/regex token iterator/operator arith (page does not exist)">regex_token_iterator::operator++<br>regex_token_iterator::operator++(int)</a></td></tr></table>
+</td>
+</tr>
+</table>
+</div>
+<div></div>
+</div></div>
+</div>
+<div class="t-navbar-sep"> </div>
+</div>
+<table class="t-ddcl-list">
+<tr class="t-ddcl-list-header">
+<td> <div>Defined in header <code><a href="../header/regex.html" title="cpp/header/regex">&lt;regex&gt;</a></code>
+ </div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr><td colspan="3" class="t-ddcl-list-sep"></td></tr>
+<tr class="t-ddcl-list-item">
+<td> <div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span><br>
+<p>    <span class="kw1">class</span> BidirIt,<br>
+    <span class="kw1">class</span> CharT <span class="sy1">=</span> <span class="kw1">typename</span> <a href="../iterator/iterator_traits.html"><span class="kw530">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>BidirIt<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value_type</span>,<br>
+    <span class="kw1">class</span> Traits <span class="sy1">=</span> <a href="regex_traits.html"><span class="kw1690">std::<span class="me2">regex_traits</span></span></a><span class="sy1">&lt;</span>CharT<span class="sy1">&gt;</span><br>
+</p>
+<span class="sy1">&gt;</span> <span class="kw1">class</span> regex_token_iterator</span></div>
+</td>
+<td class="t-ddcl-list-item-nopad">  </td>
+<td> <span class="t-mark">(since C++11)</span> </td>
+</tr>
+<tr><td colspan="3" class="t-ddcl-list-sep"></td></tr>
+</table>
+<p><code>std::regex_token_iterator</code> is a read-only <a href="../concept/ForwardIterator.html" title="cpp/concept/ForwardIterator"><code>ForwardIterator</code></a> that accesses the individual sub-matches of every match of a regular expression within the underlying character sequence. It can also be used to access the parts of the sequence that were not matched by the given regular expression (e.g. as a tokenizer).
+</p>
+<p>On construction, it constructs an <span class="mw-geshi cpp source-cpp"><a href="regex_iterator.html"><span class="kw1684">std::<span class="me2">regex_iterator</span></span></a></span> and on every increment it steps through the requested sub-matches from the current match_results, incrementing the underlying regex_iterator when incrementing away from the last submatch.
+</p>
+<p>The default-constructed <code>std::regex_token_iterator</code> is the end-of-sequence iterator. When a valid <code>std::regex_token_iterator</code> is incremented after reaching the last submatch of the last match, it becomes equal to the end-of-sequence iterator. Dereferencing or incrementing it further invokes undefined behavior.
+</p>
+<p>Just before becoming the end-of-sequence iterator, a <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">regex_token_iterator</span></span> may become a <i>suffix iterator</i>, if the index <span class="mw-geshi cpp source-cpp"><span class="sy2">-</span><span class="nu0">1</span></span> (non-matched fragment) appears in the list of the requested submatch indexes. Such iterator, if dereferenced, returns a match_results corresponding to the sequence of characters between the last match and the end of sequence.
+</p>
+<p>A typical implementation of <code>std::regex_token_iterator</code> holds the underlying <span class="mw-geshi cpp source-cpp"><a href="regex_iterator.html"><span class="kw1684">std::<span class="me2">regex_iterator</span></span></a></span>, a container (e.g. <span class="mw-geshi cpp source-cpp"><a href="../container/vector.html"><span class="kw1058">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span></span>) of the requested submatch indexes, the internal counter equal to the index of the submatch, a pointer to <span class="mw-geshi cpp source-cpp"><a href="match_results.html"><span class="kw1676">std::<span class="me2">match_results</span></span></a></span>, pointing at the current submatch of the current match, and a <span class="mw-geshi cpp source-cpp"><a href="match_results.html"><span class="kw1676">std::<span class="me2">match_results</span></span></a></span> object containing the last non-matched character sequence (used in tokenizer mode).
+</p>
+<table id="toc" class="toc"><tr><td>
+<div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Type_requirements"><span class="tocnumber">1</span> <span class="toctext">Type requirements</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Specializations"><span class="tocnumber">2</span> <span class="toctext">Specializations</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Member_types"><span class="tocnumber">3</span> <span class="toctext">Member types</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Member_functions"><span class="tocnumber">4</span> <span class="toctext">Member functions</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Notes"><span class="tocnumber">5</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Example"><span class="tocnumber">6</span> <span class="toctext">Example</span></a></li>
+</ul>
+</td></tr></table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: Type requirements">edit</a>]</span> <span class="mw-headline" id="Type_requirements">Type requirements</span>
+</h3>
+<table class="t-param-list">
+
+
+<tr class="t-param-list-req">
+<td colspan="3"> -<div class="spacer"></div>
+<code>BidirIt</code> must meet the requirements of <a href="../concept/BidirectionalIterator.html" title="cpp/concept/BidirectionalIterator"><code>BidirectionalIterator</code></a>.
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: Specializations">edit</a>]</span> <span class="mw-headline" id="Specializations">Specializations</span>
+</h3>
+<p>Several specializations for common character sequence types are defined:
+</p>
+<table class="t-dcl-list">
+
+<tr class="t-dcl-list-header">
+<td colspan="2"> <div>Defined in header <code><a href="../header/regex.html" title="cpp/header/regex">&lt;regex&gt;</a></code> </div>
+</td>
+</tr>
+
+<tr class="t-dcl-list-sep">
+<td colspan="2">
+</td>
+</tr>
+<tr class="t-dcl-list-hitem">
+<td>  Type
+</td>
+<td>  Definition
+</td>
+</tr>
+
+
+<tr class="t-dcl-list-sep">
+<td colspan="2">
+</td>
+</tr>
+<tr class="t-dcl-list-item">
+<td>  <code>cregex_token_iterator</code>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp">regex_token_iterator<span class="sy1">&lt;</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span><span class="sy1">&gt;</span></span>
+</td>
+</tr>
+
+
+<tr class="t-dcl-list-sep">
+<td colspan="2">
+</td>
+</tr>
+<tr class="t-dcl-list-item">
+<td>  <code>wcregex_token_iterator</code>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp">regex_token_iterator<span class="sy1">&lt;</span><span class="kw4">const</span> <span class="kw4">wchar_t</span><span class="sy2">*</span><span class="sy1">&gt;</span></span>
+</td>
+</tr>
+
+
+<tr class="t-dcl-list-sep">
+<td colspan="2">
+</td>
+</tr>
+<tr class="t-dcl-list-item">
+<td>  <code>sregex_token_iterator</code>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp">regex_token_iterator<span class="sy1">&lt;</span>std<span class="sy4">::</span><span class="me2">string</span><span class="sy4">::</span><span class="me2">const_iterator</span><span class="sy1">&gt;</span></span>
+</td>
+</tr>
+
+
+<tr class="t-dcl-list-sep">
+<td colspan="2">
+</td>
+</tr>
+<tr class="t-dcl-list-item">
+<td>  <code>wsregex_token_iterator</code>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp">regex_token_iterator<span class="sy1">&lt;</span>std<span class="sy4">::</span><span class="me2">wstring</span><span class="sy4">::</span><span class="me2">const_iterator</span><span class="sy1">&gt;</span></span>
+</td>
+</tr>
+
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: Member types">edit</a>]</span> <span class="mw-headline" id="Member_types">Member types</span>
+</h3>
+<table class="t-dcl-list">
+
+<tr class="t-dcl-list-sep">
+<td colspan="2">
+</td>
+</tr>
+<tr class="t-dcl-list-hitem">
+<td>  Member type
+</td>
+<td>  Definition
+</td>
+</tr>
+
+
+<tr class="t-dcl-list-sep">
+<td colspan="2">
+</td>
+</tr>
+<tr class="t-dcl-list-item">
+<td>  <code>value_type</code>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><a href="sub_match.html"><span class="kw1671">std::<span class="me2">sub_match</span></span></a><span class="sy1">&lt;</span>BidirIt<span class="sy1">&gt;</span></span>
+</td>
+</tr>
+
+
+<tr class="t-dcl-list-sep">
+<td colspan="2">
+</td>
+</tr>
+<tr class="t-dcl-list-item">
+<td>  <code>difference_type</code>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><a href="../types/ptrdiff_t.html"><span class="kw101">std::<span class="me2">ptrdiff_t</span></span></a></span>
+</td>
+</tr>
+
+
+<tr class="t-dcl-list-sep">
+<td colspan="2">
+</td>
+</tr>
+<tr class="t-dcl-list-item">
+<td>  <code>pointer</code>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> value_type<span class="sy2">*</span></span>
+</td>
+</tr>
+
+
+<tr class="t-dcl-list-sep">
+<td colspan="2">
+</td>
+</tr>
+<tr class="t-dcl-list-item">
+<td>  <code>reference</code>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> value_type<span class="sy3">&amp;</span></span>
+</td>
+</tr>
+
+
+<tr class="t-dcl-list-sep">
+<td colspan="2">
+</td>
+</tr>
+<tr class="t-dcl-list-item">
+<td>  <code>iterator_category</code>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><a href="../iterator/iterator_tags.html"><span class="kw533">std::<span class="me2">forward_iterator_tag</span></span></a></span>
+</td>
+</tr>
+
+
+<tr class="t-dcl-list-sep">
+<td colspan="2">
+</td>
+</tr>
+<tr class="t-dcl-list-item">
+<td>  <code>regex_type</code>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp">basic_regex<span class="sy1">&lt;</span>CharT, Traits<span class="sy1">&gt;</span></span>
+</td>
+</tr>
+
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: Member functions">edit</a>]</span> <span class="mw-headline" id="Member_functions">Member functions</span>
+</h3>
+<table class="t-dcl-list">
+
+<tr class="t-dcl-list-sep">
+<td colspan="2">
+</td>
+</tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div t-dcl-member-nobold-div"><div><a href="regex_token_iterator/regex_token_iterator.html" title="cpp/regex/regex token iterator/regex token iterator"> (constructor)</a></div></div>
+</td>
+<td>  constructs a new regex_token_iterator <br> <span class="t-mark">(public member function)</span> 
+</td>
+</tr>
+
+<tr class="t-dcl-list-sep">
+<td colspan="2">
+</td>
+</tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div t-dcl-member-nobold-div">
+<div>(destructor)</div>
+<div><span class="t-mark">(implicitly declared)</span></div>
+</div>
+</td>
+<td>  destructs a regex_token_iterator, including the cached value <br> <span class="t-mark">(public member function)</span> 
+</td>
+</tr>
+
+<tr class="t-dcl-list-sep">
+<td colspan="2">
+</td>
+</tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php" class="new" title="cpp/regex/regex token iterator/operator= (page does not exist)"> operator=</a></div></div>
+</td>
+<td>   replaces a regex_token_iterator  <br> <span class="t-mark">(public member function)</span> 
+</td>
+</tr>
+
+<tr class="t-dcl-list-sep">
+<td colspan="2">
+</td>
+</tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php" class="new" title="cpp/regex/regex token iterator/operator cmp (page does not exist)"> operator==<br>operator!=</a></div></div>
+</td>
+<td>   compares two regex_token_iterators  <br> <span class="t-mark">(public member function)</span> 
+</td>
+</tr>
+
+<tr class="t-dcl-list-sep">
+<td colspan="2">
+</td>
+</tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php" class="new" title="cpp/regex/regex token iterator/operator* (page does not exist)"> operator*<br>operator-&gt;</a></div></div>
+</td>
+<td>   accesses current submatch <br> <span class="t-mark">(public member function)</span> 
+</td>
+</tr>
+
+<tr class="t-dcl-list-sep">
+<td colspan="2">
+</td>
+</tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php" class="new" title="cpp/regex/regex token iterator/operator++ (page does not exist)"> operator++<br>operator++<span class="t-dcl-small">(int)</span></a></div></div>
+</td>
+<td>   advances the regex_token_iterator to the next submatch  <br> <span class="t-mark">(public member function)</span> 
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: Notes">edit</a>]</span> <span class="mw-headline" id="Notes">Notes</span>
+</h3>
+<p>It is the programmer's responsibility to ensure that the <span class="mw-geshi cpp source-cpp"><a href="basic_regex.html"><span class="kw1668">std::<span class="me2">basic_regex</span></span></a></span> object passed to the iterator's constructor outlives the iterator. Because the iterator stores a <span class="mw-geshi cpp source-cpp"><a href="regex_iterator.html"><span class="kw1684">std::<span class="me2">regex_iterator</span></span></a></span> which stores a pointer to the regex, incrementing the iterator after the regex was destroyed results in undefined behavior.
+</p>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: Example">edit</a>]</span> <span class="mw-headline" id="Example">Example</span>
+</h3>
+<div class="t-example">
+<div class="t-example-live-link"><a href="http://liveworkspace.org/api/cppreference.com/clangpp/1005f9f891bb264c0273672491cda0bfh9PiNCpmKGQJ3s8D9cSMNtg-cbdV3gGlFSoglHVmziLBXF4TOOEmluAVI3UdEOLZ71aQa6QBJ4AUehYXXZVTMhuu3vd6dU95_hvjryzbpUNpRkHx69fz87tQri3HoIgrk4wPnJdYXb2Slg9ZEbJj9jqfYmo72LnIcplD22_1AS4qmkzrXHwHAf1q_zdIh_EYV4S08szPVdOgC5rdoooW0Z_pFZKJT5Km0q0nVZH76MBkY15T8lYSTNCmB5Xb17cSEqXv0tw5EjoSHIiXw0AGzuxVFS9wX4tfq75mhNXbBOy3xEKwKdmhaZmXMqotd85OtZ_Usxj4ZGc7duATubMmTp2hc8Lf1_cU96KS2k-6URrtZ4q2XNGU2qPNmHVdzfXRjVkhu11McIaxWH7Dm1xejpVxjbzHCLia6q1_RQykn5gt0bgBrASXkqKT2AlQ2fJ4yLRMEPuagsLRexcuJaYVsSZDt5MUjqENp4PsUT3HU8mntF7CIcm2AI_G3EstuGPrP6ACPC3ShKr9eHWtAbT2omXhgGB1T9XbtqOJK5cgnnV-rBB71oyXPWRfY5tQJ-e9nwLbHCjycz5iJkN4Xemt_lfwTy6PfKqAE0fwzw==" class="external text">run this code</a></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;fstream&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;iterator&gt;</span>
+<span class="co2">#include &lt;regex&gt;</span>
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+   <a href="../string/basic_string.html"><span class="kw1037">std::<span class="me2">string</span></span></a> text <span class="sy1">=</span> <span class="st0">"Quick brown fox."</span><span class="sy4">;</span>
+   <span class="co1">// tokenization (non-matched fragments)</span>
+   <span class="co1">// Note that regex is matched only two times: when the third value is obtained</span>
+   <span class="co1">// the iterator is a suffix iterator.</span>
+   <a href="basic_regex.html"><span class="kw1669">std::<span class="me2">regex</span></span></a> ws_re<span class="br0">(</span><span class="st0">"<span class="es1">\\</span>s+"</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// whitespace</span>
+   <a href="../algorithm/copy.html"><span class="kw1265">std::<span class="me2">copy</span></span></a><span class="br0">(</span> std<span class="sy4">::</span><span class="me2">sregex_token_iterator</span><span class="br0">(</span>text.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, text.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, ws_re, <span class="sy2">-</span><span class="nu0">1</span><span class="br0">)</span>,
+              std<span class="sy4">::</span><span class="me2">sregex_token_iterator</span><span class="br0">(</span><span class="br0">)</span>,
+              <a href="../iterator/ostream_iterator.html"><span class="kw548">std::<span class="me2">ostream_iterator</span></span></a><span class="sy1">&lt;</span><a href="../string/basic_string.html"><span class="kw1037">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span><span class="br0">(</span><a href="../io/basic_ostream.html"><span class="kw1428">std::<span class="me2">cout</span></span></a>, <span class="st0">"<span class="es1">\n</span>"</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+   <span class="co1">// iterating the first submatches</span>
+   <a href="../string/basic_string.html"><span class="kw1037">std::<span class="me2">string</span></span></a> html <span class="sy1">=</span> <span class="st0">"&lt;p&gt;&lt;a href=<span class="es1">\"</span>http://google.com<span class="es1">\"</span>&gt;google&lt;/a&gt; "</span>
+                      <span class="st0">"&lt; a HREF =<span class="es1">\"</span>http://cppreference.com<span class="es1">\"</span>&gt;cppreference&lt;/a&gt;<span class="es1">\n</span>&lt;/p&gt;"</span><span class="sy4">;</span>
+   <a href="basic_regex.html"><span class="kw1669">std::<span class="me2">regex</span></span></a> url_re<span class="br0">(</span><span class="st0">"&lt;<span class="es1">\\</span>s*A<span class="es1">\\</span>s+[^&gt;]*href<span class="es1">\\</span>s*=<span class="es1">\\</span>s*<span class="es1">\"</span>([^<span class="es1">\"</span>]*)<span class="es1">\"</span>"</span>, std<span class="sy4">::</span><span class="me2">regex</span><span class="sy4">::</span><span class="me2">icase</span><span class="br0">)</span><span class="sy4">;</span>
+   <a href="../algorithm/copy.html"><span class="kw1265">std::<span class="me2">copy</span></span></a><span class="br0">(</span> std<span class="sy4">::</span><span class="me2">sregex_token_iterator</span><span class="br0">(</span>html.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, html.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, url_re, <span class="nu0">1</span><span class="br0">)</span>,
+              std<span class="sy4">::</span><span class="me2">sregex_token_iterator</span><span class="br0">(</span><span class="br0">)</span>,
+              <a href="../iterator/ostream_iterator.html"><span class="kw548">std::<span class="me2">ostream_iterator</span></span></a><span class="sy1">&lt;</span><a href="../string/basic_string.html"><span class="kw1037">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span><span class="br0">(</span><a href="../io/basic_ostream.html"><span class="kw1428">std::<span class="me2">cout</span></span></a>, <span class="st0">"<span class="es1">\n</span>"</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div></div>
+<p>Output:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="text source-text"><pre class="de1">Quick
+brown
+fox.
+http://google.com
+http://cppreference.com</pre></div></div> 
+</div>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 3186/1000000
+Post-expand include size: 78578/2097152 bytes
+Template argument size: 22169/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:2290-0!*!0!!en!*!* and timestamp 20130423151122 -->
+</div>                    <!-- /bodycontent -->
+                                        <!-- printfooter -->
+                    <div class="printfooter">
+                    Retrieved from "<a href="http://en.cppreference.com/mwiki/index.php">http://en.cppreference.com/mwiki/index.php?title=cpp/regex/regex_token_iterator&amp;oldid=45751</a>"                    </div>
+                    <!-- /printfooter -->
+                                                            <!-- catlinks -->
+                    <div id="catlinks" class="catlinks catlinks-allhidden"></div>                    <!-- /catlinks -->
+                                                            <div class="visualClear"></div>
+                    <!-- debughtml -->
+                                        <!-- /debughtml -->
+                </div>
+                <!-- /bodyContent -->
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- footer -->
+        
+        <!-- /footer -->
+        <script src="../../../common/loadac2a.php"></script>
+<script>if(window.mw){
+	mw.loader.load(["mediawiki.user", "mediawiki.util", "mediawiki.page.ready", "mediawiki.legacy.wikibits", "mediawiki.legacy.ajax"]);
+}
+</script>
+<script src="../../../common/load345b.php"></script>
+<script>if(window.mw){
+	mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"highlightbroken":1,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":0,"showtoolbar":1,"skin":"cppreference2","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0
+	,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false});;mw.user.tokens.set({"editToken":"+\\","watchToken":false});;mw.loader.state({"user.options":"ready","user.tokens":"ready"});
+	
+	/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-js:4:3740695a1552aee37d594967bd36f869 */
+}
+</script>
+<!-- Served in 2.950 secs. -->        
+	</body>
+<!-- Cached 20130423151122 -->
+
+
+
+</html>

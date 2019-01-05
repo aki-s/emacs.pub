@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="copyright" content="2004, 2010" />
+ 
+<link rel="stylesheet" href="../../css/tools.css"  type="text/css" />
+  <title>jsadebugd - Serviceability Agent Debug Daemon</title>
+
+</head>
+
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table>  <h1>jsadebugd - Serviceability Agent Debug Daemon</h1>
+
+  <ul>
+    <li><a href="#synopsis">Synopsis</a></li>
+
+    <li><a href="#parameters">Parameters</a></li>
+
+    <li><a href="#description">Description</a></li>
+
+    <li><a href="#seealso">See Also</a></li>
+  </ul>
+
+  <h2><a name="synopsis"/>SYNOPSIS</h2>
+
+  <blockquote>
+    <pre>
+<b>jsadebugd</b> pid [ server-id ]
+<b>jsadebugd</b> executable core [ server-id ]
+</pre>
+  </blockquote>
+
+  <h2><a name="parameters"/>PARAMETERS</h2>
+
+  <blockquote>
+    <dl>
+      <dt><span style="font-weight: bold;">pid</span></dt>
+
+      <dd>process id of the process to which the debug server
+      should attach. The process must be a Java process. To get a
+      list of Java processes running on a machine, <a href=
+      "jps.html">jps</a> may be used. At most one instance of the
+      debug server may be attached to a single process.</dd>
+    </dl>
+
+    <dl>
+      <dt><span style="font-weight: bold;">executable</span></dt>
+    </dl>
+
+    <dl style="margin-left: 40px;">
+      <dt>Java executable from which the core dump was
+      produced</dt>
+    </dl>
+
+    <dl>
+      <dt><span style="font-weight: bold;">core</span></dt>
+
+      <dd>Core file to which the debug server should attach.</dd>
+    </dl>
+    <dl>
+    <dt>
+    <span style="font-weight: bold;">server-id</span></dt>
+
+    <dd>
+      Optional unique id, needed if multiple debug servers are
+      started on the same machine. This ID must be used by remote
+      clients to identify the particular debug server to attach.
+      Within a single machine, this ID must be unique.
+    </dd></dl>
+  </blockquote>
+
+  <h2><a name="description" id="description">DESCRIPTION</a></h2>
+
+  <blockquote>
+  <p>
+    <b>jsadebugd</b> attaches to a Java process or core file and
+    acts as a debug server. Remote clients such as <a href=
+    "jstack.html">jstack</a>, <a href="jmap.html">jmap</a>, and
+    <a href="jinfo.html">jinfo</a> can attach to the server using
+    Java Remote Method Invocation (RMI). Before starting
+    <code>jsadebugd</code>, <a href=
+    "../index.html#rmi">rmiregistry</a> must be started with:
+</p>
+    <blockquote>
+      <pre>
+<code>rmiregistry -J-Xbootclasspath/p:$JAVA_HOME/lib/sajdi.jar</code>
+</pre>
+    </blockquote>
+    <p>
+    where <code>$JAVA_HOME</code> is the JDK
+    installation directory. If rmiregistry was not started,
+    jsadebugd will start an rmiregistry in a standard (1099) port
+    internally. Debug server may be stopped by sending SIGINT
+    (pressing Ctrl-C) to it.
+</p>
+    <p><b>NOTE - This utility is unsupported and may or may not be available in future versions of the JDK. In Windows Systems where <tt>dbgeng.dll</tt> is not present, 'Debugging Tools for Windows' needs to be installed to have these tools working.  Also, the <tt>PATH</tt> environment variable should contain the location of <tt>jvm.dll</tt> used by the target process or the location from which the Crash Dump file was produced.</b></p>
+<p>
+<b>For example, <tt>set PATH=&lt;jdk&gt;\jre\bin\client;%PATH%</b></p>
+  </blockquote>
+
+  <h2><a name="seealso">SEE ALSO</a></h2>
+
+    <ul>
+      <li><a href="jinfo.html">jinfo</a></li>
+
+      <li><a href="jmap.html">jmap</a></li>
+
+      <li><a href="jps.html">jps</a></li>
+
+      <li><a href="jstack.html">jstack</a></li>
+
+      <li><a href="../index.html#rmi">rmiregistry</a></li>
+    </ul>
+
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

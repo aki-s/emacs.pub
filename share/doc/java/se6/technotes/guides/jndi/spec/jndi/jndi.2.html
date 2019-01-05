@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>2 Goals and Design Principles</title><link rel="stylesheet" href="../../../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><table summary="layout" width="100%" border="0" cellspacing="2"
+cellpadding="0">
+<tr>
+<td><a href="jndiTOC.html">CONTENTS</a> | <a href=
+"jndi.1.html">PREV</a> | <a href="jndi.3.html">NEXT</a></td>
+<td align="right"></td>
+</tr>
+</table>
+<h2 class="chapter"><a name="pgfId=997857"></a>2. Goals and Design
+Principles</h2>
+<blockquote>
+<p class="body"><a name="pgfId=997858"></a>We followed several
+principles and maxims in designing the API.</p>
+</blockquote>
+<div>
+<h3 class="section"><a name="pgfId=997859"></a>2.1 Keep it
+consistent and intuitive</h3>
+<blockquote>
+<p class="body"><a name="pgfId=997860"></a>Wherever possible, we
+have used existing components from the rest of the Java development
+environment. Adhering to this principle not only makes JNDI
+consistent with existing core classes in the Java platform but also
+reduces needless proliferation of classes.</p>
+<p class="body"><a name="pgfId=997862"></a>The object-oriented
+nature of the Java programming language allows for an intuitive and
+simple API design, in which the directory service functionality is
+expressed as a natural extension to the more fundamental naming
+service functionality.</p>
+</blockquote>
+</div>
+<div>
+<h3 class="section"><a name="pgfId=997863"></a>2.2 Pay for what you
+use</h3>
+<blockquote>
+<p class="body"><a name="pgfId=997864"></a>The API is structured in
+a tiered manner so that the application programmer interested in a
+certain directory service capability need not necessarily know
+about a more advanced capability. We have strived to keep the lower
+tiers simple and also make them represent the common case
+capability, relegating the more complex ones to the upper
+tiers.</p>
+</blockquote>
+</div>
+<div>
+<h3 class="section"><a name="pgfId=997865"></a>2.3 Implementable
+over common directory and naming services and protocols</h3>
+<blockquote>
+<p class="body"><a name="pgfId=997866"></a>This goal is important
+for two reasons. First, it enables Java applications to take
+advantage of information in a variety of existing naming and
+directory services such as DNS, NDS, NIS (YP), X.500, and LDAP.
+Second, it helps limit the appearance of any implementation
+specific artifacts in the API.</p>
+<p class="body"><a name="pgfId=997867"></a>Providing a unified
+interface to multiple naming and directory services does not imply
+that access of unique features of a particular service is
+precluded. The unified API which is designed to cover the common
+case is still beneficial to applications that have explicit
+knowledge of the underlying naming or directory service. Such
+applications still benefit from sharing the common portions that
+use the API. This is analogous to applications sharing commonly
+used classes and yet adding needed specificity via subclassing.</p>
+</blockquote>
+</div>
+<div>
+<h3 class="section"><a name="pgfId=997868"></a>2.4 Seamless
+integration</h3>
+<blockquote>
+<p class="body"><a name="pgfId=997869"></a>This is important not
+only because of the diversity of directory service and naming
+services in the installed base that need to be supported, but also
+because new Java application and service programmers can export
+their own namespaces and directory objects in a uniform way.</p>
+<p class="body"><a name="pgfId=997870"></a>We also wanted to make a
+variety of implementation choices possible without having the
+application pay for this freedom. For example, a
+&quot;thin-client&quot; might be better served by a proxy-style
+protocol in which the access to specific naming and directory
+services is relegated to a server. Whereas, a performance
+sensitive, resource rich client, might choose to use an
+implementation which directly allows it to access the various
+servers. However, the application should be insulated from these
+implementation choices. It should be possible to defer such choices
+even until runtime.</p>
+</blockquote>
+<p>&nbsp;</p>
+<h3 class="section"><a name="pgfId=998702"></a>2.5 Support for
+leading industry standards</h3>
+<blockquote>
+<p class="body"><a name="pgfId=998703"></a>The Lightweight
+Directory Access Protocol (Internet RFC 2251) has emerged as the
+standard for directory access at the protocol level. All major
+directory vendors have products that support this protocol. An
+application that uses JNDI should be able to access all of the
+features offered by this standard. Where possible, JNDI should
+support conventions (such as those for specifying search
+queries/filters) already defined by the standard.</p>
+</blockquote>
+<hr align="left" />
+<a href="jndiTOC.html">CONTENTS</a> | <a href=
+"jndi.1.html">PREV</a> | <a href="jndi.3.html">NEXT</a></div>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

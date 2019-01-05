@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>1 Introduction</title><link rel="stylesheet" href="../../../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><table summary="layout" width="100%" border="0" cellspacing="2"
+cellpadding="0">
+<tr>
+<td><a href="jndiTOC.html">CONTENTS</a> | <a href=
+"jndiTOC.html">PREV</a> | <a href="jndi.2.html">NEXT</a></td>
+<td align="right"></td>
+</tr>
+</table>
+<br />
+<h2 class="chapter"><a name="pgfId=997832"></a>1. <a name=
+"38451"></a>Introduction</h2>
+<blockquote>
+<p class="body"><a name="pgfId=997833"></a>Directory services play
+a vital role in Intranets and Internets by providing access to a
+variety of information about users, machines, networks, services,
+and applications. By its very nature, a directory service
+incorporates a naming facility for providing human understandable
+namespaces that characterize the arrangement and identification of
+the various entities.</p>
+<p class="body"><a name="pgfId=997834"></a>The computing
+environment of an enterprise typically consists of several naming
+facilities often representing different parts of a composite
+namespace. For example, the Internet Domain Name System (DNS) might
+be used as the top-level naming facility for different
+organizations within an enterprise. The organizations themselves
+might use a directory service such as LDAP or NDS or NIS. From a
+user's perspective, there is one namespace consisting of composite
+names. URLs are examples of composite names because they span
+namespaces of multiple naming facilities. Applications which use
+directory services must support this user perspective.</p>
+<p class="body"><a name="pgfId=997835"></a>Many
+Java<sup><font size="-1">TM</font></sup> application developers can
+benefit from a directory service API that is not only independent
+of the particular directory or naming service implementation, but
+also enables seamless access to directory objects through multiple
+naming facilities. In fact, any application can attach its own
+objects to the namespace. Such a facility enables any Java
+application to discover and retrieve objects of any type.</p>
+<p class="body"><a name="pgfId=997836"></a>End users can benefit
+from logical namespaces that allow easier discovery and
+identification of the objects in the network.</p>
+<p class="body"><a name="pgfId=997837"></a>Directory service
+developers can benefit from a service-provider capability that
+enables them to incorporate their respective implementations
+without requiring changes to the client.</p>
+<p class="body"><a name="pgfId=997838"></a>Java Naming and
+Directory Interface<sup><font size="-1">TM</font></sup> (JNDI) is
+an API that provides directory and naming functionality to Java
+applications. It is defined to be independent of any specific
+directory service implementation. Thus, a variety of directories
+can be accessed in a common way.</p>
+<p class="body"><a name="pgfId=997839"></a>Here are two examples to
+briefly illustrate some of the more commonly used features of
+JNDI.</p>
+<p class="body"><a name="pgfId=997840"></a>An application that
+wants to access a printer needs the corresponding printer object.
+This is simply done as follows:</p>
+<blockquote>
+<pre>
+prt = (Printer) building7.lookup(&quot;puffin&quot;);
+prt.print(document);
+</pre></blockquote>
+<p class="body"><a name="pgfId=997843"></a>JNDI does all the work
+of locating the information needed to construct the printer
+object.</p>
+<p class="body"><a name="pgfId=997844"></a>An application that
+wants to find a person's phone numbers, which are stored in the
+organization's directory, can simply do:</p>
+<blockquote>
+<pre>
+String[] attrs = {&quot;workPhone&quot;, &quot;cellPhone&quot;, &quot;faxNumber&quot;};
+bobsPhones = directory.getAttributes(&quot;cn=Bob, o=Widget, c=US&quot;, attrs);
+</pre></blockquote>
+<p class="body"><a name="pgfId=997847"></a>If there may be several
+Bobs in the Widget organization, the application can search the
+organization's directory to find the right Bob as follows:</p>
+<blockquote>
+<pre>
+bob = directory.search(&quot;o=Widget, c=US&quot;, &quot;(cn=Bob)&quot;, searchctls);
+</pre></blockquote>
+<p class="body"><a name="pgfId=997849"></a>This document describes
+the architecture and interfaces of JNDI.</p>
+</blockquote>
+<p class="body"></p>
+<hr align="left" />
+<a href="jndiTOC.html">CONTENTS</a> | <a href=
+"jndiTOC.html">PREV</a> | <a href="jndi.2.html">NEXT</a>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

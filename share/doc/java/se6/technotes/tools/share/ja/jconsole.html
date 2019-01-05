@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="copyright" content="2004, 2010" />
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+
+
+
+<title>jconsole - Java 監視および管理コンソール</title>
+<meta name="collection" content="reference">
+  <link rel="stylesheet" href="../../css/tools.css" type="text/css" />
+</head>
+
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>jconsole - Java 監視および管理コンソール</h1>
+
+  <ul>
+<li><a href="#synopsis">形式</a></li>
+
+<li><a href="#parameters">パラメータ</a></li>
+
+<li><a href="#description">説明</a></li>
+
+<li><a href="#options">オプション</a></li>
+
+<li><a href="#seealso">関連項目</a></li>
+  </ul>
+
+<h2><a name="synopsis" id="synopsis">形式</a></h2>
+    <blockquote>
+      <pre>
+<b>jconsole</b> [ <i>options</i> ] [ connection ... ]
+
+</pre>
+</blockquote>
+<h2><a name="parameters"/>パラメータ</h2>
+
+    <blockquote>
+      <dl>
+<dt><a href="#options">options</a></dt>
+
+<dd>オプションを使用する場合、コマンド名の直後に記述してください。</dd>
+        <br />
+<dt><b>connection</b> = <i>pid</i> | <i>host</i>:<i>port</i> | <i>jmxUrl</i>
+        </dt>
+        <dl>
+<dd><i>pid</i>&nbsp;&nbsp;&nbsp;ローカルの Java VM のプロセス ID。Java VM は、jconsole を実行しているユーザー ID と同じユーザー ID を使用して実行する必要があります。詳細については、<a href="../../guides/management/agent.html">「JMX 監視および管理」</a>を参照してください。</dd>
+          <br />
+<dd><i>host</i>:<i>port</i>&nbsp;&nbsp; Java VM が実行しているホストシステムの名前と、JVM を起動したときにシステムプロパティー <code>com.sun.management.jmxremote.port</code> で指定したポート番号。詳細については、<a href="../../guides/management/agent.html">「JMX 監視および管理」</a>を参照してください。</dd>
+            <br />
+<dd><i>jmxUrl</i> 接続先の JMX エージェントのアドレス。 これについては、<a href="../../../api/javax/management/remote/JMXServiceURL.html">JMXServiceURL</a> を参照してください。</dd>
+        </dl>
+      </dl>
+    </blockquote>
+<h2><a name="description"/> 説明</h2>
+    <blockquote>
+<p><b>jconsole</b> コマンドは、ローカルマシンまたはリモートマシン上の Java アプリケーションと仮想マシンの監視と管理を行うグラフィカルコンソールツールを起動します。</p>
+      
+<p>Windows 上では、<b>jconsole</b> はコンソールウィンドウと関連付けられていません。ただし、なんらかの理由で <b>jconsole</b> コマンドが失敗すると、エラー情報を示すダイアログボックスが表示されます。</p>
+    
+    </blockquote>
+<h2><a name="options"/>オプション</h2>
+  <blockquote>
+      <dl>
+<dt><b>-interval</b><i>=n</i></dt>
+
+<dd>更新間隔を <i>n</i> 秒に設定します (デフォルトは 4 秒)。</dd>
+
+<dt><b>-notile</b>&nbsp;</dt>
+
+<dd>最初にウィンドウをタイリングしません (複数の接続のため)。</dd>
+
+<dt><b>-pluginpath</b>&nbsp; <i>plugins</i></dt>
+
+<dd>JConsole プラグインの検索先となるディレクトリまたは JAR ファイルのリストを指定します。<i>plugins</i> パスには、次の名前のプロバイダ構成ファイルを含めてください。<br />
+<pre>&nbsp;&nbsp;&nbsp;META-INF/services/com.sun.tools.jconsole.JConsolePlugin</pre>
+            <p>
+これには、<a href="../../../jdk/api/jconsole/spec/com/sun/tools/jconsole/JConsolePlugin.html">com.sun.tools.jconsole.JConsolePlugin</a> クラスを実装するクラスの完全修飾クラス名を指定する行が、プラグインごとに 1 行ずつ含まれています。 
+            </p></dd>
+
+<dt><b>-version</b>&nbsp;</dt>
+
+<dd>バージョン情報を出力して終了します。</dd>
+
+<dt><b>-help</b>&nbsp;</dt>
+
+<dd>ヘルプメッセージを出力して終了します。</dd>
+
+<dt><b>-J&lt;flag&gt;</b>&nbsp;</dt>
+
+<dd>jconsole が実行されている Java 仮想マシンに &lt;flag&gt; を渡します。</dd>
+
+      </dl>
+    </blockquote>
+
+<h2><a name="seealso">関連項目</a></h2>
+
+  <ul>
+<li> <a href="../../guides/management/jconsole.html">jconsole の使用</a></li>
+<li> <a href="../../guides/management/index.html">「Java プラットフォームの監視および管理」</a></li>
+  </ul>
+
+
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

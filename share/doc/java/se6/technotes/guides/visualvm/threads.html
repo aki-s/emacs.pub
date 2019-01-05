@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Java VisualVM</title><link rel="stylesheet" href="../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><div class="smallpagetitle">
+<h1>Java VisualVM</h1>
+</div>
+<!-- END VNV3 PAGETITLE, two-level variation -->
+<!-- BEGIN WRAPPER TABLE, 1 COLUMN, MAIN -->
+<table border="0" cellpadding="10" cellspacing="0" width="100%">
+<tr>
+<td width="100%" valign="top">
+<!-- BEGIN CENTRAL COLUMN COMPONENTS -->
+<!--startindex-->
+<a name="skip2content" id="skip2content"></a> 
+<!-- ============ Following table is not part of the standard header for java.sun.com, =======->
+      <!== ============ it is the standard sub-header for Java SE Release Notes files ==============->
+      <!== ============ Links to JDK Docs and Japanese Release Notes Index Page ================== -->
+<table border="0" cellpadding="0" cellspacing="0" width="99%">
+<tr valign="top" align="left">
+<td></td>
+<td align="right"><font size="-1"><a href="index.html">Back to Java
+VisualVM Documentation Index</a></font></td>
+</tr>
+</table>
+<!-- ============ -->
+<!-- MAIN CONTENT -->
+<!-- ============ -->
+<h1>Monitoring Application Threads</h1>
+<p>Java VisualVM presents data for local and remote applications in
+a tab specific for that application. Application tabs are displayed
+in the main window to the right of the Applications window. You can
+have multiple application tabs open at one time. Each application
+tab contains sub-tabs that display different types of information
+about the application.</p>
+<h3>Monitoring Thread Activity</h3>
+<p>Java VisualVM displays real-time, high-level data on thread
+activity in the Threads tab.<br />
+<b>Note:</b> The information displayed in the Threads tab is based
+on Java Management Extensions (JMX). The Threads tab is visible if
+Java VisualVM can make a JMX technology-based connection (JMX
+connection) with the target application and retrieve JMX
+instrumentation from the Java Virtual Machine (JVM). If the target
+application is a local application running on Java Development Kit
+(JDK) version 1.6, the JMX connection is made automatically. If the
+target application is not running on JDK version 1.6, you may need
+to explicitly establish a JMX connection with the JVM software. For
+more on establishing a JMX connection, see the following
+document:</p>
+<ul>
+<li><a href="jmx_connections.html">Connecting to JMX Agents
+Explicitly</a></li>
+</ul>
+<p>By default the Threads tab displays a timeline of current thread
+activity. You can click a thread in the timeline to view details
+about that thread in the Details tab.</p>
+<h4>Timeline Tab</h4>
+<p>This tab displays a timeline with real-time thread states. Use
+the buttons in the Timeline toolbar to zoom in/out on the current
+view and to switch to the Scale to Fit mode. The drop-down list
+enables you to select which threads are displayed. You can choose
+to view all threads, live threads or finished threads. You can also
+select a single thread or multiple threads to display a subset of
+the threads. You can double-click on a thread timeline to open that
+thread in the Details tab.</p>
+<p>A timeline for each thread provides a quick overview of the
+thread's activity.</p>
+<img src="images/thread-timeline-screen.png" style=
+"border:1px solid;" alt="screenshot of timeline in Threads tab"
+title="screenshot of timeline in Threads tab" />
+<h4>Details Tab</h4>
+<p>The Details tab displays more detailed information about
+individual threads. Using the drop-down list, you can select to
+display all threads, all live threads or all finished threads. You
+can also choose to display only the details of threads selected in
+the Timeline view. For each thread, the name, classname and current
+status (alive/finished) are displayed. A short description of the
+thread is also provided.</p>
+<p>Each thread displayed in the Details tab has the following
+tabs:</p>
+<ul>
+<li><b>General.</b> This tab displays thread states
+statistics.</li>
+<li><b>Details.</b> This tab contains full listings of thread
+states with timestamps.</li>
+</ul>
+<p>A timeline for each thread provides a quick overview of the
+thread's activity.</p>
+<img src="images/thread-details-screen.png" style=
+"border:1px solid;" alt="screenshot of timeline in Threads tab"
+title="screenshot of thread details in Threads tab" />
+<h3>Taking a Thread Dump</h3>
+<p>You can use Java VisualVM to take a thread dump (stack trace)
+while a local application is running. Taking a thread dump does not
+stop the application. When you print the thread dump you get a
+printout of the thread stack that includes thread states for the
+Java threads.</p>
+<p>When you print a thread dump in Java VisualVM, the tool prints a
+stack trace of the active threads of the application. Using Java
+VisualVM to take a thread dump can be very convenient in cases
+where you do not have a command-line console for the application.
+You can use a stack trace to help diagnose a number of issues such
+as deadlocks or when an application hangs.</p>
+<p>Screenshot of thread dump (stack trace) in thread dump
+sub-tab.</p>
+<img src="images/thread-dump-screen.png" style="border:1px solid;"
+alt="screenshot of timeline in Threads tab" title=
+"screenshot of thread dump (stack trace) in thread dump sub-tab" /></td>
+</tr>
+</table>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

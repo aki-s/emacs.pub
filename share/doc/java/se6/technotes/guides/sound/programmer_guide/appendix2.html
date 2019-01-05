@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>sound.properties File</title><link rel="stylesheet" href="../../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>Appendix 2: <code>sound.properties</code> File</h1>
+<form name="form1" id="form1"><select name="menu1" onchange=
+"Eminem_jumpMenu('parent',this,1)"><script src="menu_script.js"
+language="JavaScript" type="text/javascript">
+</script></select></form>
+<p>The Java Sound Configuration file,
+<code>sound.properties</code>, can be used to specify default
+service providers for <code>javax.sound.sampled.AudioSystem</code>
+and <code>javax.sound.midi.MidiSystem</code>.</p>
+<h2>Properties Keys</h2>
+<p>The following keys are recognized by <code>AudioSystem</code>
+methods:</p>
+<blockquote>
+<p><code>javax.sound.sampled.Clip<br />
+javax.sound.sampled.Port<br />
+javax.sound.sampled.SourceDataLine<br />
+javax.sound.sampled.TargetDataLine</code></p>
+</blockquote>
+<p>The following keys are recognized by <code>MidiSystem</code>
+methods:</p>
+<blockquote>
+<p><code>javax.sound.midi.Sequencer<br />
+javax.sound.midi.Synthesizer<br />
+javax.sound.midi.Transmitter<br />
+javax.sound.midi.Receiver</code></p>
+</blockquote>
+<p>The values should specify the full class name of the service
+provider and/or the device name.</p>
+<p><code>sound.properties</code> is located at
+<code>$JAVAHOME/jre/lib</code> in the Sun implementation.</p>
+<p>For more details, see the class descriptions for <code><a href=
+"../../../../api/javax/sound/sampled/AudioSystem.html">AudioSystem</a>
+and <a href=
+"../../../../api/javax/sound/midi/MidiSystem.html">MidiSystem</a></code>.</p>
+<h2>Examples</h2>
+<p>To use <code>MyDeviceProvider</code> as the default for
+<code>SourceDataLine</code> lines, set the following key:</p>
+<blockquote>
+<p>
+<code>javax.sound.sampled.SourceDataLine=com.xyz.MyDeviceProvider</code></p>
+</blockquote>
+<p>To specify the default <code>Synthesizer</code> by its name
+<code>InternalSynth</code>, set the following key:</p>
+<blockquote>
+<p><code>javax.sound.midi.Synthesizer=#InternalSynth</code></p>
+</blockquote>
+<p>To specify the default <code>Receiver</code> by provider and
+name, set the following key:</p>
+<blockquote>
+<p>
+<code>javax.sound.midi.Receiver=com.sun.media.sound.MidiProvider#SunMIDI1</code></p>
+</blockquote>
+<p>&nbsp;</p>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

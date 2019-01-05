@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Java Platform Debugger Architecture</title><link rel="stylesheet" href="../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>Java Platform Debugger Architecture</h1>
+<p><b>Trace</b> runs the Java language program passed as an
+argument and generates a trace of its execution. <b>Trace</b> is a
+simple command line tool that uses the Java Debug Interface (JDI).
+Programs need not be compiled for debugging since this information
+is not used.</p>
+<p><b>Trace</b> can be invoked as follows:</p>
+<pre>
+        java Trace <i>options class args</i><br />
+</pre>
+Your classpath must include the Java 2 SDK's <tt>lib/tools.jar</tt>
+file which contains the JDI Library (see <a href=
+"examples.html#SETUP">set-up</a>), the path to the compiled
+<b>trace</b> class files, and the path for the application being
+traced.
+<p>Available <i>options</i> are: 
+<!-- BEGIN VCD7 CODE SAMPLE COMPONENT  --></p>
+<table border="0" cellpadding="10" cellspacing="0" width="100%"
+class="grey4">
+<tbody>
+<tr>
+<td>
+<pre>
+  -output <i>filename</i><br />        Set destination for output trace. By default output<br />        goes to the terminal.<br /><br />  -all<br />        Include system classes in output.  By default<br />        java.*, javax.*, sun.* and com.sun.* events are<br />        not diplayed.<br /><br />  -fields<br />        Also show assignments into fields.<br /><br />  -help<br />        Print a help message<br /><br />      
+</pre></td>
+</tr>
+</tbody>
+</table>
+<br />
+<!-- END VCD7 CODE SAMPLE COMPONENT  -->
+<i>class</i> is the program to trace. <i>args</i> are the arguments
+to <i>class</i>.
+<h2>Source for trace</h2>
+<p>Full source code for <b>trace</b> is included in the
+<code>trace</code> directory of <code>examples.jar</code>. Source
+code of these example application is included to provide concrete
+examples for debugger developers. Example code may be used,
+modified and redistributed by debugger developers providing they
+adhere to the terms in the copyright notice.</p>
+<h2>Building trace</h2>
+<p>To completely rebuild the <b>trace</b> classes from the provided
+source files in the <code>trace</code> directory, you need only to
+compile them. No special options are required, aside from those
+which set your classpath to include the <a href=
+"examples.html#SETUP">JDI Library</a> in
+<tt>lib/tools.jar</tt>.</p>
+<!-- end main page content -->
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

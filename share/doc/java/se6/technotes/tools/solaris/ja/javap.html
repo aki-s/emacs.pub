@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="copyright" content="1994, 2010" />
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+
+<link rel="stylesheet" href="../../css/tools.css"  type="text/css" />
+<title>javap - Java クラスファイル逆アセンブラ</title>
+
+</head>
+
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>javap - Java クラスファイル逆アセンブラ</h1>
+
+  <blockquote>
+  <p>
+クラスファイルを逆アセンブルします。
+    </p>
+  </blockquote>
+
+<h2>形式</h2>
+
+  <blockquote>
+    <pre>
+javap [ <a href="javap.html#options">options</a> ] class. . .
+</pre>
+  </blockquote>
+
+<h2>説明</h2>
+
+  <blockquote>
+  <p>
+<b>javap</b> コマンドは、クラスファイルを逆アセンブルします。その出力は指定するオプションにより異なります。オプションを指定しない場合、<b>javap</b> は、そのパッケージ、渡されたクラスの protected および public のフィールドとメソッドを出力します。<b> javap</b> はその出力を標準出力に表示します。たとえば、次のクラス宣言をコンパイルするとします。</p>
+
+    <blockquote>
+      <pre>
+import java.awt.*;
+import java.applet.*;
+
+public class DocFooter extends Applet {
+        String date;
+        String email;
+
+        public void init() {
+                resize(500,100);
+                date = getParameter("LAST_UPDATED");
+                email = getParameter("EMAIL");
+        }
+
+        public void paint(Graphics g) {
+                g.drawString(date + " by ",100, 15);
+                g.drawString(email,290,15);
+        }
+}
+</pre>
+    </blockquote>
+<p><b>javap DocFooter</b> がもたらす出力は次のようになります。</p>
+
+    <blockquote>
+      <pre>
+Compiled from DocFooter.java
+public class DocFooter extends java.applet.Applet {
+    java.lang.String date;
+    java.lang.String email;
+    public DocFooter();
+    public void init();
+    public void paint(java.awt.Graphics);
+}
+</pre>
+    </blockquote>
+    
+<p><b>javap -c DocFooter</b> がもたらす出力は次のようになります。</p>
+
+    <blockquote>
+      <pre>
+Compiled from DocFooter.java
+public class DocFooter extends java.applet.Applet {
+    java.lang.String date;
+    java.lang.String email;
+    public DocFooter();
+    public void init();
+    public void paint(java.awt.Graphics);
+}
+
+Method DocFooter()
+   0 aload_0
+   1 invokespecial #1 &lt;Method java.applet.Applet()&gt;
+   4 return
+
+Method void init()
+   0 aload_0
+   1 sipush 500
+   4 bipush 100
+   6 invokevirtual #2 &lt;Method void resize(int, int)&gt;
+   9 aload_0
+  10 aload_0
+  11 ldc #3 &lt;String "LAST_UPDATED"&gt;
+  13 invokevirtual #4 &lt;Method java.lang.String getParameter(java.lang.String)&gt;
+  16 putfield #5 &lt;Field java.lang.String date&gt;
+  19 aload_0
+  20 aload_0
+  21 ldc #6 &lt;String "EMAIL"&gt;
+  23 invokevirtual #4 &lt;Method java.lang.String getParameter(java.lang.String)&gt;
+  26 putfield #7 &lt;Field java.lang.String email&gt;
+  29 return
+
+Method void paint(java.awt.Graphics)
+   0 aload_1
+   1 new #8 &lt;Class java.lang.StringBuffer&gt;
+   4 dup
+   5 invokespecial #9 &lt;Method java.lang.StringBuffer()&gt;
+   8 aload_0
+   9 getfield #5 &lt;Field java.lang.String date&gt;
+  12 invokevirtual #10 &lt;Method java.lang.StringBuffer append(java.lang.String)&gt;
+  15 ldc #11 &lt;String " by "&gt;
+  17 invokevirtual #10 &lt;Method java.lang.StringBuffer append(java.lang.String)&gt;
+  20 invokevirtual #12 &lt;Method java.lang.String toString()&gt;
+  23 bipush 100
+  25 bipush 15
+  27 invokevirtual #13 &lt;Method void drawString(java.lang.String, int, int)&gt;
+  30 aload_1
+  31 aload_0
+  32 getfield #7 &lt;Field java.lang.String email&gt;
+  35 sipush 290
+  38 bipush 15
+  40 invokevirtual #13 &lt;Method void drawString(java.lang.String, int, int)&gt;
+  43 return
+</pre>
+    </blockquote>
+ </blockquote>
+
+<h2><a name="options"/>オプション</h2>
+
+  <blockquote>
+    <dl>
+<dt><b>-help</b></dt>
+
+<dd><b>javap</b> のヘルプメッセージを出力します。</dd>
+
+<dt><b>-l</b></dt>
+
+<dd>行番号と局所変数テーブルを表示します。</dd>
+
+<dt><b>-b</b></dt>
+
+<dd>JDK 1.1 の <b>javap</b> との下位互換性を保証します。</dd>
+
+<dt><b>-public</b></dt>
+
+<dd>public クラスおよびメンバーだけを表示します。</dd>
+
+<dt><b>-protected</b></dt>
+
+<dd>protected および public のクラスとメンバーだけを表示します。</dd>
+
+<dt><b>-package</b></dt>
+
+<dd>package、protected、および public のクラスとメンバーだけを表示します。これはデフォルトの設定です。</dd>
+
+<dt><b>-private</b></dt>
+
+<dd>すべてのクラスとメンバーを表示します。</dd>
+
+<dt><b>-J<i>flag</i></b></dt>
+
+      <dd>
+ランタイムシステムに直接 <i>flag</i> を渡します。使用例を次に示します。
+
+        <blockquote>
+          <pre>
+javap -J-version
+javap -J-Djava.security.manager -J-Djava.security.policy=MyPolicy MyClassName
+</pre>
+        </blockquote>
+      </dd>
+
+<dt><b>-s</b></dt>
+
+<dd>内部の型シグニチャーを出力します。</dd>
+
+<dt><b>-c</b></dt>
+
+<dd>クラスの各メソッドのために逆アセンブルされるコード、すなわち Java バイトコードから成る命令を表示します。これらは<a href=       "http://java.sun.com/docs/books/vmspec/">「Java Virtual Machine Specification」</a>にドキュメント化されています。</dd>
+
+<dt><b>-verbose</b></dt>
+
+<dd>メソッドのスタックサイズ、および <code>locals</code> と <code>args</code> の数を出力します。</dd>
+
+<dt><b>-classpath <i>path</i></b></dt>
+
+<dd><b>javap</b> がクラスを探すために使用するパスを指定します。デフォルトまたは CLASSPATH 環境変数設定を上書きします。ディレクトリはコロンで分割します。したがって、<i>path</i> の一般形式は次のようになります。</dd>
+
+      <dd>
+        <pre>
+   .:&lt;your_path&gt;
+</pre>例を示します。
+        <pre>
+.:/home/avh/classes:/usr/local/java/classes
+</pre>
+      </dd>
+
+<dt><b>-bootclasspath <i>path</i></b></dt>
+
+<dd>ブートストラップクラスをロードするパスを指定します。ブートストラップクラスは、デフォルトでは <tt>jre/lib/rt.jar</tt> および他のいくつかの JAR ファイル にある、コア Java 2 プラットフォームを実装するクラスです。</dd>
+
+<dt><b>-extdirs <i>dirs</i></b></dt>
+
+<dd>インストールされた拡張機能を検索する場所をオーバーライドします。The default location for extensions is the value of <tt>java.ext.dirs</tt>.</dd>
+    </dl>
+  </blockquote>
+
+<h2>環境変数</h2>
+
+  <blockquote>
+    <dl>
+<dt>CLASSPATH</dt>
+
+      <dd>
+ユーザー定義クラスへのパスをシステムに指定します。ディレクトリはコロンで分割します。 次に例を示します。
+
+        <blockquote>
+          <pre>
+.:/home/avh/classes:/usr/local/java/classes
+</pre>
+        </blockquote>
+      </dd>
+    </dl>
+  </blockquote>
+
+<h2>関連項目</h2>
+
+  <blockquote><p>
+<a href="javac.html">javac</a>、 <a href="java.html">java</a>、<a href="jdb.html">jdb</a>、<a href="javah.html">javah</a>、<a href="javadoc.html">javadoc</a></p>
+  </blockquote>
+
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

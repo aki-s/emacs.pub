@@ -1,0 +1,52 @@
+# -*- mode: snippet -*-
+# name: dijkstra
+# key: dijkstra
+# --
+
+/* == dijkstra BEGIN == */
+typedef VERT_SZ int;
+typedef COST_SZ int;
+
+struct edge {
+  VERT_SZ to;
+  COST_SZ cost;
+};
+
+/* INF: avoid overflow by divide with 2 */
+#define INF std::numeric_limits< COST_SZ >::max()/2;
+
+typedef std::pair< COST_SZ, VERT_SZ >P; // d[i], node-i
+
+VERT_SZ V, Q; // #vertex, #edge
+
+COST_SZ *d; // distance
+
+vector<edge> *G;
+
+void dijkstra(VERT_SZ from, VERT_SZ to) {
+  /* init */
+  priority_queue<P, vector<P> , greater<P> > que;
+  fill(d, d + V, INF); // if index start with 1, then d+V+1
+  d[from] = 0;
+  que.push(P(0, from));
+
+  /* main */
+  while(!que.empty()) {
+    P p = que.top(); que.pop();
+    VERT_SZ v = p.second;
+    if (d[v] < p.first) continue;
+    for ( VERT_SZ i = 0 ; i <  G[v].size() ; i++ ) {
+      edge e = G[v][i] ;
+      if(d[e.to] > d[v] + e.cost) {
+        d[e.to] = d[v] + e.cost; // may overflow
+        que.push(P(d[e.to], e.to));
+      }
+    }
+  }
+  /* post process */
+} // dijkstra
+
+/////////////////////
+d = new int[V]; // if index start with 1, then V+1
+G = new vector<edge>[Q];
+/* == dijkstra END == */

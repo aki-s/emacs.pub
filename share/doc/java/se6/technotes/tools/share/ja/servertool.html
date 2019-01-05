@@ -1,0 +1,180 @@
+<HTML>
+<HEAD>
+<meta name="copyright" content="2001, 2010" />
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+
+<!-- updated 5/2001 dcarson1 -->
+<TITLE>servertool - Java(TM) IDL サーバーツール</TITLE>
+<link rel="stylesheet" href="../../../../technotes/css/guide.css" />
+</HEAD>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table>
+<H1>
+servertool - Java(TM) IDL サーバーツール</H1>
+
+<BLOCKQUOTE><B>servertool</B> はアプリケーションプログラマが、持続サーバーの登録、登録解除、起動、および停止を行うためのコマンド行インタフェースを提供します。</BLOCKQUOTE>
+
+<H2>
+形式</H2>
+
+<BLOCKQUOTE>
+<PRE>servertool -ORBInitialPort <em>nameserverport</em> <a 
+href="#Options">options</a> [ <a href="#Commands">commands</a> ]</PRE>
+
+<P>コマンドを入力しないで <tt>servertool</tt> を起動すると、コマンド行ツールとして <tt>servertool &gt;</tt> プロンプトが表示されます。<TT>servertool &gt;</TT> プロンプトに<a  href="#Commands">コマンド</a>を入力します。
+
+</p><P>コマンドを入力して <tt>servertool</tt> を起動すると、Java IDL サーバーツールが起動し、コマンドを実行して終了します。 
+
+</p><P><code>-ORBInitialPort</code> <em>nameserverport</em> オプションは<strong>必須</strong>です。<em>nameserverport</em> の値には、<tt>orbd</tt> が実行され、着信要求を待機しているポートを指定する必要があります。Solaris ソフトウェアの使用時は、1024 より小さいポートでプロセスを開始する場合は、root ユーザーになる必要があります。 このため、<em>nameserverport</em> として 1024 または 1024 より大きいポートを使用することをお勧めします。  
+</p></BLOCKQUOTE>
+
+<H2>
+説明</H2>
+
+
+<BLOCKQUOTE>
+<P><TT>servertool</TT> はアプリケーションプログラマが、持続サーバーの登録、登録解除、起動、および停止を行うためのコマンド行インタフェースを提供します。そのほかに、サーバーに関するさまざまな統計情報を取得するためのコマンドも提供します。
+</p></BLOCKQUOTE>
+
+
+<A NAME="Options"></A>
+<H2>
+オプション</H2>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<B>-ORBInitialHost <em>nameserverhost</em></B></DT>
+<DD>ネームサーバーが、実行され、着信要求を待機しているホストマシンを指定します。このオプションを指定しない場合、<em>nameserverhost</em> はデフォルトで <em>localhost</em> に設定されます。<tt>orbd</tt> と <tt>servertool</tt> が異なるマシン上で実行されている場合は、<tt>orbd</tt> が実行されているホストの名前と IP アドレスを指定する必要があります。
+</DD>
+<p>
+
+</p><dt><b>-J</b><i>option</i>
+</dt><dd>Java 仮想マシンに <i>option</i> を渡します。<i> option</i> には、<a href="../index.html#java">「Java アプリケーション起動ツール」</a>のリファレンスページに記載されているオプションを 1 つ指定します。たとえば、<b>-J-Xms48m</b> と指定すると、スタートアップメモリーは 48M バイトに設定されます。<b>-J</b> を使って背後の実行環境にオプションを渡すことはよく行われています。
+
+
+</dd></DL>
+</BLOCKQUOTE>
+
+
+<A NAME="Commands"></A>
+<H2>
+コマンド</H2>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<B>register -server&nbsp;&lt;server&nbsp;class&nbsp;name&gt; &nbsp;-classpath&nbsp;&lt;classpath&nbsp;to&nbsp;server&gt; [&nbsp;-applicationName&nbsp;&lt;application&nbsp;name&gt; -args&nbsp;&lt;args&nbsp;to&nbsp;server&gt; -vmargs&nbsp;&lt;flags&nbsp;to&nbsp;be&nbsp;passed&nbsp;to&nbsp;Java&nbsp;VM&gt; &nbsp;]</B></DT>
+<DD>
+Object Request Broker Daemon (ORBD) に新規持続サーバーを登録します。サーバーが未登録の場合、登録して起動します。このコマンドによって、<tt>-server</tt> オプションで識別されるサーバーのメインクラス内でインストールメソッドが呼び出されます。このインストールメソッドは、<tt>public static void install(org.omg.CORBA.ORB)</tt> になっている必要があります。インストールメソッドは、オプションであり、データベーススキーマの作成などの独自のサーバーインストール動作を開発者が指定できます。 </DD>
+<p>
+
+</p><DT>
+<B>unregister -serverid&nbsp;&lt;server&nbsp;id&nbsp;&gt;&nbsp;| -applicationName&nbsp;&lt;application&nbsp;name&gt;</B></DT>
+<DD>サーバー ID またはアプリケーション名を使用して、ORBD のサーバーの登録を解除します。このコマンドによって、<tt>-server</tt> オプションで識別されるサーバーのメインクラス内でアンインストールメソッドが呼び出されます。このアンインストールメソッドは、<tt>public static void uninstall(org.omg.CORBA.ORB)</tt> になっている必要があります。アンインストールメソッドは、オプションであり、インストールメソッドの動作の取り消しなどの独自のサーバーアンインストール動作を開発者が指定できます。
+</DD>
+<p>
+
+</p><DT>
+<B>getserverid -applicationName&nbsp;&lt;application&nbsp;name&gt;</B></DT>
+<DD>アプリケーションに関連付けられているサーバー ID を返します。
+</DD>
+<p>
+
+</p><DT>
+<B>list</B></DT>
+<DD>ORBD に登録されているすべての持続サーバーに関する情報を一覧表示します。 </DD>
+<p>
+
+</p><DT>
+<B>listappnames</B></DT>
+<DD>現在 ORBD に登録されているすべてのサーバーのアプリケーション名を一覧表示します。
+</DD>
+<p>
+
+</p><DT>
+<B>listactive</B></DT>
+<DD>ORDB によって起動され、現在実行されているすべての持続サーバーに関する情報を一覧表示します。 
+</DD>
+<p>
+
+</p><DT>
+<B>locate -serverid&nbsp;&lt;server&nbsp;id&nbsp;&gt;&nbsp;| -applicationName&nbsp;&lt;application&nbsp;name&gt; [-endpointType&nbsp;&lt;endpointType&gt;&nbsp;]</B></DT>
+<DD>登録されたサーバーで作成したすべての ORB の特定の型について端点 (ポート) を検出します。サーバーが実行されていない場合、起動されます。端点の型が指定されていない場合、サーバーの ORB ごとに関連付けられている plain 型 または non-protected 型の端点が返されます。
+</DD>
+<p>
+
+</p><DT>
+<B>locateperorb -serverid&nbsp;&lt;server&nbsp;id&nbsp;&gt;&nbsp;| -applicationName&nbsp;&lt;application&nbsp;name&gt; [-orbid&nbsp;&lt;ORB&nbsp;name&gt;&nbsp;]</B></DT>
+<DD>登録されたサーバーの特定の ORB で登録された端点 (ポート) を検出します。サーバーが実行されていない場合、起動されます。<em>orbid</em> が指定されていない場合は、デフォルト値の「&quot;&quot;」が<em>orbid</em>に割り当てられます。ORB が空文字列の <em>orbid</em> で作成されている場合、登録したポートがすべて返されます。
+</DD>
+<p>
+
+</p><DT>
+<B>orblist -serverid&nbsp;&lt;server&nbsp;id&nbsp;&gt;&nbsp;| -applicationName&nbsp;&lt;application&nbsp;name&gt;</B></DT>
+<DD>サーバー上に定義された ORB の ORBId を一覧表示します。ORBId はサーバーで作成された ORB の文字列名です。サーバーが実行されていない場合、起動されます。
+</DD>
+<p>
+
+</p><DT>
+<B>shutdown -serverid&nbsp;&lt;server&nbsp;id&nbsp;&gt;&nbsp;| -applicationName&nbsp;&lt;application&nbsp;name&gt; </B></DT>
+<DD>ORBD に登録されたアクティブなサーバーを停止します。このコマンドの実行中に、<tt>-serverid</tt> パラメータまたは <tt>-applicationName</tt> パラメータで指定されたクラス内に定義された <TT>shutdown()</TT> メソッドも呼び出されてサーバープロセスを正しく停止します。 
+</DD>
+<p>
+
+</p><DT>
+<B>startup -serverid&nbsp;&lt;server&nbsp;id&nbsp;&gt;&nbsp;| -applicationName&nbsp;&lt;application&nbsp;name&gt; </B></DT>
+<DD>ORBD に登録されたサーバーを起動します。サーバーが実行されていない場合は、このコマンドでサーバーを起動します。サーバーがすでに実行されている場合は、ユーザーにエラーメッセージが返されます。
+</DD>
+<p>
+
+</p><DT>
+<B>help</B></DT>
+<DD>サーバーがサーバーツールで使用できるすべてのコマンドを表示します。
+</DD>
+<p>
+
+</p><DT>
+<B>quit</B></DT>
+<DD>サーバーツールを終了します。
+</DD>
+<p>
+
+</p></BLOCKQUOTE>
+</DL>
+
+<p>
+
+
+</p><H2>
+関連項目</H2>
+
+ 
+
+<BLOCKQUOTE>
+<A HREF="orbd.html">orbd</A></BLOCKQUOTE>
+<P>
+</p><P>
+
+
+</p>
+
+
+
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</BODY>
+</HTML>
+
+

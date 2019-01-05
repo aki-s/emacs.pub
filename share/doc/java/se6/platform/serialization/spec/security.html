@@ -1,0 +1,287 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<html>
+<head>
+<title>Java Object Serialization Specification:  - Security in Object Serialization
+
+</title>
+</head>
+<body bgcolor="#ffffff">
+ 
+<table width="100%"><tr>
+<td><!-- Bug in Communicator w/font: NavBar text disappears for Times 14pt pref. -->
+<!-- font size="-1" --> <a href="serialTOC.html">CONTENTS</a> | <a href="protocol.html">PREV</a>
+ | <a href="exceptions.html">NEXT</a> <!-- | <a href="examples.html">INDEX</a>  -->
+<!-- /font --></td><td align=right><i>Java Object Serialization Specification<br>version 6.0</i></td>
+</tr></table>
+<br>
+ 
+<a name="2527"><!-- --></a>
+<h1>
+Security in Object Serialization
+</h1>
+<!--
+<hr size="1" width="100%" align="left" noshade>
+-->
+<br>
+<br>
+<br><a name="3445"><!-- --></a>
+<hr size="8" width="35%" align="left" noshade>
+
+<table border=0>
+<tr valign=bottom>
+<td valign=bottom>
+<U><h1><FONT FACE="ARIAL,HELVETICA,TIMES ROMAN" SIZE=-1>APPENDIX</FONT>
+A 
+</h1></U>
+</td>
+</tr>
+</table>
+
+
+<br>
+<a name="3461"><!-- --></a>
+<h4><i>		 Topics:
+</i></h4>
+
+
+<blockquote>
+<ul><li>
+<a name="3415"><!-- --></a>
+<a href="security.html#4138">Overview</a>
+</li>
+</ul>
+</blockquote>
+
+<blockquote>
+<ul><li>
+<a name="3436"><!-- --></a>
+<a href="security.html#2630">Design Goals</a>
+</li>
+<li>
+<a name="4149"><!-- --></a>
+<a href="security.html#4169">Security Issues</a>
+</li>
+<li>
+<a name="4150"><!-- --></a>
+<a href="security.html#4214">Preventing Serialization of Sensitive Data</a>
+</li>
+<li>
+<a name="4151"><!-- --></a>
+<a href="security.html#4229">Writing Class-Specific Serializing Methods</a>
+</li>
+<li>
+<a name="4152"><!-- --></a>
+<a href="security.html#4271">Guarding Unshared Deserialized Objects</a>
+</li>
+<li>
+<a name="4153"><!-- --></a>
+<a href="security.html#4324">Preventing Overwriting of Externalizable Objects</a>
+</li>
+<li>
+<a name="3430"><!-- --></a>
+<a href="security.html#4346">Encrypting a Bytestream</a>
+</li>
+</ul>
+</blockquote>
+
+<p>
+<hr size="8" width="35%" align="left" noshade>
+
+<h2><a name="4138"><i>	A.1	</i> Overview
+</a></h2>
+
+<blockquote>
+<a name="3410"><!-- --></a>
+The object serialization system allows a bytestream to be produced from a graph of objects, sent out of the Java<sup>TM</sup> environment (either saved to disk or transmitted over the network) and then used to recreate an equivalent set of new objects with the same state.<p>
+<a name="2667"><!-- --></a>
+What happens to the state of the objects outside of the environment is outside of the control of the Java<sup>TM</sup> system (by definition), and therefore is outside the control of the security provided by the system. The question then arises: once an object has been serialized, can the resulting byte array be examined and changed in a way that compromises the security of the Java program that deserializes it?  The intent of this section is to address these security concerns.<p>
+</blockquote>
+<p>
+<hr size="8" width="35%" align="left" noshade>
+
+<h2><a name="2630"><i>	A.2	</i> Design Goals
+</a></h2>
+
+<blockquote>
+<a name="2945"><!-- --></a>
+The goal for object serialization is to be as simple as possible and yet still be consistent with known security restrictions; the simpler the system is, the more likely it is to be secure. The following points summarize the security measures present in object serialization:<p>
+</blockquote>
+<blockquote>
+<ul><li>
+<a name="3046"><!-- --></a>
+Only objects implementing the <code>java.io.Serializable</code> or <code>java.io.Externalizable</code> interfaces can be serialized.  Mechanisms are provided which can be used to prevent the serialization of specific fields (typically, those containing sensitive or unneeded data).
+</li>
+<li>
+<a name="2551"><!-- --></a>
+The serialization package cannot be used to recreate or reinitialize objects.  Deserializing a byte stream may result in the creation of new objects, but will not overwrite or modify the contents of existing objects.
+</li>
+<li>
+<a name="4166"><!-- --></a>
+Although deserializing an object may trigger downloading of code from a remote source, the downloaded code is restricted by all of the usual Java<sup>TM</sup> code verification and security mechanisms.  Classes loaded as a side-effect of deserialization are no more or less secure than those loaded in any other fashion.
+</li>
+</ul>
+</blockquote>
+
+<p>
+<hr size="8" width="35%" align="left" noshade>
+
+<h2><a name="4169"><i>	A.3	</i> Security Issues
+</a></h2>
+
+<blockquote>
+<a name="4170"><!-- --></a>
+Naive use of object serialization may allow a malicious party with access to the serialization byte stream to read private data, create objects with illegal or dangerous state, or obtain references to the private fields of deserialized objects.  Implementors concerned with security should be aware of the following implications of serialization:<p>
+</blockquote>
+<blockquote>
+<ul><li>
+<a name="4171"><!-- --></a>
+Default serialization of an object writes the values of all fields of that object to the serialization stream, regardless of whether or not they are public.  Malicious code can effectively read the values of private fields of a serializable object by serializing the object and then examining the resulting byte stream.  Methods for avoiding this problem are described in <a href="security.html#4214">Section&#160;A.4, &#34;Preventing Serialization of Sensitive Data</a>&#34;.
+</li>
+<li>
+<a name="4197"><!-- --></a>
+During deserialization, objects are created and initialized using data from the incoming serialization stream.  If the stream was corrupted or tampered with prior to deserialization, the deserialized objects may have unexpected or illegal state.  Methods for avoiding this problem are described in <a href="security.html#4229">Section&#160;A.5, &#34;Writing Class-Specific Serializing Methods</a>&#34;.
+</li>
+<li>
+<a name="4202"><!-- --></a>
+By inserting extra wire handle references into a serialization byte stream, it is possible during deserialization to forge extra references to objects occurring earlier in the stream.  Therefore, it is unsafe for developers to assume that references to private objects obtained via deserialization are unique.  Techniques for dealing with this problem are discussed in section <a href="security.html#4271">Section&#160;A.6, &#34;Guarding Unshared Deserialized Objects</a>&#34;.
+</li>
+<li>
+<a name="4208"><!-- --></a>
+Objects implementing the Externalizable interface are susceptible to overwriting, since the readExternal method is public.  A caller can invoke the <code>readExternal</code> method at any time, passing it an arbitrary stream to read values from, causing the target object to be reinitialized.  A means of preventing this is outlined in <a href="security.html#4324">Section&#160;A.7, &#34;Preventing Overwriting of Externalizable Objects</a>&#34;.
+</li>
+</ul>
+</blockquote>
+
+<p>
+<hr size="8" width="35%" align="left" noshade>
+
+<h2><a name="4214"><i>	A.4	</i> Preventing Serialization of Sensitive Data
+</a></h2>
+
+<blockquote>
+<a name="4216"><!-- --></a>
+Fields containing sensitive data should not be serialized; doing so exposes their values to any party with access to the serialization stream.  There are several methods for preventing a field from being serialized:<p>
+</blockquote>
+<blockquote>
+<ul><li>
+<a name="4220"><!-- --></a>
+Declare the field as private transient.
+</li>
+<li>
+<a name="4222"><!-- --></a>
+Define the <code>serialPersistentFields</code> field of the class in question, and omit the field from the list of field descriptors.
+</li>
+<li>
+<a name="4225"><!-- --></a>
+Write a class-specific serialization method (i.e., <code>writeObject</code> or <code>writeExternal</code>) which does not write the field to the serialization stream (i.e., by not calling <code>ObjectOutputStream.defaultWriteObject</code>).
+</li>
+</ul>
+</blockquote>
+
+<p>
+<hr size="8" width="35%" align="left" noshade>
+
+<h2><a name="4229"><i>	A.5	</i> Writing Class-Specific Serializing Methods
+</a></h2>
+
+<blockquote>
+<a name="4231"><!-- --></a>
+To guarantee that a deserialized object does not have state which violates some set of invariants that need to be guaranteed, a class can define its own serializing and deserializing methods. If there is some set of invariants that need to be maintained between the data members of a class, only the class can know about these invariants, and it is up to the class author to provide a deserialization method that checks these invariants.<p>
+<a name="4241"><!-- --></a>
+Security-conscious implementors should keep in mind that a serializable class&#39; <code>readObject</code> method is effectively a public constructor, and should be treated as such.  This is true whether the <code>readObject</code> method is implicit or explicit.  It is not safe to assume that the byte stream that is provided to the <code>readObject</code> method was generated by serializing a properly constructed object of the correct type.  It is good defensive programming to assume that the byte stream is provided by an adversary whose goal is to compromise the object under construction.<p>
+<a name="4270"><!-- --></a>
+This is important even if you are not worried about security; it is possible that disk files can be corrupted and serialized data be invalid. So checking such invariants is more than just a security measure; it is a validity measure.  However, the only place it can be done is in the code for the particular class, since there is no way the serialization package can determine what invariants should be maintained or checked.<p>
+<a name="4448"><!-- --></a>
+In version 1.4 of the Java<sup>TM</sup> 2 SDK, Standard Edition, support was added for class-defined <code>readObjectNoData</code> methods (see <a href="input.html#6053">Section&#160;3.5, &#34;The readObjectNoData Method</a>&#34;).  Non-<code>final</code> serializable classes which initialize fields to non-default values should define a <code>readObjectNoData</code> method to ensure consistent state in the event that a subclass instance is deserialized and the serialization stream does not list the class in question as a superclass of the deserialized object.  This may occur in cases where the receiving party uses a different version of the deserialized instance&#39;s class than the sending party, and the receiver&#39;s version extends classes that are not extended by the sender&#39;s version.  This may also occur if the serialization stream has been tampered; hence, <code>readObjectNoData</code> is useful for initializing deserialized objects properly despite a &#34;hostile&#34; or incomplete source stream<p>
+</blockquote>
+<p>
+<hr size="8" width="35%" align="left" noshade>
+
+<h2><a name="4271"><i>	A.6	</i> Guarding Unshared Deserialized Objects
+</a></h2>
+
+<blockquote>
+<a name="4275"><!-- --></a>
+If a class has any private or package private object reference fields, and the class depends on the fact that these object references are not available outside the class (or package), then either the referenced objects must be defensively copied as part of the deserialization process, or else the <code>ObjectOutputStream.writeUnshared</code> and <code>ObjectInputStream.readUnshared</code> methods (introduced in version 1.4 of the Java<sup>TM</sup> 2 SDK, Standard Edition) should be used to ensure unique references to the internal objects.<p>
+<a name="4469"><!-- --></a>
+In the copying approach, the sub-objects deserialized from the stream should be treated as "untrusted input": newly created objects, initialized to have the same value as the deserialized sub-objects, should be substituted for the sub-objects by the <code>readObject</code> method.  For example, suppose an object has a private byte array field, b, that must remain private:<p>
+<a name="4291"><!-- --></a>
+<pre>    private void readObject(ObjectInputStream s)
+        throws IOException, ClassNotFoundException
+    {
+        s.defaultReadObject();
+
+        b = (byte[])b.clone();
+
+        if (&lt;invariants are not satisfied&gt;)
+            throw new java.io.StreamCorruptedException();
+    }
+</pre>
+
+
+<a name="4300"><!-- --></a>
+This issue is particularly important when considering serialization of immutable objects containing internal (necessarily private) references to mutable sub-objects.  If no special measures are taken to copy the sub-objects during deserialization of the container object, then a malicious party with write access to the serialization stream may violate the container object&#39;s immutability by forging references to its mutable sub-objects, and using these references to change the internal state of the container object.  Thus, in this case it is imperative that the immutable container class provide a class-specific deserialization method which makes private copies of each mutable component object it deserializes.  Note that for the purpose of maintaining immutability, it is unnecessary to copy immutable component objects.<p>
+<a name="4312"><!-- --></a>
+It is also important to note that calling <code>clone</code> may not always be the right way to defensively copy a sub-object.  If the <code>clone</code> method cannot be counted on to produce an independent copy (and not to "steal" a reference to the copy), an alternative means should be used to produce the copy.  An alternative means of copying should always be used if the class of the sub-object is not final, since the <code>clone</code> method or helper methods that it calls may be overridden by subclasses.<p>
+<a name="4470"><!-- --></a>
+Starting in version 1.4 of the Java<sup>TM</sup> 2 SDK, Standard Edition, unique references to deserialized array objects can also be ensured by using the <code>ObjectOutputStream.writeUnshared</code> and <code>ObjectInputStream.readUnshared</code> methods, thus avoiding the complication, performance costs and memory overhead of defensive copying.  The <code>readUnshared</code> and <code>writeUnshared</code> methods are further described in <a href="input.html#961">Section&#160;3.1, &#34;The ObjectInputStream Class</a>&#34; and <a href="output.html#933">Section&#160;2.1, &#34;The ObjectOutputStream Class</a>&#34;.<p>
+</blockquote>
+<p>
+<hr size="8" width="35%" align="left" noshade>
+
+<h2><a name="4324"><i>	A.7	</i> Preventing Overwriting of Externalizable Objects
+</a></h2>
+
+<blockquote>
+<a name="4326"><!-- --></a>
+Objects which implement the <code>Externalizable</code> interface must provide a public <code>readExternal</code> method.  Since this method is public, it can be called at arbitrary times by anyone with access to the object.  To prevent overwriting of the object&#39;s internal state by multiple (illegal) calls to <code>readExternal</code>, implementors may choose to add checks to insure that internal values are only set when appropriate:<p>
+<a name="4333"><!-- --></a>
+<pre>    public synchronized void readExternal(ObjectInput in)
+        throws IOException, ClassNotFoundException
+    {
+        if (! initialized) {
+            initialized = true;
+
+            // read in and set field values ...
+        } else {
+            throw new IllegalStateException();
+        }
+    }
+
+</pre>
+
+
+</blockquote>
+<p>
+<hr size="8" width="35%" align="left" noshade>
+
+<h2><a name="4346"><i>	A.8	</i> Encrypting a Bytestream
+</a></h2>
+
+<blockquote>
+<a name="4347"><!-- --></a>
+Another way of protecting a bytestream outside the virtual machine is to encrypt the stream produced by the serialization package. Encrypting the bytestream prevents the decoding and the reading of a serialized object&#39;s private state, and can help safeguard against tampering with stream contents.<p>
+<a name="4352"><!-- --></a>
+Object serialization allows encryption, both by allowing classes to define their own methods for serialization and deserialization (inside which encryption can be used), and by adhering to the composable stream abstraction (allowing the output of a serialization stream to be channelled into another filter stream which encrypts the data).<p>
+</blockquote>
+
+<br>
+<hr>
+<!-- Bug in Communicator w/font: NavBar text disappears for Times 14pt pref. -->
+<!-- font size="-1" --> <a href="serialTOC.html">CONTENTS</a> | <a href="protocol.html">PREV</a>
+ | <a href="exceptions.html">NEXT</a> <!-- | <a href="examples.html">INDEX</a>  -->
+<!-- /font -->
+
+<hr>
+<font size="-1"><i><A HREF="../../../docs/legal/SMICopyright.html">Copyright</a> &#169 2005, 2010, Oracle and/or its affiliates. All rights reserved. </i></font>
+
+
+<!-- This HTML file was created with Quadralay WebWorks Publisher Professional Edition 7.0.2.1128 -->
+<!-- by Suzette Haines -->
+<!-- Last updated: Mon Nov 21 12:31:47 2005 -->
+ 
+
+
+</body>
+</html>

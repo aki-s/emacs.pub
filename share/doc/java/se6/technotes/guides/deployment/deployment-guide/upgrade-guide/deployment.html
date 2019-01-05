@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Internet/Intranet Deployment of the JRE</title><link rel="stylesheet" href="../../../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>Internet/Intranet Deployment of the Java<sup><font size=
+"1">TM</font></sup> Runtime Environment (JRE<sup><font size=
+"1">TM</font></sup>) Software</h1>
+<hr />
+<h2>Internet deployment</h2>
+<p>If you would like to have your internet customers download Sun
+JRE to run your applets inside Internet Explorer, you should
+consider hosting the Java technology logos at your web site. More
+information is available about the logos at:</p>
+<blockquote>
+<p><a href=
+"http://logos.sun.com/logosite.jsp?Category=third#java"><code>http://logos.sun.com/logosite.jsp?Category=third#java</code></a></p>
+</blockquote>
+<p>When users click on any one of these logos, a security dialog
+box pops-up the screen to confirm whether the user would like to
+install and run Java Plug-in, signed and distributed by Sun
+Microsystems. If they agree to install, the browser will download
+and launch the installer. The user will have to go through a few
+installer dialogs to successfully install Java Plug-in on their
+system. After the successfull installation, the browser will
+display a confirmation message, and the system tray will contain a
+Java icon, indicating the system is running the Sun JRE.</p>
+<h2>Intranet deployment</h2>
+<p>You can distribute Sun JRE to intranet users by hosting the
+<code>.msi</code> file on an internal web site and asking users to
+launch the installer through <code>msiexec</code>. The other option
+is to install the JRE through Active Directory. If you are using
+Active Directory, you may have to customize the <code>.msi</code>
+file, which is known as creating a transform.</p>
+<p>You can obtain the <code>.msi</code> file for the JRE installer
+by installing the JRE offline Windows installer. After
+installation, the <code>.msi</code> file,
+<code>jre1.6.0.msi</code>, will be available in the directory
+<code><i>AppDataFolder\jre1.6.0</i></code>, where
+<code><i>AppDataFolder</i></code> is the user's &quot;Application
+Data&quot; folder (typically something like <code>C:\Documents and
+Settings\<i>username</i>\Application Data</code>), and <i>CLSID</i>
+is a long string like
+<code>7148F0A6-6813-11D6-A77b-00B0D0142010</code>, depending on the
+release.</p>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="copyright" content="2005, 2010" />
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+
+
+<meta http-equiv="content-type" content="text/html" />
+
+<title>JAX-WS RI 2.1.1 -- wsimport</title>
+
+<link href="../../css/tools.css" rel="stylesheet" type="text/css" /><link rel="stylesheet" href="../../../../technotes/css/guide.css" />
+</head>
+
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table>
+<h1>wsimport - XML Web Services (JAX-WS) 2.0 のための Java&trade; API</h1>
+
+<p align="center"><b>仕様バージョン:</b> 2.1<br /> <b>実装バージョン:</b> 2.1.1 <br />
+</p>
+
+<h2>目次</h2>
+
+<ul>
+<li><a href="#Overview">概要</a></li>
+<li><a href="#Launching_wsimport">wsimport の起動</a></li>
+<li><a href="#Syntax">構文</a></li>
+<li><a href="#Example">例</a></li>
+</ul>
+<a name="Overview"></a>
+<h2> 概要 </h2>
+
+<p><code>wsimport</code> ツールは、次のような JAX-WS ポータブルアーティファクトを生成します。 </p>
+
+<ul>
+<li>サービスエンドポイントインタフェース (SEI)</li>
+<li>サービス</li>
+<li>wsdl:fault からマップされる例外クラス (存在する場合)</li>
+<li>応答 wsdl:message から派生する非同期応答 Bean (存在する場合)</li>
+<li>JAX-B が生成する値タイプ (スキーマの型からマップされた Java クラス)</li>
+</ul>
+
+<p>これらのアーティファクトは、WSDL ドキュメント、スキーマドキュメント、およびエンドポイント実装とともに WAR ファイル内にパッケージ化して配備することができます。また、wsimport Ant タスクも用意されています。<a href="https://jax-ws.dev.java.net/nonav/2.1.1/docs/wsimportant.html">Wsimport Ant タスク</a>を参照してください。 <br />
+</p>
+
+<a name="Launching_wsimport"></a>
+<h2> wsimport の起動 </h2>
+
+<ul>
+<li> <b>Solaris/Linux</b>
+<ul>
+<li><code>/bin/wsimport.sh -help</code></li>
+</ul>
+</li>
+<li> <b>Windows</b>
+<ul>
+<li><code>\bin\wsimport.bat -help</code></li>
+</ul>
+</li>
+</ul>
+
+<a name="Syntax"></a>
+<h2> 構文 </h2>
+
+<pre>wsimport [options] &lt;wsdl&gt;</pre>
+
+<p>次の表に、<code>wsimport</code> のオプションを示します。 </p>
+
+<table border="1" cellspacing="2" cellpadding="2" width="100%">
+<tr>
+<th> <p align="center">オプション </p></th>
+<th> <p align="center">説明 </p></th>
+</tr>
+<tbody valign="top">
+<tr>
+<td><pre><b>-d &lt;directory&gt; </b> </pre></td>
+<td><p align="left">生成される出力ファイルを格納する場所を指定します </p></td>
+</tr>
+<tr>
+<td><pre><b>-b &lt;path&gt; </b> </pre></td>
+<td><p>外部の JAX-WS または JAXB バインディングファイルを指定します (<code>&lt;file&gt;</code> ごとに <code>-b</code> が必要となる) </p></td>
+</tr>
+<tr>
+<td><pre><b>-B &lt;jaxbOption&gt;</b></pre></td>
+<td><p>このオプションを JAXB スキーマコンパイラに渡します</p></td>
+</tr>
+<tr>
+<td><pre><b>-catalog</b></pre></td>
+<td><p align="left">外部エンティティー参照を解決するためのカタログファイルを指定します。 TR9401、XCatalog、OASIS XML Catalog の各形式がサポートされています。<a href="https://jax-ws.dev.java.net/nonav/2.1.1/docs/catalog-support.html">カタログ</a>のドキュメントをお読みになり、<strong>カタログ</strong>のサンプルを参照してください。 </p></td>
+</tr>
+<tr>
+<td><pre><b>-extension </b> </pre></td>
+<td><p align="left">ベンダー拡張 (仕様で規定されていない機能) を許可します。拡張を使用すると、アプリケーションの移植性が失われたり、ほかの実装との相互運用が行えなくなる可能性があります </p></td>
+</tr>
+<tr>
+<td><pre><b>-help </b> </pre></td>
+<td><p>ヘルプを表示します </p></td>
+</tr>
+<tr>
+<td><pre><b>-httpproxy:&lt;host&gt;:&lt;port&gt; </b> </pre></td>
+<td><p align="left">HTTP プロキシサーバーを指定します (デフォルトのポートは 8080) </p></td>
+</tr>
+<tr>
+<td><pre><b>-keep </b> </pre></td>
+<td><p align="left">生成されたファイルを保持します </p></td>
+</tr>
+<tr>
+<td><pre><b>-p </b> </pre></td>
+<td>このコマンド行オプション経由でターゲットパッケージを指定した場合、その指定内容は、パッケージ名に対するすべての WSDL/スキーマバインディングカスタマイズや、 仕様で規定されているデフォルトのパッケージ名アルゴリズムよりも優先されます</td>
+</tr>
+<tr>
+<td><pre><b>-s &lt;directory&gt; </b> </pre></td>
+<td><p align="left">生成されるソースファイルを格納する場所を指定します </p></td>
+</tr>
+<tr>
+<td><pre><b>-verbose </b> </pre></td>
+<td><p align="left">コンパイラが実行している処理に関するメッセージを出力します </p></td>
+</tr>
+<tr>
+<td><pre><b>-version </b> </pre></td>
+<td><p align="left">バージョン情報を出力します </p></td>
+</tr>
+<tr>
+<td><pre><b>-wsdllocation &lt;location&gt;</b> </pre></td>
+<td><code>@WebServiceClient.wsdlLocation</code> 値</td>
+</tr>
+<tr>
+<td><pre><b>-target </b> </pre></td>
+<td>指定された JAX-WS 仕様バージョンに従ってコードを生成します。バージョン 2.0 では、JAX-WS 2.0 仕様に準拠したコードを生成します。</td>
+</tr>
+<tr>
+<td><pre><b>-quiet </b> </pre></td>
+<td>wsimport 出力を抑制します</td>
+</tr>
+</tbody>
+</table>
+
+<p><code>-b</code> オプションを使って、複数の JAX-WS および JAXB バインディングファイルを指定できます。 これらのファイルを使って、パッケージ名や Bean 名など、さまざまなカスタマイズが可能です。 JAX-WS および JAXB バインディングファイルの詳細は、<a href="https://jax-ws.dev.java.net/nonav/2.1.1/docs/customizations.html">カスタマイズマニュアル</a>を参照してください。 </p>
+
+<a name="Example"></a>
+<h2> 例 </h2>
+
+<pre><b>wsimport -p stockquote http://stockquote.xyz/quote?wsdl</b></pre>
+
+<p>Java アーティファクトを生成し、<code>http://stockquote.xyz/quote?wsdl</code> をインポートすることで、それらのアーティファクトをコンパイルします。 <br />
+</p>
+
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

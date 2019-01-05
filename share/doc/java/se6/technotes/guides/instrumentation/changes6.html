@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Enhancements in java.lang.instrument</title><link rel="stylesheet" href="../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><table summary="layout" border="0" width="100%">
+<tr>
+<td>
+
+<h1>Enhancements in JDK 6<br />
+<code>java.lang.instrument</code></h1>
+
+</td>
+</tr>
+</table>
+The following functionality has been added to the
+<code>java.lang.instrument</code> package between its initial
+release in JDK 5.0 and JDK 6.
+<ul>
+<li><b>Support for retransformation of class files</b> - To
+facilitate dynamic transformation of classes that have already been
+loaded, the following methods have been added.
+<ul>
+<li><a href=
+"../../../api/java/lang/instrument/Instrumentation.html#retransformClasses(java.lang.Class...)">
+<code>Instrumentation.retransformClasses(Class...)</code></a></li>
+<li><a href=
+"../../../api/java/lang/instrument/Instrumentation.html#addTransformer(java.lang.instrument.ClassFileTransformer,%20boolean)">
+<code>Instrumentation.addTransformer(ClassFileTransformer,
+boolean)</code></a></li>
+<li><a href=
+"../../../api/java/lang/instrument/Instrumentation.html#isModifiableClass(java.lang.Class)">
+<code>Instrumentation.isModifiableClass(Class)</code></a></li>
+<li><a href=
+"../../../api/java/lang/instrument/Instrumentation.html#isRetransformClassesSupported()">
+<code>Instrumentation.isRetransformClassesSupported()</code></a></li>
+</ul>
+They are suited to operations such as adding instrumentation to
+methods whose classes have already been loaded. Support for
+retransformation means that access to the original class file is no
+longer required in order to instrument loaded classes. They enable
+the easy removal of applied transformations and are designed to
+work in multi-agent environments.</li>
+<li><b>Support for instrumenting native methods</b> - The following
+methods allow native methods to be instrumented by providing a
+JVM-aware mechanism for wrapping the native method.
+<ul>
+<li><a href=
+"../../../api/java/lang/instrument/Instrumentation.html#setNativeMethodPrefix(java.lang.instrument.ClassFileTransformer,%20java.lang.String)">
+<code>Instrumentation.setNativeMethodPrefix(ClassFileTransformer,
+String)</code></a></li>
+<li><a href=
+"../../../api/java/lang/instrument/Instrumentation.html#isNativeMethodPrefixSupported()">
+<code>Instrumentation.isNativeMethodPrefixSupported()</code></a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><b>Support for appending to class loader search</b> - The
+following methods allow instrumentation support classes to be
+defined in the appropriate class loader.</li>
+</ul>
+<ul>
+<li><a href=
+"../../../api/java/lang/instrument/Instrumentation.html#appendToBootstrapClassLoaderSearch(java.util.jar.JarFile)">
+<code>Instrumentation.appendToBootstrapClassLoaderSearch(JarFile)</code></a></li>
+<li><a href=
+"../../../api/java/lang/instrument/Instrumentation.html#appendToSystemClassLoaderSearch(java.util.jar.JarFile)">
+<code>Instrumentation.appendToSystemClassLoaderSearch(JarFile)</code></a></li>
+</ul>
+<!-- ============================================================== -->
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

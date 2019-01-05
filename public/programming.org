@@ -1,0 +1,153 @@
+This file describes about what I'm currently irritating with emacs and want to fix by myself.
+Just a memo for my development, only I may understand.
+
+* EMACS
+  - indent 
+  fill-prefix indent-region-function (c-indent-region) indent-according-to-mode ( indent-relative indent-relative-maybe) tab-to-tab-stop
+  - java/c comment indent is poop. <- I have broken indent?
+  - go-to-buffer-selected Search all frame for a buffer and select it if already selected.
+    This prevents opening the same buffer in many windows.
+  - C-x Space : -> make tmux-like window rotation
+  - frame-title: show current memory,  frame idx
+  - ifdef indent
+  - show-linum of maching paren with tooltip
+  - macro on emacs
+    - lazyload 
+    - 'require created uninteded dependency, so need to impl. 'require with no dependency with MACRO.
+ what buffer was displayed on which window.(especially for buffer overtaken by like as other-buffer)
+
+ (window-prev-buffers (get-buffer-window (get-buffer fname)t))
+
+  - Show what window is to be overtaken by other-buffer with color(diplayed in menu or header area)
+  - remember where require is called
+    variable load-history 
+  - nmon like monitor function for emacs (local-timer, timer-idle-list,process-buffer)
+ emacs-proc-top == name this as "etop"
+    buffer-display-count buffer-display-time display-buffer-alist
+    process-attributes list-system-processes list-processes
+    (mapcar 'process-attributes (list-system-processes))
+
+  - create safe unload function (must implement xxx-unload-function())
+  - sticky define-key
+  - multi scratch buffer which can be auto saved 
+  - lock window layout per window
+  - emacs window layer (register then tablify)&&tablify same kind of buffer (such as in the same dir)
+  - speedbar
+  - hilight-paren-area
+  - C-x r k (kill-rectangle) -> copy-to-clip-board
+  - make smart-paren smart undo
+    -- void-functions
+    semantic-default-make-setup 
+    symantic-analyze-type-constants
+
+** anything
+   candidate should be shown in newly created frame each time.
+   disable migemo
+
+** auto-complete
+  - auto-complete from dictionary with tooltip of translation.
+  - clang-complete is running on .php file
+  - freeze at anything-complete.el l.183 (defun alcs-make-candidates ()
+
+** diff
+ - not good
+ - emacs should have realtime diff. Colorize or someting when a file was modified. 
+
+** elnode
+  - local wiki by emacs for job <need to encrypt or data should be my local wifi area like as cell phone>
+    
+** flymake
+   - Save per file env. variable INCLUDE
+	 - Change java compiler option (show not used var,etc)
+** occur
+   - occur swoop && which func
+     occur-mode-goto-occurrence
+   - occur <buffer name>+searched
+   - make (M-s o window height ) stingy.
+
+** org-mode 
+  - manage time, todo
+
+** semantic/imenu
+ - cedet/semantic/lex.el
+  Error running timer `semantic-idle-scheduler-function': (error "Strange comment syntax prevents lexical analysis")
+Idle Parse Error: "#<buffer PrepState.java> - Strange comment syntax prevents lexical analysis"
+cedet/semantic/idle.el
+ semantic-idle-scheduler-timer
+ - (defun semantic-flex (start end &optional depth length) semantic-flex
+
+** ECB
+  - Enable C-x 1 advise in ECB
+  - ecb-tag-visit-smart-tag-start
+  - C-.gm : then widen width, out window then shorten width.
+    -- method window 
+    (setq ecb-windows-width 40)
+   - show method window on all frame  <- F2 x2 is sufficient?
+   - popup tooltip if method buffer is selected and cursor is over method.
+
+** sdic 
+   - for window-dedicated-p (robust window configuration)
+
+** speedbar
+ - DFRAME TIMER ERROR: (file-error "Couldn't find exit status of `test -e src/spcommon/newini/ini.o'")
+ - speedbar::Project
+
+** tramp
+ - don't create backup at remote host(#,~,_flymake)( include sshfs )
+ - tramp make background process <- for freeze 
+ - tramp <- make config file for project management (include,path, etc) 
+   (make tag, flymake check? , store file at localhost)
+ - sshfs <-> tramp
+** Project.ede
+ - ede-projects.el
+    
+** hide-show
+ - java hide-all other than top {}
+{ //}  mach in comment scope 
+
+
+** yasnippet
+   - Shit. I have broken. Need to be usable.
+
+** java
+  - deferred.el on javadoc 
+  - Smart indent for job environment // mimic previous line (HIYORIMI indent)
+  - java-flymake  <- down if no error
+  - which func with area line[begin end]
+  - java sdk
+  - reffer javadoc jar
+  - need to recognize inner class (imenu also don't recognize) <-emacs23 ?
+
+*** eclim
+  - improve eclim usability
+  - automatically create class file, which conflicts with eclipse.
+
+*** global 
+    -merge etags/ctags/gtags 
+   - update tag only for editted files
+     - simulate multi tag file (Prepare multi tag, change selected tag by visit-tags-table if no match )
+   - collect jump history for anything 
+   - swoop for global
+   - swoop for recently opened files
+   - open in other window
+
+** python
+ - ./lisp/cedet/semantic.el:    (python-mode . wisent-python-default-setup)
+   File mode specification error: (void-function ac-clang-launch-completion-process)
+   append: Symbol's function definition is void: semantic-analyze-type-constants
+- Compiler-macro error for python-syntax-context: (void-function python-syntax--context-compiler-macro) [2 times]
+
+
+* TMUX
+ - toggle hardcopy
+ - terminal title don't change after ssh connection has lost
+ - reset term ID num (index)  from left to right 
+ - swap window left and right
+ - tmux copy buffer <-> Xwindow clipboard
+ - コマンド実行後に sshのlocal commandによるタイトル変更が無効になる
+ - jump to pane
+
+
+* news
+http://dev.ariel-networks.com/wp/documents/aritcles/emacs/part11
+backup system (db?) for private scripts,src,etc..

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="copyright" content="2006, 2010" />
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+
+
+<title>jrunscript - コマンド行スクリプトシェル</title>
+
+  <link rel="stylesheet" href="../../css/tools.css" type="text/css" />
+</head>
+
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>jrunscript - コマンド行スクリプトシェル</h1>
+
+  <ul>
+<li><a href="#synopsis">形式</a></li>
+
+<li><a href="#parameters">パラメータ</a></li>
+
+<li><a href="#description">説明</a></li>
+
+<li><a href="#options">オプション</a></li>
+
+<li><a href="#arguments">引数</a></li>
+
+<li><a href="#examples">例</a></li>
+
+<li><a href="#seealso">関連項目</a></li>
+  </ul>
+
+<h2><a name="synopsis" id="synopsis">形式</a></h2>
+    <blockquote>
+<pre><b>jrunscript</b> [ <i>options</i> ] [ arguments... ]</pre>
+</blockquote>
+<h2><a name="parameters"/>パラメータ</h2>
+
+    <blockquote>
+      <dl>
+<dt><a href="#options">options</a></dt>
+
+<dd>オプションを使用する場合、コマンド名の直後に記述してください。</dd>
+
+<dt><a href="#arguments">arguments</a></dt>
+<dd>引数を使用する場合、オプションまたはコマンド名の直後に記述してください。</dd>
+
+      </dl>
+    </blockquote>
+<h2><a name="description"/> 説明</h2>
+    <blockquote>
+<p><b>jrunscript</b> はコマンド行スクリプトシェルです。 jrunscript は、対話型 (読み取り - 評価 - 出力) モードとバッチ (-f オプション) モードの両方のスクリプト実行をサポートします。これはスクリプト言語に依存しないシェルです。デフォルトの使用言語は JavaScript ですが、-l オプションを使えばほかの言語も指定できます。jrunscript は、Java とスクリプト言語との通信によって「探求的なプログラミング」スタイルをサポートします。 
+      
+</p><p><b>注:</b> このツールは<b>試験的なもの</b>であり、将来の JDK のバージョンでは<b>利用できなくなる</b>可能性があります。</p>
+    </blockquote>
+<h2><a name="options"/>オプション</h2>
+  <blockquote>
+      <dl>
+<dt><b>-classpath</b> <i>path</i></dt>
+
+<dd>スクリプトからのアクセス対象となるユーザーの .class ファイルの検索場所を指定します。</dd>
+
+<dt><b>-cp</b> <i>path</i></dt>
+
+<dd>-classpath <i>path</i> と同義です。
+
+</dd><dt><b>-D</b><i>name</i>=<i>value</i></dt>
+
+<dd>Java のシステムプロパティーを設定します。</dd>
+
+<dt><b>-J&lt;flag&gt;</b></dt>
+
+<dd>jrunscript が実行されている Java 仮想マシンに &lt;flag&gt; を渡します。</dd>
+
+<dt><b>-l</b> <i>language</i></dt>
+
+<dd>指定されたスクリプト言語を使用します。デフォルトでは JavaScript が使用されます。ほかのスクリプト言語を使用するには、対応するスクリプトエンジンの JAR ファイルも指定する必要があります。 それには、-cp、-classpath のいずれかのオプションを使用します。</dd>
+
+<dt><b>-e</b> <i>script</i></dt>
+
+<dd>指定されたスクリプトを評価します。このオプションを使えば、コマンド行にすべてが指定された「1 行」スクリプトを実行できます。</dd>
+
+<dt><b>-encoding</b> <i>encoding</i></dt>
+
+<dd>スクリプトファイルの読み取り時に使用する文字エンコーディングを指定します。</dd>
+
+<dt><b>-f</b> <i>script-file</i></dt>
+
+<dd>指定されたスクリプトファイルを評価します (バッチモード)。</dd>
+
+<dt><b>-f</b> <i>-</i></dt>
+
+<dd>標準入力からスクリプトを読み取り、それを評価します (対話型モード)。</dd>
+
+<dt><b>-help</b>&nbsp;</dt>
+
+<dd>ヘルプメッセージを出力して終了します。</dd>
+
+        <dt><b>-?</b>&nbsp;</dt>
+
+<dd>ヘルプメッセージを出力して終了します。</dd>
+
+<dt><b>-q</b>&nbsp;</dt>
+
+<dd>利用可能なすべてのスクリプトエンジンを一覧表示したあと、終了します。</dd>
+
+      </dl>
+</blockquote>
+
+<h2><a name="arguments">引数</a></h2>
+  <p>
+[arguments...] が存在していて、かつ <b>-e</b>、<b>-f</b> のいずれのオプションも使用されなかった場合、最初の引数がスクリプトファイルとなり、他の引数が存在する場合はスクリプト引数として渡されます。[arguments..] が使用され、かつ <b>-e</b>、<b>-f</b> のいずれかのオプションが使用された場合、すべての [arguments..] がスクリプト引数として渡されます。[arguments..]、<b>-e</b>、<b>-f</b> がどれも存在しなかった場合は、対話型モードが使用されます。スクリプトからスクリプト引数を使用するには、「arguments」という名前の String 配列型のエンジン変数を使用します。
+  </p>
+
+<h2><a name="examples">例</a></h2>
+
+<h4>インラインスクリプトの実行</h4>
+  <blockquote>
+<pre>jrunscript -e "print('hello world')"
+jrunscript -e "cat('http://java.sun.com')"</pre>
+  </blockquote>
+<h4>指定された言語を使用し、指定されたスクリプトファイルを評価する</h4>
+  <blockquote>
+<pre>jrunscript -l js -f test.js</pre>
+  </blockquote>
+<h4>対話型モード</h4>
+  <blockquote>
+<pre>jrunscript
+js&gt;print('hello world');
+hello world
+js&gt;34 + 55
+89
+js&gt; thread(function() { print('hello world'); }
+hello world
+js&gt;</pre>
+  </blockquote>
+<h4>スクリプト引数を指定してスクリプトファイルを実行する</h4>
+<blockquote>
+<pre>jrunscript test.js arg1 arg2 arg3
+</pre>
+   </blockquote>
+test.js が実行対象となるスクリプトファイルであり、arg1、arg2、および arg3 はスクリプト引数としてスクリプトに渡されます。スクリプトは「arguments」配列を使ってこれらにアクセスできます。
+
+  <a name="seealso"></a>
+<h2>関連項目</h2>
+  <p>
+JavaScript が使用される場合、jrunscript は、最初のユーザー定義スクリプトを評価する前に、いくつかの組み込み関数や組み込みオブジェクトを初期化します。これらの JavaScript 組み込み機能については、<a href="jsdocs/index.html">jsdocs</a> を参照してください。
+  </p>
+
+  <ul>
+      
+    </li>
+  </ul>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

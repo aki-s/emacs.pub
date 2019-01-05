@@ -1,0 +1,144 @@
+#!/bin/bash
+
+#;; Java lint for `flycheck.el`
+#;;
+#; ref. https://github.com/skybert/my-little-friends/blob/master/bash/my-java-flymake-checks
+
+DEBUG=true
+DEBUG_OUT=/tmp/my_java-lint.out
+/bin/rm -f ${DEBUG_OUT}
+
+[ ${DEBUG} ] && echo "[args]$@" >> ${DEBUG_OUT}
+
+#; process option
+while getopts "r:c:d:" opt; do
+    echo "[optindex=>$OPTIND]|optflag=>$opt|optarg=>$OPTARG" >> ${DEBUG_OUT}
+    case $opt in
+        r) PROJECTROOT=${OPTARG}
+           ;;
+        c) CLASSPATH_OPT=${OPTARG}
+           ;;
+        d) OUTDIR=${OPTARG}
+           ;;
+        *)
+            echo "Unknown arg:${OPTARG}" >> ${DEBUG_OUT}
+            ;;
+    esac
+done
+shift `expr $OPTIND - 1`
+# shift $((OPTIND - 1))
+FILE="$@" # Absolute path
+
+FILE_CODE_OPT= # encoding of the input file
+PROJECTROOT=${PROJECTROOT:-"."} # README* pom.xml .classpath .git Procfile
+
+
+#;;
+if [ -z ${CLASSPATH_OPT} ];then
+    #;TBD; parse build.xml/pom.xml and generate classpath
+    echo "Assuming Eclipse like classpath." >> ${DEBUG_OUT}
+    for el in `echo ${PROJECTROOT}/target/*/WEB-INF/lib/*.jar`; do
+        JSPLIB=$el:$JSPLIB
+    done
+    unset el
+    CLASSPATH_OPT=${PROJECTROOT}"/target/dependency/*"
+    CLASSPATH_OPT=${CLASSPATH_OPT}:${PROJECTROOT}"/target/classes/:${JSPLIB}"
+    CLASSPATH_OPT=${CLASSPATH_OPT}:${PROJECTROOT}"/lib/*"
+fi
+
+if [ -z "${OUTDIR}" ];then
+    OUTDIR=/tmp/
+fi
+
+cd ${PROJECTROOT}
+
+if [ `which nkf` ];then
+    FILE_CODE_OPT="-encoding `nkf -g ${FILE}`"
+else
+    echo "No nkf. javac may vomits error." >> ${DEBUG_OUT}
+fi
+
+NOSTD_OPT="-Xlint:{all,-serial,-path}"
+COMPILE="javac ${NOSTD_OPT} -cp ${CLASSPATH_OPT}:${OUTDIR} ${FILE_CODE_OPT} -d ${OUTDIR}  ${FILE}"
+
+#;;
+if [ ${DEBUG} ];then
+    {
+        echo "projectRoot=>${PROJECTROOT}"
+        echo "classpath_opt=>${CLASSPATH_OPT}"
+        echo "PWD ${PWD}"
+        echo "OUTDIR ${OUTDIR}"
+        echo "COMPILE ${COMPILE}"
+    } >> ${DEBUG_OUT}
+fi
+
+lint() {
+    CLASSPATH_OPT="${CLASSPATH_OPT}:${CLASSPATH}"
+    if [ `which javac` ];then
+      local msg=`eval ${COMPILE}  2>&1`
+      #; expand trailing newline by quoting with double quote.
+      echo "$msg" | format_err
+      echo "$msg" | format_warn
+    elif [ `which gcc` ]; then
+        gcc "${FILE}"
+    else
+        echo "ERROR: No lint command for java"
+    fi
+}
+
+format_err() {
+  #;; Error format of Java is as follows.
+  #; <FileName>.java:<lineNo>: error: error message
+  #;; Extract error message.
+    awk -F" error:" 'flag{reason1=$0; printf("%s%d: error: %s|%s\n",fname, column, reason11, reason1); flag=0;} /^ +\^/{flag=1; column=length} /.*.java/{fname=$1;reason11=$2;} '
+}
+format_warn() {
+  #;; Grep java format of warnings.
+    awk -F" warning:" 'flag{reason1=$0; printf("%s%d: warning: %s|%s\n",fname, column, reason11, reason1); flag=0;} /^ +\^/{flag=1; column=length} /.*.java/{fname=$1;reason11=$2;} '
+}
+
+_time() {
+#;; Calculate elapsed time for a command line.
+    cmd="$@"
+    begin=`date +%s`
+    echo "Start ${cmd}" >> ${DEBUG_OUT}
+    eval "${cmd}"
+    end=`date +%s`
+    {
+        echo "Elapsed "$(($end - $begin))"[s]"
+        echo "end ${cmd}"
+    } >> ${DEBUG_OUT}
+}
+
+_time lint "${FILE}"
+
+##-----------------------------------------------------------------------
+#
+#checkstyle_home=~/.emacs.d/share/checkstyle
+#checkstyle_xml=${checkstyle_home}/sun_checks.xml
+#
+#run_checkstyle() {
+#    if [ ! -d $checkstyle_home ]; then
+#        echo "No ${checkstyle_home}. Abort checkstyle ..."
+#        return
+#    fi
+#
+#    for el in $checkstyle_home/*.jar; do
+#        cp=$el:$cp
+#    done
+#
+#    java -cp "$cp" com.puppycrawl.tools.checkstyle.Main \
+#         -c $checkstyle_xml \
+#         -f plain \
+#         -r "${FILE}" | 2>&1\
+#                         egrep -v 'Starting audit|Audit done' | \
+#    sed \
+#        -e "s~\(.*\.java\):\([0-9]*\): \(.*\)~\1:\2:0: \3~" \
+#        -e "s~\(.*\.java\):\([0-9]*\):\([0-9]*\):\(.*\)~\1:\2:\3:checkstyle>\4~" \
+#
+#}
+#
+##run_checkstyle "${FILE}"
+#_time run_checkstyle "${FILE}"
+
+exit 0

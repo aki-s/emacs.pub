@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Minor changes to java.io in the Java 2 Platform v1.2</title><link rel="stylesheet" href="../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><table>
+<tr>
+<td>
+
+<h1>Minor changes to <code>java.io</code> in the
+Java<sup><font size="-2">TM</font></sup>&nbsp;2 Platform v1.2</h1>
+
+</td>
+</tr>
+</table>
+<!-- Body text begins here -->
+<blockquote>The following changes to package <tt>java.io</tt> were
+introduced in version 1.2 of the Java<sup><font size=
+"-2">TM</font></sup> 2 Platform. Minor changes to this package
+were:
+<ul>
+<li>The <tt><a href=
+"../../../api/java/io/PrintWriter.html#out">out</a></tt> field of
+the <tt><a href=
+"../../../api/java/io/PrintWriter.html">PrintWriter</a></tt> class
+is now protected rather than private, so that subclasses may access
+it</li>
+<li>The <tt><a href=
+"../../../api/java/io/RandomAccessFile.html">RandomAccessFile</a></tt>
+class supports a new <tt><a href=
+"../../../api/java/io/RandomAccessFile.html#setLength(long)">setLength</a></tt>
+method;&nbsp;and</li>
+<li>The <tt><a href=
+"../../../api/java/io/StringWriter.html#StringWriter(int)">StringWriter(int)</a></tt>
+constructor is now public.</li>
+</ul>
+<p>In the Java 2 Platform, the following constructors check for
+<tt>null</tt> input parameters:</p>
+<ul>
+<li>The constructors <tt><a href=
+"../../../api/java/io/PrintStream.html#PrintStream(java.io.OutputStream)">
+PrintStream(OutputStream&nbsp;out)</a></tt> and <tt><a href=
+"../../../api/java/io/PrintStream.html#PrintStream(java.io.OutputStream,%20boolean)">
+PrintStream(OutputStream&nbsp;out,&nbsp;boolean&nbsp;autoFlush)</a></tt>
+will throw a <tt>NullPointerException</tt> if the parameter
+<tt>out</tt> is <tt>null</tt>.</li>
+<li>The constructors <tt><a href=
+"../../../api/java/io/InputStreamReader.html#InputStreamReader(java.io.InputStream)">
+InputStreamReader(InputStream&nbsp;in)</a></tt> and <tt><a href=
+"../../../api/java/io/InputStreamReader.html#InputStreamReader(java.io.InputStream,%20java.lang.String)">
+InputStreamReader(InputStream in,&nbsp;String enc)</a></tt> will
+throw a <tt>NullPointerException</tt> if the <tt>in</tt> parameter
+is <tt>null</tt>.</li>
+<li>The constructors <tt><a href=
+"../../../api/java/io/OutputStreamWriter.html#OutputStreamWriter(java.io.OutputStream)">
+OutputStreamWriter(OutputStream&nbsp;out)</a></tt> and <tt><a href=
+"../../../api/java/io/OutputStreamWriter.html#OutputStreamWriter(java.io.OutputStream,%20java.lang.String)">
+OutputStreamWriter(OutputStream&nbsp;out,&nbsp;String&nbsp;enc)</a></tt>
+will throw a <tt>NullPointerException</tt> if the <tt>out</tt>
+parameter is <tt>null</tt>.</li>
+<li>The protected constructors <tt><a href=
+"../../../api/java/io/Reader.html#Reader(java.lang.Object)">Reader(Object&nbsp;lock)</a></tt>
+and <tt><a href=
+"../../../api/java/io/Writer.html#Writer(java.lang.Object)">Writer(Object&nbsp;lock)</a></tt>
+now throw <tt>NullPointerException</tt> if the <tt>lock</tt>
+parameter is <tt>null</tt>.</li>
+</ul>
+</blockquote>
+<!-- Body text ends here -->
+<!-- ============================================================== -->
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>

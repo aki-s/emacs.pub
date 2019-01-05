@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title><link rel="stylesheet" href="../../../technotes/css/guide.css" />
+</head>
+<body>
+<!-- STATIC HEADER -->
+
+<table width="100%"><tr><td valign="bottom" align="left"><img src="../../../images/javalogo.gif"></td><td valign="bottom" align="right"><a href="../../../index.html"><font size="-1">Documentation Contents</font></a></td></tr></table><h1>Networking Enhancments for J2SE 5.0</h1>
+<ul>
+<li>Complete support for IPv6 on Windows XP (SP1) and 2003 server
+has been provided in this release. (4608529)</li>
+<li>The networking API now provides a way of setting timeouts on
+connect and read operations for protocol handlers. This will
+benefit any HTTP client application that must behave robustly in
+the event of server failure. (4700777)</li>
+<li>A new API provides a mean for Java applications, which includes
+RMI applications, to be launched via <code>inetd</code>. (4295885,
+4673940)</li>
+<li>The <code>InetAddress</code> class now provides an API to allow
+testing for the reachability of a host. This features provides a
+ping-like capability in Java. (4639861)</li>
+<li>Cookie support has been improved. Applications and web
+containers can provide Cookie management by implementing the new
+<code>CookieHandler</code> API. (4696506)</li>
+<li>Proxy server configuration has been improved. It can now be
+dynamic and controlable by web containers and applications through
+the <code>ProxySelector</code> API, which can also handle failures
+to connect to the proxy. (4696512)</li>
+<li>A new framework provides a way for protocol handlers to access
+a file caching mechanism implemented by the platform or by a third
+party. (4837267)</li>
+<li>The specification of the URL class now mandates a minimum set
+of URL protocol handlers that are guaranteed to be present in J2SE.
+They are http, https, file, jar and ftp. (4180636)</li>
+<li>There have been a number of enhancements for JSSE (SSL/TLS).
+For more information, please see: <a href=
+"http://java.sun.com/j2se/1.5.0/docs/guide/security/enhancements15.html">
+J2SE 5 Security Enhancements</a></li>
+</ul>
+
+<HR>
+<TABLE summary="layout" BORDER="0" WIDTH="100%">
+<TR VALIGN="TOP"><TD><P><FONT SIZE="-2">
+<A HREF=../../../legal/cpyr.html>Copyright &#169;</A> 1993, 2011, Oracle and/or its affiliates. All rights reserved.</FONT></P><FONT SIZE="-1"> Please send comments using this <a href=http://download.oracle.com/javase/feedback.html>Feedback</a> page.</FONT> </TD>
+<TD ALIGN=RIGHT> <IMG SRC="../../../images/oraclelogo.gif" ALT="Oracle Corporation and/or its affiliates" BORDER=0 WIDTH=100 HEIGHT=29><BR>
+<FONT SIZE="+1"> <i>Java Technology</i></FONT> </TD></TR>
+</TABLE> 
+
+<!-- STATIC FOOTER -->
+
+</body>
+</html>
