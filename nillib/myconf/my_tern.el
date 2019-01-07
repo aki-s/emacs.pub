@@ -68,6 +68,11 @@
 (defvar my_tern:config-file-name ".tern-project")
 (defvar my_tern:config-template-file-name "~/.emacs.d/share/insert/tern-project.json")
 (defvar my_tern:ask-if-auto-setup t "Flag if auto setup is to be tried.")
+(defcustom my_tern:debug-flag nil
+  "Non-nil means binding tern process to singleton buffer for easy debugging."
+  :group 'my_tern
+  :type 'boolean
+  )
 
 (defun* my_tern:prompt-if-no-config-found ()
   "Create configuration file for Tern."
@@ -79,16 +84,11 @@
     (when (and conf-file (file-exists-p conf-file)
           (return-from my_tern:prompt-if-no-config-found))))
   (unless (yes-or-no-p (format "No config file for Tern (%s) is found.\nDo you want to create?" my_tern:config-file-name))
-    (when (yes-or-no-p "Do you want t/home/w/.tern-projecto disable this prompt for this session?")
+    (when (yes-or-no-p "Do you want to disable this prompt for this session?")
       (my_tern:toggle-auto-setup-prompt))
       (return-from my_tern:prompt-if-no-config-found)
     )
-  (let ((dir-table1 (my_tern:config-candidate-dirs))
-         (dir-table2 (apply-partially #'completion-table-with-predicate
-                       #'completion-file-name-table
-                       #'file-directory-p
-                       'strict))
-         at-dir)
+  (let (at-dir)
     (setq at-dir (completing-read (format "Specify directory to put `%s': " my_tern:config-file-name)
                    (completion-table-dynamic #'my_tern:completing-read-with-defaults)
                    ))
@@ -151,7 +151,7 @@ in parent directories of FROM-PATH.  Return nil if nothing is found."
 
      (my_tern:prompt-if-no-config-found)
      (company-mode 1)
-     (my_tern:start-tern)
+     (when my_tern:debug-flag (my_tern:start-tern))
      (tern-mode 1)
      (message "[my_tern:setup] is called")
      )
@@ -196,8 +196,6 @@ in parent directories of FROM-PATH.  Return nil if nothing is found."
   (unless tern-bin (throw 'no-bin "command `tern' was not found."))
   (set (make-local-variable 'tern-server-proc) nil)
   (set (make-local-variable 'tern-server-proc-obj) nil)
-  ;;(if (get-process "Tern")
-  ;;(if (and (stringp 'tern-server-proc) (get-process tern-server-proc))
   (if (symbol-value tern-server-proc)
     (progn
       (message "Tern is already running: %s" tern-server-proc)

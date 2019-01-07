@@ -3,6 +3,7 @@
 (source melpa-stable)
 
 (depends-on "ac-ispell")
+(depends-on "add-node-modules-path")
 ;; Deprecated (depends-on "ac-R")
 (depends-on "async")
 (depends-on "auto-async-byte-compile")
@@ -75,6 +76,7 @@
 (depends-on "persistent-scratch")
 (depends-on "php-mode")
 (depends-on "popwin")
+(depends-on "prettier-js") ; Formatter for js, html.
 (depends-on "pug-mode")
 (depends-on "robe") ;ruby
 (depends-on "rtags") ;c++

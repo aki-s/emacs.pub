@@ -33,7 +33,7 @@
 (require 'helm-imenu) ; helm-imenu
 (require 'helm-gtags) ; helm-gtags--include-regexp helm-gtags-mode helm-gtags-dwim
 (require 'helm-lib) ; helm-current-line-contents
-
+(require 'mode-local) ; define-overload
 
 (defvar my_imenu-debug nil "Debug flag for my_imenu.el.")
 ;; (defun debug-message (&rest msg)
@@ -161,7 +161,9 @@ Format of the message is (returned value, FUNC, ARGS)."
 (eval-when-compile
   (require 'evil-core) ; evil-mode
   )
-(defun my_imenu-jump ()
+
+;;;###autoload
+(define-overload my_imenu-jump ()
   "Quickly jump to the definition of function within selected buffer.
    Think this function is smarter version of anything-imenu.
    @ref. The form returned by function imenu--make-index-alist for java file is
@@ -228,7 +230,8 @@ Is this a bug of 'imenu--make-index-alist or mine?
     (debug-message '(message "imenu-create-index-function is %s\n%s: %S"
                       imenu-create-index-function
                       this-command (pp imenu--index-alist)))
-    (cond
+    (:override
+      (cond
       ;;;; ==================== Resolve within a buffer. ====================
       ;;;; ================================================================
 
@@ -290,7 +293,7 @@ Is this a bug of 'imenu--make-index-alist or mine?
       (t
         (or (ignore-errors (helm-imenu) t) (imenu (imenu-choose-buffer-index)))
         )
-      )
+      ))
     (require 'my_simple)
     (my_simple:push-mark pmarker) ; Push mark if successful jump.
     pt)); my_imenu-jump

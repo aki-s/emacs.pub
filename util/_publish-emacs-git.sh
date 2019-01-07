@@ -43,6 +43,7 @@ else
     git init
     if [ `which git-crypt` ]; then
       if [ -e ~/.ssh/git-crypt.key ];then
+        #; When $(git-crypt --version) >= 0.4
         git-crypt unlock ~/.ssh/git-crypt.key || : # Ignore failure.
       fi
     else

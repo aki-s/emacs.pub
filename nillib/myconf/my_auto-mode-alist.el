@@ -13,20 +13,7 @@
 (autoload 'R-mode "ess-site" "Emacs Speaks Statistics mode" t)
 
 ;;--------------------------------------------------------------
-(cond
- ;;( (and (= emacs-major-version 23) (> emacs-minor-version 1))
- ( (= emacs-major-version 23)
-;;$bug$;;   (autoload 'js2-minor-mode "js2-mode" "activate customized js" t)
-;;$bug$;;   (add-hook 'js-mode-hook 'js2-minor-mode)
-;;$bug$;;   (add-hook 'js2-minor-mode #'(lambda ()
-;;$bug$;;                                (setq post-command-hook nil) ))
-;;$bug$;;  (add-to-list 'auto-mode-alist '("\\.js\\'" . js-mode))
-   )
- ( (> emacs-major-version 23)
-   ;;(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-   (add-to-list 'auto-mode-alist '("\\.js\\'" . js-mode))
-   )
- )
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 ;;--------------------------------------------------------------
 (defalias 'perl-mode 'cperl-mode)

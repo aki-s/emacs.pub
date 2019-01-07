@@ -32,57 +32,29 @@
 (require 'xref-js2)
 (setq xref-js2-ignored-dirs '("bower_components" "build" "lib"))
 
-
-(require 'import-js)
+(require 'my_simple)
+(require 'mode-local)
 
-(defvar my_js:import-js:debug t)
-
-(unless (executable-find "importjs")
-  (message "[config-error] import-js.el requires node-module named import-js\
-      You'd better install `fb-watchman` for performance of import-js.''"))
-
-(defun my_js:import-js-init()
-  (unless import-js-process
-    (message "Try to start importjsd")
-    (run-import-js))
-;;   (if my_js:import-js:debug (set-process-buffer import-js-process (get-buffer-create "*import-js*")))
-  (when my_js:import-js:debug (message "Server log would be written in /tmp/importjs.log."))
-  )
-
-(defun my_js:import-js-goto ()
-  "Run import-js goto function, which returns a path to the specified module."
+(define-mode-local-override my_imenu-jump js2-mode () "Overridden `my_imenu-jump'"
   (interactive)
-  (import-js-check-daemon)
-  (setq import-js-output "")
-  (setq import-js-handler 'my_js:import-js-handle-goto)
-  (import-js-send-input `(("command" . "goto")
-                          ("commandArg" . ,(my_js:import-js-word-at-point)))))
+  ;; Save Markers of both before and after position if jump changed position.
+  (let ((point-before (point)) (pm-before (point-marker))
+         point-after)
+    (or
+      (with-demoted-errors "js2-jump-to-definition failed: %S" (js2-jump-to-definition))
+      (with-demoted-errors "Advice may causing error (e.g. advice on `search-forward): ' %S"
+        (xref-find-definitions (symbol-at-point))))
+    (setq point-after (point))
+    (when (eq point-before point-after)
+      (my_simple:push-mark pm-before)
+      (my_simple:push-mark (point-marker))
+      )))
 
-(defun my_js:import-js-word-at-point ()
-  "Get the module of interest.
+(require 'my_import-js)
+(require 'my_eslint)
 
-Extract `[@scope/]module-name`'"
-
-  (save-excursion
-    (skip-chars-backward "^'\"")
-    (let ((beg (point)) module)
-      (skip-chars-forward "^'\"")
-      (setq module (buffer-substring-no-properties beg (point)))
-      module)))
-
-(defun my_js:import-js-handle-goto (import-data)
-  "Navigate to the indicated file using IMPORT-DATA.
-
-If no file is found, do nothing."
-  (let* ((goto-list (json-read-from-string import-data))
-          (file-name (cdr (assoc 'goto goto-list))))
-    (if (file-exists-p file-name)
-      (find-file file-name)
-      (message "File named `%s` is not found." file-name))))
-
-(provide 'my_js)
 (message "my_js loaded")
-
+(provide 'my_js)
 
 ;;;; Alternative to Tern (Tern doesn't support es6.)
 ;; npm install -g eslint

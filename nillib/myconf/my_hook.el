@@ -93,19 +93,27 @@
   (require 'my_js)
   ;; xref
   (define-key js-mode-map (kbd "M-.") nil) ; Use xref's keybind.
+  (define-key js2-mode-map (kbd "M-.") nil) ; Use xref's keybind.
   (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)
   ;; importjs
-  (my_js:import-js-init)
-  (define-key js-mode-map (kbd "M-RET") #'my_js:import-js-goto)
+  (my_import-js:import-js-init)
+  (define-key js-mode-map (kbd "M-RET") #'my_import-js:import-js-goto)
+  (define-key js2-mode-map (kbd "M-RET") #'my_import-js:import-js-goto)
   ;; imenu
   (js2-imenu-extras-mode t)
   (require 'my_imenu) (my_imenu:js2-setup-imenu)
-  ;;
+  ;; Tern
   (require 'my_tern)
   (my_tern:setup)
+  ;; Formatter (prettier-js)
+  (require 'my_prettier-js)
+  (prettier-js-mode)
   (message "my-js-mode-hook was called")
+  ;; eslint
+  (require 'my_eslint)
   )
 (add-hook 'js-mode-hook 'my-js-mode-hook t) ; hook for javascript-mode
+(add-hook 'js2-mode-hook 'my-js-mode-hook t) ; hook for javascript-mode
 
 (defun my-markdown-mode-hook ()
   (set (make-local-variable 'whitespace-action) nil))
@@ -180,7 +188,12 @@
   (interactive)
   (setq comment-start "<%-- ")
   (setq comment-end   " --%>")
-)
+  ;; Formatter (prettier-js)
+  (require 'my_prettier-js)
+  (my_prettier-js:enable-minor-mode
+    '("\\.jsx?\\'" . prettier-js-mode)
+    )
+  )
 (add-hook 'web-mode-hook  'my-web-mode-hook t)
 
 (defun my-xml-mode-hook ()

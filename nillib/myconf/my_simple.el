@@ -35,10 +35,12 @@
 ))
 
 (defvar my_simple:jump-marks-max 32 "Maximum number of marks to be remembered.")
-(defvar my_simple:jump-marks nil "Stack of all jump.")
-(defun my_simple:push-mark (mrk)
-  "Push mark to `my_simple:jump-marks'."
-  (setq my_simple:jump-marks (cons mrk  my_simple:jump-marks))
+(defvar my_simple:jump-marks nil "Stack of markers for all successful jumps.")
+(defun my_simple:push-mark (&optional mark)
+  "Push MARK to `my_simple:jump-marks'.
+MARK is optional and default to current `point-marker'."
+  (interactive (list (mark (point-marker))))
+  (setq my_simple:jump-marks (cons mark  my_simple:jump-marks))
   (when (> (length my_simple:jump-marks) my_simple:jump-marks-max)
     (setq my_simple:jump-marks (-take my_simple:jump-marks-max my_simple:jump-marks))
     ))

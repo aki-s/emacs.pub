@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 (require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region) ;; Notes. E-mailer named Wavebox may steal this keybindings
 
 ;;;; @todo
 ;;;  Use `|@=' as segmentator.
