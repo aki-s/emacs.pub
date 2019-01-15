@@ -57,6 +57,7 @@
 
 (require 'elscreen-tab)
 (elscreen-tab-mode)
+(setq elscreen-tab:debug-flag t)
 
 
 (defvar my_elscreen:debug nil "Show messages related to elscreen if t.")

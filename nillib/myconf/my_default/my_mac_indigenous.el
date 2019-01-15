@@ -5,21 +5,22 @@
 
 (defun copy-from-osx ()
   "Copy clipboard from OSX."
-;;  (unless (or (getenv "TMUX") (getenv "SCREEN"))
-    (shell-command-to-string "pbpaste"))
-;;  )
+    (shell-command-to-string "env LANG=ja_JP.UTF-8 pbpaste"))
 
 (defun paste-to-osx (text &optional push)
   "Environmental variable LANG must be set properly to avoid illegal characlter before using this function."
-;;  (unless (or (getenv "TMUX") (getenv "SCREEN"))
     (let ((process-connection-type nil))
-      (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+      (let ((proc (start-process "pbcopy" "*buffer-for-pbcopy*" "env" "LAN=ja_JP.UTF-8" "pbcopy")))
         (process-send-string proc text)
         (process-send-eof proc))))
-;;  )
 
-(setq interprogram-cut-function 'paste-to-osx)
-(setq interprogram-paste-function 'copy-from-osx) ; test
+(cond
+  ((version< emacs-version "25.3.1")
+    (setq interprogram-cut-function 'paste-to-osx)
+    (setq interprogram-paste-function 'copy-from-osx)
+    )
+  (t nil)
+  )
 
 (defun copy-visited-files ()
   "Add paths of all opened files to kill ring"

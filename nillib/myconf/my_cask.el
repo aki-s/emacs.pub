@@ -3,6 +3,8 @@
 
 ;;; Code:
 (require 'cask "~/.cask/cask.el")
+(require 'dash)
+(require 'cl)
 ;; cask update --debug --verbose
 (autoload 'eieio-defclass-autoload "eieio") ; For ubuntu  emacs 24.3.1
 
@@ -15,7 +17,7 @@
   ;; When cask directory has changed you have to run cask command where Cask file exists.
   ;; For example if `load-path' doesn't have .cask/package/path/ check this fact.
 
-  (cask-load-path bundle)
+  (setq load-path (-uniq (cask-load-path bundle)))
 
   ;;;bug?
   ;;[env] ubuntu emacs24.3.1 cask0.7.3

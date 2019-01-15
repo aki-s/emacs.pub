@@ -4,6 +4,7 @@
 
 (setq-default flyspell-auto-correct-binding   (kbd "C-c C-c")) ; Avoid being set "C-;" by `defcustom' in flyspell.el
 (require 'flyspell)
+(define-key flyspell-mode-map (kbd "C-;") nil) ; Reserve C-; for the other usage.
 
 ;;http://d.hatena.ne.jp/o0cocoron0o/20101006/1286354957
 (defun flyspell-correct-word-popup-el ()

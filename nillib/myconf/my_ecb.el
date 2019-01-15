@@ -20,6 +20,7 @@
 ;;;;--------------------------------------------------
 
 (when (> emacs-major-version 23)
+;; (setq ecb-layout-debug-mode t) ; to track window management of ECB.
   ;;; Don't know details but completing-read show completion in minibuffer.
 
   ;;; Related functions

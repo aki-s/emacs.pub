@@ -302,7 +302,7 @@
     (progn
       (setq
         ac-auto-show-menu t
-        ac-auto-start 1
+        ac-auto-start nil
         ac-delay 0.4
         ac-quick-help-delay 1.5
         )
