@@ -102,7 +102,7 @@
 ;;(load-library "my_mail")
 
 ;;test (load-library "my_anything")
-(load-library "my_auto-complete")
+;tmp (load-library "my_auto-complete")
 (load-library "my_auto-install")
 (load-library "my_buffer-menu")
 (eval-after-load 'company-mode (require 'my_company))

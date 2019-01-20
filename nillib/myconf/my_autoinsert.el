@@ -127,6 +127,8 @@
 '(if (search-backward "&" (line-beginning-position) t)
      (replace-match (capitalize (user-login-name)) t t))
 '(end-of-line 1) " <" (progn user-mail-address) ">
+;; Maintainer:
+;; URL:
 ;; Package-Version: 0.0.0
 ;; Package-Requires:
 ;; Keywords: "

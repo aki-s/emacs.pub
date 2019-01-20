@@ -72,9 +72,9 @@ Has bad effect to scaling feature for font on Linux."
       (pcase `(,(x-display-pixel-width) ,(x-display-pixel-height))
         (`(3840 2160) ; XPS-15
           32)
-        ))
-    ()
+        (_ 32)))
     (set-frame-font (font-spec :family "Monospace" :size fsize) nil t)
+    ;;(set-frame-font "mono" nil t)
     )
   )
 
@@ -194,10 +194,11 @@ Has bad effect to scaling feature for font on Linux."
     (add-hook 'emacs-startup-hook 'my_font-set-default-font) ;; set my custom font size forcibly.
     ) ; system-name 'darwin
 
-  ((and (eq system-type 'gnu/linux) (eq window-system 'x ) )
+  ((and (eq system-type 'gnu/linux) (eq window-system 'x ))
     (my_font-setup_for_linux)
     )
   )
+(my_font--increase-by-screen-resolution)
 
 ;;------------------------------------------------------------------------------
 ;; defun utils

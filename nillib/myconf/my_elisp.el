@@ -110,5 +110,8 @@ has broken documentation of eldoc."
  tags-table-list
  )
 
+(eval-after-load 'flycheck
+  '(flycheck-package-setup))
+
 (provide 'my_elisp)
 ;;; my_elisp ends here

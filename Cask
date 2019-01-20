@@ -39,6 +39,7 @@
 (depends-on "expand-region") ;; raw git repo also exists in share/
 ;;test (depends-on "fakir") ; elnode
 (depends-on "flycheck")
+(depends-on "flycheck-package") ; elisp
 (depends-on "flycheck-pos-tip")
 (depends-on "fringe-helper")
 (depends-on "ggtags")
@@ -69,6 +70,7 @@
 (depends-on "markdown-mode")
 (depends-on "migemo")
 (depends-on "minor-mode-hack")
+(depends-on "mozc") ; mozc.el for Linux
 (depends-on "multiple-cursors")
 (depends-on "noflet")
 (depends-on "pcre2el")

@@ -100,10 +100,11 @@
      )
    ;;; C-x j , skk-auto-fill-mode
    ;;; skk-tuttorial
+   ;; $ apt install -y emacs-mozc-bin emacs-mozc
+   ;; - `mozc_emacs_helper' is provided by `emacs-mozc-bin'.
+   ;; - `emacs-mozc/mozc.el' is provided by `emacs-mozc.'
    (when (and (executable-find "mozc_emacs_helper")
-              (file-readable-p "/usr/share/emacs/site-lisp/emacs-mozc/mozc.el");; ubuntu
-             ;; (require 'mozc nil t)
-              (load-file "/usr/share/emacs/site-lisp/emacs-mozc/mozc.el")
+              (with-demoted-errors "%S" (require 'mozc))
               )
      (set-input-method "japanese-mozc")
      )

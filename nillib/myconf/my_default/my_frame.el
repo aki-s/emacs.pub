@@ -201,18 +201,10 @@ Override frame-parameter `name' previously set (This would be caused by `desktop
      ;;     )
      (nil (menu-bar-lines . 0) (tool-bar-lines . 0))))
 
-(cond
-  ((= emacs-major-version 23)
-    ;;  (setq initial-frame-alist (quote ((fullscreen . fullboth))));;
-    )
-  ((= emacs-major-version 24)
-    (progn
-      (setq initial-frame-alist (quote (
-                                         (fullscreen . maximized)
-                                         (alpha . 83)
-                                         )));; remain frame. emacs-major-version > 23
-      ))
-  )
+(setq initial-frame-alist (quote (
+                                  (fullscreen . maximized)
+                                  (alpha . 83)
+                                  )))
 ;;;==============================================================
 ;;;==============================================================
 ;;$ frameset.el

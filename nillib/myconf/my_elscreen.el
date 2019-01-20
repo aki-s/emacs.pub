@@ -41,7 +41,7 @@
 
 (defun my_elscreen:start()
   "Start elscreen.
- Start sequence is important to avoid error on calling `elscreen-persist-restore'"
+Start sequence is important to avoid error on calling `elscreen-persist-restore'"
   (interactive)
 
   (remove-hook 'elscreen-screen-update-hook 'elscreen-mode-line-update) ; Avoid error when `mode-line' is not default.
