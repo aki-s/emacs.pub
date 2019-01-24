@@ -39,11 +39,12 @@
   (interactive)
   ;; Save Markers of both before and after position if jump changed position.
   (let ((point-before (point)) (pm-before (point-marker))
-         point-after)
+         point-after (target (symbol-at-point)) )
     (or
       (with-demoted-errors "js2-jump-to-definition failed: %S" (js2-jump-to-definition))
-      (with-demoted-errors "Advice may causing error (e.g. advice on `search-forward): ' %S"
-        (xref-find-definitions (symbol-at-point))))
+      (with-demoted-errors "%S"
+        (if target (call-interactively 'xref-find-definitions)
+           (helm-imenu))))
     (setq point-after (point))
     (when (eq point-before point-after)
       (my_simple:push-mark pm-before)

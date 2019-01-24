@@ -97,14 +97,18 @@
 
 (defun* my_tern:completing-read-with-defaults (user-input)
   (require 'find-file)
-  (when (or (null user-input) (equal user-input "")) (return-from my_tern:completing-read-with-defaults (my_tern:config-candidate-dirs)))
+  (when (or (null user-input) (equal user-input ""))
+    (return-from my_tern:completing-read-with-defaults (my_tern:config-candidate-dirs)))
   (let* ((f-cand (expand-file-name user-input "/"))
-          (dir (file-name-directory f-cand))
-          (base (file-name-base f-cand)))
+         (dir (file-name-directory f-cand))
+         (base (file-name-base f-cand)))
     (cond
-      ((or (null dir) (not (file-directory-p dir))) (list user-input))
-      ((or (null base) (equal base "")) (ff-all-dirs-under dir))
-      (t (list (concat "/" (file-name-completion base dir #'file-directory-p)))))))
+     ((or (null dir) (not (file-directory-p dir))) (list user-input))
+     ((or (null base) (equal base "")) (ff-all-dirs-under dir))
+     (t
+      (-filter #'file-directory-p
+               (cl-loop for cand in (file-name-all-completions base dir)
+                        collect (concat dir cand)))))))
 
 (defun my_tern:toggle-auto-setup-prompt ()
   (interactive)
