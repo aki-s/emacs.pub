@@ -63,16 +63,4 @@ or
 
     - I have recommitted to this git repository to clear private or secret information from source codes, so no history would be visible.
 
-## About me
-
-#### _What I can offer_
-
-    - Please look at my LinkedIn account for details (This is to preserve atomicity of information).
-     < [LinkedIn syunsuke-aki](http://jp.linkedin.com/pub/syunsuke-aki/36/398/b01) >
-     (I usually don't respond to a person who I don't know... If you ask me, please say "I've read README.md on GitHub.".)
-
-#### _My personality_
-
-    - If you love cats, I would make friends with you. =^w^=
-
 -----------

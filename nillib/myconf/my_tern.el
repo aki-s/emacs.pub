@@ -64,6 +64,7 @@
 
 (require 'vc)
 (require 'dash)
+(require 'cl-lib)
 
 (defvar my_tern:config-file-name ".tern-project")
 (defvar my_tern:config-template-file-name "~/.emacs.d/share/insert/tern-project.json")
@@ -74,41 +75,44 @@
   :type 'boolean
   )
 
-(defun* my_tern:prompt-if-no-config-found ()
+(cl-defun my_tern:prompt-if-no-config-found ()
   "Create configuration file for Tern."
   (interactive)
   (unless my_tern:ask-if-auto-setup
     (message "Abort asking to create Tern config file, because %S is %s" 'my_tern:ask-if-auto-setup my_tern:ask-if-auto-setup)
-    (return-from my_tern:prompt-if-no-config-found))
+    (cl-return-from my_tern:prompt-if-no-config-found))
   (let ((conf-file (my_tern:locate-config (or (buffer-file-name) default-directory))))
     (when (and conf-file (file-exists-p conf-file)
-          (return-from my_tern:prompt-if-no-config-found))))
+          (cl-return-from my_tern:prompt-if-no-config-found))))
   (unless (yes-or-no-p (format "No config file for Tern (%s) is found.\nDo you want to create?" my_tern:config-file-name))
     (when (yes-or-no-p "Do you want to disable this prompt for this session?")
       (my_tern:toggle-auto-setup-prompt))
-      (return-from my_tern:prompt-if-no-config-found)
+      (cl-return-from my_tern:prompt-if-no-config-found)
     )
   (let (at-dir)
-    (setq at-dir (completing-read (format "Specify directory to put `%s': " my_tern:config-file-name)
-                   (completion-table-dynamic #'my_tern:completing-read-with-defaults)
-                   ))
+    (setq at-dir (completing-read
+                  (format "[M-n]Specify directory to put `%s': " my_tern:config-file-name)
+                  (completion-table-dynamic #'my_tern:completing-read-with-defaults)
+                  nil nil nil nil (my_tern:config-candidate-dirs)))
     (my_tern:create-config at-dir))
   )
 
-(defun* my_tern:completing-read-with-defaults (user-input)
-  (require 'find-file)
+(cl-defun my_tern:completing-read-with-defaults (user-input)
   (when (or (null user-input) (equal user-input ""))
-    (return-from my_tern:completing-read-with-defaults (my_tern:config-candidate-dirs)))
+    (cl-return-from my_tern:completing-read-with-defaults
+      (my_tern:config-candidate-dirs)))
   (let* ((f-cand (expand-file-name user-input "/"))
          (dir (file-name-directory f-cand))
          (base (file-name-base f-cand)))
     (cond
      ((or (null dir) (not (file-directory-p dir))) (list user-input))
-     ((or (null base) (equal base "")) (ff-all-dirs-under dir))
-     (t
-      (-filter #'file-directory-p
-               (cl-loop for cand in (file-name-all-completions base dir)
-                        collect (concat dir cand)))))))
+     ((or (null base) (equal base "")) (my_tern:-ff-all-dirs "" dir))
+     (t (my_tern:-ff-all-dirs base dir)))))
+
+(defun my_tern:-ff-all-dirs (base dir)
+  (-filter #'file-directory-p
+           (cl-loop for cand in (file-name-all-completions base dir)
+                    collect (concat dir cand))))
 
 (defun my_tern:toggle-auto-setup-prompt ()
   (interactive)
@@ -147,7 +151,7 @@ in parent directories of FROM-PATH.  Return nil if nothing is found."
 
      (require 'company)
      (require 'company-tern)
-     (pushnew 'company-tern company-backends)
+     (cl-pushnew 'company-tern company-backends)
      (define-key tern-mode-keymap (kbd "C-S-p") 'company-tern)
      ;; Disable completion keybindings, as we use xref-js2 instead
      (define-key tern-mode-keymap (kbd "M-.") nil)
