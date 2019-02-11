@@ -28,6 +28,8 @@
 (unless (executable-find "ag")
   (message "[config-error] xref-js2 requires `ag (a.k.a. silversearcher-ag)`'")
   )
+;; Suppress warning: "Undeclared variable or function 'module'"
+(setq js2-include-node-externs t) ; Support NodeJs
 
 (require 'xref-js2)
 (setq xref-js2-ignored-dirs '("bower_components" "build" "lib"))
@@ -35,21 +37,15 @@
 (require 'my_simple)
 (require 'mode-local)
 
-(define-mode-local-override my_imenu-jump js2-mode () "Overridden `my_imenu-jump'"
+(define-mode-local-override my_imenu-jump js2-mode (target) "Overridden `my_imenu-jump'"
   (interactive)
   ;; Save Markers of both before and after position if jump changed position.
-  (let ((point-before (point)) (pm-before (point-marker))
-         point-after (target (symbol-at-point)) )
     (or
       (with-demoted-errors "js2-jump-to-definition failed: %S" (js2-jump-to-definition))
       (with-demoted-errors "%S"
         (if target (call-interactively 'xref-find-definitions)
            (helm-imenu))))
-    (setq point-after (point))
-    (when (eq point-before point-after)
-      (my_simple:push-mark pm-before)
-      (my_simple:push-mark (point-marker))
-      )))
+    )
 
 (require 'my_import-js)
 (require 'my_eslint)

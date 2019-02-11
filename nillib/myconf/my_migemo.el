@@ -5,7 +5,7 @@
 ;; osx: http://d.hatena.ne.jp/samurai20000/20100907/1283791433
 ;; osx: http://wun.jp/2011/07/04/113800/
 
-;; omigemo: http://code.google.com/p/cmigemo/
+;; cmigemo: http://code.google.com/p/cmigemo/
 ;; https://bitbucket.org/sakito/dot.emacs.d/src/tip/site-start.d/init_cmigemo.el
 
 ;;; Code:
@@ -18,12 +18,13 @@
 ;;;; cmigemo
       (setq migemo-command "cmigemo")
       (setq migemo-options '("-q" "--emacs"))
+      (setq my_migemo-dict-dir (expand-file-name "~/local/share/migemo/utf-8"))
       (cond
-       ((file-exists-p "~/local/share/migemo/utf-8/migemo-dict")
+       ((file-exists-p (concat my_migemo-dict-dir "/migemo-dict"))
         ;; install_name_tool -change libmigemo.1.dylib $(prefix)/lib/libmigemo.1.dylib  $(prefix)/bin/cmigemo
         ;; dyldinfo
-        (setq migemo-directory "~/local/share/migemo/utf-8/")
-        (setq migemo-command "cmigemo")
+        (setq-default migemo-directory my_migemo-dict-dir)
+        (setq-default migemo-command "cmigemo")
         )
        ((eq system-type 'gnu/linux)
         (setq migemo-dictionary "/usr/share/cmigemo/utf-8/migemo-dict")

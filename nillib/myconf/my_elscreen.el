@@ -38,7 +38,6 @@
 (setq elscreen-persist-file (concat user-emacs-tmp-dir "/elscreen.lst"))
 
 ;;; Configure desktop for elscreen
-
 (defun my_elscreen:start()
   "Start elscreen.
 Start sequence is important to avoid error on calling `elscreen-persist-restore'"
@@ -49,15 +48,22 @@ Start sequence is important to avoid error on calling `elscreen-persist-restore'
   (elscreen-start) ; set `elscreen-set-prefix-key'
   (require 'my_desktop) ; This line is actually not required for elscreen?
   (elscreen-persist-mode 1)
+
+  (require 'elscreen-tab)
+  (elscreen-tab-mode)
+  (run-with-idle-timer
+   ;; Calling `elscreen-persist-restore' also restores old
+   ;; `elscreen-tab:dedicated-tab-buffer-name', so I need to assure
+   ;; one elscreen-tab window by calling this.
+   1
+   nil
+   #'elscreen-tab--ensure-one-window
+   )
   )
 
 (condition-case er
-  (my_elscreen:start)
+    (my_elscreen:start)
   (error "Failed to start elscreen with error: %s" er))
-
-(require 'elscreen-tab)
-(elscreen-tab-mode)
-(setq elscreen-tab:debug-flag t)
 
 
 (defvar my_elscreen:debug nil "Show messages related to elscreen if t.")

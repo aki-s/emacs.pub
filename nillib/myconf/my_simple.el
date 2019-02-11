@@ -34,7 +34,7 @@
         )
 ))
 
-(defvar my_simple:jump-marks-max 32 "Maximum number of marks to be remembered.")
+(defvar my_simple:jump-marks-max 256 "Maximum number of marks to be remembered.")
 (defvar my_simple:jump-marks nil "Stack of markers for all successful jumps.")
 (defun my_simple:push-mark (&optional mark)
   "Push MARK to `my_simple:jump-marks'.

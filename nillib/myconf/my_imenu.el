@@ -36,11 +36,11 @@
 (require 'mode-local) ; define-overload
 
 (defvar my_imenu-debug nil "Debug flag for my_imenu.el.")
-;; (defun debug-message (&rest msg)
+;; (defun my_imenu--debug-message (&rest msg)
 ;;   "Print message if my_imenu-debug is 't."
 ;;   (if my_imenu-debug (apply 'message (format "%s" str) msg))
 ;;   )
-(defun debug-message (msg)
+(defun my_imenu--debug-message (msg)
   "Eval MSG if my_imenu-debug is 't."
   (if my_imenu-debug (eval msg))
   )
@@ -79,7 +79,7 @@ Function `imenu-default-create-index-function' exists as of emacs 24.5.1.
   (if (numberp depth)
     (progn
       (setf depth (1+ depth))
-      (debug-message '(message "[depth] %s" depth)) ;; debug
+      (my_imenu--debug-message '(message "[depth] %s" depth)) ;; debug
       )
     (setq depth 0)
     )
@@ -129,7 +129,7 @@ Function `imenu-default-create-index-function' exists as of emacs 24.5.1.
         ((not (consp elt)) ; recur 'my_imenu--in-alist
           (if (setq res (my_imenu--in-alist str alist depth))
             (setq alist nil))
-          (debug-message '(message "found:(alist=%s|res=%s|elt=%s)" alist res elt)) ;debug
+          (my_imenu--debug-message '(message "found:(alist=%s|res=%s|elt=%s)" alist res elt)) ;debug
           (setq alist nil res elt))
         ((consp elt)
           (if (string-equal str head) ; @TODO type check [ret func-name arg ...]
@@ -203,40 +203,38 @@ Is this a bug of 'imenu--make-index-alist or mine?
  ;;  (push-mark) ; [C-x C-@][C-x C-SPC] pop-global-mark, [C-x c C-c SPC] helm-all-mark-rings, [] helm-global-mark-ring . TODO create my jump stack.
 
   (setq-local default-directory (expand-file-name default-directory)) ;; Sometimes "~" is set but, helm-gtag doesn't expand "~"
-  (let* ((imenu-idx (imenu--make-index-alist)) ;; Bug here: If "This buffer cannot use `imenu-default-create-index-function'", then I have to create xxx-imenu-generic-expression?
+  (let* ((imenu-idx (ignore-errors "%S" (imenu--make-index-alist))) ;; Bug here: If "This buffer cannot use `imenu-default-create-index-function'", then I have to create xxx-imenu-generic-expression?
 
-          (name
+          (target
             (or (ignore-errors (thing-at-point 'symbol t) ; fail on emacs24.3.1
                   )
               (thing-at-point 'symbol)))
           ;; should be automatically selected (imenu-create-index-function #'imenu-default-create-index-function) ;,or #'semantic-create-imenu-index
           ;; semantic-imenu-goto-function
           (marker (cdr (or
-                         (imenu--in-alist name imenu-idx)
-                         (my_imenu--in-alist name imenu-idx
+                         (imenu--in-alist target imenu-idx)
+                         (my_imenu--in-alist target imenu-idx
                            ;; (if imenu-generic-expression (imenu--make-index-alist) (helm-imenu-candidates))
                            ;; (helm-imenu-candidates); my_imenu--in-alist doesn't support (helm-imenu-candidates)
                            ;; (imenu--make-index-alist)
                            ))))
           (pt (if (markerp marker) (marker-position marker)))
-          ;;@TBD          (point-fun (cdr lst))
-          ;;@TBD          (point-var (car lst))
-          (pmarker (point-marker))
-          (buf-name (buffer-name))
+          (pm-before (point-marker))
           (imenu-index-not-corrupted (< 1 (length imenu-idx)))
+          (point-before (point))
+          point-after
           )
-    ;;(message "%s: %s" this-command imenu--index-alist) ; debug
-    ;;(debug-message "%s: %s" this-command (tidy-paren imenu--index-alist))
-    (debug-message '(message "imenu-create-index-function is %s\n%s: %S"
+    (my_imenu--debug-message '(message "imenu-create-index-function is %s\n%s: %S"
                       imenu-create-index-function
                       this-command (pp imenu--index-alist)))
-    (:override
+    (:override-with-args (target)
+      (message ">>>>%S%S" target pt)
       (cond
       ;;;; ==================== Resolve within a buffer. ====================
       ;;;; ================================================================
 
       ;;;; Case: No search target
-      ((null name)
+      ((null target)
         ;; imenu failes if invalid search target does not exists in imenu--index-alist, so you have to check beforehand if target exists.
         (if imenu-index-not-corrupted
           (my_imenu-debug-funcall (call-interactively 'helm-imenu))
@@ -278,12 +276,12 @@ Is this a bug of 'imenu--make-index-alist or mine?
             (my_imenu-debug-funcall (helm-imenu))) ; When creating GTAGS is aborted.
           )
         )
-      ((and ggtags-mode (ggtags-find-project) name)
+      ((and ggtags-mode (ggtags-find-project) target)
 ;; bug here `ggtags-find-project' use "GTAGSROOT or GTAGSLIBPATH"
         (ignore-errors
           ;; fails sometimes at ggtags.el:with-display-buffer-no-window
 
-          ;; (ggtags-find-tag-dwim name) ;; Use find-tag-marker-ring of `etags' as stack?
+          ;; (ggtags-find-tag-dwim target) ;; Use find-tag-marker-ring of `etags' as stack?
           (my_imenu-debug-funcall (helm-gtags-dwim))
            ;;; MEMO about stack
           ;; (plist-get (helm-gtags--get-context-info) :stack)
@@ -294,8 +292,16 @@ Is this a bug of 'imenu--make-index-alist or mine?
         (or (ignore-errors (helm-imenu) t) (imenu (imenu-choose-buffer-index)))
         )
       ))
+
+    (my_imenu--debug-message '(message "%S" (current-buffer)))
     (require 'my_simple)
-    (my_simple:push-mark pmarker) ; Push mark if successful jump.
+    (setq point-after (point))
+    (unless (eq point-before point-after)
+      (my_simple:push-mark pm-before)
+      (my_simple:push-mark (point-marker))
+      )
+    (my_imenu--debug-message '(message "[my_imenu>my_imenu-jump](before,after)=(%S/%S,%S/%S)"
+                             point-before pm-before point-after (point-marker)))
     pt)); my_imenu-jump
 
 ;; M-o is bound to ggtags-navigation-map:ggtags-navigation-visible-mode

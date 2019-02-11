@@ -54,7 +54,7 @@
 ;;; language mode file like as `sql.el' seems to be loaded when Emacs boots, even if related file is not opened.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;unused (eval-after-load 'c-mode (load-library "my_c"))     ;; Don't know why but c-mode-hook is not working
+(eval-after-load 'c-mode (require 'my_c))
 ;;unused (eval-after-load 'c++-mode (load-library "my_c++")) ;; Don't know why but c++-mode-hook is not working
 
 ;;unused (eval-after-load 'cc-mode (load-library "my_gtk-look"))
@@ -102,7 +102,6 @@
 ;;(load-library "my_mail")
 
 ;;test (load-library "my_anything")
-;tmp (load-library "my_auto-complete")
 (load-library "my_auto-install")
 (load-library "my_buffer-menu")
 (eval-after-load 'company-mode (require 'my_company))
@@ -143,6 +142,7 @@
 (eval-after-load 'vline-mode (require 'my_vline))
 (eval-after-load 'vline-global-mode (require 'my_vline))
 (load-library "my_which-func")
+(load-library "my_which-key")
 (load-library "my_whitespace")
 
 (if (not (eq window-system nil) )

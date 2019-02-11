@@ -3,20 +3,6 @@
 ;;; Code:
 
 ;;;; http://www.info.kochi-tech.ac.jp/y-takata/index.php?%A5%E1%A5%F3%A5%D0%A1%BC%2Fy-takata%2FFlymake
-(when (require 'c-eldoc nil t)
-  (setq-default c-eldoc-cpp-command "/usr/bin/cpp");++bug:indigenous:mac, linux
-  (setq-default c-eldoc-includes (concat
-                                  "-I/usr/include/ "
-                                  (string-trim (shell-command-to-string "pkg-config gtk+-2.0 --cflags -I./ -I../ "))
-                                  (string-trim (shell-command-to-string "pkg-config glib-2.0 --cflags -I./ -I../ "))
-                                  ))
-  ;;  (add-hook 'c-mode-common-hook 'c-turn-on-eldoc-mode) ; not working?
-  (add-hook 'c-mode-common-hook 'c-turn-on-eldoc-mode)
-  )
-
-;;;; C
-;;debug;; (add-hook 'c-mode-common-hook '(lambda () (flymake-mode 1))) ;; also common for java
-;; (add-hook 'find-file-hook 'flymake-find-file-hook)
 
 ;;; compile command
 ;;  M-h v compile-command
@@ -40,9 +26,6 @@
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
 
 (defun my-c-mode-common-hook ()
-  (require 'eldoc)
-  (eldoc-mode 1)
-
   (require 'hideshow)
   (hs-minor-mode 1)
 
@@ -94,6 +77,23 @@
 ;;;;; ffap-file-at-point
 ;;;;;; ffap-string-at-point
 
+
+(require 'mode-local)
+(require 'my_rtags)
+
+(define-mode-local-override my_imenu-jump c-mode (target) "Overridden `my_imenu-jump'"
+  (interactive)
+  (let ((ret (if target (or (rtags-find-symbol-at-point)
+                            (rtags-find-references-at-point))
+               (rtags-imenu))))
+    (message "my_imenu-jump-c-mode => %S" ret)
+    (setq my_rtags--current-buffer (current-buffer))
+    (setq my_rtags--current-point-marker (point-marker))
+    )
+  )
+
+(require 'clang-format)
+(define-key c-mode-map (kbd "C-M-\\") 'clang-format-region)
+
 (provide 'my_c)
-(message "my_c was loaded")
 ;;; my_c.el ends here

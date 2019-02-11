@@ -1,17 +1,22 @@
 {
-  "libs": [
-    "jquery",
-    "browser",
-    "react",
-    "ecma5",
-    "ecma6"
-  ],
-  "dontLoad": [
-    "./bower_components/"
+  "libs": ["jquery", "browser", "react", "ecma5", "ecma6", "ecma7"],
+  "dontLoad": ["./bower_components/"],
+  "loadEagerly": [
+    "node_modules/react-dom/**/*.js",
+    "node_modules/react/**/*.js",
+    "node_modules/whatwg-fetch/fetch.js",
+    "src/**/*.js"
   ],
   "plugins": {
-    "node" : {},
-    "es_modules" : {}
+    "node": {},
+    "es_modules": {},
+    "doc_comment": {
+      "fullDocs": true,
+      "strong": true
+    },
+    "angular": {},
+    "webpack": {},
+    "complete_strings": {}
   },
-   "ecmaVersion": 6
+  "ecmaVersion": 6
 }

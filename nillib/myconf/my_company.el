@@ -25,6 +25,7 @@
 (global-company-mode 1)
 (global-set-key (kbd "C-S-o") 'company-complete)
 (setq company-idle-delay 0.5)
+(setq company-require-match nil)
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
 (define-key company-search-map (kbd "C-n") 'company-select-next)

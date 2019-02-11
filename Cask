@@ -9,10 +9,13 @@
 (depends-on "auto-async-byte-compile")
 (depends-on "auto-complete")
 (depends-on "auto-complete-c-headers")
+(depends-on "clang-format")   ; For c++ development.
 (depends-on "cmake-ide")   ; For c++ development.
+(depends-on "cmake-mode")   ; For c++ development.
 (depends-on "color-moccur") ; required by my_basic_func.el
 (depends-on "company") ; Plan to migrate from auto-complete
 (depends-on "company-c-headers" "20150801.901") ; only-exists on 'melpa
+(depends-on "company-irony") ; c++
 (depends-on "company-rtags") ; c++
 (depends-on "company-tern") ; js
 (depends-on "cpputils-cmake" "5.5")
@@ -39,8 +42,10 @@
 (depends-on "expand-region") ;; raw git repo also exists in share/
 ;;test (depends-on "fakir") ; elnode
 (depends-on "flycheck")
+(depends-on "flycheck-irony") ; c++
 (depends-on "flycheck-package") ; elisp
 (depends-on "flycheck-pos-tip")
+(depends-on "flycheck-rtags") ; c++
 (depends-on "fringe-helper")
 (depends-on "ggtags")
 ;;test (depends-on "git-commit-mode")
@@ -60,6 +65,8 @@
 (depends-on "ht")
 (depends-on "highlight-symbol")
 (depends-on "import-js") ; for js
+(depends-on "irony") ; c++
+(depends-on "irony-eldoc") ; c++
 (depends-on "jedi")
 (depends-on "kv")
 (depends-on "less-css-mode")
@@ -95,8 +102,10 @@
 ;; (depends-on "tern") ; Use raw git repository
 (depends-on "tern-auto-complete")
 (depends-on "twittering-mode")
+(depends-on "use-package")
 (depends-on "web")
 (depends-on "web-mode") ;; raw git repo also exists in share/
+(depends-on "which-key")
 (depends-on "xref-js2") ; js
 (depends-on "yaml-mode")
 (depends-on "yasnippet")

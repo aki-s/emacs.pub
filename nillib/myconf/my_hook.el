@@ -38,17 +38,18 @@
 
 (defun my-c-mode-hook ()
   (require 'my_c)
-  (my_gtags-update-gtagslibpath)
+  (require 'my_irony)
+  (my_irony--setup)
+  (require 'my_rtags)
+  (my_rtags--setup)
+  (message "my-c-mode-hook is called")
   )
 (add-hook 'c-mode-hook 'my-c-mode-hook t)
 
 (defun my-c++-mode-hook ()
   (require 'my_c)
   (require 'my_c++)
-  (my_gtags-update-gtagslibpath)
-  (require 'my_gtags) (ggtags-mode t)
-  (message "my-c++mode-hook called")
-  ;; only c-mode-common-hook is working?
+  (my-c-mode-hook)
  )
 (add-hook 'c++-mode-hook 'my-c++-mode-hook t)
 

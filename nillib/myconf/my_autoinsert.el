@@ -143,6 +143,7 @@
     (completing-read "Keyword, C-h (C-RTET to finish using helm): " v1 nil nil nil nil ""))
     str ", ") & -2 "
 ;; Created: "(format-time-string "%Y-%m-%d")"
+;; Updated: ; # UTC
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -174,7 +175,17 @@
 \(provide '"
        (file-name-base)
        ")
-;;; " (file-name-nondirectory (buffer-file-name)) " ends here\n")
+;;; " (file-name-nondirectory (buffer-file-name)) " ends here\n"
+"
+;; Local variables:
+;; eval: (add-hook 'write-file-functions 'time-stamp)
+;; time-stamp-start: \";; Updated:\"
+;; time-stamp-format: \" %:y-%02m-%02dT%02H:%02M:%02SZ\"
+;; time-stamp-line-limit: 13
+;; time-stamp-time-zone: \"UTC\"
+;; time-stamp-end: \"; # UTC\"
+;; End:
+")
 ) ;; my_autoinsert-elisp
 
 (setf (cdr (assoc '("\\.el\\'" . "Emacs Lisp header") auto-insert-alist)) my_autoinsert-elisp)

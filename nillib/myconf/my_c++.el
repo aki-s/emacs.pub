@@ -3,6 +3,16 @@
 ;;; Code:
 
 (eval-when-compile (require 'my_macro)); for macro load-library-nodeps
+(require 'my_c)
+(require 'mode-local)
+
+(define-mode-local-override my_imenu-jump c++-mode (target) "Overridden `my_imenu-jump'"
+  (interactive)
+  (my_imenu-jump-c-mode target)
+  )
+
+(require 'clang-format)
+(define-key c++-mode-map (kbd "C-M-\\") 'clang-format-region)
 
 ;; (load-library-nodeps "my_doc_cpp" 'my_doc_cpp)
 (load-library-nodeps "my_doc_cpp")
@@ -12,13 +22,13 @@
 ;; semantic
 ;;-----------------------------------------------------------
 ;;;; semantic/bovine/c.el
-;; @test 
+;; @test
 ;; search pass for include dir
 (setq semantic-c-dependency-system-include-path
       '(
         "/usr/include/c++/4.47"
         ))
-(setq semantic-default-c-path 
+(setq semantic-default-c-path
         '(
           "/usr/include"
           ))

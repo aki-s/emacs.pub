@@ -15,8 +15,6 @@
       (set-face-attribute 'compilation-info nil :foreground "black" :background "gray") ; For color of `ggtags-mode-line-project-name'
 
       (add-hook 'emacs-lisp-mode-hook 'ggtags-mode)
-      (add-hook 'c-mode-common-hook 'ggtags-mode)
-;;      (add-hook 'c++-mode-hook 'ggtags-mode) ; didn't work well?
       (add-hook 'java-mode-hook 'ggtags-mode)
       (add-hook 'scala-mode-hook 'ggtags-mode)
       (add-hook 'ruby-mode-hook 'ggtags-mode)
