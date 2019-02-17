@@ -47,22 +47,29 @@
   (interactive)
   (require 'files)
   (require 'json)
-  ;; Prevent ImportJs misunderstand local-filename for module-name.
   (let ((target (my_import-js:import-js-word-at-point))
-         pbase-dir
-         pfile)
-    (when (equal target
-            (file-name-sans-extension (file-name-nondirectory (buffer-file-name))))
-      (setq pbase-dir (concat (import-js-locate-project-root default-directory) "/node_modules/" target))
-      (setq pfile (concat pbase-dir "/package.json"))
-      (find-file-read-only (concat pbase-dir "/" (cdr (assoc-string 'main (json-read-file pfile)))))
-    (return-from my_import-js:import-js-goto)))
-  ;; Normal goto process.
-  (import-js-check-daemon)
-  (setq import-js-output "")
-  (setq import-js-handler 'my_import-js:import-js-handle-goto)
-  (import-js-send-input `(("command" . "goto")
-                          ("commandArg" . ,(my_import-js:import-js-word-at-point)))))
+        pbase-dir
+        pfile)
+    (cond ((equal target ; Prevent ImportJs misunderstand local-filename for module-name.
+                  (file-name-sans-extension (file-name-nondirectory (buffer-file-name))))
+           (setq pbase-dir (concat (import-js-locate-project-root default-directory) "/node_modules/" target))
+           (setq pfile (concat pbase-dir "/package.json"))
+           (find-file-read-only
+            (concat pbase-dir "/" (cdr (assoc-string 'main (json-read-file pfile)))))
+           (return-from my_import-js:import-js-goto))
+
+          ((string-match "\\./" target) ; Relative path.
+           (find-file-at-point)
+           (return-from my_import-js:import-js-goto)))
+    (message "[my_import-js>%S] Try to jump by `%s'" this-command target)
+
+    ;; Normal goto process.
+    (import-js-check-daemon)
+    (setq import-js-output "")
+    (setq import-js-handler 'my_import-js:import-js-handle-goto)
+    (import-js-send-input `(("command" . "goto")
+                            ("commandArg" . ,target)))
+    ))
 
 (defun my_import-js:import-js-word-at-point ()
   "Get the module of interest.
@@ -82,7 +89,7 @@ Extract `[@scope/]module-name`'"
 If no file is found, do nothing."
   (let* ((goto-list (json-read-from-string import-data))
           (file-name (cdr (assoc 'goto goto-list))))
-    (if (file-exists-p file-name)
+    (if (and file-name (file-exists-p file-name))
       (find-file file-name)
       (message "File named `%s` is not found." file-name))))
 

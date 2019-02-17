@@ -34,6 +34,30 @@
         )
 ))
 
+(defvar my_simple--debug nil)
+(defun my_simple--debug-log(format &rest args)
+  "Write log if `my_simple--debug' is t. FORMAT and ARGS is the same with `message'."
+  (when my_simple--debug (apply #'message (concat "[my_simple]" format) args)))
+
+(defvar my_simple--current-buffer nil)
+(defvar my_simple--current-point-marker nil)
+
+(defun my_simple--push-mark-for-async ()
+  "Save (point-marker) if buffer has surely changed but selected point has not changed.
+This case happened in `rtags-find-symbol-at-point'.
+Jumping to different buffer by rtags caused no change of (point).
+This would be happened by calling back async process."
+  (unless (eq my_simple--current-buffer (current-buffer))
+    (when (markerp my_simple--current-point-marker)
+      (my_simple:push-mark my_simple--current-point-marker)
+      )
+    (my_simple:push-mark (point-marker))
+    )
+  (my_simple--debug-log
+   "my_simple-jump-c-mode-hook (point-marker,my_simple--current-point-marker)=(%S,%S)"
+   (point-marker) my_simple--current-point-marker)
+  )
+
 (defvar my_simple:jump-marks-max 256 "Maximum number of marks to be remembered.")
 (defvar my_simple:jump-marks nil "Stack of markers for all successful jumps.")
 (defun my_simple:push-mark (&optional mark)

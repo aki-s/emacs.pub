@@ -38,6 +38,8 @@
 
 (defun my-c-mode-hook ()
   (require 'my_c)
+  (require 'cmake-ide)
+  (cmake-ide-setup)
   (require 'my_irony)
   (my_irony--setup)
   (require 'my_rtags)

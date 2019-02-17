@@ -1,7 +1,7 @@
 (lp0
 (S'# ##'
 p1
-S'./www.cppreference.com/wiki/preprocessor/sharp'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/preprocessor/sharp'
 p2
 S'preprocessor'
 p3
@@ -10,7 +10,7 @@ p4
 tp5
 a(S'#define'
 p6
-S'./www.cppreference.com/wiki/preprocessor/define'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/preprocessor/define'
 p7
 S'preprocessor'
 p8
@@ -19,7 +19,7 @@ p9
 tp10
 a(S'#error'
 p11
-S'./www.cppreference.com/wiki/preprocessor/error'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/preprocessor/error'
 p12
 S'preprocessor'
 p13
@@ -28,7 +28,7 @@ p14
 tp15
 a(S'#if'
 p16
-S'./www.cppreference.com/wiki/preprocessor/preprocessor_if'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/preprocessor/preprocessor_if'
 p17
 S'preprocessor'
 p18
@@ -37,7 +37,7 @@ p19
 tp20
 a(S'#ifdef'
 p21
-S'./www.cppreference.com/wiki/preprocessor/preprocessor_if'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/preprocessor/preprocessor_if'
 p22
 S'preprocessor'
 p23
@@ -46,7 +46,7 @@ p24
 tp25
 a(S'#ifndef'
 p26
-S'./www.cppreference.com/wiki/preprocessor/preprocessor_if'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/preprocessor/preprocessor_if'
 p27
 S'preprocessor'
 p28
@@ -55,7 +55,7 @@ p29
 tp30
 a(S'#else'
 p31
-S'./www.cppreference.com/wiki/preprocessor/preprocessor_if'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/preprocessor/preprocessor_if'
 p32
 S'preprocessor'
 p33
@@ -64,7 +64,7 @@ p34
 tp35
 a(S'#elif'
 p36
-S'./www.cppreference.com/wiki/preprocessor/preprocessor_if'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/preprocessor/preprocessor_if'
 p37
 S'preprocessor'
 p38
@@ -73,7 +73,7 @@ p39
 tp40
 a(S'#endif'
 p41
-S'./www.cppreference.com/wiki/preprocessor/preprocessor_if'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/preprocessor/preprocessor_if'
 p42
 S'preprocessor'
 p43
@@ -82,7 +82,7 @@ p44
 tp45
 a(S'#include'
 p46
-S'./www.cppreference.com/wiki/preprocessor/include'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/preprocessor/include'
 p47
 S'preprocessor'
 p48
@@ -91,7 +91,7 @@ p49
 tp50
 a(S'#line'
 p51
-S'./www.cppreference.com/wiki/preprocessor/line'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/preprocessor/line'
 p52
 S'preprocessor'
 p53
@@ -100,7 +100,7 @@ p54
 tp55
 a(S'#pragma'
 p56
-S'./www.cppreference.com/wiki/preprocessor/pragma'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/preprocessor/pragma'
 p57
 S'preprocessor'
 p58
@@ -109,7 +109,7 @@ p59
 tp60
 a(S'#undef'
 p61
-S'./www.cppreference.com/wiki/preprocessor/undef'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/preprocessor/undef'
 p62
 S'preprocessor'
 p63
@@ -118,7 +118,7 @@ p64
 tp65
 a(S'#warning'
 p66
-S'./www.cppreference.com/wiki/preprocessor/warning'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/preprocessor/warning'
 p67
 S'preprocessor'
 p68
@@ -127,7 +127,7 @@ p69
 tp70
 a(S'predefined preprocessor variables'
 p71
-S'./www.cppreference.com/wiki/preprocessor/preprocessor_vars'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/preprocessor/preprocessor_vars'
 p72
 S'preprocessor'
 p73
@@ -136,7 +136,7 @@ p74
 tp75
 a(S'break'
 p76
-S'./www.cppreference.com/wiki/keywords/break'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/break'
 p77
 S'keywords'
 p78
@@ -145,7 +145,7 @@ p79
 tp80
 a(S'case'
 p81
-S'./www.cppreference.com/wiki/keywords/case'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/case'
 p82
 S'keywords'
 p83
@@ -154,7 +154,7 @@ p84
 tp85
 a(S'else'
 p86
-S'./www.cppreference.com/wiki/keywords/else'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/else'
 p87
 S'keywords'
 p88
@@ -163,7 +163,7 @@ p89
 tp90
 a(S'goto'
 p91
-S'./www.cppreference.com/wiki/keywords/goto'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/goto'
 p92
 S'keywords'
 p93
@@ -172,7 +172,7 @@ p94
 tp95
 a(S'if'
 p96
-S'./www.cppreference.com/wiki/keywords/if'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/if'
 p97
 S'keywords'
 p98
@@ -181,7 +181,7 @@ p99
 tp100
 a(S'for'
 p101
-S'./www.cppreference.com/wiki/keywords/for'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/for'
 p102
 S'keywords'
 p103
@@ -190,7 +190,7 @@ p104
 tp105
 a(S'do'
 p106
-S'./www.cppreference.com/wiki/keywords/do'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/do'
 p107
 S'keywords'
 p108
@@ -199,7 +199,7 @@ p109
 tp110
 a(S'while'
 p111
-S'./www.cppreference.com/wiki/keywords/while'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/while'
 p112
 S'keywords'
 p113
@@ -208,7 +208,7 @@ p114
 tp115
 a(S'continue'
 p116
-S'./www.cppreference.com/wiki/keywords/continue'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/continue'
 p117
 S'keywords'
 p118
@@ -217,7 +217,7 @@ p119
 tp120
 a(S'default'
 p121
-S'./www.cppreference.com/wiki/keywords/default'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/default'
 p122
 S'keywords'
 p123
@@ -226,7 +226,7 @@ p124
 tp125
 a(S'switch'
 p126
-S'./www.cppreference.com/wiki/keywords/switch'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/switch'
 p127
 S'keywords'
 p128
@@ -235,7 +235,7 @@ p129
 tp130
 a(S'return'
 p131
-S'./www.cppreference.com/wiki/keywords/return'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/return'
 p132
 S'keywords'
 p133
@@ -244,7 +244,7 @@ p134
 tp135
 a(S'const_cast'
 p136
-S'./www.cppreference.com/wiki/keywords/const_cast'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/const_cast'
 p137
 S'keywords'
 p138
@@ -253,7 +253,7 @@ p139
 tp140
 a(S'dynamic_cast'
 p141
-S'./www.cppreference.com/wiki/keywords/dynamic_cast'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/dynamic_cast'
 p142
 S'keywords'
 p143
@@ -262,7 +262,7 @@ p144
 tp145
 a(S'reinterpret_cast'
 p146
-S'./www.cppreference.com/wiki/keywords/reinterpret_cast'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/reinterpret_cast'
 p147
 S'keywords'
 p148
@@ -271,7 +271,7 @@ p149
 tp150
 a(S'sizeof'
 p151
-S'./www.cppreference.com/wiki/keywords/sizeof'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/sizeof'
 p152
 S'keywords'
 p153
@@ -280,7 +280,7 @@ p154
 tp155
 a(S'static_cast'
 p156
-S'./www.cppreference.com/wiki/keywords/static_cast'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/static_cast'
 p157
 S'keywords'
 p158
@@ -289,7 +289,7 @@ p159
 tp160
 a(S'this'
 p161
-S'./www.cppreference.com/wiki/keywords/this'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/this'
 p162
 S'keywords'
 p163
@@ -298,7 +298,7 @@ p164
 tp165
 a(S'and'
 p166
-S'./www.cppreference.com/wiki/keywords/../alternative_operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/../alternative_operators'
 p167
 S'keywords'
 p168
@@ -307,7 +307,7 @@ p169
 tp170
 a(S'and_eq'
 p171
-S'./www.cppreference.com/wiki/keywords/../alternative_operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/../alternative_operators'
 p172
 S'keywords'
 p173
@@ -316,7 +316,7 @@ p174
 tp175
 a(S'bitand'
 p176
-S'./www.cppreference.com/wiki/keywords/../alternative_operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/../alternative_operators'
 p177
 S'keywords'
 p178
@@ -325,7 +325,7 @@ p179
 tp180
 a(S'bitor'
 p181
-S'./www.cppreference.com/wiki/keywords/../alternative_operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/../alternative_operators'
 p182
 S'keywords'
 p183
@@ -334,7 +334,7 @@ p184
 tp185
 a(S'compl'
 p186
-S'./www.cppreference.com/wiki/keywords/../alternative_operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/../alternative_operators'
 p187
 S'keywords'
 p188
@@ -343,7 +343,7 @@ p189
 tp190
 a(S'not'
 p191
-S'./www.cppreference.com/wiki/keywords/../alternative_operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/../alternative_operators'
 p192
 S'keywords'
 p193
@@ -352,7 +352,7 @@ p194
 tp195
 a(S'not_eq'
 p196
-S'./www.cppreference.com/wiki/keywords/../alternative_operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/../alternative_operators'
 p197
 S'keywords'
 p198
@@ -361,7 +361,7 @@ p199
 tp200
 a(S'or'
 p201
-S'./www.cppreference.com/wiki/keywords/../alternative_operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/../alternative_operators'
 p202
 S'keywords'
 p203
@@ -370,7 +370,7 @@ p204
 tp205
 a(S'or_eq'
 p206
-S'./www.cppreference.com/wiki/keywords/../alternative_operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/../alternative_operators'
 p207
 S'keywords'
 p208
@@ -379,7 +379,7 @@ p209
 tp210
 a(S'xor'
 p211
-S'./www.cppreference.com/wiki/keywords/../alternative_operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/../alternative_operators'
 p212
 S'keywords'
 p213
@@ -388,7 +388,7 @@ p214
 tp215
 a(S'xor_eq'
 p216
-S'./www.cppreference.com/wiki/keywords/../alternative_operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/../alternative_operators'
 p217
 S'keywords'
 p218
@@ -397,7 +397,7 @@ p219
 tp220
 a(S'new'
 p221
-S'./www.cppreference.com/wiki/keywords/new'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/new'
 p222
 S'keywords'
 p223
@@ -406,7 +406,7 @@ p224
 tp225
 a(S'delete'
 p226
-S'./www.cppreference.com/wiki/keywords/delete'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/delete'
 p227
 S'keywords'
 p228
@@ -415,7 +415,7 @@ p229
 tp230
 a(S'operator'
 p231
-S'./www.cppreference.com/wiki/keywords/operator'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/operator'
 p232
 S'keywords'
 p233
@@ -424,7 +424,7 @@ p234
 tp235
 a(S'int'
 p236
-S'./www.cppreference.com/wiki/keywords/int'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/int'
 p237
 S'keywords'
 p238
@@ -433,7 +433,7 @@ p239
 tp240
 a(S'long'
 p241
-S'./www.cppreference.com/wiki/keywords/long'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/long'
 p242
 S'keywords'
 p243
@@ -442,7 +442,7 @@ p244
 tp245
 a(S'typedef'
 p246
-S'./www.cppreference.com/wiki/keywords/typedef'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/typedef'
 p247
 S'keywords'
 p248
@@ -451,7 +451,7 @@ p249
 tp250
 a(S'bool'
 p251
-S'./www.cppreference.com/wiki/keywords/bool'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/bool'
 p252
 S'keywords'
 p253
@@ -460,7 +460,7 @@ p254
 tp255
 a(S'char'
 p256
-S'./www.cppreference.com/wiki/keywords/char'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/char'
 p257
 S'keywords'
 p258
@@ -469,7 +469,7 @@ p259
 tp260
 a(S'class'
 p261
-S'./www.cppreference.com/wiki/keywords/class'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/class'
 p262
 S'keywords'
 p263
@@ -478,7 +478,7 @@ p264
 tp265
 a(S'float'
 p266
-S'./www.cppreference.com/wiki/keywords/float'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/float'
 p267
 S'keywords'
 p268
@@ -487,7 +487,7 @@ p269
 tp270
 a(S'double'
 p271
-S'./www.cppreference.com/wiki/keywords/double'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/double'
 p272
 S'keywords'
 p273
@@ -496,7 +496,7 @@ p274
 tp275
 a(S'enum'
 p276
-S'./www.cppreference.com/wiki/keywords/enum'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/enum'
 p277
 S'keywords'
 p278
@@ -505,7 +505,7 @@ p279
 tp280
 a(S'struct'
 p281
-S'./www.cppreference.com/wiki/keywords/struct'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/struct'
 p282
 S'keywords'
 p283
@@ -514,7 +514,7 @@ p284
 tp285
 a(S'void'
 p286
-S'./www.cppreference.com/wiki/keywords/void'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/void'
 p287
 S'keywords'
 p288
@@ -523,7 +523,7 @@ p289
 tp290
 a(S'wchar_t'
 p291
-S'./www.cppreference.com/wiki/keywords/wchar_t'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/wchar_t'
 p292
 S'keywords'
 p293
@@ -532,7 +532,7 @@ p294
 tp295
 a(S'short'
 p296
-S'./www.cppreference.com/wiki/keywords/short'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/short'
 p297
 S'keywords'
 p298
@@ -541,7 +541,7 @@ p299
 tp300
 a(S'union'
 p301
-S'./www.cppreference.com/wiki/keywords/union'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/union'
 p302
 S'keywords'
 p303
@@ -550,7 +550,7 @@ p304
 tp305
 a(S'template'
 p306
-S'./www.cppreference.com/wiki/keywords/template'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/template'
 p307
 S'keywords'
 p308
@@ -559,7 +559,7 @@ p309
 tp310
 a(S'auto'
 p311
-S'./www.cppreference.com/wiki/keywords/auto'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/auto'
 p312
 S'keywords'
 p313
@@ -568,7 +568,7 @@ p314
 tp315
 a(S'inline'
 p316
-S'./www.cppreference.com/wiki/keywords/inline'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/inline'
 p317
 S'keywords'
 p318
@@ -577,7 +577,7 @@ p319
 tp320
 a(S'export'
 p321
-S'./www.cppreference.com/wiki/keywords/export'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/export'
 p322
 S'keywords'
 p323
@@ -586,7 +586,7 @@ p324
 tp325
 a(S'extern'
 p326
-S'./www.cppreference.com/wiki/keywords/extern'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/extern'
 p327
 S'keywords'
 p328
@@ -595,7 +595,7 @@ p329
 tp330
 a(S'private'
 p331
-S'./www.cppreference.com/wiki/keywords/private'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/private'
 p332
 S'keywords'
 p333
@@ -604,7 +604,7 @@ p334
 tp335
 a(S'protected'
 p336
-S'./www.cppreference.com/wiki/keywords/protected'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/protected'
 p337
 S'keywords'
 p338
@@ -613,7 +613,7 @@ p339
 tp340
 a(S'public'
 p341
-S'./www.cppreference.com/wiki/keywords/public'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/public'
 p342
 S'keywords'
 p343
@@ -622,7 +622,7 @@ p344
 tp345
 a(S'signed'
 p346
-S'./www.cppreference.com/wiki/keywords/signed'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/signed'
 p347
 S'keywords'
 p348
@@ -631,7 +631,7 @@ p349
 tp350
 a(S'unsigned'
 p351
-S'./www.cppreference.com/wiki/keywords/unsigned'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/unsigned'
 p352
 S'keywords'
 p353
@@ -640,7 +640,7 @@ p354
 tp355
 a(S'register'
 p356
-S'./www.cppreference.com/wiki/keywords/register'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/register'
 p357
 S'keywords'
 p358
@@ -649,7 +649,7 @@ p359
 tp360
 a(S'virtual'
 p361
-S'./www.cppreference.com/wiki/keywords/virtual'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/virtual'
 p362
 S'keywords'
 p363
@@ -658,7 +658,7 @@ p364
 tp365
 a(S'static'
 p366
-S'./www.cppreference.com/wiki/keywords/static'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/static'
 p367
 S'keywords'
 p368
@@ -667,7 +667,7 @@ p369
 tp370
 a(S'volatile'
 p371
-S'./www.cppreference.com/wiki/keywords/volatile'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/volatile'
 p372
 S'keywords'
 p373
@@ -676,7 +676,7 @@ p374
 tp375
 a(S'typename'
 p376
-S'./www.cppreference.com/wiki/keywords/typename'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/typename'
 p377
 S'keywords'
 p378
@@ -685,7 +685,7 @@ p379
 tp380
 a(S'friend'
 p381
-S'./www.cppreference.com/wiki/keywords/friend'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/friend'
 p382
 S'keywords'
 p383
@@ -694,7 +694,7 @@ p384
 tp385
 a(S'explicit'
 p386
-S'./www.cppreference.com/wiki/keywords/explicit'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/explicit'
 p387
 S'keywords'
 p388
@@ -703,7 +703,7 @@ p389
 tp390
 a(S'mutable'
 p391
-S'./www.cppreference.com/wiki/keywords/mutable'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/mutable'
 p392
 S'keywords'
 p393
@@ -712,7 +712,7 @@ p394
 tp395
 a(S'const'
 p396
-S'./www.cppreference.com/wiki/keywords/const'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/const'
 p397
 S'keywords'
 p398
@@ -721,7 +721,7 @@ p399
 tp400
 a(S'try'
 p401
-S'./www.cppreference.com/wiki/keywords/try'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/try'
 p402
 S'keywords'
 p403
@@ -730,7 +730,7 @@ p404
 tp405
 a(S'catch'
 p406
-S'./www.cppreference.com/wiki/keywords/catch'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/catch'
 p407
 S'keywords'
 p408
@@ -739,7 +739,7 @@ p409
 tp410
 a(S'throw'
 p411
-S'./www.cppreference.com/wiki/keywords/throw'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/throw'
 p412
 S'keywords'
 p413
@@ -748,7 +748,7 @@ p414
 tp415
 a(S'asm'
 p416
-S'./www.cppreference.com/wiki/keywords/asm'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/asm'
 p417
 S'keywords'
 p418
@@ -757,7 +757,7 @@ p419
 tp420
 a(S'false'
 p421
-S'./www.cppreference.com/wiki/keywords/false'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/false'
 p422
 S'keywords'
 p423
@@ -766,7 +766,7 @@ p424
 tp425
 a(S'true'
 p426
-S'./www.cppreference.com/wiki/keywords/true'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/true'
 p427
 S'keywords'
 p428
@@ -775,7 +775,7 @@ p429
 tp430
 a(S'namespace'
 p431
-S'./www.cppreference.com/wiki/keywords/namespace'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/namespace'
 p432
 S'keywords'
 p433
@@ -784,7 +784,7 @@ p434
 tp435
 a(S'using'
 p436
-S'./www.cppreference.com/wiki/keywords/using'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/using'
 p437
 S'keywords'
 p438
@@ -793,7 +793,7 @@ p439
 tp440
 a(S'typeid'
 p441
-S'./www.cppreference.com/wiki/keywords/typeid'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/keywords/typeid'
 p442
 S'keywords'
 p443
@@ -802,7 +802,7 @@ p444
 tp445
 a(S'fopen'
 p446
-S'./www.cppreference.com/wiki/io/c/fopen'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fopen'
 p447
 S'io/c'
 p448
@@ -811,7 +811,7 @@ p449
 tp450
 a(S'freopen'
 p451
-S'./www.cppreference.com/wiki/io/c/freopen'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/freopen'
 p452
 S'io/c'
 p453
@@ -820,7 +820,7 @@ p454
 tp455
 a(S'fflush'
 p456
-S'./www.cppreference.com/wiki/io/c/fflush'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fflush'
 p457
 S'io/c'
 p458
@@ -829,7 +829,7 @@ p459
 tp460
 a(S'fclose'
 p461
-S'./www.cppreference.com/wiki/io/c/fclose'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fclose'
 p462
 S'io/c'
 p463
@@ -838,7 +838,7 @@ p464
 tp465
 a(S'setbuf'
 p466
-S'./www.cppreference.com/wiki/io/c/setbuf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/setbuf'
 p467
 S'io/c'
 p468
@@ -847,7 +847,7 @@ p469
 tp470
 a(S'setvbuf'
 p471
-S'./www.cppreference.com/wiki/io/c/setvbuf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/setvbuf'
 p472
 S'io/c'
 p473
@@ -856,7 +856,7 @@ p474
 tp475
 a(S'fread'
 p476
-S'./www.cppreference.com/wiki/io/c/fread'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fread'
 p477
 S'io/c'
 p478
@@ -865,7 +865,7 @@ p479
 tp480
 a(S'fwrite'
 p481
-S'./www.cppreference.com/wiki/io/c/fwrite'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fwrite'
 p482
 S'io/c'
 p483
@@ -874,7 +874,7 @@ p484
 tp485
 a(S'fgetc'
 p486
-S'./www.cppreference.com/wiki/io/c/fgetc'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fgetc'
 p487
 S'io/c'
 p488
@@ -883,7 +883,7 @@ p489
 tp490
 a(S'getc'
 p491
-S'./www.cppreference.com/wiki/io/c/fgetc'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fgetc'
 p492
 S'io/c'
 p493
@@ -892,7 +892,7 @@ p494
 tp495
 a(S'fgets'
 p496
-S'./www.cppreference.com/wiki/io/c/fgets'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fgets'
 p497
 S'io/c'
 p498
@@ -901,7 +901,7 @@ p499
 tp500
 a(S'fputc'
 p501
-S'./www.cppreference.com/wiki/io/c/fputc'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fputc'
 p502
 S'io/c'
 p503
@@ -910,7 +910,7 @@ p504
 tp505
 a(S'putc'
 p506
-S'./www.cppreference.com/wiki/io/c/fputc'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fputc'
 p507
 S'io/c'
 p508
@@ -919,7 +919,7 @@ p509
 tp510
 a(S'fputs'
 p511
-S'./www.cppreference.com/wiki/io/c/fputs'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fputs'
 p512
 S'io/c'
 p513
@@ -928,7 +928,7 @@ p514
 tp515
 a(S'getchar'
 p516
-S'./www.cppreference.com/wiki/io/c/getchar'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/getchar'
 p517
 S'io/c'
 p518
@@ -937,7 +937,7 @@ p519
 tp520
 a(S'gets'
 p521
-S'./www.cppreference.com/wiki/io/c/gets'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/gets'
 p522
 S'io/c'
 p523
@@ -946,7 +946,7 @@ p524
 tp525
 a(S'putchar'
 p526
-S'./www.cppreference.com/wiki/io/c/putchar'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/putchar'
 p527
 S'io/c'
 p528
@@ -955,7 +955,7 @@ p529
 tp530
 a(S'puts'
 p531
-S'./www.cppreference.com/wiki/io/c/puts'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/puts'
 p532
 S'io/c'
 p533
@@ -964,7 +964,7 @@ p534
 tp535
 a(S'ungetc'
 p536
-S'./www.cppreference.com/wiki/io/c/ungetc'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/ungetc'
 p537
 S'io/c'
 p538
@@ -973,7 +973,7 @@ p539
 tp540
 a(S'fgetwc'
 p541
-S'./www.cppreference.com/wiki/io/c/fgetwc'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fgetwc'
 p542
 S'io/c'
 p543
@@ -982,7 +982,7 @@ p544
 tp545
 a(S'fgetws'
 p546
-S'./www.cppreference.com/wiki/io/c/fgetws'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fgetws'
 p547
 S'io/c'
 p548
@@ -991,7 +991,7 @@ p549
 tp550
 a(S'fputwc'
 p551
-S'./www.cppreference.com/wiki/io/c/fputwc'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fputwc'
 p552
 S'io/c'
 p553
@@ -1000,7 +1000,7 @@ p554
 tp555
 a(S'fputws'
 p556
-S'./www.cppreference.com/wiki/io/c/fputws'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fputws'
 p557
 S'io/c'
 p558
@@ -1009,7 +1009,7 @@ p559
 tp560
 a(S'getwchar'
 p561
-S'./www.cppreference.com/wiki/io/c/getwchar'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/getwchar'
 p562
 S'io/c'
 p563
@@ -1018,7 +1018,7 @@ p564
 tp565
 a(S'putwchar'
 p566
-S'./www.cppreference.com/wiki/io/c/putwchar'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/putwchar'
 p567
 S'io/c'
 p568
@@ -1027,7 +1027,7 @@ p569
 tp570
 a(S'ungetwc'
 p571
-S'./www.cppreference.com/wiki/io/c/ungetwc'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/ungetwc'
 p572
 S'io/c'
 p573
@@ -1036,7 +1036,7 @@ p574
 tp575
 a(S'scanf'
 p576
-S'./www.cppreference.com/wiki/io/c/scanf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/scanf'
 p577
 S'io/c'
 p578
@@ -1045,7 +1045,7 @@ p579
 tp580
 a(S'fscanf'
 p581
-S'./www.cppreference.com/wiki/io/c/fscanf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fscanf'
 p582
 S'io/c'
 p583
@@ -1054,7 +1054,7 @@ p584
 tp585
 a(S'sscanf'
 p586
-S'./www.cppreference.com/wiki/io/c/sscanf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/sscanf'
 p587
 S'io/c'
 p588
@@ -1063,7 +1063,7 @@ p589
 tp590
 a(S'vscanf'
 p591
-S'./www.cppreference.com/wiki/io/c/vscanf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/vscanf'
 p592
 S'io/c'
 p593
@@ -1072,7 +1072,7 @@ p594
 tp595
 a(S'vfscanf'
 p596
-S'./www.cppreference.com/wiki/io/c/vfscanf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/vfscanf'
 p597
 S'io/c'
 p598
@@ -1081,7 +1081,7 @@ p599
 tp600
 a(S'vsscanf'
 p601
-S'./www.cppreference.com/wiki/io/c/vsscanf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/vsscanf'
 p602
 S'io/c'
 p603
@@ -1090,7 +1090,7 @@ p604
 tp605
 a(S'printf'
 p606
-S'./www.cppreference.com/wiki/io/c/printf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/printf'
 p607
 S'io/c'
 p608
@@ -1099,7 +1099,7 @@ p609
 tp610
 a(S'fprintf'
 p611
-S'./www.cppreference.com/wiki/io/c/fprintf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fprintf'
 p612
 S'io/c'
 p613
@@ -1108,7 +1108,7 @@ p614
 tp615
 a(S'sprintf'
 p616
-S'./www.cppreference.com/wiki/io/c/sprintf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/sprintf'
 p617
 S'io/c'
 p618
@@ -1117,7 +1117,7 @@ p619
 tp620
 a(S'snprintf'
 p621
-S'./www.cppreference.com/wiki/io/c/snprintf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/snprintf'
 p622
 S'io/c'
 p623
@@ -1126,7 +1126,7 @@ p624
 tp625
 a(S'vprintf'
 p626
-S'./www.cppreference.com/wiki/io/c/vprintf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/vprintf'
 p627
 S'io/c'
 p628
@@ -1135,7 +1135,7 @@ p629
 tp630
 a(S'vfprintf'
 p631
-S'./www.cppreference.com/wiki/io/c/vfprintf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/vfprintf'
 p632
 S'io/c'
 p633
@@ -1144,7 +1144,7 @@ p634
 tp635
 a(S'vsprintf'
 p636
-S'./www.cppreference.com/wiki/io/c/vsprintf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/vsprintf'
 p637
 S'io/c'
 p638
@@ -1153,7 +1153,7 @@ p639
 tp640
 a(S'vsnprintf'
 p641
-S'./www.cppreference.com/wiki/io/c/vsnprintf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/vsnprintf'
 p642
 S'io/c'
 p643
@@ -1162,7 +1162,7 @@ p644
 tp645
 a(S'wscanf'
 p646
-S'./www.cppreference.com/wiki/io/c/wscanf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/wscanf'
 p647
 S'io/c'
 p648
@@ -1171,7 +1171,7 @@ p649
 tp650
 a(S'fwscanf'
 p651
-S'./www.cppreference.com/wiki/io/c/fwscanf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fwscanf'
 p652
 S'io/c'
 p653
@@ -1180,7 +1180,7 @@ p654
 tp655
 a(S'swscanf'
 p656
-S'./www.cppreference.com/wiki/io/c/swscanf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/swscanf'
 p657
 S'io/c'
 p658
@@ -1189,7 +1189,7 @@ p659
 tp660
 a(S'vwscanf'
 p661
-S'./www.cppreference.com/wiki/io/c/vwscanf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/vwscanf'
 p662
 S'io/c'
 p663
@@ -1198,7 +1198,7 @@ p664
 tp665
 a(S'vfwscanf'
 p666
-S'./www.cppreference.com/wiki/io/c/vfwscanf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/vfwscanf'
 p667
 S'io/c'
 p668
@@ -1207,7 +1207,7 @@ p669
 tp670
 a(S'vswscanf'
 p671
-S'./www.cppreference.com/wiki/io/c/vswscanf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/vswscanf'
 p672
 S'io/c'
 p673
@@ -1216,7 +1216,7 @@ p674
 tp675
 a(S'wprintf'
 p676
-S'./www.cppreference.com/wiki/io/c/wprintf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/wprintf'
 p677
 S'io/c'
 p678
@@ -1225,7 +1225,7 @@ p679
 tp680
 a(S'fwprintf'
 p681
-S'./www.cppreference.com/wiki/io/c/fwprintf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fwprintf'
 p682
 S'io/c'
 p683
@@ -1234,7 +1234,7 @@ p684
 tp685
 a(S'swprintf'
 p686
-S'./www.cppreference.com/wiki/io/c/swprintf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/swprintf'
 p687
 S'io/c'
 p688
@@ -1243,7 +1243,7 @@ p689
 tp690
 a(S'vwprintf'
 p691
-S'./www.cppreference.com/wiki/io/c/vwprintf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/vwprintf'
 p692
 S'io/c'
 p693
@@ -1252,7 +1252,7 @@ p694
 tp695
 a(S'vfwprintf'
 p696
-S'./www.cppreference.com/wiki/io/c/vfwprintf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/vfwprintf'
 p697
 S'io/c'
 p698
@@ -1261,7 +1261,7 @@ p699
 tp700
 a(S'vswprintf'
 p701
-S'./www.cppreference.com/wiki/io/c/vswprintf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/vswprintf'
 p702
 S'io/c'
 p703
@@ -1270,7 +1270,7 @@ p704
 tp705
 a(S'fgetpos'
 p706
-S'./www.cppreference.com/wiki/io/c/fgetpos'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fgetpos'
 p707
 S'io/c'
 p708
@@ -1279,7 +1279,7 @@ p709
 tp710
 a(S'fseek'
 p711
-S'./www.cppreference.com/wiki/io/c/fseek'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fseek'
 p712
 S'io/c'
 p713
@@ -1288,7 +1288,7 @@ p714
 tp715
 a(S'fsetpos'
 p716
-S'./www.cppreference.com/wiki/io/c/fsetpos'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/fsetpos'
 p717
 S'io/c'
 p718
@@ -1297,7 +1297,7 @@ p719
 tp720
 a(S'ftell'
 p721
-S'./www.cppreference.com/wiki/io/c/ftell'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/ftell'
 p722
 S'io/c'
 p723
@@ -1306,7 +1306,7 @@ p724
 tp725
 a(S'rewind'
 p726
-S'./www.cppreference.com/wiki/io/c/rewind'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/rewind'
 p727
 S'io/c'
 p728
@@ -1315,7 +1315,7 @@ p729
 tp730
 a(S'clearerr'
 p731
-S'./www.cppreference.com/wiki/io/c/clearerr'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/clearerr'
 p732
 S'io/c'
 p733
@@ -1324,7 +1324,7 @@ p734
 tp735
 a(S'feof'
 p736
-S'./www.cppreference.com/wiki/io/c/feof'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/feof'
 p737
 S'io/c'
 p738
@@ -1333,7 +1333,7 @@ p739
 tp740
 a(S'ferror'
 p741
-S'./www.cppreference.com/wiki/io/c/ferror'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/ferror'
 p742
 S'io/c'
 p743
@@ -1342,7 +1342,7 @@ p744
 tp745
 a(S'perror'
 p746
-S'./www.cppreference.com/wiki/io/c/perror'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/perror'
 p747
 S'io/c'
 p748
@@ -1351,7 +1351,7 @@ p749
 tp750
 a(S'remove'
 p751
-S'./www.cppreference.com/wiki/io/c/remove'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/remove'
 p752
 S'io/c'
 p753
@@ -1360,7 +1360,7 @@ p754
 tp755
 a(S'rename'
 p756
-S'./www.cppreference.com/wiki/io/c/rename'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/rename'
 p757
 S'io/c'
 p758
@@ -1369,7 +1369,7 @@ p759
 tp760
 a(S'tmpfile'
 p761
-S'./www.cppreference.com/wiki/io/c/tmpfile'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/tmpfile'
 p762
 S'io/c'
 p763
@@ -1378,7 +1378,7 @@ p764
 tp765
 a(S'tmpnam'
 p766
-S'./www.cppreference.com/wiki/io/c/tmpnam'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/c/tmpnam'
 p767
 S'io/c'
 p768
@@ -1387,7 +1387,7 @@ p769
 tp770
 a(S'isalnum'
 p771
-S'./www.cppreference.com/wiki/string/c/isalnum'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/isalnum'
 p772
 S'string/c'
 p773
@@ -1396,7 +1396,7 @@ p774
 tp775
 a(S'isalpha'
 p776
-S'./www.cppreference.com/wiki/string/c/isalpha'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/isalpha'
 p777
 S'string/c'
 p778
@@ -1405,7 +1405,7 @@ p779
 tp780
 a(S'iscntrl'
 p781
-S'./www.cppreference.com/wiki/string/c/iscntrl'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/iscntrl'
 p782
 S'string/c'
 p783
@@ -1414,7 +1414,7 @@ p784
 tp785
 a(S'isdigit'
 p786
-S'./www.cppreference.com/wiki/string/c/isdigit'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/isdigit'
 p787
 S'string/c'
 p788
@@ -1423,7 +1423,7 @@ p789
 tp790
 a(S'isgraph'
 p791
-S'./www.cppreference.com/wiki/string/c/isgraph'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/isgraph'
 p792
 S'string/c'
 p793
@@ -1432,7 +1432,7 @@ p794
 tp795
 a(S'islower'
 p796
-S'./www.cppreference.com/wiki/string/c/islower'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/islower'
 p797
 S'string/c'
 p798
@@ -1441,7 +1441,7 @@ p799
 tp800
 a(S'isprint'
 p801
-S'./www.cppreference.com/wiki/string/c/isprint'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/isprint'
 p802
 S'string/c'
 p803
@@ -1450,7 +1450,7 @@ p804
 tp805
 a(S'ispunct'
 p806
-S'./www.cppreference.com/wiki/string/c/ispunct'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/ispunct'
 p807
 S'string/c'
 p808
@@ -1459,7 +1459,7 @@ p809
 tp810
 a(S'isspace'
 p811
-S'./www.cppreference.com/wiki/string/c/isspace'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/isspace'
 p812
 S'string/c'
 p813
@@ -1468,7 +1468,7 @@ p814
 tp815
 a(S'isupper'
 p816
-S'./www.cppreference.com/wiki/string/c/isupper'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/isupper'
 p817
 S'string/c'
 p818
@@ -1477,7 +1477,7 @@ p819
 tp820
 a(S'isxdigit'
 p821
-S'./www.cppreference.com/wiki/string/c/isxdigit'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/isxdigit'
 p822
 S'string/c'
 p823
@@ -1486,7 +1486,7 @@ p824
 tp825
 a(S'tolower'
 p826
-S'./www.cppreference.com/wiki/string/c/tolower'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/tolower'
 p827
 S'string/c'
 p828
@@ -1495,7 +1495,7 @@ p829
 tp830
 a(S'toupper'
 p831
-S'./www.cppreference.com/wiki/string/c/toupper'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/toupper'
 p832
 S'string/c'
 p833
@@ -1504,7 +1504,7 @@ p834
 tp835
 a(S'atof'
 p836
-S'./www.cppreference.com/wiki/string/c/atof'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/atof'
 p837
 S'string/c'
 p838
@@ -1513,7 +1513,7 @@ p839
 tp840
 a(S'atoi'
 p841
-S'./www.cppreference.com/wiki/string/c/atoi'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/atoi'
 p842
 S'string/c'
 p843
@@ -1522,7 +1522,7 @@ p844
 tp845
 a(S'atol'
 p846
-S'./www.cppreference.com/wiki/string/c/atoi'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/atoi'
 p847
 S'string/c'
 p848
@@ -1531,7 +1531,7 @@ p849
 tp850
 a(S'atoll'
 p851
-S'./www.cppreference.com/wiki/string/c/atoi'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/atoi'
 p852
 S'string/c'
 p853
@@ -1540,7 +1540,7 @@ p854
 tp855
 a(S'strtol'
 p856
-S'./www.cppreference.com/wiki/string/c/strtol'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strtol'
 p857
 S'string/c'
 p858
@@ -1549,7 +1549,7 @@ p859
 tp860
 a(S'strtoll'
 p861
-S'./www.cppreference.com/wiki/string/c/strtol'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strtol'
 p862
 S'string/c'
 p863
@@ -1558,7 +1558,7 @@ p864
 tp865
 a(S'strtoul'
 p866
-S'./www.cppreference.com/wiki/string/c/strtoul'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strtoul'
 p867
 S'string/c'
 p868
@@ -1567,7 +1567,7 @@ p869
 tp870
 a(S'strtoull'
 p871
-S'./www.cppreference.com/wiki/string/c/strtoul'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strtoul'
 p872
 S'string/c'
 p873
@@ -1576,7 +1576,7 @@ p874
 tp875
 a(S'strtof'
 p876
-S'./www.cppreference.com/wiki/string/c/strtof'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strtof'
 p877
 S'string/c'
 p878
@@ -1585,7 +1585,7 @@ p879
 tp880
 a(S'strtod'
 p881
-S'./www.cppreference.com/wiki/string/c/strtof'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strtof'
 p882
 S'string/c'
 p883
@@ -1594,7 +1594,7 @@ p884
 tp885
 a(S'strtold'
 p886
-S'./www.cppreference.com/wiki/string/c/strtof'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strtof'
 p887
 S'string/c'
 p888
@@ -1603,7 +1603,7 @@ p889
 tp890
 a(S'strcpy'
 p891
-S'./www.cppreference.com/wiki/string/c/strcpy'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strcpy'
 p892
 S'string/c'
 p893
@@ -1612,7 +1612,7 @@ p894
 tp895
 a(S'strncpy'
 p896
-S'./www.cppreference.com/wiki/string/c/strncpy'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strncpy'
 p897
 S'string/c'
 p898
@@ -1621,7 +1621,7 @@ p899
 tp900
 a(S'strcat'
 p901
-S'./www.cppreference.com/wiki/string/c/strcat'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strcat'
 p902
 S'string/c'
 p903
@@ -1630,7 +1630,7 @@ p904
 tp905
 a(S'strncat'
 p906
-S'./www.cppreference.com/wiki/string/c/strncat'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strncat'
 p907
 S'string/c'
 p908
@@ -1639,7 +1639,7 @@ p909
 tp910
 a(S'strxfrm'
 p911
-S'./www.cppreference.com/wiki/string/c/strxfrm'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strxfrm'
 p912
 S'string/c'
 p913
@@ -1648,7 +1648,7 @@ p914
 tp915
 a(S'strchr'
 p916
-S'./www.cppreference.com/wiki/string/c/strchr'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strchr'
 p917
 S'string/c'
 p918
@@ -1657,7 +1657,7 @@ p919
 tp920
 a(S'strcmp'
 p921
-S'./www.cppreference.com/wiki/string/c/strcmp'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strcmp'
 p922
 S'string/c'
 p923
@@ -1666,7 +1666,7 @@ p924
 tp925
 a(S'strncmp'
 p926
-S'./www.cppreference.com/wiki/string/c/strncmp'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strncmp'
 p927
 S'string/c'
 p928
@@ -1675,7 +1675,7 @@ p929
 tp930
 a(S'strcoll'
 p931
-S'./www.cppreference.com/wiki/string/c/strcoll'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strcoll'
 p932
 S'string/c'
 p933
@@ -1684,7 +1684,7 @@ p934
 tp935
 a(S'strcspn'
 p936
-S'./www.cppreference.com/wiki/string/c/strcspn'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strcspn'
 p937
 S'string/c'
 p938
@@ -1693,7 +1693,7 @@ p939
 tp940
 a(S'strlen'
 p941
-S'./www.cppreference.com/wiki/string/c/strlen'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strlen'
 p942
 S'string/c'
 p943
@@ -1702,7 +1702,7 @@ p944
 tp945
 a(S'strpbrk'
 p946
-S'./www.cppreference.com/wiki/string/c/strpbrk'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strpbrk'
 p947
 S'string/c'
 p948
@@ -1711,7 +1711,7 @@ p949
 tp950
 a(S'strrchr'
 p951
-S'./www.cppreference.com/wiki/string/c/strrchr'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strrchr'
 p952
 S'string/c'
 p953
@@ -1720,7 +1720,7 @@ p954
 tp955
 a(S'strspn'
 p956
-S'./www.cppreference.com/wiki/string/c/strspn'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strspn'
 p957
 S'string/c'
 p958
@@ -1729,7 +1729,7 @@ p959
 tp960
 a(S'strstr'
 p961
-S'./www.cppreference.com/wiki/string/c/strstr'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strstr'
 p962
 S'string/c'
 p963
@@ -1738,7 +1738,7 @@ p964
 tp965
 a(S'strtok'
 p966
-S'./www.cppreference.com/wiki/string/c/strtok'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strtok'
 p967
 S'string/c'
 p968
@@ -1747,7 +1747,7 @@ p969
 tp970
 a(S'memchr'
 p971
-S'./www.cppreference.com/wiki/string/c/memchr'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/memchr'
 p972
 S'string/c'
 p973
@@ -1756,7 +1756,7 @@ p974
 tp975
 a(S'memcmp'
 p976
-S'./www.cppreference.com/wiki/string/c/memcmp'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/memcmp'
 p977
 S'string/c'
 p978
@@ -1765,7 +1765,7 @@ p979
 tp980
 a(S'memset'
 p981
-S'./www.cppreference.com/wiki/string/c/memset'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/memset'
 p982
 S'string/c'
 p983
@@ -1774,7 +1774,7 @@ p984
 tp985
 a(S'memcpy'
 p986
-S'./www.cppreference.com/wiki/string/c/memcpy'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/memcpy'
 p987
 S'string/c'
 p988
@@ -1783,7 +1783,7 @@ p989
 tp990
 a(S'memmove'
 p991
-S'./www.cppreference.com/wiki/string/c/memmove'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/memmove'
 p992
 S'string/c'
 p993
@@ -1792,7 +1792,7 @@ p994
 tp995
 a(S'strerror'
 p996
-S'./www.cppreference.com/wiki/string/c/strerror'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/c/strerror'
 p997
 S'string/c'
 p998
@@ -1801,7 +1801,7 @@ p999
 tp1000
 a(S'absint'
 p1001
-S'./www.cppreference.com/wiki/c/math/abs'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/abs'
 p1002
 S'c/math'
 p1003
@@ -1810,7 +1810,7 @@ p1004
 tp1005
 a(S'absfloat'
 p1006
-S'./www.cppreference.com/wiki/c/math/fabs'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/fabs'
 p1007
 S'c/math'
 p1008
@@ -1819,7 +1819,7 @@ p1009
 tp1010
 a(S'div'
 p1011
-S'./www.cppreference.com/wiki/c/math/div'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/div'
 p1012
 S'c/math'
 p1013
@@ -1828,7 +1828,7 @@ p1014
 tp1015
 a(S'fmod'
 p1016
-S'./www.cppreference.com/wiki/c/math/fmod'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/fmod'
 p1017
 S'c/math'
 p1018
@@ -1837,7 +1837,7 @@ p1019
 tp1020
 a(S'remainder'
 p1021
-S'./www.cppreference.com/wiki/c/math/remainder'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/remainder'
 p1022
 S'c/math'
 p1023
@@ -1846,7 +1846,7 @@ p1024
 tp1025
 a(S'remquo'
 p1026
-S'./www.cppreference.com/wiki/c/math/remquo'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/remquo'
 p1027
 S'c/math'
 p1028
@@ -1855,7 +1855,7 @@ p1029
 tp1030
 a(S'fma'
 p1031
-S'./www.cppreference.com/wiki/c/math/fma'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/fma'
 p1032
 S'c/math'
 p1033
@@ -1864,7 +1864,7 @@ p1034
 tp1035
 a(S'fmax'
 p1036
-S'./www.cppreference.com/wiki/c/math/fmax'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/fmax'
 p1037
 S'c/math'
 p1038
@@ -1873,7 +1873,7 @@ p1039
 tp1040
 a(S'fmin'
 p1041
-S'./www.cppreference.com/wiki/c/math/fmin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/fmin'
 p1042
 S'c/math'
 p1043
@@ -1882,7 +1882,7 @@ p1044
 tp1045
 a(S'fdim'
 p1046
-S'./www.cppreference.com/wiki/c/math/fdim'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/fdim'
 p1047
 S'c/math'
 p1048
@@ -1891,7 +1891,7 @@ p1049
 tp1050
 a(S'nan'
 p1051
-S'./www.cppreference.com/wiki/c/math/nan'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/nan'
 p1052
 S'c/math'
 p1053
@@ -1900,7 +1900,7 @@ p1054
 tp1055
 a(S'exp'
 p1056
-S'./www.cppreference.com/wiki/c/math/exp'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/exp'
 p1057
 S'c/math'
 p1058
@@ -1909,7 +1909,7 @@ p1059
 tp1060
 a(S'exp2'
 p1061
-S'./www.cppreference.com/wiki/c/math/exp2'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/exp2'
 p1062
 S'c/math'
 p1063
@@ -1918,7 +1918,7 @@ p1064
 tp1065
 a(S'expm1'
 p1066
-S'./www.cppreference.com/wiki/c/math/expm1'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/expm1'
 p1067
 S'c/math'
 p1068
@@ -1927,7 +1927,7 @@ p1069
 tp1070
 a(S'log'
 p1071
-S'./www.cppreference.com/wiki/c/math/log'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/log'
 p1072
 S'c/math'
 p1073
@@ -1936,7 +1936,7 @@ p1074
 tp1075
 a(S'log10'
 p1076
-S'./www.cppreference.com/wiki/c/math/log10'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/log10'
 p1077
 S'c/math'
 p1078
@@ -1945,7 +1945,7 @@ p1079
 tp1080
 a(S'log1p'
 p1081
-S'./www.cppreference.com/wiki/c/math/log1p'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/log1p'
 p1082
 S'c/math'
 p1083
@@ -1954,7 +1954,7 @@ p1084
 tp1085
 a(S'ilogb'
 p1086
-S'./www.cppreference.com/wiki/c/math/ilogb'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/ilogb'
 p1087
 S'c/math'
 p1088
@@ -1963,7 +1963,7 @@ p1089
 tp1090
 a(S'logb'
 p1091
-S'./www.cppreference.com/wiki/c/math/logb'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/logb'
 p1092
 S'c/math'
 p1093
@@ -1972,7 +1972,7 @@ p1094
 tp1095
 a(S'sqrt'
 p1096
-S'./www.cppreference.com/wiki/c/math/sqrt'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/sqrt'
 p1097
 S'c/math'
 p1098
@@ -1981,7 +1981,7 @@ p1099
 tp1100
 a(S'cbrt'
 p1101
-S'./www.cppreference.com/wiki/c/math/cbrt'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/cbrt'
 p1102
 S'c/math'
 p1103
@@ -1990,7 +1990,7 @@ p1104
 tp1105
 a(S'hypot'
 p1106
-S'./www.cppreference.com/wiki/c/math/hypot'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/hypot'
 p1107
 S'c/math'
 p1108
@@ -1999,7 +1999,7 @@ p1109
 tp1110
 a(S'pow'
 p1111
-S'./www.cppreference.com/wiki/c/math/pow'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/pow'
 p1112
 S'c/math'
 p1113
@@ -2008,7 +2008,7 @@ p1114
 tp1115
 a(S'sin'
 p1116
-S'./www.cppreference.com/wiki/c/math/sin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/sin'
 p1117
 S'c/math'
 p1118
@@ -2017,7 +2017,7 @@ p1119
 tp1120
 a(S'cos'
 p1121
-S'./www.cppreference.com/wiki/c/math/cos'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/cos'
 p1122
 S'c/math'
 p1123
@@ -2026,7 +2026,7 @@ p1124
 tp1125
 a(S'tan'
 p1126
-S'./www.cppreference.com/wiki/c/math/tan'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/tan'
 p1127
 S'c/math'
 p1128
@@ -2035,7 +2035,7 @@ p1129
 tp1130
 a(S'asin'
 p1131
-S'./www.cppreference.com/wiki/c/math/asin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/asin'
 p1132
 S'c/math'
 p1133
@@ -2044,7 +2044,7 @@ p1134
 tp1135
 a(S'acos'
 p1136
-S'./www.cppreference.com/wiki/c/math/acos'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/acos'
 p1137
 S'c/math'
 p1138
@@ -2053,7 +2053,7 @@ p1139
 tp1140
 a(S'atan'
 p1141
-S'./www.cppreference.com/wiki/c/math/atan'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/atan'
 p1142
 S'c/math'
 p1143
@@ -2062,7 +2062,7 @@ p1144
 tp1145
 a(S'atan2'
 p1146
-S'./www.cppreference.com/wiki/c/math/atan2'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/atan2'
 p1147
 S'c/math'
 p1148
@@ -2071,7 +2071,7 @@ p1149
 tp1150
 a(S'sinh'
 p1151
-S'./www.cppreference.com/wiki/c/math/sinh'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/sinh'
 p1152
 S'c/math'
 p1153
@@ -2080,7 +2080,7 @@ p1154
 tp1155
 a(S'cosh'
 p1156
-S'./www.cppreference.com/wiki/c/math/cosh'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/cosh'
 p1157
 S'c/math'
 p1158
@@ -2089,7 +2089,7 @@ p1159
 tp1160
 a(S'tanh'
 p1161
-S'./www.cppreference.com/wiki/c/math/tanh'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/tanh'
 p1162
 S'c/math'
 p1163
@@ -2098,7 +2098,7 @@ p1164
 tp1165
 a(S'asinh'
 p1166
-S'./www.cppreference.com/wiki/c/math/asinh'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/asinh'
 p1167
 S'c/math'
 p1168
@@ -2107,7 +2107,7 @@ p1169
 tp1170
 a(S'acosh'
 p1171
-S'./www.cppreference.com/wiki/c/math/acosh'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/acosh'
 p1172
 S'c/math'
 p1173
@@ -2116,7 +2116,7 @@ p1174
 tp1175
 a(S'atanh'
 p1176
-S'./www.cppreference.com/wiki/c/math/atanh'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/atanh'
 p1177
 S'c/math'
 p1178
@@ -2125,7 +2125,7 @@ p1179
 tp1180
 a(S'erf'
 p1181
-S'./www.cppreference.com/wiki/c/math/erf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/erf'
 p1182
 S'c/math'
 p1183
@@ -2134,7 +2134,7 @@ p1184
 tp1185
 a(S'erfc'
 p1186
-S'./www.cppreference.com/wiki/c/math/erfc'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/erfc'
 p1187
 S'c/math'
 p1188
@@ -2143,7 +2143,7 @@ p1189
 tp1190
 a(S'lgamma'
 p1191
-S'./www.cppreference.com/wiki/c/math/lgamma'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/lgamma'
 p1192
 S'c/math'
 p1193
@@ -2152,7 +2152,7 @@ p1194
 tp1195
 a(S'tgamma'
 p1196
-S'./www.cppreference.com/wiki/c/math/tgamma'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/tgamma'
 p1197
 S'c/math'
 p1198
@@ -2161,7 +2161,7 @@ p1199
 tp1200
 a(S'ceil'
 p1201
-S'./www.cppreference.com/wiki/c/math/ceil'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/ceil'
 p1202
 S'c/math'
 p1203
@@ -2170,7 +2170,7 @@ p1204
 tp1205
 a(S'floor'
 p1206
-S'./www.cppreference.com/wiki/c/math/floor'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/floor'
 p1207
 S'c/math'
 p1208
@@ -2179,7 +2179,7 @@ p1209
 tp1210
 a(S'trunc'
 p1211
-S'./www.cppreference.com/wiki/c/math/trunc'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/trunc'
 p1212
 S'c/math'
 p1213
@@ -2188,7 +2188,7 @@ p1214
 tp1215
 a(S'round'
 p1216
-S'./www.cppreference.com/wiki/c/math/round'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/round'
 p1217
 S'c/math'
 p1218
@@ -2197,7 +2197,7 @@ p1219
 tp1220
 a(S'nearbyint'
 p1221
-S'./www.cppreference.com/wiki/c/math/nearbyint'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/nearbyint'
 p1222
 S'c/math'
 p1223
@@ -2206,7 +2206,7 @@ p1224
 tp1225
 a(S'rint'
 p1226
-S'./www.cppreference.com/wiki/c/math/rint'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/rint'
 p1227
 S'c/math'
 p1228
@@ -2215,7 +2215,7 @@ p1229
 tp1230
 a(S'frexp'
 p1231
-S'./www.cppreference.com/wiki/c/math/frexp'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/frexp'
 p1232
 S'c/math'
 p1233
@@ -2224,7 +2224,7 @@ p1234
 tp1235
 a(S'ldexp'
 p1236
-S'./www.cppreference.com/wiki/c/math/ldexp'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/ldexp'
 p1237
 S'c/math'
 p1238
@@ -2233,7 +2233,7 @@ p1239
 tp1240
 a(S'modf'
 p1241
-S'./www.cppreference.com/wiki/c/math/modf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/modf'
 p1242
 S'c/math'
 p1243
@@ -2242,7 +2242,7 @@ p1244
 tp1245
 a(S'scalbn'
 p1246
-S'./www.cppreference.com/wiki/c/math/scalbn'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/scalbn'
 p1247
 S'c/math'
 p1248
@@ -2250,7 +2250,7 @@ g1029
 tp1249
 a(S'scalbln'
 p1250
-S'./www.cppreference.com/wiki/c/math/scalbn'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/scalbn'
 p1251
 S'c/math'
 p1252
@@ -2258,7 +2258,7 @@ g1029
 tp1253
 a(S'nextafter'
 p1254
-S'./www.cppreference.com/wiki/c/math/nextafter'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/nextafter'
 p1255
 S'c/math'
 p1256
@@ -2267,7 +2267,7 @@ p1257
 tp1258
 a(S'nexttoward'
 p1259
-S'./www.cppreference.com/wiki/c/math/nexttoward'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/nexttoward'
 p1260
 S'c/math'
 p1261
@@ -2276,7 +2276,7 @@ p1262
 tp1263
 a(S'copysign'
 p1264
-S'./www.cppreference.com/wiki/c/math/copysign'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/copysign'
 p1265
 S'c/math'
 p1266
@@ -2285,7 +2285,7 @@ p1267
 tp1268
 a(S'fpclassify'
 p1269
-S'./www.cppreference.com/wiki/c/math/fpclassify'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/fpclassify'
 p1270
 S'c/math'
 p1271
@@ -2294,7 +2294,7 @@ p1272
 tp1273
 a(S'isfinite'
 p1274
-S'./www.cppreference.com/wiki/c/math/isfinite'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/isfinite'
 p1275
 S'c/math'
 p1276
@@ -2303,7 +2303,7 @@ p1277
 tp1278
 a(S'isinf'
 p1279
-S'./www.cppreference.com/wiki/c/math/isinf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/isinf'
 p1280
 S'c/math'
 p1281
@@ -2312,7 +2312,7 @@ p1282
 tp1283
 a(S'isnan'
 p1284
-S'./www.cppreference.com/wiki/c/math/isnan'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/isnan'
 p1285
 S'c/math'
 p1286
@@ -2321,7 +2321,7 @@ p1287
 tp1288
 a(S'isnormal'
 p1289
-S'./www.cppreference.com/wiki/c/math/isnormal'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/isnormal'
 p1290
 S'c/math'
 p1291
@@ -2330,7 +2330,7 @@ p1292
 tp1293
 a(S'signbit'
 p1294
-S'./www.cppreference.com/wiki/c/math/signbit'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/signbit'
 p1295
 S'c/math'
 p1296
@@ -2339,7 +2339,7 @@ p1297
 tp1298
 a(S'huge_val'
 p1299
-S'./www.cppreference.com/wiki/c/math/huge_val'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/huge_val'
 p1300
 S'c/math'
 p1301
@@ -2348,7 +2348,7 @@ p1302
 tp1303
 a(S'huge_valf'
 p1304
-S'./www.cppreference.com/wiki/c/math/huge_valf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/huge_valf'
 p1305
 S'c/math'
 p1306
@@ -2357,7 +2357,7 @@ p1307
 tp1308
 a(S'huge_vall'
 p1309
-S'./www.cppreference.com/wiki/c/math/huge_vall'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/huge_vall'
 p1310
 S'c/math'
 p1311
@@ -2366,7 +2366,7 @@ p1312
 tp1313
 a(S'fp_infinite'
 p1314
-S'./www.cppreference.com/wiki/c/math/fp_infinite'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/fp_infinite'
 p1315
 S'c/math'
 p1316
@@ -2375,7 +2375,7 @@ p1317
 tp1318
 a(S'fp_nan'
 p1319
-S'./www.cppreference.com/wiki/c/math/fp_nan'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/fp_nan'
 p1320
 S'c/math'
 p1321
@@ -2384,7 +2384,7 @@ p1322
 tp1323
 a(S'fp_normal'
 p1324
-S'./www.cppreference.com/wiki/c/math/fp_normal'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/fp_normal'
 p1325
 S'c/math'
 p1326
@@ -2393,7 +2393,7 @@ p1327
 tp1328
 a(S'fp_subnormal'
 p1329
-S'./www.cppreference.com/wiki/c/math/fp_subnormal'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/fp_subnormal'
 p1330
 S'c/math'
 p1331
@@ -2402,7 +2402,7 @@ p1332
 tp1333
 a(S'fp_zero'
 p1334
-S'./www.cppreference.com/wiki/c/math/fp_zero'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/math/fp_zero'
 p1335
 S'c/math'
 p1336
@@ -2411,7 +2411,7 @@ p1337
 tp1338
 a(S'abort'
 p1339
-S'./www.cppreference.com/wiki/c/other/abort'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/other/abort'
 p1340
 S'c/other'
 p1341
@@ -2420,7 +2420,7 @@ p1342
 tp1343
 a(S'assert'
 p1344
-S'./www.cppreference.com/wiki/c/other/assert'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/other/assert'
 p1345
 S'c/other'
 p1346
@@ -2429,7 +2429,7 @@ p1347
 tp1348
 a(S'atexit'
 p1349
-S'./www.cppreference.com/wiki/c/other/atexit'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/other/atexit'
 p1350
 S'c/other'
 p1351
@@ -2438,7 +2438,7 @@ p1352
 tp1353
 a(S'bsearch'
 p1354
-S'./www.cppreference.com/wiki/c/other/bsearch'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/other/bsearch'
 p1355
 S'c/other'
 p1356
@@ -2447,7 +2447,7 @@ p1357
 tp1358
 a(S'exit'
 p1359
-S'./www.cppreference.com/wiki/c/other/exit'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/other/exit'
 p1360
 S'c/other'
 p1361
@@ -2456,7 +2456,7 @@ p1362
 tp1363
 a(S'getenv'
 p1364
-S'./www.cppreference.com/wiki/c/other/getenv'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/other/getenv'
 p1365
 S'c/other'
 p1366
@@ -2465,7 +2465,7 @@ p1367
 tp1368
 a(S'longjmp'
 p1369
-S'./www.cppreference.com/wiki/c/other/longjmp'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/other/longjmp'
 p1370
 S'c/other'
 p1371
@@ -2474,7 +2474,7 @@ p1372
 tp1373
 a(S'putenv'
 p1374
-S'./www.cppreference.com/wiki/c/other/putenv'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/other/putenv'
 p1375
 S'c/other'
 p1376
@@ -2483,7 +2483,7 @@ p1377
 tp1378
 a(S'qsort'
 p1379
-S'./www.cppreference.com/wiki/c/other/qsort'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/other/qsort'
 p1380
 S'c/other'
 p1381
@@ -2492,7 +2492,7 @@ p1382
 tp1383
 a(S'raise'
 p1384
-S'./www.cppreference.com/wiki/c/other/raise'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/other/raise'
 p1385
 S'c/other'
 p1386
@@ -2501,7 +2501,7 @@ p1387
 tp1388
 a(S'rand'
 p1389
-S'./www.cppreference.com/wiki/c/other/rand'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/other/rand'
 p1390
 S'c/other'
 p1391
@@ -2510,7 +2510,7 @@ p1392
 tp1393
 a(S'setjmp'
 p1394
-S'./www.cppreference.com/wiki/c/other/setjmp'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/other/setjmp'
 p1395
 S'c/other'
 p1396
@@ -2519,7 +2519,7 @@ p1397
 tp1398
 a(S'signal'
 p1399
-S'./www.cppreference.com/wiki/c/other/signal'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/other/signal'
 p1400
 S'c/other'
 p1401
@@ -2528,7 +2528,7 @@ p1402
 tp1403
 a(S'srand'
 p1404
-S'./www.cppreference.com/wiki/c/other/srand'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/other/srand'
 p1405
 S'c/other'
 p1406
@@ -2537,7 +2537,7 @@ p1407
 tp1408
 a(S'system'
 p1409
-S'./www.cppreference.com/wiki/c/other/system'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/other/system'
 p1410
 S'c/other'
 p1411
@@ -2546,7 +2546,7 @@ p1412
 tp1413
 a(S'va_arg'
 p1414
-S'./www.cppreference.com/wiki/c/other/va_arg'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/c/other/va_arg'
 p1415
 S'c/other'
 p1416
@@ -2555,7 +2555,7 @@ p1417
 tp1418
 a(S'getline'
 p1419
-S'./www.cppreference.com/wiki/string/getline'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/getline'
 p1420
 S'string'
 p1421
@@ -2564,7 +2564,7 @@ p1422
 tp1423
 a(S'stoi'
 p1424
-S'./www.cppreference.com/wiki/string/stoi'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/stoi'
 p1425
 S'string'
 p1426
@@ -2573,7 +2573,7 @@ p1427
 tp1428
 a(S'stol'
 p1429
-S'./www.cppreference.com/wiki/string/stoi'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/stoi'
 p1430
 S'string'
 p1431
@@ -2582,7 +2582,7 @@ p1432
 tp1433
 a(S'stoll'
 p1434
-S'./www.cppreference.com/wiki/string/stoi'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/stoi'
 p1435
 S'string'
 p1436
@@ -2591,7 +2591,7 @@ p1437
 tp1438
 a(S'stoul'
 p1439
-S'./www.cppreference.com/wiki/string/stoi'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/stoi'
 p1440
 S'string'
 p1441
@@ -2600,7 +2600,7 @@ p1442
 tp1443
 a(S'stoull'
 p1444
-S'./www.cppreference.com/wiki/string/stoi'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/stoi'
 p1445
 S'string'
 p1446
@@ -2609,7 +2609,7 @@ p1447
 tp1448
 a(S'stof'
 p1449
-S'./www.cppreference.com/wiki/string/stof'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/stof'
 p1450
 S'string'
 p1451
@@ -2618,7 +2618,7 @@ p1452
 tp1453
 a(S'stod'
 p1454
-S'./www.cppreference.com/wiki/string/stof'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/stof'
 p1455
 S'string'
 p1456
@@ -2627,7 +2627,7 @@ p1457
 tp1458
 a(S'stold'
 p1459
-S'./www.cppreference.com/wiki/string/stof'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/stof'
 p1460
 S'string'
 p1461
@@ -2636,7 +2636,7 @@ p1462
 tp1463
 a(S'to_string'
 p1464
-S'./www.cppreference.com/wiki/string/to_string'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/to_string'
 p1465
 S'string'
 p1466
@@ -2645,7 +2645,7 @@ p1467
 tp1468
 a(S'to_wstring'
 p1469
-S'./www.cppreference.com/wiki/string/to_wstring'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/string/to_wstring'
 p1470
 S'string'
 p1471
@@ -2654,7 +2654,7 @@ p1472
 tp1473
 a(S'exceptions'
 p1474
-S'./www.cppreference.com/wiki/io/exceptions'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/exceptions'
 p1475
 S'io'
 p1476
@@ -2663,7 +2663,7 @@ p1477
 tp1478
 a(S'fill'
 p1479
-S'./www.cppreference.com/wiki/io/fill'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/fill'
 p1480
 S'io'
 p1481
@@ -2672,7 +2672,7 @@ p1482
 tp1483
 a(S'rdstate'
 p1484
-S'./www.cppreference.com/wiki/io/rdstate'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/rdstate'
 p1485
 S'io'
 p1486
@@ -2681,7 +2681,7 @@ p1487
 tp1488
 a(S'constructors'
 p1489
-S'./www.cppreference.com/wiki/io/sstream/constructors'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/sstream/constructors'
 p1490
 S'io/sstream'
 p1491
@@ -2690,7 +2690,7 @@ p1492
 tp1493
 a(S'operators'
 p1494
-S'./www.cppreference.com/wiki/io/sstream/operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/sstream/operators'
 p1495
 S'io/sstream'
 p1496
@@ -2699,7 +2699,7 @@ p1497
 tp1498
 a(S'rdbuf'
 p1499
-S'./www.cppreference.com/wiki/io/sstream/rdbuf'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/sstream/rdbuf'
 p1500
 S'io/sstream'
 p1501
@@ -2708,7 +2708,7 @@ p1502
 tp1503
 a(S'str'
 p1504
-S'./www.cppreference.com/wiki/io/sstream/str'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/io/sstream/str'
 p1505
 S'io/sstream'
 p1506
@@ -2717,7 +2717,7 @@ p1507
 tp1508
 a(S'constructors'
 p1509
-S'./www.cppreference.com/wiki/complex/complex_constructors'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/complex/complex_constructors'
 p1510
 S'complex'
 p1511
@@ -2726,7 +2726,7 @@ p1512
 tp1513
 a(S'operators'
 p1514
-S'./www.cppreference.com/wiki/complex/complex_operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/complex/complex_operators'
 p1515
 S'complex'
 p1516
@@ -2735,7 +2735,7 @@ p1517
 tp1518
 a(S'abs'
 p1519
-S'./www.cppreference.com/wiki/complex/abs'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/complex/abs'
 p1520
 S'complex'
 p1521
@@ -2744,7 +2744,7 @@ p1522
 tp1523
 a(S'arg'
 p1524
-S'./www.cppreference.com/wiki/complex/arg'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/complex/arg'
 p1525
 S'complex'
 p1526
@@ -2753,7 +2753,7 @@ p1527
 tp1528
 a(S'conj'
 p1529
-S'./www.cppreference.com/wiki/complex/conj'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/complex/conj'
 p1530
 S'complex'
 p1531
@@ -2762,7 +2762,7 @@ p1532
 tp1533
 a(S'cos'
 p1534
-S'./www.cppreference.com/wiki/complex/cos'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/complex/cos'
 p1535
 S'complex'
 p1536
@@ -2771,7 +2771,7 @@ p1537
 tp1538
 a(S'cosh'
 p1539
-S'./www.cppreference.com/wiki/complex/cosh'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/complex/cosh'
 p1540
 S'complex'
 p1541
@@ -2780,7 +2780,7 @@ p1542
 tp1543
 a(S'exp'
 p1544
-S'./www.cppreference.com/wiki/complex/exp'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/complex/exp'
 p1545
 S'complex'
 p1546
@@ -2789,7 +2789,7 @@ p1547
 tp1548
 a(S'imag'
 p1549
-S'./www.cppreference.com/wiki/complex/imag'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/complex/imag'
 p1550
 S'complex'
 p1551
@@ -2798,7 +2798,7 @@ p1552
 tp1553
 a(S'log'
 p1554
-S'./www.cppreference.com/wiki/complex/log'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/complex/log'
 p1555
 S'complex'
 p1556
@@ -2807,7 +2807,7 @@ p1557
 tp1558
 a(S'log10'
 p1559
-S'./www.cppreference.com/wiki/complex/log10'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/complex/log10'
 p1560
 S'complex'
 p1561
@@ -2816,7 +2816,7 @@ p1562
 tp1563
 a(S'norm'
 p1564
-S'./www.cppreference.com/wiki/complex/norm'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/complex/norm'
 p1565
 S'complex'
 p1566
@@ -2825,7 +2825,7 @@ p1567
 tp1568
 a(S'polar'
 p1569
-S'./www.cppreference.com/wiki/complex/polar'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/complex/polar'
 p1570
 S'complex'
 p1571
@@ -2834,7 +2834,7 @@ p1572
 tp1573
 a(S'pow'
 p1574
-S'./www.cppreference.com/wiki/complex/pow'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/complex/pow'
 p1575
 S'complex'
 p1576
@@ -2843,7 +2843,7 @@ p1577
 tp1578
 a(S'real'
 p1579
-S'./www.cppreference.com/wiki/complex/real'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/complex/real'
 p1580
 S'complex'
 p1581
@@ -2852,7 +2852,7 @@ p1582
 tp1583
 a(S'sin'
 p1584
-S'./www.cppreference.com/wiki/complex/sin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/complex/sin'
 p1585
 S'complex'
 p1586
@@ -2861,7 +2861,7 @@ p1587
 tp1588
 a(S'sinh'
 p1589
-S'./www.cppreference.com/wiki/complex/sinh'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/complex/sinh'
 p1590
 S'complex'
 p1591
@@ -2870,7 +2870,7 @@ p1592
 tp1593
 a(S'sqrt'
 p1594
-S'./www.cppreference.com/wiki/complex/sqrt'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/complex/sqrt'
 p1595
 S'complex'
 p1596
@@ -2879,7 +2879,7 @@ p1597
 tp1598
 a(S'tan'
 p1599
-S'./www.cppreference.com/wiki/complex/tan'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/complex/tan'
 p1600
 S'complex'
 p1601
@@ -2888,7 +2888,7 @@ p1602
 tp1603
 a(S'tanh'
 p1604
-S'./www.cppreference.com/wiki/complex/tanh'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/complex/tanh'
 p1605
 S'complex'
 p1606
@@ -2897,7 +2897,7 @@ p1607
 tp1608
 a(S'for_each'
 p1609
-S'./www.cppreference.com/wiki/stl/algorithm/for_each'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/for_each'
 p1610
 S'stl/algorithm'
 p1611
@@ -2906,7 +2906,7 @@ p1612
 tp1613
 a(S'count'
 p1614
-S'./www.cppreference.com/wiki/stl/algorithm/count'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/count'
 p1615
 S'stl/algorithm'
 p1616
@@ -2915,7 +2915,7 @@ p1617
 tp1618
 a(S'count_if'
 p1619
-S'./www.cppreference.com/wiki/stl/algorithm/count_if'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/count_if'
 p1620
 S'stl/algorithm'
 p1621
@@ -2924,7 +2924,7 @@ p1622
 tp1623
 a(S'mismatch'
 p1624
-S'./www.cppreference.com/wiki/stl/algorithm/mismatch'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/mismatch'
 p1625
 S'stl/algorithm'
 p1626
@@ -2933,7 +2933,7 @@ p1627
 tp1628
 a(S'equal'
 p1629
-S'./www.cppreference.com/wiki/stl/algorithm/equal'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/equal'
 p1630
 S'stl/algorithm'
 p1631
@@ -2942,7 +2942,7 @@ p1632
 tp1633
 a(S'find'
 p1634
-S'./www.cppreference.com/wiki/stl/algorithm/find'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/find'
 p1635
 S'stl/algorithm'
 p1636
@@ -2951,7 +2951,7 @@ p1637
 tp1638
 a(S'find_if'
 p1639
-S'./www.cppreference.com/wiki/stl/algorithm/find_if'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/find_if'
 p1640
 S'stl/algorithm'
 p1641
@@ -2960,7 +2960,7 @@ p1642
 tp1643
 a(S'find_end'
 p1644
-S'./www.cppreference.com/wiki/stl/algorithm/find_end'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/find_end'
 p1645
 S'stl/algorithm'
 p1646
@@ -2969,7 +2969,7 @@ p1647
 tp1648
 a(S'find_first_of'
 p1649
-S'./www.cppreference.com/wiki/stl/algorithm/find_first_of'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/find_first_of'
 p1650
 S'stl/algorithm'
 p1651
@@ -2978,7 +2978,7 @@ p1652
 tp1653
 a(S'adjacent_find'
 p1654
-S'./www.cppreference.com/wiki/stl/algorithm/adjacent_find'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/adjacent_find'
 p1655
 S'stl/algorithm'
 p1656
@@ -2987,7 +2987,7 @@ p1657
 tp1658
 a(S'search'
 p1659
-S'./www.cppreference.com/wiki/stl/algorithm/search'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/search'
 p1660
 S'stl/algorithm'
 p1661
@@ -2996,7 +2996,7 @@ p1662
 tp1663
 a(S'search_n'
 p1664
-S'./www.cppreference.com/wiki/stl/algorithm/search_n'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/search_n'
 p1665
 S'stl/algorithm'
 p1666
@@ -3005,7 +3005,7 @@ p1667
 tp1668
 a(S'copy'
 p1669
-S'./www.cppreference.com/wiki/stl/algorithm/copy'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/copy'
 p1670
 S'stl/algorithm'
 p1671
@@ -3014,7 +3014,7 @@ p1672
 tp1673
 a(S'copy_backward'
 p1674
-S'./www.cppreference.com/wiki/stl/algorithm/copy_backward'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/copy_backward'
 p1675
 S'stl/algorithm'
 p1676
@@ -3023,7 +3023,7 @@ p1677
 tp1678
 a(S'fill'
 p1679
-S'./www.cppreference.com/wiki/stl/algorithm/fill'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/fill'
 p1680
 S'stl/algorithm'
 p1681
@@ -3032,7 +3032,7 @@ p1682
 tp1683
 a(S'fill_n'
 p1684
-S'./www.cppreference.com/wiki/stl/algorithm/fill_n'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/fill_n'
 p1685
 S'stl/algorithm'
 p1686
@@ -3041,7 +3041,7 @@ p1687
 tp1688
 a(S'transform'
 p1689
-S'./www.cppreference.com/wiki/stl/algorithm/transform'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/transform'
 p1690
 S'stl/algorithm'
 p1691
@@ -3050,7 +3050,7 @@ p1692
 tp1693
 a(S'generate'
 p1694
-S'./www.cppreference.com/wiki/stl/algorithm/generate'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/generate'
 p1695
 S'stl/algorithm'
 p1696
@@ -3059,7 +3059,7 @@ p1697
 tp1698
 a(S'generate_n'
 p1699
-S'./www.cppreference.com/wiki/stl/algorithm/generate_n'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/generate_n'
 p1700
 S'stl/algorithm'
 p1701
@@ -3068,7 +3068,7 @@ p1702
 tp1703
 a(S'remove'
 p1704
-S'./www.cppreference.com/wiki/stl/algorithm/remove'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/remove'
 p1705
 S'stl/algorithm'
 p1706
@@ -3077,7 +3077,7 @@ p1707
 tp1708
 a(S'remove_if'
 p1709
-S'./www.cppreference.com/wiki/stl/algorithm/remove_if'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/remove_if'
 p1710
 S'stl/algorithm'
 p1711
@@ -3086,7 +3086,7 @@ p1712
 tp1713
 a(S'remove_copy'
 p1714
-S'./www.cppreference.com/wiki/stl/algorithm/remove_copy'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/remove_copy'
 p1715
 S'stl/algorithm'
 p1716
@@ -3095,7 +3095,7 @@ p1717
 tp1718
 a(S'remove_copy_if'
 p1719
-S'./www.cppreference.com/wiki/stl/algorithm/remove_copy_if'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/remove_copy_if'
 p1720
 S'stl/algorithm'
 p1721
@@ -3104,7 +3104,7 @@ p1722
 tp1723
 a(S'replace'
 p1724
-S'./www.cppreference.com/wiki/stl/algorithm/replace'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/replace'
 p1725
 S'stl/algorithm'
 p1726
@@ -3113,7 +3113,7 @@ p1727
 tp1728
 a(S'replace_if'
 p1729
-S'./www.cppreference.com/wiki/stl/algorithm/replace_if'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/replace_if'
 p1730
 S'stl/algorithm'
 p1731
@@ -3122,7 +3122,7 @@ p1732
 tp1733
 a(S'replace_copy'
 p1734
-S'./www.cppreference.com/wiki/stl/algorithm/replace_copy'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/replace_copy'
 p1735
 S'stl/algorithm'
 p1736
@@ -3131,7 +3131,7 @@ p1737
 tp1738
 a(S'replace_copy_if'
 p1739
-S'./www.cppreference.com/wiki/stl/algorithm/replace_copy_if'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/replace_copy_if'
 p1740
 S'stl/algorithm'
 p1741
@@ -3140,7 +3140,7 @@ p1742
 tp1743
 a(S'swap'
 p1744
-S'./www.cppreference.com/wiki/stl/algorithm/swap'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/swap'
 p1745
 S'stl/algorithm'
 p1746
@@ -3149,7 +3149,7 @@ p1747
 tp1748
 a(S'swap_ranges'
 p1749
-S'./www.cppreference.com/wiki/stl/algorithm/swap_ranges'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/swap_ranges'
 p1750
 S'stl/algorithm'
 p1751
@@ -3158,7 +3158,7 @@ p1752
 tp1753
 a(S'iter_swap'
 p1754
-S'./www.cppreference.com/wiki/stl/algorithm/iter_swap'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/iter_swap'
 p1755
 S'stl/algorithm'
 p1756
@@ -3167,7 +3167,7 @@ p1757
 tp1758
 a(S'partition'
 p1759
-S'./www.cppreference.com/wiki/stl/algorithm/partition'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/partition'
 p1760
 S'stl/algorithm'
 p1761
@@ -3176,7 +3176,7 @@ p1762
 tp1763
 a(S'stable_partition'
 p1764
-S'./www.cppreference.com/wiki/stl/algorithm/stable_partition'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/stable_partition'
 p1765
 S'stl/algorithm'
 p1766
@@ -3185,7 +3185,7 @@ p1767
 tp1768
 a(S'reverse'
 p1769
-S'./www.cppreference.com/wiki/stl/algorithm/reverse'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/reverse'
 p1770
 S'stl/algorithm'
 p1771
@@ -3194,7 +3194,7 @@ p1772
 tp1773
 a(S'reverse_copy'
 p1774
-S'./www.cppreference.com/wiki/stl/algorithm/reverse_copy'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/reverse_copy'
 p1775
 S'stl/algorithm'
 p1776
@@ -3203,7 +3203,7 @@ p1777
 tp1778
 a(S'rotate'
 p1779
-S'./www.cppreference.com/wiki/stl/algorithm/rotate'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/rotate'
 p1780
 S'stl/algorithm'
 p1781
@@ -3212,7 +3212,7 @@ p1782
 tp1783
 a(S'rotate_copy'
 p1784
-S'./www.cppreference.com/wiki/stl/algorithm/rotate_copy'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/rotate_copy'
 p1785
 S'stl/algorithm'
 p1786
@@ -3221,7 +3221,7 @@ p1787
 tp1788
 a(S'random_shuffle'
 p1789
-S'./www.cppreference.com/wiki/stl/algorithm/random_shuffle'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/random_shuffle'
 p1790
 S'stl/algorithm'
 p1791
@@ -3230,7 +3230,7 @@ p1792
 tp1793
 a(S'unique'
 p1794
-S'./www.cppreference.com/wiki/stl/algorithm/unique'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/unique'
 p1795
 S'stl/algorithm'
 p1796
@@ -3239,7 +3239,7 @@ p1797
 tp1798
 a(S'unique_copy'
 p1799
-S'./www.cppreference.com/wiki/stl/algorithm/unique_copy'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/unique_copy'
 p1800
 S'stl/algorithm'
 p1801
@@ -3248,7 +3248,7 @@ p1802
 tp1803
 a(S'sort'
 p1804
-S'./www.cppreference.com/wiki/stl/algorithm/sort'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/sort'
 p1805
 S'stl/algorithm'
 p1806
@@ -3257,7 +3257,7 @@ p1807
 tp1808
 a(S'partial_sort'
 p1809
-S'./www.cppreference.com/wiki/stl/algorithm/partial_sort'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/partial_sort'
 p1810
 S'stl/algorithm'
 p1811
@@ -3266,7 +3266,7 @@ p1812
 tp1813
 a(S'partial_sort_copy'
 p1814
-S'./www.cppreference.com/wiki/stl/algorithm/partial_sort_copy'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/partial_sort_copy'
 p1815
 S'stl/algorithm'
 p1816
@@ -3275,7 +3275,7 @@ p1817
 tp1818
 a(S'stable_sort'
 p1819
-S'./www.cppreference.com/wiki/stl/algorithm/stable_sort'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/stable_sort'
 p1820
 S'stl/algorithm'
 p1821
@@ -3284,7 +3284,7 @@ p1822
 tp1823
 a(S'nth_element'
 p1824
-S'./www.cppreference.com/wiki/stl/algorithm/nth_element'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/nth_element'
 p1825
 S'stl/algorithm'
 p1826
@@ -3293,7 +3293,7 @@ p1827
 tp1828
 a(S'lower_bound'
 p1829
-S'./www.cppreference.com/wiki/stl/algorithm/lower_bound'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/lower_bound'
 p1830
 S'stl/algorithm'
 p1831
@@ -3302,7 +3302,7 @@ p1832
 tp1833
 a(S'upper_bound'
 p1834
-S'./www.cppreference.com/wiki/stl/algorithm/upper_bound'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/upper_bound'
 p1835
 S'stl/algorithm'
 p1836
@@ -3311,7 +3311,7 @@ p1837
 tp1838
 a(S'binary_search'
 p1839
-S'./www.cppreference.com/wiki/stl/algorithm/binary_search'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/binary_search'
 p1840
 S'stl/algorithm'
 p1841
@@ -3320,7 +3320,7 @@ p1842
 tp1843
 a(S'equal_range'
 p1844
-S'./www.cppreference.com/wiki/stl/algorithm/equal_range'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/equal_range'
 p1845
 S'stl/algorithm'
 p1846
@@ -3329,7 +3329,7 @@ p1847
 tp1848
 a(S'merge'
 p1849
-S'./www.cppreference.com/wiki/stl/algorithm/merge'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/merge'
 p1850
 S'stl/algorithm'
 p1851
@@ -3338,7 +3338,7 @@ p1852
 tp1853
 a(S'inplace_merge'
 p1854
-S'./www.cppreference.com/wiki/stl/algorithm/inplace_merge'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/inplace_merge'
 p1855
 S'stl/algorithm'
 p1856
@@ -3347,7 +3347,7 @@ p1857
 tp1858
 a(S'includes'
 p1859
-S'./www.cppreference.com/wiki/stl/algorithm/includes'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/includes'
 p1860
 S'stl/algorithm'
 p1861
@@ -3356,7 +3356,7 @@ p1862
 tp1863
 a(S'set_difference'
 p1864
-S'./www.cppreference.com/wiki/stl/algorithm/set_difference'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/set_difference'
 p1865
 S'stl/algorithm'
 p1866
@@ -3365,7 +3365,7 @@ p1867
 tp1868
 a(S'set_intersection'
 p1869
-S'./www.cppreference.com/wiki/stl/algorithm/set_intersection'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/set_intersection'
 p1870
 S'stl/algorithm'
 p1871
@@ -3374,7 +3374,7 @@ p1872
 tp1873
 a(S'set_symmetric_difference'
 p1874
-S'./www.cppreference.com/wiki/stl/algorithm/set_symmetric_difference'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/set_symmetric_difference'
 p1875
 S'stl/algorithm'
 p1876
@@ -3383,7 +3383,7 @@ p1877
 tp1878
 a(S'set_union'
 p1879
-S'./www.cppreference.com/wiki/stl/algorithm/set_union'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/set_union'
 p1880
 S'stl/algorithm'
 p1881
@@ -3392,7 +3392,7 @@ p1882
 tp1883
 a(S'is_heap'
 p1884
-S'./www.cppreference.com/wiki/stl/algorithm/is_heap'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/is_heap'
 p1885
 S'stl/algorithm'
 p1886
@@ -3401,7 +3401,7 @@ p1887
 tp1888
 a(S'make_heap'
 p1889
-S'./www.cppreference.com/wiki/stl/algorithm/make_heap'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/make_heap'
 p1890
 S'stl/algorithm'
 p1891
@@ -3410,7 +3410,7 @@ p1892
 tp1893
 a(S'push_heap'
 p1894
-S'./www.cppreference.com/wiki/stl/algorithm/push_heap'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/push_heap'
 p1895
 S'stl/algorithm'
 p1896
@@ -3419,7 +3419,7 @@ p1897
 tp1898
 a(S'pop_heap'
 p1899
-S'./www.cppreference.com/wiki/stl/algorithm/pop_heap'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/pop_heap'
 p1900
 S'stl/algorithm'
 p1901
@@ -3428,7 +3428,7 @@ p1902
 tp1903
 a(S'sort_heap'
 p1904
-S'./www.cppreference.com/wiki/stl/algorithm/sort_heap'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/sort_heap'
 p1905
 S'stl/algorithm'
 p1906
@@ -3437,7 +3437,7 @@ p1907
 tp1908
 a(S'max'
 p1909
-S'./www.cppreference.com/wiki/stl/algorithm/max'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/max'
 p1910
 S'stl/algorithm'
 p1911
@@ -3446,7 +3446,7 @@ p1912
 tp1913
 a(S'max_element'
 p1914
-S'./www.cppreference.com/wiki/stl/algorithm/max_element'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/max_element'
 p1915
 S'stl/algorithm'
 p1916
@@ -3455,7 +3455,7 @@ p1917
 tp1918
 a(S'min'
 p1919
-S'./www.cppreference.com/wiki/stl/algorithm/min'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/min'
 p1920
 S'stl/algorithm'
 p1921
@@ -3464,7 +3464,7 @@ p1922
 tp1923
 a(S'min_element'
 p1924
-S'./www.cppreference.com/wiki/stl/algorithm/min_element'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/min_element'
 p1925
 S'stl/algorithm'
 p1926
@@ -3473,7 +3473,7 @@ p1927
 tp1928
 a(S'lexicographical_compare'
 p1929
-S'./www.cppreference.com/wiki/stl/algorithm/lexicographical_compare'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/lexicographical_compare'
 p1930
 S'stl/algorithm'
 p1931
@@ -3482,7 +3482,7 @@ p1932
 tp1933
 a(S'next_permutation'
 p1934
-S'./www.cppreference.com/wiki/stl/algorithm/next_permutation'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/next_permutation'
 p1935
 S'stl/algorithm'
 p1936
@@ -3491,7 +3491,7 @@ p1937
 tp1938
 a(S'prev_permutation'
 p1939
-S'./www.cppreference.com/wiki/stl/algorithm/prev_permutation'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/prev_permutation'
 p1940
 S'stl/algorithm'
 p1941
@@ -3500,7 +3500,7 @@ p1942
 tp1943
 a(S'accumulate'
 p1944
-S'./www.cppreference.com/wiki/stl/algorithm/accumulate'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/accumulate'
 p1945
 S'stl/algorithm'
 p1946
@@ -3509,7 +3509,7 @@ p1947
 tp1948
 a(S'inner_product'
 p1949
-S'./www.cppreference.com/wiki/stl/algorithm/inner_product'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/inner_product'
 p1950
 S'stl/algorithm'
 p1951
@@ -3518,7 +3518,7 @@ p1952
 tp1953
 a(S'adjacent_difference'
 p1954
-S'./www.cppreference.com/wiki/stl/algorithm/adjacent_difference'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/adjacent_difference'
 p1955
 S'stl/algorithm'
 p1956
@@ -3527,7 +3527,7 @@ p1957
 tp1958
 a(S'partial_sum'
 p1959
-S'./www.cppreference.com/wiki/stl/algorithm/partial_sum'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/algorithm/partial_sum'
 p1960
 S'stl/algorithm'
 p1961
@@ -3536,7 +3536,7 @@ p1962
 tp1963
 a(S'constructor'
 p1964
-S'./www.cppreference.com/wiki/stl/vector/vector'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/vector'
 p1965
 S'stl/vector'
 p1966
@@ -3545,7 +3545,7 @@ p1967
 tp1968
 a(S'operators'
 p1969
-S'./www.cppreference.com/wiki/stl/vector/vector_operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/vector_operators'
 p1970
 S'stl/vector'
 p1971
@@ -3554,7 +3554,7 @@ p1972
 tp1973
 a(S'operator='
 p1974
-S'./www.cppreference.com/wiki/stl/vector/operator_as'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/operator_as'
 p1975
 S'stl/vector'
 p1976
@@ -3563,7 +3563,7 @@ p1977
 tp1978
 a(S'assign'
 p1979
-S'./www.cppreference.com/wiki/stl/vector/assign'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/assign'
 p1980
 S'stl/vector'
 p1981
@@ -3572,7 +3572,7 @@ p1982
 tp1983
 a(S'at'
 p1984
-S'./www.cppreference.com/wiki/stl/vector/at'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/at'
 p1985
 S'stl/vector'
 p1986
@@ -3581,7 +3581,7 @@ p1987
 tp1988
 a(S'operator[]'
 p1989
-S'./www.cppreference.com/wiki/stl/vector/operator_at'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/operator_at'
 p1990
 S'stl/vector'
 p1991
@@ -3590,7 +3590,7 @@ p1992
 tp1993
 a(S'front'
 p1994
-S'./www.cppreference.com/wiki/stl/vector/front'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/front'
 p1995
 S'stl/vector'
 p1996
@@ -3599,7 +3599,7 @@ p1997
 tp1998
 a(S'back'
 p1999
-S'./www.cppreference.com/wiki/stl/vector/back'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/back'
 p2000
 S'stl/vector'
 p2001
@@ -3608,7 +3608,7 @@ p2002
 tp2003
 a(S'begin'
 p2004
-S'./www.cppreference.com/wiki/stl/vector/begin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/begin'
 p2005
 S'stl/vector'
 p2006
@@ -3617,7 +3617,7 @@ p2007
 tp2008
 a(S'cbegin'
 p2009
-S'./www.cppreference.com/wiki/stl/vector/begin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/begin'
 p2010
 S'stl/vector'
 p2011
@@ -3626,7 +3626,7 @@ p2012
 tp2013
 a(S'end'
 p2014
-S'./www.cppreference.com/wiki/stl/vector/end'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/end'
 p2015
 S'stl/vector'
 p2016
@@ -3635,7 +3635,7 @@ p2017
 tp2018
 a(S'cend'
 p2019
-S'./www.cppreference.com/wiki/stl/vector/end'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/end'
 p2020
 S'stl/vector'
 p2021
@@ -3644,7 +3644,7 @@ p2022
 tp2023
 a(S'rbegin'
 p2024
-S'./www.cppreference.com/wiki/stl/vector/rbegin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/rbegin'
 p2025
 S'stl/vector'
 p2026
@@ -3653,7 +3653,7 @@ p2027
 tp2028
 a(S'crbegin'
 p2029
-S'./www.cppreference.com/wiki/stl/vector/rbegin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/rbegin'
 p2030
 S'stl/vector'
 p2031
@@ -3662,7 +3662,7 @@ p2032
 tp2033
 a(S'rend'
 p2034
-S'./www.cppreference.com/wiki/stl/vector/rend'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/rend'
 p2035
 S'stl/vector'
 p2036
@@ -3671,7 +3671,7 @@ p2037
 tp2038
 a(S'crend'
 p2039
-S'./www.cppreference.com/wiki/stl/vector/rend'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/rend'
 p2040
 S'stl/vector'
 p2041
@@ -3680,7 +3680,7 @@ p2042
 tp2043
 a(S'empty'
 p2044
-S'./www.cppreference.com/wiki/stl/vector/empty'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/empty'
 p2045
 S'stl/vector'
 p2046
@@ -3689,7 +3689,7 @@ p2047
 tp2048
 a(S'size'
 p2049
-S'./www.cppreference.com/wiki/stl/vector/size'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/size'
 p2050
 S'stl/vector'
 p2051
@@ -3698,7 +3698,7 @@ p2052
 tp2053
 a(S'max_size'
 p2054
-S'./www.cppreference.com/wiki/stl/vector/max_size'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/max_size'
 p2055
 S'stl/vector'
 p2056
@@ -3707,7 +3707,7 @@ p2057
 tp2058
 a(S'reserve'
 p2059
-S'./www.cppreference.com/wiki/stl/vector/reserve'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/reserve'
 p2060
 S'stl/vector'
 p2061
@@ -3716,7 +3716,7 @@ p2062
 tp2063
 a(S'capacity'
 p2064
-S'./www.cppreference.com/wiki/stl/vector/capacity'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/capacity'
 p2065
 S'stl/vector'
 p2066
@@ -3725,7 +3725,7 @@ p2067
 tp2068
 a(S'shrink_to_fit'
 p2069
-S'./www.cppreference.com/wiki/stl/vector/shrink_to_fit'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/shrink_to_fit'
 p2070
 S'stl/vector'
 p2071
@@ -3734,7 +3734,7 @@ p2072
 tp2073
 a(S'clear'
 p2074
-S'./www.cppreference.com/wiki/stl/vector/clear'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/clear'
 p2075
 S'stl/vector'
 p2076
@@ -3743,7 +3743,7 @@ p2077
 tp2078
 a(S'insert'
 p2079
-S'./www.cppreference.com/wiki/stl/vector/insert'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/insert'
 p2080
 S'stl/vector'
 p2081
@@ -3752,7 +3752,7 @@ p2082
 tp2083
 a(S'emplace'
 p2084
-S'./www.cppreference.com/wiki/stl/vector/emplace'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/emplace'
 p2085
 S'stl/vector'
 p2086
@@ -3760,7 +3760,7 @@ g1029
 tp2087
 a(S'erase'
 p2088
-S'./www.cppreference.com/wiki/stl/vector/erase'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/erase'
 p2089
 S'stl/vector'
 p2090
@@ -3769,7 +3769,7 @@ p2091
 tp2092
 a(S'push_back'
 p2093
-S'./www.cppreference.com/wiki/stl/vector/push_back'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/push_back'
 p2094
 S'stl/vector'
 p2095
@@ -3778,7 +3778,7 @@ p2096
 tp2097
 a(S'emplace_back'
 p2098
-S'./www.cppreference.com/wiki/stl/vector/emplace_back'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/emplace_back'
 p2099
 S'stl/vector'
 p2100
@@ -3786,7 +3786,7 @@ g1029
 tp2101
 a(S'pop_back'
 p2102
-S'./www.cppreference.com/wiki/stl/vector/pop_back'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/pop_back'
 p2103
 S'stl/vector'
 p2104
@@ -3795,7 +3795,7 @@ p2105
 tp2106
 a(S'resize'
 p2107
-S'./www.cppreference.com/wiki/stl/vector/resize'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/resize'
 p2108
 S'stl/vector'
 p2109
@@ -3804,7 +3804,7 @@ p2110
 tp2111
 a(S'swap'
 p2112
-S'./www.cppreference.com/wiki/stl/vector/swap'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/swap'
 p2113
 S'stl/vector'
 p2114
@@ -3813,7 +3813,7 @@ p2115
 tp2116
 a(S'get_allocator'
 p2117
-S'./www.cppreference.com/wiki/stl/vector/get_allocator'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/vector/get_allocator'
 p2118
 S'stl/vector'
 p2119
@@ -3822,7 +3822,7 @@ p2120
 tp2121
 a(S'constructor'
 p2122
-S'./www.cppreference.com/wiki/stl/deque/deque'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/deque'
 p2123
 S'stl/deque'
 p2124
@@ -3831,7 +3831,7 @@ p2125
 tp2126
 a(S'operators'
 p2127
-S'./www.cppreference.com/wiki/stl/deque/deque_operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/deque_operators'
 p2128
 S'stl/deque'
 p2129
@@ -3840,7 +3840,7 @@ p2130
 tp2131
 a(S'operator='
 p2132
-S'./www.cppreference.com/wiki/stl/deque/operator_as'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/operator_as'
 p2133
 S'stl/deque'
 p2134
@@ -3849,7 +3849,7 @@ p2135
 tp2136
 a(S'assign'
 p2137
-S'./www.cppreference.com/wiki/stl/deque/assign'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/assign'
 p2138
 S'stl/deque'
 p2139
@@ -3858,7 +3858,7 @@ p2140
 tp2141
 a(S'at'
 p2142
-S'./www.cppreference.com/wiki/stl/deque/at'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/at'
 p2143
 S'stl/deque'
 p2144
@@ -3867,7 +3867,7 @@ p2145
 tp2146
 a(S'operator[]'
 p2147
-S'./www.cppreference.com/wiki/stl/deque/operator_at'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/operator_at'
 p2148
 S'stl/deque'
 p2149
@@ -3876,7 +3876,7 @@ p2150
 tp2151
 a(S'front'
 p2152
-S'./www.cppreference.com/wiki/stl/deque/front'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/front'
 p2153
 S'stl/deque'
 p2154
@@ -3885,7 +3885,7 @@ p2155
 tp2156
 a(S'back'
 p2157
-S'./www.cppreference.com/wiki/stl/deque/back'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/back'
 p2158
 S'stl/deque'
 p2159
@@ -3894,7 +3894,7 @@ p2160
 tp2161
 a(S'begin'
 p2162
-S'./www.cppreference.com/wiki/stl/deque/begin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/begin'
 p2163
 S'stl/deque'
 p2164
@@ -3903,7 +3903,7 @@ p2165
 tp2166
 a(S'cbegin'
 p2167
-S'./www.cppreference.com/wiki/stl/deque/begin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/begin'
 p2168
 S'stl/deque'
 p2169
@@ -3912,7 +3912,7 @@ p2170
 tp2171
 a(S'end'
 p2172
-S'./www.cppreference.com/wiki/stl/deque/end'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/end'
 p2173
 S'stl/deque'
 p2174
@@ -3921,7 +3921,7 @@ p2175
 tp2176
 a(S'cend'
 p2177
-S'./www.cppreference.com/wiki/stl/deque/end'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/end'
 p2178
 S'stl/deque'
 p2179
@@ -3930,7 +3930,7 @@ p2180
 tp2181
 a(S'rbegin'
 p2182
-S'./www.cppreference.com/wiki/stl/deque/rbegin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/rbegin'
 p2183
 S'stl/deque'
 p2184
@@ -3939,7 +3939,7 @@ p2185
 tp2186
 a(S'crbegin'
 p2187
-S'./www.cppreference.com/wiki/stl/deque/rbegin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/rbegin'
 p2188
 S'stl/deque'
 p2189
@@ -3948,7 +3948,7 @@ p2190
 tp2191
 a(S'rend'
 p2192
-S'./www.cppreference.com/wiki/stl/deque/rend'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/rend'
 p2193
 S'stl/deque'
 p2194
@@ -3957,7 +3957,7 @@ p2195
 tp2196
 a(S'crend'
 p2197
-S'./www.cppreference.com/wiki/stl/deque/rend'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/rend'
 p2198
 S'stl/deque'
 p2199
@@ -3966,7 +3966,7 @@ p2200
 tp2201
 a(S'empty'
 p2202
-S'./www.cppreference.com/wiki/stl/deque/empty'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/empty'
 p2203
 S'stl/deque'
 p2204
@@ -3975,7 +3975,7 @@ p2205
 tp2206
 a(S'size'
 p2207
-S'./www.cppreference.com/wiki/stl/deque/size'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/size'
 p2208
 S'stl/deque'
 p2209
@@ -3984,7 +3984,7 @@ p2210
 tp2211
 a(S'max_size'
 p2212
-S'./www.cppreference.com/wiki/stl/deque/max_size'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/max_size'
 p2213
 S'stl/deque'
 p2214
@@ -3993,7 +3993,7 @@ p2215
 tp2216
 a(S'shrink_to_fit'
 p2217
-S'./www.cppreference.com/wiki/stl/deque/shrink_to_fit'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/shrink_to_fit'
 p2218
 S'stl/deque'
 p2219
@@ -4002,7 +4002,7 @@ p2220
 tp2221
 a(S'clear'
 p2222
-S'./www.cppreference.com/wiki/stl/deque/clear'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/clear'
 p2223
 S'stl/deque'
 p2224
@@ -4011,7 +4011,7 @@ p2225
 tp2226
 a(S'insert'
 p2227
-S'./www.cppreference.com/wiki/stl/deque/insert'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/insert'
 p2228
 S'stl/deque'
 p2229
@@ -4020,7 +4020,7 @@ p2230
 tp2231
 a(S'emplace'
 p2232
-S'./www.cppreference.com/wiki/stl/deque/emplace'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/emplace'
 p2233
 S'stl/deque'
 p2234
@@ -4028,7 +4028,7 @@ g1029
 tp2235
 a(S'erase'
 p2236
-S'./www.cppreference.com/wiki/stl/deque/erase'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/erase'
 p2237
 S'stl/deque'
 p2238
@@ -4037,7 +4037,7 @@ p2239
 tp2240
 a(S'push_front'
 p2241
-S'./www.cppreference.com/wiki/stl/deque/push_front'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/push_front'
 p2242
 S'stl/deque'
 p2243
@@ -4046,7 +4046,7 @@ p2244
 tp2245
 a(S'emplace_front'
 p2246
-S'./www.cppreference.com/wiki/stl/deque/emplace_front'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/emplace_front'
 p2247
 S'stl/deque'
 p2248
@@ -4054,7 +4054,7 @@ g1029
 tp2249
 a(S'pop_front'
 p2250
-S'./www.cppreference.com/wiki/stl/deque/pop_front'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/pop_front'
 p2251
 S'stl/deque'
 p2252
@@ -4063,7 +4063,7 @@ p2253
 tp2254
 a(S'push_back'
 p2255
-S'./www.cppreference.com/wiki/stl/deque/push_back'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/push_back'
 p2256
 S'stl/deque'
 p2257
@@ -4072,7 +4072,7 @@ p2258
 tp2259
 a(S'emplace_back'
 p2260
-S'./www.cppreference.com/wiki/stl/deque/emplace_back'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/emplace_back'
 p2261
 S'stl/deque'
 p2262
@@ -4080,7 +4080,7 @@ g1029
 tp2263
 a(S'pop_back'
 p2264
-S'./www.cppreference.com/wiki/stl/deque/pop_back'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/pop_back'
 p2265
 S'stl/deque'
 p2266
@@ -4089,7 +4089,7 @@ p2267
 tp2268
 a(S'resize'
 p2269
-S'./www.cppreference.com/wiki/stl/deque/resize'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/resize'
 p2270
 S'stl/deque'
 p2271
@@ -4098,7 +4098,7 @@ p2272
 tp2273
 a(S'swap'
 p2274
-S'./www.cppreference.com/wiki/stl/deque/swap'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/swap'
 p2275
 S'stl/deque'
 p2276
@@ -4107,7 +4107,7 @@ p2277
 tp2278
 a(S'get_allocator'
 p2279
-S'./www.cppreference.com/wiki/stl/deque/get_allocator'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/deque/get_allocator'
 p2280
 S'stl/deque'
 p2281
@@ -4116,7 +4116,7 @@ p2282
 tp2283
 a(S'constructor'
 p2284
-S'./www.cppreference.com/wiki/stl/list/list'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/list'
 p2285
 S'stl/list'
 p2286
@@ -4125,7 +4125,7 @@ p2287
 tp2288
 a(S'operators'
 p2289
-S'./www.cppreference.com/wiki/stl/list/list_operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/list_operators'
 p2290
 S'stl/list'
 p2291
@@ -4134,7 +4134,7 @@ p2292
 tp2293
 a(S'operator='
 p2294
-S'./www.cppreference.com/wiki/stl/list/operator_as'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/operator_as'
 p2295
 S'stl/list'
 p2296
@@ -4143,7 +4143,7 @@ p2297
 tp2298
 a(S'assign'
 p2299
-S'./www.cppreference.com/wiki/stl/list/assign'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/assign'
 p2300
 S'stl/list'
 p2301
@@ -4152,7 +4152,7 @@ p2302
 tp2303
 a(S'front'
 p2304
-S'./www.cppreference.com/wiki/stl/list/front'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/front'
 p2305
 S'stl/list'
 p2306
@@ -4161,7 +4161,7 @@ p2307
 tp2308
 a(S'back'
 p2309
-S'./www.cppreference.com/wiki/stl/list/back'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/back'
 p2310
 S'stl/list'
 p2311
@@ -4170,7 +4170,7 @@ p2312
 tp2313
 a(S'begin'
 p2314
-S'./www.cppreference.com/wiki/stl/list/begin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/begin'
 p2315
 S'stl/list'
 p2316
@@ -4179,7 +4179,7 @@ p2317
 tp2318
 a(S'cbegin'
 p2319
-S'./www.cppreference.com/wiki/stl/list/begin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/begin'
 p2320
 S'stl/list'
 p2321
@@ -4188,7 +4188,7 @@ p2322
 tp2323
 a(S'end'
 p2324
-S'./www.cppreference.com/wiki/stl/list/end'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/end'
 p2325
 S'stl/list'
 p2326
@@ -4197,7 +4197,7 @@ p2327
 tp2328
 a(S'cend'
 p2329
-S'./www.cppreference.com/wiki/stl/list/end'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/end'
 p2330
 S'stl/list'
 p2331
@@ -4206,7 +4206,7 @@ p2332
 tp2333
 a(S'rbegin'
 p2334
-S'./www.cppreference.com/wiki/stl/list/rbegin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/rbegin'
 p2335
 S'stl/list'
 p2336
@@ -4215,7 +4215,7 @@ p2337
 tp2338
 a(S'crbegin'
 p2339
-S'./www.cppreference.com/wiki/stl/list/rbegin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/rbegin'
 p2340
 S'stl/list'
 p2341
@@ -4224,7 +4224,7 @@ p2342
 tp2343
 a(S'rend'
 p2344
-S'./www.cppreference.com/wiki/stl/list/rend'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/rend'
 p2345
 S'stl/list'
 p2346
@@ -4233,7 +4233,7 @@ p2347
 tp2348
 a(S'crend'
 p2349
-S'./www.cppreference.com/wiki/stl/list/rend'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/rend'
 p2350
 S'stl/list'
 p2351
@@ -4242,7 +4242,7 @@ p2352
 tp2353
 a(S'empty'
 p2354
-S'./www.cppreference.com/wiki/stl/list/empty'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/empty'
 p2355
 S'stl/list'
 p2356
@@ -4251,7 +4251,7 @@ p2357
 tp2358
 a(S'size'
 p2359
-S'./www.cppreference.com/wiki/stl/list/size'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/size'
 p2360
 S'stl/list'
 p2361
@@ -4260,7 +4260,7 @@ p2362
 tp2363
 a(S'max_size'
 p2364
-S'./www.cppreference.com/wiki/stl/list/max_size'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/max_size'
 p2365
 S'stl/list'
 p2366
@@ -4269,7 +4269,7 @@ p2367
 tp2368
 a(S'clear'
 p2369
-S'./www.cppreference.com/wiki/stl/list/clear'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/clear'
 p2370
 S'stl/list'
 p2371
@@ -4278,7 +4278,7 @@ p2372
 tp2373
 a(S'insert'
 p2374
-S'./www.cppreference.com/wiki/stl/list/insert'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/insert'
 p2375
 S'stl/list'
 p2376
@@ -4287,7 +4287,7 @@ p2377
 tp2378
 a(S'emplace'
 p2379
-S'./www.cppreference.com/wiki/stl/list/emplace'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/emplace'
 p2380
 S'stl/list'
 p2381
@@ -4295,7 +4295,7 @@ g1029
 tp2382
 a(S'erase'
 p2383
-S'./www.cppreference.com/wiki/stl/list/erase'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/erase'
 p2384
 S'stl/list'
 p2385
@@ -4304,7 +4304,7 @@ p2386
 tp2387
 a(S'push_front'
 p2388
-S'./www.cppreference.com/wiki/stl/list/push_front'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/push_front'
 p2389
 S'stl/list'
 p2390
@@ -4313,7 +4313,7 @@ p2391
 tp2392
 a(S'emplace_front'
 p2393
-S'./www.cppreference.com/wiki/stl/list/emplace_front'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/emplace_front'
 p2394
 S'stl/list'
 p2395
@@ -4321,7 +4321,7 @@ g1029
 tp2396
 a(S'pop_front'
 p2397
-S'./www.cppreference.com/wiki/stl/list/pop_front'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/pop_front'
 p2398
 S'stl/list'
 p2399
@@ -4330,7 +4330,7 @@ p2400
 tp2401
 a(S'push_back'
 p2402
-S'./www.cppreference.com/wiki/stl/list/push_back'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/push_back'
 p2403
 S'stl/list'
 p2404
@@ -4339,7 +4339,7 @@ p2405
 tp2406
 a(S'emplace_back'
 p2407
-S'./www.cppreference.com/wiki/stl/list/emplace_back'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/emplace_back'
 p2408
 S'stl/list'
 p2409
@@ -4347,7 +4347,7 @@ g1029
 tp2410
 a(S'pop_back'
 p2411
-S'./www.cppreference.com/wiki/stl/list/pop_back'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/pop_back'
 p2412
 S'stl/list'
 p2413
@@ -4356,7 +4356,7 @@ p2414
 tp2415
 a(S'resize'
 p2416
-S'./www.cppreference.com/wiki/stl/list/resize'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/resize'
 p2417
 S'stl/list'
 p2418
@@ -4365,7 +4365,7 @@ p2419
 tp2420
 a(S'swap'
 p2421
-S'./www.cppreference.com/wiki/stl/list/swap'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/swap'
 p2422
 S'stl/list'
 p2423
@@ -4374,7 +4374,7 @@ p2424
 tp2425
 a(S'merge'
 p2426
-S'./www.cppreference.com/wiki/stl/list/merge'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/merge'
 p2427
 S'stl/list'
 p2428
@@ -4383,7 +4383,7 @@ p2429
 tp2430
 a(S'splice'
 p2431
-S'./www.cppreference.com/wiki/stl/list/splice'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/splice'
 p2432
 S'stl/list'
 p2433
@@ -4392,7 +4392,7 @@ p2434
 tp2435
 a(S'remove'
 p2436
-S'./www.cppreference.com/wiki/stl/list/remove'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/remove'
 p2437
 S'stl/list'
 p2438
@@ -4401,7 +4401,7 @@ p2439
 tp2440
 a(S'remove_if'
 p2441
-S'./www.cppreference.com/wiki/stl/list/remove_if'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/remove_if'
 p2442
 S'stl/list'
 p2443
@@ -4410,7 +4410,7 @@ p2444
 tp2445
 a(S'reverse'
 p2446
-S'./www.cppreference.com/wiki/stl/list/reverse'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/reverse'
 p2447
 S'stl/list'
 p2448
@@ -4419,7 +4419,7 @@ p2449
 tp2450
 a(S'unique'
 p2451
-S'./www.cppreference.com/wiki/stl/list/unique'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/unique'
 p2452
 S'stl/list'
 p2453
@@ -4428,7 +4428,7 @@ p2454
 tp2455
 a(S'sort'
 p2456
-S'./www.cppreference.com/wiki/stl/list/sort'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/sort'
 p2457
 S'stl/list'
 p2458
@@ -4437,7 +4437,7 @@ p2459
 tp2460
 a(S'get_allocator'
 p2461
-S'./www.cppreference.com/wiki/stl/list/get_allocator'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/list/get_allocator'
 p2462
 S'stl/list'
 p2463
@@ -4446,7 +4446,7 @@ p2464
 tp2465
 a(S'constructors'
 p2466
-S'./www.cppreference.com/wiki/stl/priority_queue/pqueue_constructors'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/priority_queue/pqueue_constructors'
 p2467
 S'stl/priority_queue'
 p2468
@@ -4455,7 +4455,7 @@ p2469
 tp2470
 a(S'top'
 p2471
-S'./www.cppreference.com/wiki/stl/priority_queue/top'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/priority_queue/top'
 p2472
 S'stl/priority_queue'
 p2473
@@ -4464,7 +4464,7 @@ p2474
 tp2475
 a(S'empty'
 p2476
-S'./www.cppreference.com/wiki/stl/priority_queue/empty'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/priority_queue/empty'
 p2477
 S'stl/priority_queue'
 p2478
@@ -4473,7 +4473,7 @@ p2479
 tp2480
 a(S'size'
 p2481
-S'./www.cppreference.com/wiki/stl/priority_queue/size'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/priority_queue/size'
 p2482
 S'stl/priority_queue'
 p2483
@@ -4482,7 +4482,7 @@ p2484
 tp2485
 a(S'emplace'
 p2486
-S'./www.cppreference.com/wiki/stl/priority_queue/emplace'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/priority_queue/emplace'
 p2487
 S'stl/priority_queue'
 p2488
@@ -4490,7 +4490,7 @@ g1029
 tp2489
 a(S'push'
 p2490
-S'./www.cppreference.com/wiki/stl/priority_queue/push'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/priority_queue/push'
 p2491
 S'stl/priority_queue'
 p2492
@@ -4499,7 +4499,7 @@ p2493
 tp2494
 a(S'pop'
 p2495
-S'./www.cppreference.com/wiki/stl/priority_queue/pop'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/priority_queue/pop'
 p2496
 S'stl/priority_queue'
 p2497
@@ -4508,7 +4508,7 @@ p2498
 tp2499
 a(S'swap'
 p2500
-S'./www.cppreference.com/wiki/stl/priority_queue/swap'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/priority_queue/swap'
 p2501
 S'stl/priority_queue'
 p2502
@@ -4517,7 +4517,7 @@ p2503
 tp2504
 a(S'constructors'
 p2505
-S'./www.cppreference.com/wiki/stl/queue/queue_constructors'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/queue/queue_constructors'
 p2506
 S'stl/queue'
 p2507
@@ -4526,7 +4526,7 @@ p2508
 tp2509
 a(S'front'
 p2510
-S'./www.cppreference.com/wiki/stl/queue/front'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/queue/front'
 p2511
 S'stl/queue'
 p2512
@@ -4535,7 +4535,7 @@ p2513
 tp2514
 a(S'back'
 p2515
-S'./www.cppreference.com/wiki/stl/queue/back'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/queue/back'
 p2516
 S'stl/queue'
 p2517
@@ -4544,7 +4544,7 @@ p2518
 tp2519
 a(S'empty'
 p2520
-S'./www.cppreference.com/wiki/stl/queue/empty'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/queue/empty'
 p2521
 S'stl/queue'
 p2522
@@ -4553,7 +4553,7 @@ p2523
 tp2524
 a(S'size'
 p2525
-S'./www.cppreference.com/wiki/stl/queue/size'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/queue/size'
 p2526
 S'stl/queue'
 p2527
@@ -4562,7 +4562,7 @@ p2528
 tp2529
 a(S'emplace'
 p2530
-S'./www.cppreference.com/wiki/stl/queue/emplace'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/queue/emplace'
 p2531
 S'stl/queue'
 p2532
@@ -4570,7 +4570,7 @@ g1029
 tp2533
 a(S'pop'
 p2534
-S'./www.cppreference.com/wiki/stl/queue/pop'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/queue/pop'
 p2535
 S'stl/queue'
 p2536
@@ -4579,7 +4579,7 @@ p2537
 tp2538
 a(S'push'
 p2539
-S'./www.cppreference.com/wiki/stl/queue/push'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/queue/push'
 p2540
 S'stl/queue'
 p2541
@@ -4588,7 +4588,7 @@ p2542
 tp2543
 a(S'swap'
 p2544
-S'./www.cppreference.com/wiki/stl/queue/swap'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/queue/swap'
 p2545
 S'stl/queue'
 p2546
@@ -4597,7 +4597,7 @@ p2547
 tp2548
 a(S'constructors'
 p2549
-S'./www.cppreference.com/wiki/stl/stack/stack_constructors'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/stack/stack_constructors'
 p2550
 S'stl/stack'
 p2551
@@ -4606,7 +4606,7 @@ p2552
 tp2553
 a(S'top'
 p2554
-S'./www.cppreference.com/wiki/stl/stack/top'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/stack/top'
 p2555
 S'stl/stack'
 p2556
@@ -4615,7 +4615,7 @@ p2557
 tp2558
 a(S'empty'
 p2559
-S'./www.cppreference.com/wiki/stl/stack/empty'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/stack/empty'
 p2560
 S'stl/stack'
 p2561
@@ -4624,7 +4624,7 @@ p2562
 tp2563
 a(S'size'
 p2564
-S'./www.cppreference.com/wiki/stl/stack/size'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/stack/size'
 p2565
 S'stl/stack'
 p2566
@@ -4633,7 +4633,7 @@ p2567
 tp2568
 a(S'emplace'
 p2569
-S'./www.cppreference.com/wiki/stl/stack/emplace'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/stack/emplace'
 p2570
 S'stl/stack'
 p2571
@@ -4641,7 +4641,7 @@ g1029
 tp2572
 a(S'push'
 p2573
-S'./www.cppreference.com/wiki/stl/stack/push'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/stack/push'
 p2574
 S'stl/stack'
 p2575
@@ -4650,7 +4650,7 @@ p2576
 tp2577
 a(S'pop'
 p2578
-S'./www.cppreference.com/wiki/stl/stack/pop'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/stack/pop'
 p2579
 S'stl/stack'
 p2580
@@ -4659,7 +4659,7 @@ p2581
 tp2582
 a(S'swap'
 p2583
-S'./www.cppreference.com/wiki/stl/stack/swap'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/stack/swap'
 p2584
 S'stl/stack'
 p2585
@@ -4668,7 +4668,7 @@ p2586
 tp2587
 a(S'constructor'
 p2588
-S'./www.cppreference.com/wiki/stl/set/set_constructors'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/set_constructors'
 p2589
 S'stl/set'
 p2590
@@ -4677,7 +4677,7 @@ p2591
 tp2592
 a(S'operators'
 p2593
-S'./www.cppreference.com/wiki/stl/set/set_operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/set_operators'
 p2594
 S'stl/set'
 p2595
@@ -4686,7 +4686,7 @@ p2596
 tp2597
 a(S'begin'
 p2598
-S'./www.cppreference.com/wiki/stl/set/begin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/begin'
 p2599
 S'stl/set'
 p2600
@@ -4695,7 +4695,7 @@ p2601
 tp2602
 a(S'cbegin'
 p2603
-S'./www.cppreference.com/wiki/stl/set/begin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/begin'
 p2604
 S'stl/set'
 p2605
@@ -4704,7 +4704,7 @@ p2606
 tp2607
 a(S'end'
 p2608
-S'./www.cppreference.com/wiki/stl/set/end'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/end'
 p2609
 S'stl/set'
 p2610
@@ -4713,7 +4713,7 @@ p2611
 tp2612
 a(S'cend'
 p2613
-S'./www.cppreference.com/wiki/stl/set/end'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/end'
 p2614
 S'stl/set'
 p2615
@@ -4722,7 +4722,7 @@ p2616
 tp2617
 a(S'rbegin'
 p2618
-S'./www.cppreference.com/wiki/stl/set/rbegin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/rbegin'
 p2619
 S'stl/set'
 p2620
@@ -4731,7 +4731,7 @@ p2621
 tp2622
 a(S'crbegin'
 p2623
-S'./www.cppreference.com/wiki/stl/set/rbegin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/rbegin'
 p2624
 S'stl/set'
 p2625
@@ -4740,7 +4740,7 @@ p2626
 tp2627
 a(S'rend'
 p2628
-S'./www.cppreference.com/wiki/stl/set/rend'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/rend'
 p2629
 S'stl/set'
 p2630
@@ -4749,7 +4749,7 @@ p2631
 tp2632
 a(S'crend'
 p2633
-S'./www.cppreference.com/wiki/stl/set/rend'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/rend'
 p2634
 S'stl/set'
 p2635
@@ -4758,7 +4758,7 @@ p2636
 tp2637
 a(S'empty'
 p2638
-S'./www.cppreference.com/wiki/stl/set/empty'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/empty'
 p2639
 S'stl/set'
 p2640
@@ -4767,7 +4767,7 @@ p2641
 tp2642
 a(S'size'
 p2643
-S'./www.cppreference.com/wiki/stl/set/size'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/size'
 p2644
 S'stl/set'
 p2645
@@ -4776,7 +4776,7 @@ p2646
 tp2647
 a(S'max_size'
 p2648
-S'./www.cppreference.com/wiki/stl/set/max_size'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/max_size'
 p2649
 S'stl/set'
 p2650
@@ -4785,7 +4785,7 @@ p2651
 tp2652
 a(S'clear'
 p2653
-S'./www.cppreference.com/wiki/stl/set/clear'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/clear'
 p2654
 S'stl/set'
 p2655
@@ -4794,7 +4794,7 @@ p2656
 tp2657
 a(S'erase'
 p2658
-S'./www.cppreference.com/wiki/stl/set/erase'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/erase'
 p2659
 S'stl/set'
 p2660
@@ -4803,7 +4803,7 @@ p2661
 tp2662
 a(S'insert'
 p2663
-S'./www.cppreference.com/wiki/stl/set/insert'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/insert'
 p2664
 S'stl/set'
 p2665
@@ -4812,7 +4812,7 @@ p2666
 tp2667
 a(S'swap'
 p2668
-S'./www.cppreference.com/wiki/stl/set/swap'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/swap'
 p2669
 S'stl/set'
 p2670
@@ -4821,7 +4821,7 @@ p2671
 tp2672
 a(S'count'
 p2673
-S'./www.cppreference.com/wiki/stl/set/count'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/count'
 p2674
 S'stl/set'
 p2675
@@ -4830,7 +4830,7 @@ p2676
 tp2677
 a(S'find'
 p2678
-S'./www.cppreference.com/wiki/stl/set/find'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/find'
 p2679
 S'stl/set'
 p2680
@@ -4839,7 +4839,7 @@ p2681
 tp2682
 a(S'equal_range'
 p2683
-S'./www.cppreference.com/wiki/stl/set/equal_range'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/equal_range'
 p2684
 S'stl/set'
 p2685
@@ -4848,7 +4848,7 @@ p2686
 tp2687
 a(S'lower_bound'
 p2688
-S'./www.cppreference.com/wiki/stl/set/lower_bound'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/lower_bound'
 p2689
 S'stl/set'
 p2690
@@ -4857,7 +4857,7 @@ p2691
 tp2692
 a(S'upper_bound'
 p2693
-S'./www.cppreference.com/wiki/stl/set/upper_bound'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/upper_bound'
 p2694
 S'stl/set'
 p2695
@@ -4866,7 +4866,7 @@ p2696
 tp2697
 a(S'key_comp'
 p2698
-S'./www.cppreference.com/wiki/stl/set/key_comp'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/key_comp'
 p2699
 S'stl/set'
 p2700
@@ -4875,7 +4875,7 @@ p2701
 tp2702
 a(S'value_comp'
 p2703
-S'./www.cppreference.com/wiki/stl/set/value_comp'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/value_comp'
 p2704
 S'stl/set'
 p2705
@@ -4884,7 +4884,7 @@ p2706
 tp2707
 a(S'get_allocator'
 p2708
-S'./www.cppreference.com/wiki/stl/set/get_allocator'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/get_allocator'
 p2709
 S'stl/set'
 p2710
@@ -4893,7 +4893,7 @@ p2711
 tp2712
 a(S'operator []'
 p2713
-S'./www.cppreference.com/wiki/stl/set/operator_at'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/set/operator_at'
 p2714
 S'stl/set'
 p2715
@@ -4901,7 +4901,7 @@ g1029
 tp2716
 a(S'constructor'
 p2717
-S'./www.cppreference.com/wiki/stl/multiset/multiset_constructors'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/multiset_constructors'
 p2718
 S'stl/multiset'
 p2719
@@ -4910,7 +4910,7 @@ p2720
 tp2721
 a(S'operators'
 p2722
-S'./www.cppreference.com/wiki/stl/multiset/multiset_operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/multiset_operators'
 p2723
 S'stl/multiset'
 p2724
@@ -4919,7 +4919,7 @@ p2725
 tp2726
 a(S'begin'
 p2727
-S'./www.cppreference.com/wiki/stl/multiset/begin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/begin'
 p2728
 S'stl/multiset'
 p2729
@@ -4928,7 +4928,7 @@ p2730
 tp2731
 a(S'cbegin'
 p2732
-S'./www.cppreference.com/wiki/stl/multiset/begin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/begin'
 p2733
 S'stl/multiset'
 p2734
@@ -4937,7 +4937,7 @@ p2735
 tp2736
 a(S'end'
 p2737
-S'./www.cppreference.com/wiki/stl/multiset/end'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/end'
 p2738
 S'stl/multiset'
 p2739
@@ -4946,7 +4946,7 @@ p2740
 tp2741
 a(S'cend'
 p2742
-S'./www.cppreference.com/wiki/stl/multiset/end'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/end'
 p2743
 S'stl/multiset'
 p2744
@@ -4955,7 +4955,7 @@ p2745
 tp2746
 a(S'rbegin'
 p2747
-S'./www.cppreference.com/wiki/stl/multiset/rbegin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/rbegin'
 p2748
 S'stl/multiset'
 p2749
@@ -4964,7 +4964,7 @@ p2750
 tp2751
 a(S'crbegin'
 p2752
-S'./www.cppreference.com/wiki/stl/multiset/rbegin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/rbegin'
 p2753
 S'stl/multiset'
 p2754
@@ -4973,7 +4973,7 @@ p2755
 tp2756
 a(S'rend'
 p2757
-S'./www.cppreference.com/wiki/stl/multiset/rend'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/rend'
 p2758
 S'stl/multiset'
 p2759
@@ -4982,7 +4982,7 @@ p2760
 tp2761
 a(S'crend'
 p2762
-S'./www.cppreference.com/wiki/stl/multiset/rend'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/rend'
 p2763
 S'stl/multiset'
 p2764
@@ -4991,7 +4991,7 @@ p2765
 tp2766
 a(S'empty'
 p2767
-S'./www.cppreference.com/wiki/stl/multiset/empty'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/empty'
 p2768
 S'stl/multiset'
 p2769
@@ -5000,7 +5000,7 @@ p2770
 tp2771
 a(S'size'
 p2772
-S'./www.cppreference.com/wiki/stl/multiset/size'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/size'
 p2773
 S'stl/multiset'
 p2774
@@ -5009,7 +5009,7 @@ p2775
 tp2776
 a(S'max_size'
 p2777
-S'./www.cppreference.com/wiki/stl/multiset/max_size'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/max_size'
 p2778
 S'stl/multiset'
 p2779
@@ -5018,7 +5018,7 @@ p2780
 tp2781
 a(S'clear'
 p2782
-S'./www.cppreference.com/wiki/stl/multiset/clear'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/clear'
 p2783
 S'stl/multiset'
 p2784
@@ -5027,7 +5027,7 @@ p2785
 tp2786
 a(S'erase'
 p2787
-S'./www.cppreference.com/wiki/stl/multiset/erase'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/erase'
 p2788
 S'stl/multiset'
 p2789
@@ -5036,7 +5036,7 @@ p2790
 tp2791
 a(S'insert'
 p2792
-S'./www.cppreference.com/wiki/stl/multiset/insert'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/insert'
 p2793
 S'stl/multiset'
 p2794
@@ -5045,7 +5045,7 @@ p2795
 tp2796
 a(S'swap'
 p2797
-S'./www.cppreference.com/wiki/stl/multiset/swap'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/swap'
 p2798
 S'stl/multiset'
 p2799
@@ -5054,7 +5054,7 @@ p2800
 tp2801
 a(S'count'
 p2802
-S'./www.cppreference.com/wiki/stl/multiset/count'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/count'
 p2803
 S'stl/multiset'
 p2804
@@ -5063,7 +5063,7 @@ p2805
 tp2806
 a(S'find'
 p2807
-S'./www.cppreference.com/wiki/stl/multiset/find'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/find'
 p2808
 S'stl/multiset'
 p2809
@@ -5072,7 +5072,7 @@ p2810
 tp2811
 a(S'equal_range'
 p2812
-S'./www.cppreference.com/wiki/stl/multiset/equal_range'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/equal_range'
 p2813
 S'stl/multiset'
 p2814
@@ -5081,7 +5081,7 @@ p2815
 tp2816
 a(S'lower_bound'
 p2817
-S'./www.cppreference.com/wiki/stl/multiset/lower_bound'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/lower_bound'
 p2818
 S'stl/multiset'
 p2819
@@ -5090,7 +5090,7 @@ p2820
 tp2821
 a(S'upper_bound'
 p2822
-S'./www.cppreference.com/wiki/stl/multiset/upper_bound'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/upper_bound'
 p2823
 S'stl/multiset'
 p2824
@@ -5099,7 +5099,7 @@ p2825
 tp2826
 a(S'key_comp'
 p2827
-S'./www.cppreference.com/wiki/stl/multiset/key_comp'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/key_comp'
 p2828
 S'stl/multiset'
 p2829
@@ -5108,7 +5108,7 @@ p2830
 tp2831
 a(S'value_comp'
 p2832
-S'./www.cppreference.com/wiki/stl/multiset/value_comp'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/value_comp'
 p2833
 S'stl/multiset'
 p2834
@@ -5117,7 +5117,7 @@ p2835
 tp2836
 a(S'get_allocator'
 p2837
-S'./www.cppreference.com/wiki/stl/multiset/get_allocator'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/get_allocator'
 p2838
 S'stl/multiset'
 p2839
@@ -5126,7 +5126,7 @@ p2840
 tp2841
 a(S'operator []'
 p2842
-S'./www.cppreference.com/wiki/stl/multiset/operator_at'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multiset/operator_at'
 p2843
 S'stl/multiset'
 p2844
@@ -5134,7 +5134,7 @@ g1029
 tp2845
 a(S'constructor'
 p2846
-S'./www.cppreference.com/wiki/stl/map/map_constructors'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/map_constructors'
 p2847
 S'stl/map'
 p2848
@@ -5143,7 +5143,7 @@ p2849
 tp2850
 a(S'operators'
 p2851
-S'./www.cppreference.com/wiki/stl/map/map_operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/map_operators'
 p2852
 S'stl/map'
 p2853
@@ -5152,7 +5152,7 @@ p2854
 tp2855
 a(S'map_typedefs'
 p2856
-S'./www.cppreference.com/wiki/stl/map/map_typedefs'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/map_typedefs'
 p2857
 S'stl/map'
 p2858
@@ -5161,7 +5161,7 @@ p2859
 tp2860
 a(S'begin'
 p2861
-S'./www.cppreference.com/wiki/stl/map/begin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/begin'
 p2862
 S'stl/map'
 p2863
@@ -5170,7 +5170,7 @@ p2864
 tp2865
 a(S'cbegin'
 p2866
-S'./www.cppreference.com/wiki/stl/map/begin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/begin'
 p2867
 S'stl/map'
 p2868
@@ -5179,7 +5179,7 @@ p2869
 tp2870
 a(S'end'
 p2871
-S'./www.cppreference.com/wiki/stl/map/end'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/end'
 p2872
 S'stl/map'
 p2873
@@ -5188,7 +5188,7 @@ p2874
 tp2875
 a(S'cend'
 p2876
-S'./www.cppreference.com/wiki/stl/map/end'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/end'
 p2877
 S'stl/map'
 p2878
@@ -5197,7 +5197,7 @@ p2879
 tp2880
 a(S'rbegin'
 p2881
-S'./www.cppreference.com/wiki/stl/map/rbegin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/rbegin'
 p2882
 S'stl/map'
 p2883
@@ -5206,7 +5206,7 @@ p2884
 tp2885
 a(S'crbegin'
 p2886
-S'./www.cppreference.com/wiki/stl/map/rbegin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/rbegin'
 p2887
 S'stl/map'
 p2888
@@ -5215,7 +5215,7 @@ p2889
 tp2890
 a(S'rend'
 p2891
-S'./www.cppreference.com/wiki/stl/map/rend'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/rend'
 p2892
 S'stl/map'
 p2893
@@ -5224,7 +5224,7 @@ p2894
 tp2895
 a(S'crend'
 p2896
-S'./www.cppreference.com/wiki/stl/map/rend'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/rend'
 p2897
 S'stl/map'
 p2898
@@ -5233,7 +5233,7 @@ p2899
 tp2900
 a(S'empty'
 p2901
-S'./www.cppreference.com/wiki/stl/map/empty'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/empty'
 p2902
 S'stl/map'
 p2903
@@ -5242,7 +5242,7 @@ p2904
 tp2905
 a(S'size'
 p2906
-S'./www.cppreference.com/wiki/stl/map/size'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/size'
 p2907
 S'stl/map'
 p2908
@@ -5251,7 +5251,7 @@ p2909
 tp2910
 a(S'max_size'
 p2911
-S'./www.cppreference.com/wiki/stl/map/max_size'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/max_size'
 p2912
 S'stl/map'
 p2913
@@ -5260,7 +5260,7 @@ p2914
 tp2915
 a(S'clear'
 p2916
-S'./www.cppreference.com/wiki/stl/map/clear'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/clear'
 p2917
 S'stl/map'
 p2918
@@ -5269,7 +5269,7 @@ p2919
 tp2920
 a(S'erase'
 p2921
-S'./www.cppreference.com/wiki/stl/map/erase'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/erase'
 p2922
 S'stl/map'
 p2923
@@ -5278,7 +5278,7 @@ p2924
 tp2925
 a(S'insert'
 p2926
-S'./www.cppreference.com/wiki/stl/map/insert'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/insert'
 p2927
 S'stl/map'
 p2928
@@ -5287,7 +5287,7 @@ p2929
 tp2930
 a(S'swap'
 p2931
-S'./www.cppreference.com/wiki/stl/map/swap'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/swap'
 p2932
 S'stl/map'
 p2933
@@ -5296,7 +5296,7 @@ p2934
 tp2935
 a(S'count'
 p2936
-S'./www.cppreference.com/wiki/stl/map/count'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/count'
 p2937
 S'stl/map'
 p2938
@@ -5305,7 +5305,7 @@ p2939
 tp2940
 a(S'find'
 p2941
-S'./www.cppreference.com/wiki/stl/map/find'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/find'
 p2942
 S'stl/map'
 p2943
@@ -5314,7 +5314,7 @@ p2944
 tp2945
 a(S'equal_range'
 p2946
-S'./www.cppreference.com/wiki/stl/map/equal_range'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/equal_range'
 p2947
 S'stl/map'
 p2948
@@ -5323,7 +5323,7 @@ p2949
 tp2950
 a(S'lower_bound'
 p2951
-S'./www.cppreference.com/wiki/stl/map/lower_bound'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/lower_bound'
 p2952
 S'stl/map'
 p2953
@@ -5332,7 +5332,7 @@ p2954
 tp2955
 a(S'upper_bound'
 p2956
-S'./www.cppreference.com/wiki/stl/map/upper_bound'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/upper_bound'
 p2957
 S'stl/map'
 p2958
@@ -5341,7 +5341,7 @@ p2959
 tp2960
 a(S'key_comp'
 p2961
-S'./www.cppreference.com/wiki/stl/map/key_comp'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/key_comp'
 p2962
 S'stl/map'
 p2963
@@ -5350,7 +5350,7 @@ p2964
 tp2965
 a(S'value_comp'
 p2966
-S'./www.cppreference.com/wiki/stl/map/value_comp'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/value_comp'
 p2967
 S'stl/map'
 p2968
@@ -5359,7 +5359,7 @@ p2969
 tp2970
 a(S'get_allocator'
 p2971
-S'./www.cppreference.com/wiki/stl/map/get_allocator'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/get_allocator'
 p2972
 S'stl/map'
 p2973
@@ -5368,7 +5368,7 @@ p2974
 tp2975
 a(S'operator []'
 p2976
-S'./www.cppreference.com/wiki/stl/map/operator_at'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/map/operator_at'
 p2977
 S'stl/map'
 p2978
@@ -5376,7 +5376,7 @@ g1029
 tp2979
 a(S'constructor'
 p2980
-S'./www.cppreference.com/wiki/stl/multimap/multimap_constructors'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/multimap_constructors'
 p2981
 S'stl/multimap'
 p2982
@@ -5385,7 +5385,7 @@ p2983
 tp2984
 a(S'operators'
 p2985
-S'./www.cppreference.com/wiki/stl/multimap/multimap_operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/multimap_operators'
 p2986
 S'stl/multimap'
 p2987
@@ -5394,7 +5394,7 @@ p2988
 tp2989
 a(S'begin'
 p2990
-S'./www.cppreference.com/wiki/stl/multimap/begin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/begin'
 p2991
 S'stl/multimap'
 p2992
@@ -5403,7 +5403,7 @@ p2993
 tp2994
 a(S'cbegin'
 p2995
-S'./www.cppreference.com/wiki/stl/multimap/begin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/begin'
 p2996
 S'stl/multimap'
 p2997
@@ -5412,7 +5412,7 @@ p2998
 tp2999
 a(S'end'
 p3000
-S'./www.cppreference.com/wiki/stl/multimap/end'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/end'
 p3001
 S'stl/multimap'
 p3002
@@ -5421,7 +5421,7 @@ p3003
 tp3004
 a(S'cend'
 p3005
-S'./www.cppreference.com/wiki/stl/multimap/end'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/end'
 p3006
 S'stl/multimap'
 p3007
@@ -5430,7 +5430,7 @@ p3008
 tp3009
 a(S'rbegin'
 p3010
-S'./www.cppreference.com/wiki/stl/multimap/rbegin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/rbegin'
 p3011
 S'stl/multimap'
 p3012
@@ -5439,7 +5439,7 @@ p3013
 tp3014
 a(S'crbegin'
 p3015
-S'./www.cppreference.com/wiki/stl/multimap/rbegin'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/rbegin'
 p3016
 S'stl/multimap'
 p3017
@@ -5448,7 +5448,7 @@ p3018
 tp3019
 a(S'rend'
 p3020
-S'./www.cppreference.com/wiki/stl/multimap/rend'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/rend'
 p3021
 S'stl/multimap'
 p3022
@@ -5457,7 +5457,7 @@ p3023
 tp3024
 a(S'crend'
 p3025
-S'./www.cppreference.com/wiki/stl/multimap/rend'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/rend'
 p3026
 S'stl/multimap'
 p3027
@@ -5466,7 +5466,7 @@ p3028
 tp3029
 a(S'empty'
 p3030
-S'./www.cppreference.com/wiki/stl/multimap/empty'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/empty'
 p3031
 S'stl/multimap'
 p3032
@@ -5475,7 +5475,7 @@ p3033
 tp3034
 a(S'size'
 p3035
-S'./www.cppreference.com/wiki/stl/multimap/size'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/size'
 p3036
 S'stl/multimap'
 p3037
@@ -5484,7 +5484,7 @@ p3038
 tp3039
 a(S'max_size'
 p3040
-S'./www.cppreference.com/wiki/stl/multimap/max_size'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/max_size'
 p3041
 S'stl/multimap'
 p3042
@@ -5493,7 +5493,7 @@ p3043
 tp3044
 a(S'clear'
 p3045
-S'./www.cppreference.com/wiki/stl/multimap/clear'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/clear'
 p3046
 S'stl/multimap'
 p3047
@@ -5502,7 +5502,7 @@ p3048
 tp3049
 a(S'erase'
 p3050
-S'./www.cppreference.com/wiki/stl/multimap/erase'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/erase'
 p3051
 S'stl/multimap'
 p3052
@@ -5511,7 +5511,7 @@ p3053
 tp3054
 a(S'insert'
 p3055
-S'./www.cppreference.com/wiki/stl/multimap/insert'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/insert'
 p3056
 S'stl/multimap'
 p3057
@@ -5520,7 +5520,7 @@ p3058
 tp3059
 a(S'swap'
 p3060
-S'./www.cppreference.com/wiki/stl/multimap/swap'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/swap'
 p3061
 S'stl/multimap'
 p3062
@@ -5529,7 +5529,7 @@ p3063
 tp3064
 a(S'count'
 p3065
-S'./www.cppreference.com/wiki/stl/multimap/count'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/count'
 p3066
 S'stl/multimap'
 p3067
@@ -5538,7 +5538,7 @@ p3068
 tp3069
 a(S'find'
 p3070
-S'./www.cppreference.com/wiki/stl/multimap/find'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/find'
 p3071
 S'stl/multimap'
 p3072
@@ -5547,7 +5547,7 @@ p3073
 tp3074
 a(S'equal_range'
 p3075
-S'./www.cppreference.com/wiki/stl/multimap/equal_range'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/equal_range'
 p3076
 S'stl/multimap'
 p3077
@@ -5556,7 +5556,7 @@ p3078
 tp3079
 a(S'lower_bound'
 p3080
-S'./www.cppreference.com/wiki/stl/multimap/lower_bound'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/lower_bound'
 p3081
 S'stl/multimap'
 p3082
@@ -5565,7 +5565,7 @@ p3083
 tp3084
 a(S'upper_bound'
 p3085
-S'./www.cppreference.com/wiki/stl/multimap/upper_bound'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/upper_bound'
 p3086
 S'stl/multimap'
 p3087
@@ -5574,7 +5574,7 @@ p3088
 tp3089
 a(S'key_comp'
 p3090
-S'./www.cppreference.com/wiki/stl/multimap/key_comp'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/key_comp'
 p3091
 S'stl/multimap'
 p3092
@@ -5583,7 +5583,7 @@ p3093
 tp3094
 a(S'value_comp'
 p3095
-S'./www.cppreference.com/wiki/stl/multimap/value_comp'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/value_comp'
 p3096
 S'stl/multimap'
 p3097
@@ -5592,7 +5592,7 @@ p3098
 tp3099
 a(S'get_allocator'
 p3100
-S'./www.cppreference.com/wiki/stl/multimap/get_allocator'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/get_allocator'
 p3101
 S'stl/multimap'
 p3102
@@ -5601,7 +5601,7 @@ p3103
 tp3104
 a(S'operator []'
 p3105
-S'./www.cppreference.com/wiki/stl/multimap/operator_at'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/multimap/operator_at'
 p3106
 S'stl/multimap'
 p3107
@@ -5609,7 +5609,7 @@ g1029
 tp3108
 a(S'constructors'
 p3109
-S'./www.cppreference.com/wiki/stl/bitset/bitset_constructors'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/bitset/bitset_constructors'
 p3110
 S'stl/bitset'
 p3111
@@ -5618,7 +5618,7 @@ p3112
 tp3113
 a(S'operators'
 p3114
-S'./www.cppreference.com/wiki/stl/bitset/bitset_operators'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/bitset/bitset_operators'
 p3115
 S'stl/bitset'
 p3116
@@ -5627,7 +5627,7 @@ p3117
 tp3118
 a(S'any'
 p3119
-S'./www.cppreference.com/wiki/stl/bitset/any'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/bitset/any'
 p3120
 S'stl/bitset'
 p3121
@@ -5636,7 +5636,7 @@ p3122
 tp3123
 a(S'count'
 p3124
-S'./www.cppreference.com/wiki/stl/bitset/count'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/bitset/count'
 p3125
 S'stl/bitset'
 p3126
@@ -5645,7 +5645,7 @@ p3127
 tp3128
 a(S'flip'
 p3129
-S'./www.cppreference.com/wiki/stl/bitset/flip'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/bitset/flip'
 p3130
 S'stl/bitset'
 p3131
@@ -5654,7 +5654,7 @@ p3132
 tp3133
 a(S'none'
 p3134
-S'./www.cppreference.com/wiki/stl/bitset/none'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/bitset/none'
 p3135
 S'stl/bitset'
 p3136
@@ -5663,7 +5663,7 @@ p3137
 tp3138
 a(S'reset'
 p3139
-S'./www.cppreference.com/wiki/stl/bitset/reset'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/bitset/reset'
 p3140
 S'stl/bitset'
 p3141
@@ -5672,7 +5672,7 @@ p3142
 tp3143
 a(S'set'
 p3144
-S'./www.cppreference.com/wiki/stl/bitset/set'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/bitset/set'
 p3145
 S'stl/bitset'
 p3146
@@ -5681,7 +5681,7 @@ p3147
 tp3148
 a(S'size'
 p3149
-S'./www.cppreference.com/wiki/stl/bitset/size'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/bitset/size'
 p3150
 S'stl/bitset'
 p3151
@@ -5690,7 +5690,7 @@ p3152
 tp3153
 a(S'test'
 p3154
-S'./www.cppreference.com/wiki/stl/bitset/test'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/bitset/test'
 p3155
 S'stl/bitset'
 p3156
@@ -5699,7 +5699,7 @@ p3157
 tp3158
 a(S'to_string'
 p3159
-S'./www.cppreference.com/wiki/stl/bitset/to_string'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/bitset/to_string'
 p3160
 S'stl/bitset'
 p3161
@@ -5708,7 +5708,7 @@ p3162
 tp3163
 a(S'to_ulong'
 p3164
-S'./www.cppreference.com/wiki/stl/bitset/to_ulong'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/bitset/to_ulong'
 p3165
 S'stl/bitset'
 p3166
@@ -5717,7 +5717,7 @@ p3167
 tp3168
 a(S'binary_function'
 p3169
-S'./www.cppreference.com/wiki/stl/functional/binary_function'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/binary_function'
 p3170
 S'stl/functional'
 p3171
@@ -5725,7 +5725,7 @@ g1029
 tp3172
 a(S'binary_negate'
 p3173
-S'./www.cppreference.com/wiki/stl/functional/binary_negate'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/binary_negate'
 p3174
 S'stl/functional'
 p3175
@@ -5733,7 +5733,7 @@ g1029
 tp3176
 a(S'bind1st'
 p3177
-S'./www.cppreference.com/wiki/stl/functional/bind1st'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/bind1st'
 p3178
 S'stl/functional'
 p3179
@@ -5742,7 +5742,7 @@ p3180
 tp3181
 a(S'bind2nd'
 p3182
-S'./www.cppreference.com/wiki/stl/functional/bind2nd'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/bind2nd'
 p3183
 S'stl/functional'
 p3184
@@ -5751,7 +5751,7 @@ p3185
 tp3186
 a(S'binder1st'
 p3187
-S'./www.cppreference.com/wiki/stl/functional/binder1st'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/binder1st'
 p3188
 S'stl/functional'
 p3189
@@ -5759,7 +5759,7 @@ g1029
 tp3190
 a(S'binder2nd'
 p3191
-S'./www.cppreference.com/wiki/stl/functional/binder2nd'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/binder2nd'
 p3192
 S'stl/functional'
 p3193
@@ -5767,7 +5767,7 @@ g1029
 tp3194
 a(S'const_mem_fun1_ref_t'
 p3195
-S'./www.cppreference.com/wiki/stl/functional/const_mem_fun1_ref_t'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/const_mem_fun1_ref_t'
 p3196
 S'stl/functional'
 p3197
@@ -5775,7 +5775,7 @@ g1029
 tp3198
 a(S'const_mem_fun1_t'
 p3199
-S'./www.cppreference.com/wiki/stl/functional/const_mem_fun1_t'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/const_mem_fun1_t'
 p3200
 S'stl/functional'
 p3201
@@ -5783,7 +5783,7 @@ g1029
 tp3202
 a(S'const_mem_fun_ref_t'
 p3203
-S'./www.cppreference.com/wiki/stl/functional/const_mem_fun_ref_t'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/const_mem_fun_ref_t'
 p3204
 S'stl/functional'
 p3205
@@ -5791,7 +5791,7 @@ g1029
 tp3206
 a(S'const_mem_fun_t'
 p3207
-S'./www.cppreference.com/wiki/stl/functional/const_mem_fun_t'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/const_mem_fun_t'
 p3208
 S'stl/functional'
 p3209
@@ -5799,7 +5799,7 @@ g1029
 tp3210
 a(S'divides'
 p3211
-S'./www.cppreference.com/wiki/stl/functional/divides'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/divides'
 p3212
 S'stl/functional'
 p3213
@@ -5807,7 +5807,7 @@ g1029
 tp3214
 a(S'equal_to'
 p3215
-S'./www.cppreference.com/wiki/stl/functional/equal_to'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/equal_to'
 p3216
 S'stl/functional'
 p3217
@@ -5816,7 +5816,7 @@ p3218
 tp3219
 a(S'greater'
 p3220
-S'./www.cppreference.com/wiki/stl/functional/greater'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/greater'
 p3221
 S'stl/functional'
 p3222
@@ -5825,7 +5825,7 @@ p3223
 tp3224
 a(S'greater_equal'
 p3225
-S'./www.cppreference.com/wiki/stl/functional/greater_equal'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/greater_equal'
 p3226
 S'stl/functional'
 p3227
@@ -5834,7 +5834,7 @@ p3228
 tp3229
 a(S'less'
 p3230
-S'./www.cppreference.com/wiki/stl/functional/less'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/less'
 p3231
 S'stl/functional'
 p3232
@@ -5843,7 +5843,7 @@ p3233
 tp3234
 a(S'less_equal'
 p3235
-S'./www.cppreference.com/wiki/stl/functional/less_equal'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/less_equal'
 p3236
 S'stl/functional'
 p3237
@@ -5852,7 +5852,7 @@ p3238
 tp3239
 a(S'logical_and'
 p3240
-S'./www.cppreference.com/wiki/stl/functional/logical_and'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/logical_and'
 p3241
 S'stl/functional'
 p3242
@@ -5860,7 +5860,7 @@ g1029
 tp3243
 a(S'logical_not'
 p3244
-S'./www.cppreference.com/wiki/stl/functional/logical_not'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/logical_not'
 p3245
 S'stl/functional'
 p3246
@@ -5868,7 +5868,7 @@ g1029
 tp3247
 a(S'logical_or'
 p3248
-S'./www.cppreference.com/wiki/stl/functional/logical_or'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/logical_or'
 p3249
 S'stl/functional'
 p3250
@@ -5876,7 +5876,7 @@ g1029
 tp3251
 a(S'mem_fun1_ref_t'
 p3252
-S'./www.cppreference.com/wiki/stl/functional/mem_fun1_ref_t'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/mem_fun1_ref_t'
 p3253
 S'stl/functional'
 p3254
@@ -5884,7 +5884,7 @@ g1029
 tp3255
 a(S'mem_fun1_t'
 p3256
-S'./www.cppreference.com/wiki/stl/functional/mem_fun1_t'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/mem_fun1_t'
 p3257
 S'stl/functional'
 p3258
@@ -5892,7 +5892,7 @@ g1029
 tp3259
 a(S'mem_fun'
 p3260
-S'./www.cppreference.com/wiki/stl/functional/mem_fun'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/mem_fun'
 p3261
 S'stl/functional'
 p3262
@@ -5901,7 +5901,7 @@ p3263
 tp3264
 a(S'mem_fun_ref'
 p3265
-S'./www.cppreference.com/wiki/stl/functional/mem_fun_ref'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/mem_fun_ref'
 p3266
 S'stl/functional'
 p3267
@@ -5910,7 +5910,7 @@ p3268
 tp3269
 a(S'mem_fun_ref_t'
 p3270
-S'./www.cppreference.com/wiki/stl/functional/mem_fun_ref_t'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/mem_fun_ref_t'
 p3271
 S'stl/functional'
 p3272
@@ -5918,7 +5918,7 @@ g1029
 tp3273
 a(S'mem_fun_t'
 p3274
-S'./www.cppreference.com/wiki/stl/functional/mem_fun_t'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/mem_fun_t'
 p3275
 S'stl/functional'
 p3276
@@ -5926,7 +5926,7 @@ g1029
 tp3277
 a(S'minus'
 p3278
-S'./www.cppreference.com/wiki/stl/functional/minus'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/minus'
 p3279
 S'stl/functional'
 p3280
@@ -5934,7 +5934,7 @@ g1029
 tp3281
 a(S'modulus'
 p3282
-S'./www.cppreference.com/wiki/stl/functional/modulus'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/modulus'
 p3283
 S'stl/functional'
 p3284
@@ -5942,7 +5942,7 @@ g1029
 tp3285
 a(S'multiplies'
 p3286
-S'./www.cppreference.com/wiki/stl/functional/multiplies'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/multiplies'
 p3287
 S'stl/functional'
 p3288
@@ -5950,7 +5950,7 @@ g1029
 tp3289
 a(S'negate'
 p3290
-S'./www.cppreference.com/wiki/stl/functional/negate'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/negate'
 p3291
 S'stl/functional'
 p3292
@@ -5958,7 +5958,7 @@ g1029
 tp3293
 a(S'not1'
 p3294
-S'./www.cppreference.com/wiki/stl/functional/not1'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/not1'
 p3295
 S'stl/functional'
 p3296
@@ -5967,7 +5967,7 @@ p3297
 tp3298
 a(S'not2'
 p3299
-S'./www.cppreference.com/wiki/stl/functional/not2'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/not2'
 p3300
 S'stl/functional'
 p3301
@@ -5976,7 +5976,7 @@ p3302
 tp3303
 a(S'not_equal_to'
 p3304
-S'./www.cppreference.com/wiki/stl/functional/not_equal_to'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/not_equal_to'
 p3305
 S'stl/functional'
 p3306
@@ -5984,7 +5984,7 @@ g1029
 tp3307
 a(S'plus'
 p3308
-S'./www.cppreference.com/wiki/stl/functional/plus'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/plus'
 p3309
 S'stl/functional'
 p3310
@@ -5992,7 +5992,7 @@ g1029
 tp3311
 a(S'pointer_to_binary_function'
 p3312
-S'./www.cppreference.com/wiki/stl/functional/pointer_to_binary_function'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/pointer_to_binary_function'
 p3313
 S'stl/functional'
 p3314
@@ -6000,7 +6000,7 @@ g1029
 tp3315
 a(S'pointer_to_unary_function'
 p3316
-S'./www.cppreference.com/wiki/stl/functional/pointer_to_unary_function'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/pointer_to_unary_function'
 p3317
 S'stl/functional'
 p3318
@@ -6008,7 +6008,7 @@ g1029
 tp3319
 a(S'ptr_fun'
 p3320
-S'./www.cppreference.com/wiki/stl/functional/ptr_fun'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/ptr_fun'
 p3321
 S'stl/functional'
 p3322
@@ -6017,7 +6017,7 @@ p3323
 tp3324
 a(S'unary_function'
 p3325
-S'./www.cppreference.com/wiki/stl/functional/unary_function'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/unary_function'
 p3326
 S'stl/functional'
 p3327
@@ -6025,7 +6025,7 @@ g1029
 tp3328
 a(S'unary_negate'
 p3329
-S'./www.cppreference.com/wiki/stl/functional/unary_negate'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/functional/unary_negate'
 p3330
 S'stl/functional'
 p3331
@@ -6033,7 +6033,7 @@ g1029
 tp3332
 a(S'pair'
 p3333
-S'./www.cppreference.com/wiki/stl/utility/pair'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/utility/pair'
 p3334
 S'stl/utility'
 p3335
@@ -6042,7 +6042,7 @@ p3336
 tp3337
 a(S'make_pair'
 p3338
-S'./www.cppreference.com/wiki/stl/utility/make_pair'
+S'/home/w/.emacs.d/share/cclookup/www.cppreference.com/wiki/stl/utility/make_pair'
 p3339
 S'stl/utility'
 p3340

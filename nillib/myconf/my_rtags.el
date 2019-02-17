@@ -9,7 +9,7 @@
 ;; Package-Requires:
 ;; Keywords:
 ;; Created: 2019-02-10
-;; Updated: 2019-02-11T16:15:31Z; # UTC
+;; Updated: 2019-02-14T00:25:14Z; # UTC
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -60,29 +60,7 @@
 (require 'helm-rtags)
 (setq rtags-display-result-backend 'helm)
 
-(defvar my_rtags--debug nil)
-(defun my_rtags--debug-log(format &rest args)
-  "Write log if `my_rtags--debug' is t. FORMAT and ARGS is the same with `message'."
-  (when my_rtags--debug (apply #'message (concat "[my_rtags]" format) args)))
-
-(defvar my_rtags--current-buffer nil)
-(defvar my_rtags--current-point-marker nil)
-
-(require 'my_simple)
-(defun my_rtags--my_imenu-jump-hook ()
-  "Save (point-marker) if buffer has changed by rtags.
-Because jumping to different buffer by rtags cause no change of (point)"
-  (unless (eq my_rtags--current-buffer (current-buffer))
-    (when (markerp my_rtags--current-point-marker)
-      (my_simple:push-mark my_rtags--current-point-marker)
-      )
-    (my_simple:push-mark (point-marker))
-    )
-  (my_rtags--debug-log
-   "my_rtags-jump-c-mode-hook (point-marker,my_rtags--current-point-marker)=(%S,%S)"
-   (point-marker) my_rtags--current-point-marker)
-  )
-(add-hook 'rtags-after-find-file-hook 'my_rtags--my_imenu-jump-hook)
+(add-hook 'rtags-after-find-file-hook 'my_simple--push-mark-for-async)
 
 ;;-----------------------------------------
 ;; Unload function:

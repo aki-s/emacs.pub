@@ -9,7 +9,7 @@
 ;; Package-Requires:
 ;; Keywords:
 ;; Created: 2019-02-10
-;; Updated: 2019-02-11T16:11:34Z; # UTC
+;; Updated: 2019-02-16T21:42:24Z; # UTC
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -41,7 +41,6 @@
   (eval-when-compile (require 'company))
   (add-to-list 'company-backends 'company-irony)
   (irony-cdb-autosetup-compile-options)
-  (setq irony-additional-clang-options '("-std=c++1z"))
   (irony-mode)
 
   (require 'flycheck-irony)

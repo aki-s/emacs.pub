@@ -8,7 +8,14 @@
 
 (define-mode-local-override my_imenu-jump c++-mode (target) "Overridden `my_imenu-jump'"
   (interactive)
-  (my_imenu-jump-c-mode target)
+  (let ((ret (if target (or (rtags-find-symbol-at-point)
+                            (rtags-find-references-at-point)
+                            (helm-imenu))
+               (rtags-imenu))))
+    (my_imenu--debug-message "my_imenu-jump-c++-mode => %S" ret)
+    (setq my_simple--current-buffer (current-buffer))
+    (setq my_simple--current-point-marker (point-marker))
+    )
   )
 
 (require 'clang-format)

@@ -36,13 +36,9 @@
 (require 'mode-local) ; define-overload
 
 (defvar my_imenu-debug nil "Debug flag for my_imenu.el.")
-;; (defun my_imenu--debug-message (&rest msg)
-;;   "Print message if my_imenu-debug is 't."
-;;   (if my_imenu-debug (apply 'message (format "%s" str) msg))
-;;   )
-(defun my_imenu--debug-message (msg)
-  "Eval MSG if my_imenu-debug is 't."
-  (if my_imenu-debug (eval msg))
+(defun my_imenu--debug-message (str &rest msg)
+  "Print message with format STR and args MSG if my_imenu-debug is 't."
+  (if my_imenu-debug (apply 'message (format "%s" str) msg))
   )
 
 (defun my_imenu:toggle-debug-mode ()
@@ -79,7 +75,7 @@ Function `imenu-default-create-index-function' exists as of emacs 24.5.1.
   (if (numberp depth)
     (progn
       (setf depth (1+ depth))
-      (my_imenu--debug-message '(message "[depth] %s" depth)) ;; debug
+      (my_imenu--debug-message "[depth] %s" depth)
       )
     (setq depth 0)
     )
@@ -129,7 +125,7 @@ Function `imenu-default-create-index-function' exists as of emacs 24.5.1.
         ((not (consp elt)) ; recur 'my_imenu--in-alist
           (if (setq res (my_imenu--in-alist str alist depth))
             (setq alist nil))
-          (my_imenu--debug-message '(message "found:(alist=%s|res=%s|elt=%s)" alist res elt)) ;debug
+          (my_imenu--debug-message "found:(alist=%s|res=%s|elt=%s)" alist res elt) ;debug
           (setq alist nil res elt))
         ((consp elt)
           (if (string-equal str head) ; @TODO type check [ret func-name arg ...]
@@ -224,9 +220,9 @@ Is this a bug of 'imenu--make-index-alist or mine?
           (point-before (point))
           point-after
           )
-    (my_imenu--debug-message '(message "imenu-create-index-function is %s\n%s: %S"
+    (my_imenu--debug-message "imenu-create-index-function is %s\n%s: %S"
                       imenu-create-index-function
-                      this-command (pp imenu--index-alist)))
+                      this-command (pp imenu--index-alist))
     (:override-with-args (target)
       (message ">>>>%S%S" target pt)
       (cond
@@ -293,15 +289,16 @@ Is this a bug of 'imenu--make-index-alist or mine?
         )
       ))
 
-    (my_imenu--debug-message '(message "%S" (current-buffer)))
+    (my_imenu--debug-message "%S" (current-buffer))
     (require 'my_simple)
     (setq point-after (point))
     (unless (eq point-before point-after)
       (my_simple:push-mark pm-before)
       (my_simple:push-mark (point-marker))
+      (my_imenu--debug-message "Saved point-marker.")
       )
-    (my_imenu--debug-message '(message "[my_imenu>my_imenu-jump](before,after)=(%S/%S,%S/%S)"
-                             point-before pm-before point-after (point-marker)))
+    (my_imenu--debug-message "[my_imenu>my_imenu-jump](before,after)=(%S/%S,%S/%S)"
+                             point-before pm-before point-after (point-marker))
     pt)); my_imenu-jump
 
 ;; M-o is bound to ggtags-navigation-map:ggtags-navigation-visible-mode

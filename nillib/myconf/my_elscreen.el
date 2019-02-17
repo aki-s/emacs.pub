@@ -37,6 +37,8 @@
 (require 'elscreen-persist nil t) ; 'elscreen-persist doesn't exist on Elpa.
 (setq elscreen-persist-file (concat user-emacs-tmp-dir "/elscreen.lst"))
 
+(require 'elscreen-tab)
+
 ;;; Configure desktop for elscreen
 (defun my_elscreen:start()
   "Start elscreen.
@@ -49,7 +51,16 @@ Start sequence is important to avoid error on calling `elscreen-persist-restore'
   (require 'my_desktop) ; This line is actually not required for elscreen?
   (elscreen-persist-mode 1)
 
-  (require 'elscreen-tab)
+  (custom-set-faces '(elscreen-tab-current-screen-face
+                      ((t (:background "yellow" :foreground "red")))))
+  (custom-set-faces '(elscreen-tab-other-screen-face
+                      ((t :background "Gray85" :foreground "Gray0" :box t))))
+  (custom-set-faces `(elscreen-tab-mouse-face
+                      ((t
+                       :inherit link
+                       :background ,(face-attribute 'elscreen-tab-current-screen-face :foreground)
+                       :foreground ,(face-attribute 'elscreen-tab-current-screen-face :background)
+                       ))))
   (elscreen-tab-mode)
   (run-with-idle-timer
    ;; Calling `elscreen-persist-restore' also restores old

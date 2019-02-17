@@ -80,15 +80,19 @@
 
 (require 'mode-local)
 (require 'my_rtags)
+(require 'helm-imenu)
+(require 'my_imenu)
+(require 'my_simple)
 
 (define-mode-local-override my_imenu-jump c-mode (target) "Overridden `my_imenu-jump'"
   (interactive)
   (let ((ret (if target (or (rtags-find-symbol-at-point)
-                            (rtags-find-references-at-point))
-               (rtags-imenu))))
-    (message "my_imenu-jump-c-mode => %S" ret)
-    (setq my_rtags--current-buffer (current-buffer))
-    (setq my_rtags--current-point-marker (point-marker))
+                            (rtags-find-references-at-point)
+                            (helm-imenu))
+               (helm-imenu))))
+    (my_imenu--debug-message "my_imenu-jump-c-mode => %S" ret)
+    (setq my_simple--current-buffer (current-buffer))
+    (setq my_simple--current-point-marker (point-marker))
     )
   )
 

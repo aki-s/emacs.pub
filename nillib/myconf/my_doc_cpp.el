@@ -1,3 +1,6 @@
+;; It seems `cclookup' is no more maintained.
+;; $ apt install -y cppreference-doc-en-html # then use DevHelp.app would be better.
+
 ;;;   http://github.com/tsgates/cclookup
 ;;;;;;----------------------------------------------------------------------
 ;;;;
@@ -25,10 +28,10 @@
 (autoload 'cclookup-lookup "cclookup"
   "Lookup SEARCH-TERM in the Python HTML indexes." t)
 
-(autoload 'cclookup-update "cclookup" 
+(autoload 'cclookup-update "cclookup"
   "Run cclookup-update and create the database at `cclookup-db-file'." t)
 
-(eval-when-compile 
+(eval-when-compile
   (require 'cc-mode)
   )
 (define-key c++-mode-map "\C-ch" 'cclookup-lookup)

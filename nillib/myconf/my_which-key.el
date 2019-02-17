@@ -39,9 +39,8 @@
 ;; (which-key-setup-side-window-bottom)
 ;; (which-key-setup-minibuffer)
 ;; (setq which-key-popup-type 'side-window)
-
+(setq which-key-side-window-max-width 0.8)
 ;; (setq which-key-side-window-max-height 0.8)
-;; (setq which-key-side-window-max-width 0.8)
 ;; (setq which-key-side-window-location 'left)
 
 ;;------------------------------------------------
