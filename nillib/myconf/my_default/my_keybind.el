@@ -25,5 +25,8 @@
 
 (define-key global-map (kbd "C-M-¥") 'indent-region) ; OSX fails to input '\' with Ctr or Meta is pressed.
 
+(require 'newcomment)
+(global-set-key (kbd "C-/") #'comment-or-uncomment-region)
+
 (provide 'my_keybind)
 ;;; my_keybind ends here

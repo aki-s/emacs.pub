@@ -26,6 +26,8 @@
 
 (require 'undo-tree)
 (setq undo-tree-mode-lighter " UT")
+(define-key undo-tree-map (kbd "C-/") nil)
+(define-key undo-tree-map (kbd "C-_") nil)
 
 (defun my_undo-tree-unload-function ()
    "Unload function to ensure normal behavior when feature 'my_undo-tree is unloaded."

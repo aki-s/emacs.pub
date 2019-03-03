@@ -3,7 +3,10 @@
 (source melpa-stable)
 
 (depends-on "ac-ispell")
+(depends-on "ace-window")
 (depends-on "add-node-modules-path")
+(depends-on "all-the-icons")
+(depends-on "amx")
 ;; Deprecated (depends-on "ac-R")
 (depends-on "async")
 (depends-on "auto-async-byte-compile")
@@ -14,9 +17,12 @@
 (depends-on "cmake-mode")   ; For c++ development.
 (depends-on "color-moccur") ; required by my_basic_func.el
 (depends-on "company") ; Plan to migrate from auto-complete
+(depends-on "company-box")
 (depends-on "company-c-headers" "20150801.901") ; only-exists on 'melpa
 (depends-on "company-irony") ; c++
+(depends-on "company-lsp")
 (depends-on "company-rtags") ; c++
+(depends-on "company-quickhelp")
 (depends-on "company-tern") ; js
 (depends-on "cpputils-cmake" "5.5")
 (depends-on "creole")
@@ -61,6 +67,7 @@
 (depends-on "helm-rtags") ;; c++
 (depends-on "helm-swoop")
 (depends-on "helm-xref")
+(depends-on "highlight-indent-guides")
 
 (depends-on "ht")
 (depends-on "highlight-symbol")
@@ -71,6 +78,8 @@
 (depends-on "kv")
 (depends-on "less-css-mode")
 (depends-on "linum-relative")
+(depends-on "lsp-mode")
+(depends-on "lsp-ui")
 (depends-on "lua-mode")
 (depends-on "magit")
 ;; Deprecated (depends-on "malabar-mode")
@@ -96,6 +105,7 @@
 (depends-on "smartparens")
 (depends-on "smartrep")
 (depends-on "spaces")
+(depends-on "spaceline-all-the-icons" "1.4.0")
 (depends-on "swoop")
 (depends-on "tabbar")
 (depends-on "term+") ; To make term + tmux zero configuration.

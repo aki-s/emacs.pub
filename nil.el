@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
+
 (eval-and-compile (load-file "~/.emacs.d/nillib/my_load-path.el"))
 (load-library "my_files")
 (load-library "my_package")
@@ -22,9 +23,14 @@
       (progn (setq custom-file file)
              (load custom-file))))
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; == CONF BASIC ==
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package amx
+  :config
+  (amx-mode))
+(load-library "my_ace-window")
 (load-library "my_global-vars")
 (load-library "my_emacs-version")
 (load-library "my_basic_func")
@@ -38,6 +44,7 @@
 (load-library "my_autoinsert")
 (load-library "my_mode-line")
 (load-library "my_header-line")
+(load-library "my_highlight-indent-guides")
 (load-library "my_helm") ;ffap-find-file don't work?
 (load-library "my_multiple-cursors")
 (load-library "my_vc")
@@ -49,6 +56,7 @@
 (load-library "my_tempbuf")
 (load-library "my_highlight-symbol")
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; == PROGRAM LANGUAGE ==
 ;;; language mode file like as `sql.el' seems to be loaded when Emacs boots, even if related file is not opened.
@@ -78,6 +86,7 @@
 ;;(load-library "my_processing")
 ;;(load-library "my_R")
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; == TOOLS ==
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -102,6 +111,7 @@
 ;;(load-library "my_mail")
 
 ;;test (load-library "my_anything")
+(load-library "my_all-the-icons")
 (load-library "my_auto-install")
 (load-library "my_buffer-menu")
 (eval-after-load 'company-mode (require 'my_company))
@@ -131,6 +141,7 @@
 (load-library "my_yasnippet")
 ;;(load-library "my_zencoding")
 ;;(eval-after-load (list 'sgml-mode 'html-mode 'text-mode) "my_zencoding")
+(load-library "my_lsp-mode")
 (load-library "my_persistent-scratch")
 (load-library "my_replace")
 (load-library "my_smart-compile")

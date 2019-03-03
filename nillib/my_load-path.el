@@ -110,7 +110,6 @@ it with optional 1st arg.
 ;;(normal-top-level-add-to-load-path '("~/.emacs.d/nillib/myconf" "~/.emacs.d/nillib/myconf/my_default")) ;++test ;
 
 (ifnil-use-local-elib "ecb")
-(ifnil-use-local-elib "undo-tree" "~/.emacs.d/share/evil/lib")
 (ifnil-use-local-elib "gtags" "~/local/share/gtags/")
 
 ;; == may conflict with package.el ==

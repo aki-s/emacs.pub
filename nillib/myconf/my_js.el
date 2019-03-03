@@ -43,8 +43,9 @@
     (or
       (with-demoted-errors "js2-jump-to-definition failed: %S" (js2-jump-to-definition))
       (with-demoted-errors "%S"
-        (if target (call-interactively 'xref-find-definitions)
-           (helm-imenu))))
+        (let ((my_tern:ask-if-auto-setup nil))
+          (if target (call-interactively 'xref-find-definitions)
+           (helm-imenu)))))
     )
 
 (require 'my_import-js)

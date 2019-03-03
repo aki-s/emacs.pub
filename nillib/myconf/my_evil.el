@@ -62,7 +62,7 @@
  )
 (push 'edebug-mode evil-emacs-state-modes)
 
-;;; (define-key evil-normal-state-map (kbd "\C-w") 'kill-region) ;; violate state!!!
+(define-key evil-normal-state-map (kbd "M-.") nil) ; Disable `evil-repeat-pop-next'.
 
 ;;(when (featurep 'auto-complete)
 ;;  (define-key evil-insert-state-map (keb "\C-p") ac-dwim)

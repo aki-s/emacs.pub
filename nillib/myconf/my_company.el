@@ -24,6 +24,15 @@
 (require 'company)
 (global-company-mode 1)
 (global-set-key (kbd "C-S-o") 'company-complete)
+
+(require 'company-quickhelp)
+(define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin)
+
+(require 'company-box)
+(require 'use-package)
+(use-package company-box
+  :hook (company-mode . company-box-mode))
+
 (setq company-idle-delay 0.5)
 (setq company-require-match nil)
 (define-key company-active-map (kbd "C-n") 'company-select-next)
@@ -34,6 +43,9 @@
 
 (require 'company-c-headers)
 (add-to-list 'company-backends 'company-c-headers)
+
+(require 'company-lsp)
+(push 'company-lsp company-backends)
 
 ;;; Code:
 

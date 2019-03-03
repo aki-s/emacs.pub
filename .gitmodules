@@ -6,10 +6,6 @@
  path = share/ecb
  url = https://github.com/emacsmirror/ecb.git
 
-#[submodule "share/evil"]
-# path = share/evil
-# url = git://gitorious.org/evil/evil.git
-
 [submodule "share/clang-complete-async"]
  path = share/clang-complete-async
  url = git://github.com/Golevka/emacs-clang-complete-async.git
