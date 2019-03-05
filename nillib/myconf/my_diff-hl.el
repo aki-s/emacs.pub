@@ -1,4 +1,4 @@
-;;; my_ace-window.el ---                             -*- lexical-binding: t; -*-
+;;; my_diff-hl.el ---                                -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019
 
@@ -8,8 +8,8 @@
 ;; Package-Version: 0.0.0
 ;; Package-Requires:
 ;; Keywords:
-;; Created: 2019-03-03
-;; Updated: 2019-03-04T00:05:59Z; # UTC
+;; Created: 2019-03-04
+;; Updated: 2019-03-04T14:55:02Z; # UTC
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -26,26 +26,22 @@
 
 ;;; Commentary:
 
-;;
+;; `diff-hl' use `left-fringe-width'.
 
 ;;; Code:
-(require 'use-package)
-(use-package ace-window
-  :bind
-  ("\C-x o" . ace-window)
-  :custom
-  (aw-keys '(?j ?k ?l ?i ?o ?h ?y ?u ?p)))
+(require 'diff-hl)
+(global-diff-hl-mode)
 
 ;;------------------------------------------------
 ;; Unload function:
 
-(defun my_ace-window-unload-function ()
-   "Unload function to ensure normal behavior when feature 'my_ace-window is unloaded."
+(defun my_diff-hl-unload-function ()
+   "Unload function to ensure normal behavior when feature 'my_diff-hl is unloaded."
    (interactive)
 )
 
-(provide 'my_ace-window)
-;;; my_ace-window.el ends here
+(provide 'my_diff-hl)
+;;; my_diff-hl.el ends here
 
 ;; Local variables:
 ;; eval: (add-hook 'write-file-functions 'time-stamp)

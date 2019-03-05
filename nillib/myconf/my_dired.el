@@ -40,7 +40,6 @@
       (revert-buffer))))
 
 (defun dired-various-sort-change-or-edit (&optional arg)
-  "Hehe"
   (interactive "P")
   (when dired-sort-inhibit
     (error "Cannot sort this dired buffer"))
@@ -49,36 +48,13 @@
        (read-string "ls switches (must contain -l): " dired-actual-switches))
     (dired-various-sort-change dired-various-sort-type)))
 
-(defvar anything-c-source-dired-various-sort
-  '((name . "Dired various sort type")
-    (candidates . (lambda ()
-                    (mapcar (lambda (x)
-                              (cons (concat (cdr x) " (" (car x) ")") x))
-                            dired-various-sort-type)))
-    (action . (("Set sort type" . (lambda (candidate)
-                                    (dired-various-sort-change dired-various-sort-type candidate)))))
-    ))
-
-(defun my_dired-filter-by-name ()
-  "Alternative way of dired-at-point. e.g.  C-x d <regex> defined at ffap.el
-ref. line.3365 in speedbar.el speedbar-dired, speedbar-key-map, speedbar-file-key-map
-@dev
-@see `find-lisp-find-dired'
-`find-name-dired'
-"
-  )
-(defun my_dired-mode-map()
-  (define-key dired-mode-map "c"
-    '(lambda ()
-       (interactive)
-       (anything '(anything-c-source-dired-various-sort))))
-  (define-key dired-mode-map "f" 'my_dired-filter-by-name)
-  (define-key dired-mode-map "s" 'dired-various-sort-change-or-edit)
-  )
-;; (add-hook 'dired-mode-hook 'my_dired-mode-map) ;; useless if already dired-mode is on
-(my_dired-mode-map)
-;; http://www.dgp.toronto.edu/~ghali/emacs.html
-(require 'dired-x) ;; Assign C-x C-j to dired-jump
+(require 'use-package)
+(use-package dired
+  :bind (:map dired-mode-map
+	 ("s" . dired-various-sort-change-or-edit)))
+(use-package dired-x
+  :bind
+  ("C-x C-j" . dired-jump))
 
 ;;;; ==================================================================
 ;;(load "sorter")
@@ -153,3 +129,4 @@ ref. line.3365 in speedbar.el speedbar-dired, speedbar-key-map, speedbar-file-ke
              (dired-goto-file dir))))))
 
 (provide 'my_dired)
+;;; my_dired.el ends here

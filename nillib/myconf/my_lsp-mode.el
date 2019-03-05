@@ -9,7 +9,7 @@
 ;; Package-Requires:
 ;; Keywords:
 ;; Created: 2019-03-02
-;; Updated: 2019-03-03T15:15:15Z; # UTC
+;; Updated: 2019-03-04T18:17:09Z; # UTC
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -31,12 +31,33 @@
 ;;; Code:
 (require 'use-package)
 
-(require 'lsp-mode)
-(add-hook 'prog-mode-hook #'lsp)
-(add-hook 'lsp-mode-hook 'lsp-ui-mode)
-
-(use-package lsp-ui
-  :custom-face (lsp-ui-sideline-global ((t (:background "blue")))))
+(use-package lsp-mode
+  :after (my_lsp-mode)
+  :hook
+  ((prog-mode . lsp)
+   (lsp-mode . lsp-ui-mode))
+  :bind
+  (:map lsp-mode-map
+  ("C-c r"   . lsp-rename))
+  :config
+  (require 'lsp-clients)
+  (use-package lsp-ui
+    :custom-face (lsp-ui-sideline-global ((t (:background "blue"))))
+    :custom
+    (lsp-ui-doc-use-webkit t)
+    :preface
+    (defun my_lsp-mode--toggle-lsp-ui-doc ()
+      (interactive)
+      (if lsp-ui-doc-mode
+          (progn
+            (lsp-ui-doc-mode -1)
+            (lsp-ui-doc--hide-frame))
+        (lsp-ui-doc-mode 1))))
+  (use-package company-lsp
+    :custom
+    (company-lsp-cache-candidates t) ;; always use cache
+    (company-lsp-async t)
+    (company-lsp-enable-recompletion nil)))
 
 ;;------------------------------------------------
 ;; Unload function:

@@ -1,6 +1,12 @@
 ;;; package: --- my_c.el
 ;;; Commentary:
 ;;; Code:
+(require 'use-package)
+;; LSP
+(use-package ccls
+  :custom (ccls-executable "/usr/local/bin/ccls")
+  :hook ((c-mode c++-mode objc-mode) .
+         (lambda () (require 'ccls) (lsp))))
 
 ;;;; http://www.info.kochi-tech.ac.jp/y-takata/index.php?%A5%E1%A5%F3%A5%D0%A1%BC%2Fy-takata%2FFlymake
 

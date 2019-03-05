@@ -19,6 +19,7 @@
 (depends-on "company") ; Plan to migrate from auto-complete
 (depends-on "company-box")
 (depends-on "company-c-headers" "20150801.901") ; only-exists on 'melpa
+(depends-on "company-go") ; golang
 (depends-on "company-irony") ; c++
 (depends-on "company-lsp")
 (depends-on "company-rtags") ; c++
@@ -27,8 +28,9 @@
 (depends-on "cpputils-cmake" "5.5")
 (depends-on "creole")
 (depends-on "dash")   ; elnode, flycheck
-(depends-on "deferred")
 (depends-on "db")
+(depends-on "deferred")
+(depends-on "diff-hl")
 (depends-on "dropdown-list")
 (depends-on "e2wm")
 (depends-on "edbi") ; sql
@@ -57,6 +59,7 @@
 ;;test (depends-on "git-commit-mode")
 (depends-on "git-gutter")
 ;;test (depends-on "git-rebase-mode")
+(depends-on "go-mode") ; golang
 
 (depends-on "helm")
 (depends-on "helm-gtags")

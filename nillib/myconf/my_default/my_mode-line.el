@@ -29,18 +29,24 @@
     (lambda (idx item) (map-put my_mode-line--idx-format-map idx item) )))
 
 (require 'use-package)
-(use-package spaceline)
+(use-package powerline
+  :config
+  (powerline-default-theme))
+(use-package spaceline-config
+  :config
+  (spaceline-emacs-theme)
+  )
 (use-package spaceline-all-the-icons
-  :after spaceline
+  :after (powerline spaceline-config)
   :init
   ;; Suppress error by declaring undefined variables.
+  ;; `powerline' should have provided these variables, but
   (defvar  mode-line t)
-  (defface mode-line '((default)) "")
   (defvar powerline-active2 nil)
-  (defface powerline-active2 '((default)) "")
   (defvar powerline-inactive2 nil)
-  (defface powerline-inactive2 '((default)) "")
   :config
+  (defadvice what-buffer (before spaceline-all-the-icons-theme activate)
+    (message "[debug]what-buffer:%S" (buffer-name)))
   (spaceline-all-the-icons-theme)
   (define-symbol-prop 'mode-line-format 'my_mode-line-current-format 0)
   )
@@ -174,12 +180,12 @@ face 'mode-line is defined at faces.el"
         ( t
           (setq color (cond
                         ((null (buffer-file-name)) default-color)  ;; color for temporary buffer
-                        ((and (buffer-modified-p) (evil-insert-state-p) ) '("black" . "yellow"))
-                        ((and (buffer-modified-p) (evil-emacs-state-p ) ) '("black" . "blue"))
+                        ((and (buffer-modified-p) (evil-insert-state-p) ) '("black" . "red"))
+                        ((and (buffer-modified-p) (evil-emacs-state-p ) ) '("blue" . "gray"))
                         ((and (buffer-modified-p) (evil-normal-state-p) ) '("black" . "green"))
-                        ((evil-insert-state-p) '("yellow" . "#000000") ) ; yellow
-                        ((evil-emacs-state-p ) '("blue"   . "#FFFFFF") ) ; blue
-                        ((evil-normal-state-p) '("green"  . "#000000") )  ; green
+                        ((evil-insert-state-p) '("red" . "#000000") )
+                        ((evil-emacs-state-p ) '("blue"   . "#FFFFFF") )
+                        ((evil-normal-state-p) '("green"  . "#000000") )
                         ((minibufferp) default-color)
                         (t default-color)
                         ))

@@ -34,6 +34,7 @@
 (load-library "my_global-vars")
 (load-library "my_emacs-version")
 (load-library "my_basic_func")
+(load-library "my_dired")
 ;;(load-library "my_browse-url")
 (load-library "my_auto-mode-alist")
 (load-library "my_autoload")
@@ -68,12 +69,8 @@
 ;;unused (eval-after-load 'cc-mode (load-library "my_gtk-look"))
 
 ;;(load-library "my_clisp")
-(require 'my_dired)
-;; (load-library "my_elisp")
-;; (autoload 'eldoc-mode "eldoc")
 (eval-after-load 'lisp-mode (load-library "my_elisp"))
-;;(eval-after-load 'emacs-lisp-mode "my_elisp");; emacs-lisp-mode is definde in lisp-mode.el.gz and it is not a FILE.
-;;(autoload 'emacs-lisp-mode "my_elisp")
+(use-package my_go :mode "\\.go\\'")
 
 ;;(load-library "my_mysql")
 ;;(eval-after-load 'java-mode "my_java") ; unloeded
@@ -91,26 +88,16 @@
 ;; == TOOLS ==
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; (load-library "my_printer")
-;; ------------------------------------------------
-;; Key Binding
-;; ------------------------------------------------
-(load-library "my_keybind")
-(require 'my_editorconfig)
+(load-library "my_diff-hl")
+(load-library "my_editorconfig")
+(load-library "my_eijirou")
+(load-library "my_expand-region")
 (load-library "my_face")
 (load-library "my_font")
-(load-library "my_expand-region")
-
-;;;; sdic eijirou
-(load-library "my_eijirou")
-
-;;; == namazu ==
-;;(load-library "my_namazu")
-
-;;;; == MAIL::WANDERLUST ==
-;;(load-library "my_mail")
-
+(load-library "my_keybind")
+;; (load-library "my_printer")
 ;;test (load-library "my_anything")
+
 (load-library "my_all-the-icons")
 (load-library "my_auto-install")
 (load-library "my_buffer-menu")
@@ -121,13 +108,11 @@
 (load-library "my_flycheck")
 ;; (load-library "my_flymake") ;use flyspell instead
 (load-library "my_flyspell")
-;;(load-library "my_gdb")
 (eval-after-load 'gdb (load-library "my_gdb"))
 (load-library "my_git-gutter")
 (load-library "my_grep")
 (load-library "my_gtags")
 (load-library "my_hideshow")
-;;needless?test (load-library "my_icicles")
 (load-library "my_imenu")
 (load-library "my_indent")
 (load-library "my_ispell")

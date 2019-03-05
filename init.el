@@ -28,4 +28,3 @@
 (load (locate-user-emacs-file (concat (prin1-to-string window-system) ".el")))
 
 ;;; init.el ends here
-(put 'list-timers 'disabled nil)

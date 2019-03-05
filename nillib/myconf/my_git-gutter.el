@@ -20,29 +20,31 @@
 
 ;;; Commentary:
 
-;;
+;; git-gutter use `left-margin-width' to display diff.
 
 ;;; Code:
-(require 'git-gutter)
+(require 'use-package)
 
-;; If you enable global minor mode
-(global-git-gutter-mode t)
-
-;; If you would like to use git-gutter.el and linum-mode
-(git-gutter:linum-setup)
-
-(global-set-key (kbd "C-x C-g") 'git-gutter:toggle)
-(global-set-key (kbd "C-x v p") 'git-gutter:popup-hunk)
-
-;; Jump to next/previous hunk
-(global-set-key (kbd "C-x p") 'git-gutter:previous-hunk)
-(global-set-key (kbd "C-x n") 'git-gutter:next-hunk)
-
-;; Stage current hunk
-(global-set-key (kbd "C-x v s") 'git-gutter:stage-hunk)
-
-;; Revert current hunk
-(global-set-key (kbd "C-x v r") 'git-gutter:revert-hunk)
+(use-package git-gutter
+  :after (my_git-gutter)
+  :init
+  (global-display-line-numbers-mode)
+  :config
+  ;; If you enable global minor mode
+  (global-git-gutter-mode t)
+  :bind (("C-x C-g" . git-gutter-mode)
+         ("C-x v p" . git-gutter:popup-hunk)
+         ;; Jump to next/previous hunk
+         ("C-x p" . git-gutter:previous-hunk)
+         ("C-x n" . git-gutter:next-hunk)
+         ;; Stage current hunk
+         ("C-x v s" . git-gutter:stage-hunk)
+         ;; Revert current hunk
+         ("C-x v r" . git-gutter:revert-hunk))
+  :hook
+  (git-gutter:update-hooks . focus-in-hook)
+  (git-gutter:update-commands . other-window)
+  )
 
 ;;------------------------------------------------
 ;; Unload function:
