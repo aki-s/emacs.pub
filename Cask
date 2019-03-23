@@ -26,8 +26,10 @@
 (depends-on "company-quickhelp")
 (depends-on "company-tern") ; js
 (depends-on "cpputils-cmake" "5.5")
+(depends-on "cquery") ; C++ of LSP
 (depends-on "creole")
 (depends-on "dash")   ; elnode, flycheck
+(depends-on "dap-mode") ; For debugger of LSP.
 (depends-on "db")
 (depends-on "deferred")
 (depends-on "diff-hl")
@@ -62,6 +64,7 @@
 (depends-on "go-mode") ; golang
 
 (depends-on "helm")
+(depends-on "helm-dash") ; doc
 (depends-on "helm-gtags")
 (depends-on "helm-ls-git")
 (depends-on "helm-proc")
@@ -122,7 +125,7 @@
 (depends-on "xref-js2") ; js
 (depends-on "yaml-mode")
 (depends-on "yasnippet")
-
+(depends-on "zeal-at-point") ; doc
 ;;
 
 ;; (depends-on "ac-mozc" :git "https://github.com/igjit/ac-mozc.git")

@@ -77,9 +77,8 @@ it with optional 1st arg.
 ;; # [submodule "share/auto-complete"]
 ;; #  path = share/auto-complete
 ;; #  url = https://github.com/auto-complete/auto-complete.git
-;;(add-to-list 'load-path "~/.emacs.d/share/auto-complete") 
+;;(add-to-list 'load-path "~/.emacs.d/share/auto-complete")
 ;; (add-to-list 'load-path "~/.emacs.d/share/cask") ; ~/.cask/cask.el
-(add-to-list 'load-path "~/.emacs.d/share/cclookup")
 ;;elpa (add-to-list 'load-path "~/.emacs.d/share/ctable")
 (add-to-list 'load-path "~/.emacs.d/share/clang-complete-async")
 ;;elpa (add-to-list 'load-path "~/.emacs.d/share/deferred")
@@ -119,7 +118,7 @@ it with optional 1st arg.
 ;;; eieio, required by semantic/fw.el
 (add-to-list 'load-path "~/.emacs.d/src/emacs/lisp/emacs-lisp/" t) ;; this file must be at the end to shadow cl.el
 
-(use-my-elib "tramp" "~/.emacs.d/src/emacs/lisp/net/" ) 
+(use-my-elib "tramp" "~/.emacs.d/src/emacs/lisp/net/" )
 
 
 ;;; must exist?

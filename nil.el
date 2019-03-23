@@ -140,6 +140,9 @@
 (load-library "my_which-func")
 (load-library "my_which-key")
 (load-library "my_whitespace")
+(use-package zeal-at-point
+  :bind
+  (:map c-mode-base-map ("C-c h" . zeal-at-point)))
 
 (if (not (eq window-system nil) )
     (load-library "my_frame")

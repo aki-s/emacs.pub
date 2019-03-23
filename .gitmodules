@@ -10,12 +10,6 @@
  path = share/clang-complete-async
  url = git://github.com/Golevka/emacs-clang-complete-async.git
 
-#;; cclookup is not suitable for under version control,
-#;; because it requires customization?
-# [submodule "share/cclookup"]
-#  path = share/cclookup
-#  url = https://github.com/tsgates/cclookup.git
-
 # [submodule "share/epc"]
 #  path = share/epc
 #  url = https://github.com/kiwanami/emacs-epc.git
