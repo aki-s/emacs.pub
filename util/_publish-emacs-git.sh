@@ -5,7 +5,7 @@ fi
 
 CWD=`pwd`
 ECHO=echo
-if [ `basename $SHELL`="bash" -a ! `uname -s`="Darwin" ];then
+if [ `basename $SHELL`="bash" -a ! `uname -s` = "Darwin" ];then
     ECHO="builtin echo -e"
 fi
 
@@ -19,9 +19,9 @@ if [ -d "${EPUB}" -a x`cd ${EPUB} 2>/dev/null && git rev-parse --show-toplevel`=
         if [ -s ${DELETED_FILE_LST} ]; then
           cat ${DELETED_FILE_LST} | xargs git rm -rf
         fi
-        ( ${ECHO} "a\n*\nq\n"|git add -i )  || true    # add untracked files. Avoid stop of execution with sub shell when -e option of set command is enabled. There may bug yet here.
+        ${ECHO} "a\n*\nq\n"|git add -i
         git commit -a -m"auto publish. $COMMIT_COMMENT"
-#        git push -v --progress
+        git push -v --progress
     else
         echo "File list \'${EFILELST}\' doesn't exist. Try to create this file."
         ${BINDIR0}/_publish-emacs-genlst.sh
