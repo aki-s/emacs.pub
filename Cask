@@ -123,6 +123,7 @@
 (depends-on "web-mode") ;; raw git repo also exists in share/
 (depends-on "which-key")
 (depends-on "xref-js2") ; js
+(depends-on "w3m")
 (depends-on "yaml-mode")
 (depends-on "yasnippet")
 (depends-on "zeal-at-point") ; doc
