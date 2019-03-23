@@ -1,35 +1,3 @@
-[submodule "share/malabar-mode"]
- path = share/malabar-mode
- url = https://github.com/m0smith/malabar-mode.git
-
-[submodule "share/ecb"]
- path = share/ecb
- url = https://github.com/emacsmirror/ecb.git
-
-[submodule "share/clang-complete-async"]
- path = share/clang-complete-async
- url = git://github.com/Golevka/emacs-clang-complete-async.git
-
-# [submodule "share/epc"]
-#  path = share/epc
-#  url = https://github.com/kiwanami/emacs-epc.git
-
-# [submodule "share/fringe-helper"]
-#  path = share/fringe-helper
-#  url = https://github.com/nschum/fringe-helper.el.git
-
-# [submodule "share/highlight-symbol"]
-#  path = share/highlight-symbol
-#  url = https://github.com/nschum/highlight-symbol.el.git
-
-# [submodule "share/yas/yasnippet"]
-# 	path = share/yas/yasnippet
-# 	url = git://github.com/capitaomorte/yasnippet.git
-# 
-[submodule "share/yas/snippets_AndreaCrotti"]
-	path = share/yas/snippets_AndreaCrotti
-	url = https://github.com/AndreaCrotti/yasnippet-snippets.git
-
 [submodule "src/yasnippet.git/java-mode"]
  path = src/yasnippet.git/java-mode
  url = https://github.com/nekop/yasnippet-java-mode.git
@@ -38,62 +6,11 @@
  path = src/yasnippet.git/css-scss-yasnippet
  url = https://github.com/ShingoFukuyama/css-scss-yasnippet.git
 
-[submodule "share/evil-plugins"]
-	path = share/evil-plugins
-	url = https://github.com/tarao/evil-plugins.git
-# [submodule "share/jedi"]
-# 	path = share/jedi
-# 	url = https://github.com/tkf/emacs-jedi.git
-[submodule "share/tern"]
-	path = share/tern
-	url = https://github.com/marijnh/tern.git
-[submodule "site-lisp/23/js2-mode"]
-	path = site-lisp/23/js2-mode
-	url = git://github.com/mooz/js2-mode.git
-[submodule "site-lisp/24/js2-mode"]
-	path = site-lisp/24/js2-mode
-	url = git://github.com/mooz/js2-mode.git
-# [submodule "share/edbi"]
-# 	path = share/edbi
-# 	url = https://github.com/kiwanami/emacs-edbi.git
-[submodule "share/cask"]
-	path = share/cask
-	url = https://github.com/cask/cask.git
-# [submodule "share/ctable"]
-# 	path = share/ctable
-# 	url = https://github.com/kiwanami/emacs-ctable.git
-# [submodule "share/e2wm"]
-# 	path = share/e2wm
-# 	url = https://github.com/kiwanami/emacs-window-manager.git
-[submodule "share/emacs-window-layout"]
-	path = share/emacs-window-layout
-	url = https://github.com/kiwanami/emacs-window-layout.git
-[submodule "share/elnode"]
-	path = share/elnode
-	url = https://github.com/nicferrier/elnode.git
-#[submodule "share/acorn"]
-#	path = share/acorn
-#	url = https://github.com/marijnh/acorn.git
-[submodule "share/global-pygments-plugin"]
-	path = share/global-pygments-plugin
-	url = https://github.com/yoshizow/global-pygments-plugin.git
-[submodule "share/expand-region"]
-	path = share/expand-region
-	url = https://github.com/magnars/expand-region.el.git
-# [submodule "share/helm"]
-# 	path = share/helm
-# 	url = https://github.com/emacs-helm/helm.git
 [submodule "src/node"]
 	path = share/node
 	url = https://github.com/joyent/node.git
-[submodule "share/cmigemo"]
-	path = share/cmigemo
-	url = https://github.com/koron/cmigemo
 [submodule "src/emacs"]
 	path = src/emacs
 	url = git://git.savannah.gnu.org/emacs.git
 [submodule "emacs"]
 	shallow = true
-[submodule "share/elscreen-persist"]
-	path = share/elscreen-persist
-	url = git@github.com:aki-s/elscreen-persist.git
