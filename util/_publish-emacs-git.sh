@@ -14,8 +14,11 @@ if [ -d "${EPUB}" -a x`cd ${EPUB} 2>/dev/null && git rev-parse --show-toplevel`=
     if [ -e "${EFILELST}" ];then
         ls -l ${EFILELST}
         echo "${EFILELST} exists. rsync to the directory..."
-        rsync -av --delete --files-from=${EFILELST} $HOME/.emacs.d/ ${EPUB}/
-        #(echo -e "a\n\*\nq\n"|git add -i)  || true    # add untracked files. Avoid stop of execution with sub shell when -e option of set command is enabled. There may bug yet here.
+        rsync -av --files-from=${EFILELST} $HOME/.emacs.d/ ${EPUB}
+        echo "Delete files listed in ${DELETED_FILE_LST}."
+        if [ -s ${DELETED_FILE_LST} ]; then
+          cat ${DELETED_FILE_LST} | xargs git rm -rf
+        fi
         ( ${ECHO} "a\n*\nq\n"|git add -i )  || true    # add untracked files. Avoid stop of execution with sub shell when -e option of set command is enabled. There may bug yet here.
         git commit -a -m"auto publish. $COMMIT_COMMENT"
         git push -v --progress
