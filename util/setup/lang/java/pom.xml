@@ -16,16 +16,12 @@
   </parent>
 
   <properties>
-    <!-- # v6.11.2 -->
-    <!-- <_checkstyle.version>6.11.2</_checkstyle.version> -->
     <_checkstyle.suppressions.file>${user.home}/.emacs.d/share/checkstyle/suppressions.xml</_checkstyle.suppressions.file>
-    <_checkstyle.header.file>${user.home}/.emacs.d/share/checkstyle/java.header</_checkstyle.header.file>
+    <!-- <_checkstyle.header.file>${user.home}/.emacs.d/share/checkstyle/java.header</_checkstyle.header.file> -->
 
-    <!-- # v7.1 -->
-    <_checkstyle.version>7.1</_checkstyle.version>
-    <!-- <_checkstyle.config>${user.home}/.emacs.d/share/checkstyle/checkstyle_checks.xml</_checkstyle.config> -->
+    <_checkstyle.version>8.19</_checkstyle.version>
     <_checkstyle.config>${user.home}/.emacs.d/util/setup/lang/java/checkstyle/sun_checks-checkstyle7.1.xml</_checkstyle.config>
-    <checkstyle.regexp.header.file>${user.home}/.emacs.d/share/checkstyle/checkstyle/java_regexp.header</checkstyle.regexp.header.file>
+    <!-- <checkstyle.regexp.header.file>${user.home}/.emacs.d/share/checkstyle/checkstyle/java_regexp.header</checkstyle.regexp.header.file> -->
   </properties>
 
   <dependencies>
@@ -64,7 +60,7 @@
               <!--# 7.1 -->
               <configLocation>${_checkstyle.config}</configLocation>
               <suppressionsLocation>${_checkstyle.suppressions.file}</suppressionsLocation>
-              <headerLocation>${_checkstyle.header.file}</headerLocation>
+              <!-- <headerLocation>${_checkstyle.header.file}</headerLocation> -->
               <sourceDirectory>${user.dir}</sourceDirectory> <!-- user.dir is the place mvn is executed. -->
 
               <encoding>UTF-8</encoding>
@@ -75,10 +71,6 @@
 
               <!--# Values can be used in checkstyle.config, but variable like ${user.home} was not expanded -->
               <propertiesLocation>${user.home}/.emacs.d/util/setup/lang/java/checkstyle/checkstyle7.properties</propertiesLocation>
-
-              <!--# 6.11.2 -->
-              <!-- `suppressionsFile` is deprecated. see: https://maven.apache.org/plugins/maven-checkstyle-plugin/checkstyle-mojo.html -->
-              <suppressionsFile>${_checkstyle.suppressions.file}</suppressionsFile>
             </configuration>
             <goals>
               <goal>check</goal>
