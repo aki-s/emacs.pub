@@ -5,20 +5,6 @@
 ;; |モダン hook 入門。 - 日々、とんは語る。 | http://d.hatena.ne.jp/tomoya/20100112/1263298132|
 
 ;;; Code:
-;; Use Emacs23's eldoc
-;; (require 'eldoc)
-;; ;; (install-elisp-from-emacswiki "eldoc-extension.el")
-;; (require 'eldoc-extension)
-;; (setq eldoc-idle-delay 0)
-;; (setq eldoc-echo-area-use-multiline-p t)
-;; (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-;; (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
-;; (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
-
-;; [Note]
-
-;;
-
 (eval-and-compile (require 'cl))
 
 (defun my_elisp-mode-hook ()

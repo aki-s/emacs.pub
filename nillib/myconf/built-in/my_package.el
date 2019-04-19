@@ -24,9 +24,6 @@
 ;; ref. http://d.hatena.ne.jp/naoya/20130107/1357553140
 
 ;;; Code:
-(when (< emacs-major-version 24)
-  (load-library "my_cl-lib"); provide "cl-lib" for emacs23 to be compatible with emacs24.
-  )
 (require 'package)
 ;;;; requires external command gpg
 ;;; Macports: gnupg21

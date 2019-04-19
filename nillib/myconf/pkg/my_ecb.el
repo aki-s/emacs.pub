@@ -19,37 +19,34 @@
 ;;;; debug
 ;;;;--------------------------------------------------
 
-(when (> emacs-major-version 23)
   ;;; Don't know details but completing-read show completion in minibuffer.
 
   ;;; Related functions
-  ;; display-buffer
-  ;; minibuffer.el
-  ;; completion--in-region-1
-  ;; minibuffer-scroll-window ; <- showed in minibuffer...
+;; display-buffer
+;; minibuffer.el
+;; completion--in-region-1
+;; minibuffer-scroll-window ; <- showed in minibuffer...
 
-  ;; [Solution]
-  (add-to-list 'special-display-buffer-names '("*Completions*" my-display-completions))
+;; [Solution]
+(add-to-list 'special-display-buffer-names '("*Completions*" my-display-completions))
 
-  (defun my-display-completions (buf)
-    "put the *completions* buffer in the right spot
+(defun my-display-completions (buf)
+  "put the *completions* buffer in the right spot
 @TODO
 - Consider dedicated windows.
 "
-    (let ((windows (delete (minibuffer-window) (non-ecb-window-list)))
-          (pop-up-windows t)
-          )
-      (if (eq 1 (length windows))
-          (progn
-            (select-window (car windows))
-            (split-window-vertically)))
-      (let* ((windows (delete (minibuffer-window) (non-ecb-window-list)))
-             (target-window (car windows))
-             )
-        (set-window-buffer target-window buf)
-        target-window)))
-
-  );when
+  (let ((windows (delete (minibuffer-window) (non-ecb-window-list)))
+        (pop-up-windows t)
+        )
+    (if (eq 1 (length windows))
+        (progn
+          (select-window (car windows))
+          (split-window-vertically)))
+    (let* ((windows (delete (minibuffer-window) (non-ecb-window-list)))
+           (target-window (car windows))
+           )
+      (set-window-buffer target-window buf)
+      target-window)))
 
 ;;(debug-on-entry 'ecb-buffer-obj)
 ;; (debug-on-entry 'assoc)

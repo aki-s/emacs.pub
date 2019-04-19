@@ -1,12 +1,4 @@
 (require 'which-func) ;; ~/.emacs.d/src/emacs/lisp/progmodes/which-func.el
-;;(setq which-func-modes
-;;      ;;;; DONT WORK LIST:
-;;      ;;; emacs23
-;;      ;; java-mode
-;;;;      (append which-func-modes
-;;;;              '(cc-mode c++-mode emacs-lisp-mode javascript-mode))
-;;;;'(cc-mode c++-mode emacs-lisp-mode javascript-mode))
-;;      )
 ;;;; ref. http://www.gnu.org/software/emacs/manual/html_node/elisp/Attribute-Functions.html
 (set-face-attribute 'which-func nil
                     :foreground "yellow")

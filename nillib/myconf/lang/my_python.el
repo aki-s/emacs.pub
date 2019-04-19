@@ -112,52 +112,6 @@
 (define-key python-mode-map (kbd "M-O") 'my_python:goto-definition)
 (define-key python-mode-map (kbd "C-S-j") 'jedi:complete)
 
-(cond ((= emacs-major-version 24)
-        )
-
-  ((= emacs-major-version 23)
-;;;   https://gist.github.com/606088.git
-    (defun py-doc-popup ()
-      "Get help() for Python object at point, and display it in a popup."
-      ;; Note that we do this in the inferior process, not a separate one, to
-      ;; ensure the environment is appropriate.
-      (interactive)
-      (when (buffer-live-p (get-buffer "*py-doc-popup*"))
-        (kill-buffer "*py-doc-popup*"))
-      (save-current-buffer
-        (let ((symbol
-                (with-syntax-table python-dotty-syntax-table (current-word)))
-               (enable-recursive-minibuffers t))
-          (get-buffer-create "*py-doc-popup*")
-          (if (equal symbol "") (error "No symbol"))
-          (set-buffer "*py-doc-popup*")
-          (comint-redirect-send-command-to-process
-            (format "emacs.ehelp(%S, %s)"
-              symbol python-imports) "*py-doc-popup*" (python-proc) nil t)))
-      (py-doc-deferred))
-
-    (defun py-doc-deferred ()
-      (require 'deferred)
-      (deferred:$
-        (deferred:wait 5)
-        (deferred:nextc it
-          (lambda (x)
-            (let ((curbuf (current-buffer)))
-              (set-buffer "*py-doc-popup*")
-              (let ((bs (buffer-string)))
-                (set-buffer curbuf)
-                (if (equal bs "")
-                  (py-doc-deferred))
-                (popup-tip bs))
-              (kill-buffer "*py-doc-popup*"))))))
-
-    ;;python-mode.elの時のキーバインド設定例
-    ;; (define-key py-mode-map (kbd "C-c C-g") 'py-doc-popup)
-    ;;python.elの時のキーバインド設定例
-    (define-key python-mode-map (kbd "C-c C-g") 'py-doc-popup)
-    )
-  ); cond
-
 (when nil ; for debug
   (setq jedi:server-args
     '("--log-level" "DEBUG"

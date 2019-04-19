@@ -47,12 +47,6 @@
 [submodule "share/tern"]
 	path = share/tern
 	url = https://github.com/marijnh/tern.git
-[submodule "site-lisp/23/js2-mode"]
-	path = site-lisp/23/js2-mode
-	url = git://github.com/mooz/js2-mode.git
-[submodule "site-lisp/24/js2-mode"]
-	path = site-lisp/24/js2-mode
-	url = git://github.com/mooz/js2-mode.git
 # [submodule "share/edbi"]
 # 	path = share/edbi
 # 	url = https://github.com/kiwanami/emacs-edbi.git

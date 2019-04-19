@@ -42,48 +42,31 @@
     )
   )
 
-(cond
- ( (> emacs-major-version  23 )
-   (setq yas-snippet-dirs ; used by yas-recompile-all
-         '(
-           "~/.emacs.d/share/yas/my_snippet"
-           "~/.emacs.d/share/yas/snippets_AndreaCrotti"
-           "~/.emacs.d/src/yasnippet.git/css-scss-yasnippet/css-mode"
-           "~/.emacs.d/src/yasnippet.git/css-scss-yasnippet/scss-mode"
-           "~/.emacs.d/src/yasnippet.git/java-mode/snippets"
-           ;;         "~/.emacs.d/share/yas/yasnippet/snippets"
-           ))
-   ;; 既存スニペットを挿入
-   (define-key yas-minor-mode-map (kbd "C-x y i") 'yas-insert-snippet)
-   ;; 新規スニペットを作成するバッファを用意する
-   (define-key yas-minor-mode-map (kbd "C-x y n") 'yas-new-snippet)
-   ;; 既存スニペットの閲覧、編集
-   (define-key yas-minor-mode-map (kbd "C-x y v") 'yas-visit-snippet-file)
-   (define-key yas-minor-mode-map (kbd "<tab>") 'yas-expand) ;; Still overrided by evil?
-   (define-key yas-minor-mode-map (kbd "C-x y <tab>") 'yas-expand)
+(setq yas-snippet-dirs ; used by yas-recompile-all
+      '(
+        "~/.emacs.d/share/yas/my_snippet"
+        "~/.emacs.d/share/yas/snippets_AndreaCrotti"
+        "~/.emacs.d/src/yasnippet.git/css-scss-yasnippet/css-mode"
+        "~/.emacs.d/src/yasnippet.git/css-scss-yasnippet/scss-mode"
+        "~/.emacs.d/src/yasnippet.git/java-mode/snippets"
+        ;;         "~/.emacs.d/share/yas/yasnippet/snippets"
+        ))
+;; 既存スニペットを挿入
+(define-key yas-minor-mode-map (kbd "C-x y i") 'yas-insert-snippet)
+;; 新規スニペットを作成するバッファを用意する
+(define-key yas-minor-mode-map (kbd "C-x y n") 'yas-new-snippet)
+;; 既存スニペットの閲覧、編集
+(define-key yas-minor-mode-map (kbd "C-x y v") 'yas-visit-snippet-file)
+(define-key yas-minor-mode-map (kbd "<tab>") 'yas-expand) ;; Still overrided by evil?
+(define-key yas-minor-mode-map (kbd "C-x y <tab>") 'yas-expand)
 
-   (setq yas-trigger-key "TAB") ;; After yasnippet ver8.0, @see. (defcustom yas-fallback-behavior 'call-other-command
+(setq yas-trigger-key "TAB") ;; After yasnippet ver8.0, @see. (defcustom yas-fallback-behavior 'call-other-command
 
-   (setq yas-prompt-functions '(
-                                yas-completing-prompt
-                                yas-ido-prompt
-                                yas-dropdown-prompt  ; Don't use yas-x-propmt
-                                ))
-   )
- ( (<= emacs-major-version 23)
-   ;; report "'noerror"
-   ;; http://stackoverflow.com/questions/2816019/in-lisp-avoid-cannot-open-load-file-when-using-require
-   ;;(require 'yasnippet nil 'noerror)
-
-   (setq yas/prompt-functions '(yas/dropdown-prompt))
-   (setq yas/root-directory "~/.emacs.d/share/yas")
-   (define-key yas/minor-mode-map (kbd "C-x y i") 'yas/insert-snippet)
-;;; init
-   (yas/initialize)
-   (yas/load-directory yas/root-directory)
-   (message "%s was loaded" buffer-file-name)
-   )
- )
+(setq yas-prompt-functions '(
+                             yas-completing-prompt
+                             yas-ido-prompt
+                             yas-dropdown-prompt  ; Don't use yas-x-propmt
+                             ))
 
 (yas-global-mode 1)
 

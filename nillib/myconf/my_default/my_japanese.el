@@ -2,35 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(cond
- ((< emacs-major-version 23)
-
-  ;;needless;; ;; 全角空白、Tab、改行表示
-  ;;needless;; (require 'jaspace)
-  ;;needless;; (setq jaspace-alternate-jaspace-string "□")
-  ;;needless;; (setq jaspace-alternate-eol-string "↓\n")
-  ;;needless;; (setq jaspace-highlight-tabs t)
-  ;;needless;; (setq jaspace-modes
-  ;;needless;;         '(
-  ;;needless;;         'org-mode
-  ;;needless;;         'scheme-mode
-  ;;needless;;                      'php-mode
-  ;;needless;;                      'yaml-mode
-  ;;needless;;                      'js-mode
-  ;;needless;;                      'ruby-mode
-  ;;needless;;                      'text-mode
-  ;;needless;;                      'fundamental-mode
-  ;;needless;;                      'yatex-mode
-  ;;needless;;                      'LaTeX-mode))
-  ;;needless;; (setq jaspace-mode-string " jp")
-
-  ); 23
- ((>= emacs-major-version 23)
-
-  )
- );cond emacs-major-version
-
-
 ;; ------------------------------------------------
 ;; Language
 ;; ------------------------------------------------

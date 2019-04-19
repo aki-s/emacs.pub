@@ -22,8 +22,6 @@
 ;;(add-to-list 'load-path "~/.emacs.d/myconf")
 ;;(add-to-list 'load-path "~/.emacs.d/ecb") ;<-macports ecb is don't work well. 110117
 
-;;(add-to-list 'load-path "~/.emacs.d/cedet") ;<-cedet is accompanied by emacs23
-
 (defun ifnil-use-local-elib (lib &optional defdir)
   "If there is no 'lib' in load-path use use my library named 'lib'.
 The directory where library locates in is set to ~/.emacs.d/share/ ,but you can overwrite
@@ -44,28 +42,6 @@ it with optional 1st arg.
       (setq load-path (cons (concat defdir ) load-path))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;
-
-;; ref. http://emacs-21.ki.nu/dot.emacs/variables.html
-;;
-(cond
- ( (> emacs-major-version  23 )
-   (add-to-list 'load-path "~/.emacs.d/site-lisp/24")
-   (add-to-list 'load-path "~/.emacs.d/site-lisp/24/js2-mode")
-   (add-to-list 'load-path "~/.emacs.d/share/yas/yasnippet")
-   ;; (add-to-list 'load-path "~/.emacs.d/src/yasnippet.git/java-mode/") ; java-snippets.el
-   )
- ( t ;; emacs23
-   ;;;(ifnil-use-local-elib "vc" "~/.emacs.d/src/emacs/lisp/vc")
-   ;;$;; download http://repo.or.cz/w/emacs.git/blob_plain/1a0a666f941c99882093d7bd08ced15033bc3f0c:/lisp/emacs-lisp/package.el
-   (add-to-list 'load-path "~/.emacs.d/site-lisp/23/") ; should shadow package.el from emacs 24
-   (add-to-list 'load-path "~/.emacs.d/site-lisp/23/js2-mode")
-   (add-to-list 'load-path "~/.emacs.d/src/yasnippet-0.6.1c/")
-   (load-library "my_cl-lib") ;; add emacs23 conpatibility for emacs24
-   (message "my_load-path: emacs 23 specific path were added.")
-   )
- )
-
 ;; == share ==
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/apel");++bug:mac-indigenous
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/emu");++bug:mac-indigenous
@@ -92,13 +68,10 @@ it with optional 1st arg.
 ;; (add-to-list 'load-path "~/.emacs.d/share/highlight-symbol")
 ;;elpa (add-to-list 'load-path "~/.emacs.d/share/helm")
 ;;elpa (add-to-list 'load-path "~/.emacs.d/share/jedi")
-;;(add-to-list 'load-path "~/.emacs.d/share/w3m")
-(add-to-list 'load-path "~/.emacs.d/share/w3m/share/emacs/site-lisp/w3m")
 (add-to-list 'load-path "~/.emacs.d/share/py") ; python
 (add-to-list 'load-path "~/.emacs.d/share/web-mode")
 (add-to-list 'load-path "~/.emacs.d/share/malabar-mode")
 ;;;(setq load-path (cons "~/local/share/emacs/site-lisp" load-path) ) ;
-;;;(add-to-list 'load-path "~/local/share/emacs/site-lisp/w3m") ;
 (add-to-list 'load-path "~/.emacs.d/share/yatex") ;
 (add-to-list 'load-path "~/.emacs.d/share/auto-complete/lib/popup")
 (add-to-list 'load-path "~/.emacs.d/share/tern/emacs")

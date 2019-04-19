@@ -13,8 +13,5 @@
        (insert (prin1-to-string `(defvar my-emacs-main-version ,emacs-major-version "My preferred version of emacs")))
        (write-file my_emacs-main-version-file))))
 
-(if (eq emacs-major-version 23) ;; @todo : like `cask' create byte file for each version of Emacs
-  (setq load-suffixes '(".el" ".elc"))
-  )
 (provide 'my_emacs-version)
 ;;; my_emacs-version ends here

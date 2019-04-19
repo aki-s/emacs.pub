@@ -51,7 +51,7 @@
         (defvar my-browser "MultiBrowser")
         (defun browse-url-default-macosx-browser (url &optional new-window)
           (interactive (browse-url-interactive-arg "URL: "))
-          (if (and new-window (>= emacs-major-version 23))
+          (if (and new-window)
               (ns-do-applescript
                (format
                 (concat "tell application " my-browser " to make document with properties {URL:\"%s\"}\n"
