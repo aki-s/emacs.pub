@@ -1,40 +1,15 @@
 #!/bin/sh
 #-----------------------------------------------------------------------
-
-checkstyle_home=~/.emacs.d/share/checkstyle
-checkstyle_xml=${checkstyle_home}/sun_checks.xml
-classpath=`echo $checkstyle_home/*.jar | tr ' ' ":"`
-HELP=0
-
-while getopts "h" opt;do
-    case $opt in
-        h) HELP=1
-           break;;
-        *) ;;
-    esac
-done
-
-help() {
-    java -cp "$classpath" com.puppycrawl.tools.checkstyle.Main
-    exit 0
+check_prerequisite() {
+  if [ `which checkstyle` ]; then
+    return
+  fi
+  echo "No checkstyle command is found. Please install it." \
+    && exit 1
 }
 
-run_checkstyle() {
-    local f=$1
-    if [ ! -d $checkstyle_home ]; then
-        echo "No ${checkstyle_home}. Abort checkstyle ..."
-        return
-    fi
-
-    java -cp "$classpath" com.puppycrawl.tools.checkstyle.Main \
-         -f xml \
-         -c $checkstyle_xml \
-         "${f}"
-}
-
-#run_checkstyle "${FILE}"
-[ ${HELP} -ne 0 ] && help
-run_checkstyle "$1"
+check_prerequisite
+checkstyle "$@"
 echo "$@" >/tmp/my_java-checkstyle.out
 
 exit 0

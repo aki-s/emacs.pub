@@ -71,6 +71,7 @@
 ;;(load-library "my_clisp")
 (eval-after-load 'lisp-mode (load-library "my_elisp"))
 (use-package my_go :mode "\\.go\\'")
+(use-package my_typescript :mode "\\.ts\\'")
 
 ;;(load-library "my_mysql")
 ;;(eval-after-load 'java-mode "my_java") ; unloeded
