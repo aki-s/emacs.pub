@@ -12,6 +12,7 @@
 (depends-on "auto-async-byte-compile")
 (depends-on "auto-complete")
 (depends-on "auto-complete-c-headers")
+(depends-on "ccls") ; C++ of LSP
 (depends-on "clang-format")   ; For c++ development.
 (depends-on "cmake-ide")   ; For c++ development.
 (depends-on "cmake-mode")   ; For c++ development.
@@ -117,6 +118,7 @@
 (depends-on "term+") ; To make term + tmux zero configuration.
 ;; (depends-on "tern") ; Use raw git repository
 (depends-on "tern-auto-complete")
+(depends-on "tide") ; Typescript
 (depends-on "twittering-mode")
 (depends-on "use-package")
 (depends-on "web")

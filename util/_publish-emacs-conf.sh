@@ -13,7 +13,7 @@ REPOS="$REPOS ssh://git@github.com/aki-s/emacs.pub.git"    # Primary
 CPOPT= # Option for `cp` command to copy .emacs.d to ${EPUB}
 COMMIT_COMMENT=${COMMIT_COMMENT} # comment for git commit
 
-BLACKLIST_REGEX='(elnode/|src/(cedet|emacs|jdee|maven)|share/dict/.*eijirou.*\.sdic|memo/|\.tar\.(gz|bz2)$|\.zip$|\.git/)'
+BLACKLIST_REGEX='(elnode/|src/(cedet|emacs|maven)|share/dict/.*eijirou.*\.sdic|memo/|\.tar\.(gz|bz2)$|\.zip$|\.git/)'
 
 
 #-------------------------------------

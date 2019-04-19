@@ -3,7 +3,16 @@
 ;;; Code:
 (require 'use-package)
 ;; LSP
+(use-package ccls
+;  :custom (ccls-executable "/usr/local/bin/ccls")
+  :preface
+  (defun my_c--ccls-hook()
+    (require 'ccls)
+    (lsp))
+  :hook ((c-mode c++-mode objc-mode) . my_c--ccls-hook))
+
 (use-package cquery
+  :disabled ; Use ccls.
   :custom (cquery-executable
            (or
             (executable-find "cquery")
