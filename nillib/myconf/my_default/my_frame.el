@@ -118,21 +118,16 @@ Override frame-parameter `name' previously set (This would be caused by `desktop
   (setq frame-title-format nil)
   (setq-default frame-title-format
       ;;;; ref. http://amitp.blogspot.jp/2011/08/emacs-custom-mode-line.html
-    ;; @TBD windows.el break frame title at default.
-    '("#" (:eval (format "%d|" (length (frame-list))))
-       (:eval (format "%s@%s" invocation-name (system-name)))
-       (:eval (my_frame:filename-or-directory))
-       (:eval (when which-func-mode
-                (propertize
-                  (format " [ %s ]" (gethash (selected-window) which-func-table which-func-unknown))
-                  ;;( print (gethash (selected-window) which-func-table which-func-unknown))
-                  'face 'frame-title-face)
-                ))
-       mode-line-modes  ;; major,minor-mode
-       ;; minor-mode-alist " | " ;; minor-mode
-       ;; mode-name ; name of major-mode
-       ))
-  (set-frame-parameter nil 'name nil) ; Setting `explicit-name' nil by `modify-frame-parameters' didn't work. This way could change tile automatically.
+                ;; @TBD windows.el break frame title at default.
+                '("#" (:eval (format "%d" (length (frame-list))))
+                  " "
+                  (:eval (format "%s@%s" invocation-name (system-name)))
+                  " "
+                  (:eval (my_frame:filename-or-directory))
+                  " "
+                  mode-line-modes  ;; major,minor-mode
+                  ))
+  (set-frame-parameter nil 'name nil) ; Change frame-tile automatically. ref. Setting `explicit-name' nil by `modify-frame-parameters' didn't work.
   (message "[my_frame:dynamically-change-title] is called.")
   )
 

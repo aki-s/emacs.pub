@@ -25,12 +25,8 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; == CONF BASIC ==
+;; Built-in
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package amx
-  :config
-  (amx-mode))
-(load-library "my_ace-window")
 (load-library "my_global-vars")
 (load-library "my_emacs-version")
 (load-library "my_basic_func")
@@ -85,9 +81,15 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; == TOOLS ==
+;; Package
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+(use-package amx
+  :config
+  (amx-mode))
+(use-package anzu
+  :config (global-anzu-mode +1))
+(use-package projectile)
+(load-library "my_ace-window")
 (load-library "my_diff-hl")
 (load-library "my_editorconfig")
 (load-library "my_eijirou")

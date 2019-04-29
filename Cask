@@ -7,6 +7,7 @@
 (depends-on "add-node-modules-path")
 (depends-on "all-the-icons")
 (depends-on "amx")
+(depends-on "anzu") ; Show number of muched string
 ;; Deprecated (depends-on "ac-R")
 (depends-on "async")
 (depends-on "auto-async-byte-compile")
@@ -69,6 +70,7 @@
 (depends-on "helm-gtags")
 (depends-on "helm-ls-git")
 (depends-on "helm-proc")
+(depends-on "helm-projectile")
 (depends-on "helm-perldoc")
 (depends-on "helm-pydoc")
 (depends-on "helm-rtags") ;; c++
@@ -102,6 +104,7 @@
 (depends-on "php-mode")
 (depends-on "popwin")
 (depends-on "prettier-js") ; Formatter for js, html.
+(depends-on "projectile")
 (depends-on "pug-mode")
 (depends-on "robe") ;ruby
 (depends-on "rtags") ;c++

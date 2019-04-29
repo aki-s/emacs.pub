@@ -1,4 +1,9 @@
 (require 'my_linum)
+(require 'my_spaceline)
+(require 'map)
+(require 'dash)
+(require 'which-func)
+
 ;; Line feed
 (setq
  eol-mnemonic-dos "(CRLF)"
@@ -8,48 +13,17 @@
  column-number-mode t
  )
 
-(set-face-attribute
-  'mode-line nil
-  :background "blue"
-  :foreground "green"
-  :box '(:line-width -1 :style released-button)
-)
-
-;;;; ref. http://stackoverflow.com/questions/8190277/how-do-i-display-the-total-number-of-lines-in-the-emacs-modeline
-(defvar my-mode-line-buffer-line-count nil)
-(make-variable-buffer-local 'my-mode-line-buffer-line-count)
 (defvar mode-line-format-original mode-line-format)
 (defvar mode-line-format-custom nil "my_mode-line custom format")
-(require 'map)
-(require 'dash)
 (defvar my_mode-line--idx-format-map nil)
+(defvar my_mode-line--to-be-cycled
+  '(my_spaceline-all-the-icons-theme
+    mode-line-format-custom
+    mode-line-format-original))
 (map-let nil my_mode-line--idx-format-map
-  (-each-indexed
-      '(spaceline-all-the-icons-theme mode-line-format-custom mode-line-format-original)
+  (-each-indexed my_mode-line--to-be-cycled
     (lambda (idx item) (map-put my_mode-line--idx-format-map idx item) )))
-
-(require 'use-package)
-(use-package powerline
-  :config
-  (powerline-default-theme))
-(use-package spaceline-config
-  :config
-  (spaceline-emacs-theme)
-  )
-(use-package spaceline-all-the-icons
-  :after (powerline spaceline-config)
-  :init
-  ;; Suppress error by declaring undefined variables.
-  ;; `powerline' should have provided these variables, but
-  (defvar  mode-line t)
-  (defvar powerline-active2 nil)
-  (defvar powerline-inactive2 nil)
-  :config
-  (defadvice what-buffer (before spaceline-all-the-icons-theme activate)
-    (message "[debug]what-buffer:%S" (buffer-name)))
-  (spaceline-all-the-icons-theme)
-  (define-symbol-prop 'mode-line-format 'my_mode-line-current-format 0)
-  )
+(define-symbol-prop 'mode-line-format 'my_mode-line-current-format 0)
 
 (defun my_mode-line-toggle-mode-line-format ()
   (interactive)
@@ -62,9 +36,8 @@
     (plist-put plist 'my_mode-line-current-format next-format-idx)
     ))
 
-(setq-default mode-line-buffer-identification   (propertized-buffer-identification "|%b|")) ; Use space saving format
-
-(require 'which-func)
+(setq-default mode-line-buffer-identification ; Use format saving space.
+              (propertized-buffer-identification "|%b|"))
 
 (if window-system ;; Utilize frame to show mode info
     (setq-default mode-line-format-custom
@@ -72,10 +45,10 @@
                     ;;                " %p"  ; percentage
                     ;; (list 'line-number-mode " ")
                     ;;(:eval (when line-number-mode
-                     (:eval (let (str )
-                              (when my-mode-line-buffer-line-count
-                                (setq str (concat "L" my-mode-line-buffer-line-count)))
-                              str))
+                    (:eval (let (str )
+                             (when my-mode-line-buffer-line-count
+                               (setq str (concat "L" my-mode-line-buffer-line-count)))
+                             str))
                     (list 'column-number-mode " C%2C")
                     mode-line-modified
                     mode-line-mule-info
@@ -110,32 +83,19 @@
                   ))
   )
 
-(defun my-mode-line-count-lines ()
-  (setq my-mode-line-buffer-line-count (int-to-string (count-lines (point-min) (point-max)))))
-
-(add-hook 'find-file-hook 'my-mode-line-count-lines)
-(add-hook 'after-save-hook 'my-mode-line-count-lines)
-(add-hook 'after-revert-hook 'my-mode-line-count-lines)
-(add-hook 'dired-after-readin-hook 'my-mode-line-count-lines)
-
 ;;;; ref.  http://www.emacswiki.org/emacs/ViewMode
 ;; Change mode line color when view-mode
 ;; from *info* Defining Faces
 (defun change-mode-line-color ()
-  "@dev
-@see my_evil.el
-"
   (interactive)
   (when (get-buffer-window (current-buffer))
     (cond (window-system
            (cond (view-mode
                   (set-face-background 'mode-line "black")
-                  (set-face-foreground 'mode-line "orange")
-                  )
+                  (set-face-foreground 'mode-line "orange"))
                  (t
                   (set-face-background 'mode-line "black")
-                  (set-face-foreground 'mode-line "white")))
-           )
+                  (set-face-foreground 'mode-line "white"))))
           (t
            (set-face-background 'mode-line
                                 (if view-mode "red"
@@ -147,60 +107,49 @@
      (change-mode-line-color)
      (force-mode-line-update))) ; subr.el
 
-(progn
-  (change-mode-line-color-advice set-window-configuration)
-  (change-mode-line-color-advice switch-to-buffer)
-  (change-mode-line-color-advice pop-to-buffer)
-  (change-mode-line-color-advice other-window)
-  (change-mode-line-color-advice toggle-read-only)
-  (change-mode-line-color-advice vc-toggle-read-only)
-  (change-mode-line-color-advice vc-next-action)
-  (change-mode-line-color-advice view-mode-enable)
-  (change-mode-line-color-advice view-mode-disable)
-  (change-mode-line-color-advice bury-buffer)
-  (change-mode-line-color-advice kill-buffer)
-  (change-mode-line-color-advice delete-window)
-  ;; for windows.el
-  (change-mode-line-color-advice win-switch-to-window)
-  (change-mode-line-color-advice win-toggle-window)
-  )
-
-
 (defun my_evil-change-modeline-color ()
   "Change mode-line color according to evil state.
 
 This function is effective when `evil-mode'.
 face 'mode-line is defined at faces.el"
   (when (featurep 'evil)
-
-    (let ( color
-           (default-color (cons (face-background 'mode-line) (face-foreground 'mode-line)))
-           )
-      (cond
-        ( t
-          (setq color (cond
-                        ((null (buffer-file-name)) default-color)  ;; color for temporary buffer
-                        ((and (buffer-modified-p) (evil-insert-state-p) ) '("black" . "red"))
-                        ((and (buffer-modified-p) (evil-emacs-state-p ) ) '("blue" . "gray"))
-                        ((and (buffer-modified-p) (evil-normal-state-p) ) '("black" . "green"))
-                        ((evil-insert-state-p) '("red" . "#000000") )
-                        ((evil-emacs-state-p ) '("blue"   . "#FFFFFF") )
-                        ((evil-normal-state-p) '("green"  . "#000000") )
-                        ((minibufferp) default-color)
-                        (t default-color)
-                        ))
-          )
-        )
+    (let (color default-color)
+      (setq default-color '((face-background 'mode-line) . (face-foreground 'mode-line)))
+      (setq color
+            (cond
+             ((null (buffer-file-name)) default-color)  ;; color for temporary buffer
+             ((and (buffer-modified-p) (evil-insert-state-p) ) '("black" . "red"))
+             ((and (buffer-modified-p) (evil-emacs-state-p ) ) '("blue" . "gray"))
+             ((and (buffer-modified-p) (evil-normal-state-p) ) '("black" . "green"))
+             ((evil-insert-state-p) '("red" . "#000000") )
+             ((evil-emacs-state-p ) '("blue"   . "#FFFFFF") )
+             ((evil-normal-state-p) '("green"  . "#000000") )
+             ((minibufferp) default-color)
+             (t default-color)))
       (set-face-background 'mode-line (car color))
       (set-face-foreground 'mode-line (cdr color))
-      ;; (message "my_evil-change-modeline-color %S" color ) ; debug
+      (message "my_evil-change-modeline-color %S" color ) ; debug
       );let
-    )
-  ); defun my_evil-change-modeline-color
+    ))
 
-(add-hook 'post-command-hook 'my_evil-change-modeline-color)
-(add-hook 'pre-command-hook 'my_evil-change-modeline-color)
+(when nil ; Disable legacy configurations.
+  (progn
+    (change-mode-line-color-advice set-window-configuration)
+    (change-mode-line-color-advice switch-to-buffer)
+    (change-mode-line-color-advice pop-to-buffer)
+    (change-mode-line-color-advice other-window)
+    (change-mode-line-color-advice toggle-read-only)
+    (change-mode-line-color-advice vc-toggle-read-only)
+    (change-mode-line-color-advice vc-next-action)
+    (change-mode-line-color-advice view-mode-enable)
+    (change-mode-line-color-advice view-mode-disable)
+    (change-mode-line-color-advice bury-buffer)
+    (change-mode-line-color-advice kill-buffer)
+    (change-mode-line-color-advice delete-window)
 
+    (add-hook 'post-command-hook 'my_evil-change-modeline-color)
+    (add-hook 'pre-command-hook 'my_evil-change-modeline-color)
+    ))
 
 (provide 'my_mode-line)
 ;;; my_mode-line ends here

@@ -17,7 +17,6 @@
 
       (require 'w3m) ; w3m-content-type-alist w3m-browse-url
       (declare-function w3m-browse-url "w3m.el")
-      (require 'w3m-load); Main tree of emacs-w3m is emacs-w3m-1.4.4, fusion with CVS version.
       (require 'my_browse-url)
 
       ;;(setq w3m-command "/opt/local/bin/w3m")
