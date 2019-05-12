@@ -52,7 +52,6 @@ Has bad effect to scaling feature for font on Linux."
     ;;$conflict with monospace$;; :width 'condensed
     :font
     (or
-
       (font-candidate "-unknown-Liberation Mono-bold-normal-normal-*-10-*-*-*-m-0-iso10646-1") ;; exists on 'darwin.
       (font-candidate "-sony-fixed-medium-r-normal--16-120-100-100-c-80-iso8859-1") ;; exists on 'gnu/linux
       (font-candidate "-b&h-luxi mono-*-*-*--*-*-*-*-*-*-iso10646-1") ;; exists on 'gnu/linux and 'darwin.
@@ -196,8 +195,7 @@ Has bad effect to scaling feature for font on Linux."
     ) ; system-name 'darwin
 
   ((and (eq system-type 'gnu/linux) (eq window-system 'x ))
-;;    (my_font-setup_for_linux)
-;;(set-frame-font "Liberation Mono-14:antialias=1")
+    (my_font-setup_for_linux)
     )
   )
 (my_font--increase-by-screen-resolution)

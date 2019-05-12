@@ -336,7 +336,6 @@ Internally calls `delete-other-windows.'
 ;;$debug (require 'tempbuf)
 ;;$debug (add-hook 'find-file-hooks 'turn-on-tempbuf-mode)
 
-(setq gc-cons-threshold 100000000)
 (defconst original-max-lisp-eval-depth max-lisp-eval-depth "Original value at boot time.")
 (defvar my_max-lisp-eval-depth 7000)
 (if (< max-lisp-eval-depth my_max-lisp-eval-depth)  ;; making this value too large have not benefit

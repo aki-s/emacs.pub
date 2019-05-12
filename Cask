@@ -74,7 +74,6 @@
 (depends-on "helm-perldoc")
 (depends-on "helm-pydoc")
 (depends-on "helm-rtags") ;; c++
-(depends-on "helm-swoop")
 (depends-on "helm-xref")
 (depends-on "highlight-indent-guides")
 
@@ -106,6 +105,7 @@
 (depends-on "prettier-js") ; Formatter for js, html.
 (depends-on "projectile")
 (depends-on "pug-mode")
+(depends-on "restclient") ; web-development
 (depends-on "robe") ;ruby
 (depends-on "rtags") ;c++
 (depends-on "rjsx-mode" "20170422.832") ; For .jsx files.
@@ -116,7 +116,7 @@
 (depends-on "smartrep")
 (depends-on "spaces")
 (depends-on "spaceline-all-the-icons" "1.4.0")
-(depends-on "swoop")
+(depends-on "swiper-helm")
 (depends-on "tabbar")
 (depends-on "term+") ; To make term + tmux zero configuration.
 ;; (depends-on "tern") ; Use raw git repository

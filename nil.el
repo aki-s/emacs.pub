@@ -89,6 +89,11 @@
 (use-package anzu
   :config (global-anzu-mode +1))
 (use-package projectile)
+(use-package restclient :mode ("\\.api\\.md\\'" . restclient-mode))
+(use-package swiper-helm
+  :config (defun swiper-helm--switch-isearch-to-swiper() (interactive) (isearch-done) (swiper-helm isearch-string))
+  :bind (:map isearch-mode-map
+         ("C-s" . swiper-helm--switch-isearch-to-swiper)))
 (load-library "my_ace-window")
 (load-library "my_diff-hl")
 (load-library "my_editorconfig")
@@ -132,7 +137,6 @@
 (load-library "my_replace")
 (load-library "my_smart-compile")
 (load-library "my_rect")
-(load-library "my_swoop")
 (load-library "my_elscreen")
 (load-library "my_tramp");; I want to make this autoload.
 (load-library "my_undo-tree")
@@ -148,7 +152,6 @@
 (if (not (eq window-system nil) )
     (load-library "my_frame")
   )
-;; (load-library "my_cursor")
 ;;;; ===== pukiwiki-mode =====
 ;; (defadvice pukiwiki-mode (after pukiwiki-mode-hook (arg))
 ;;   "run hook as after advice"
