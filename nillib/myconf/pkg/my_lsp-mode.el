@@ -9,7 +9,7 @@
 ;; Package-Requires:
 ;; Keywords:
 ;; Created: 2019-03-02
-;; Updated: 2019-05-25T17:18:54Z; # UTC
+;; Updated: 2019-05-26T20:55:02Z; # UTC
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -42,8 +42,17 @@
   :custom
   (lsp-eldoc-enable-hover nil) ; Using mini-buffer cause flicker.
   (lsp-enable-symbol-highlighting t)
+  (lsp-prefer-flymake nil)
   :config
-  (require 'lsp-clients)
+  ;; Use checker named `lsp-ui'.
+  (setq-default flycheck-disabled-checkers
+                '(c/c++-clang c/c++-cppcheck c/c++-gcc))
+  (use-package lsp-clients
+    :config
+    ;; Prevent 'clangd only to use 'ccls, because finding header
+    ;; has failed.
+    (remhash 'clangd lsp-clients)
+    )
   (use-package lsp-ui
     :custom-face (lsp-ui-sideline-global ((t (:background "blue"))))
     :custom

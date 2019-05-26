@@ -10,7 +10,15 @@
  '(package-selected-packages
    (quote
     (symbol-overlay company-flx evil-avy restclient realgud project-explorer prodigy swiper-helm anzu helm-projectile projectile tide typescript-mode ccls w3m flymd helm-dash zeal-at-point dap-mode cquery wcheck-mode org-bullets diff-hl git-gutter-fringe company-go go-mode company-box company-quickhelp dashboard hydra ace-window amx doom-themes highlight-indent-guides spaceline-all-the-icons all-the-icons lsp-ui company-lsp lsp-mode flycheck-rtags clang-format irony-eldoc which-key c-eldoc flycheck-irony company-irony irony key-chord elscreen-tab mozc flycheck-package use-package add-node-modules-path prettier-js persistent-scratch helm-swoop company-tern helm-xref helm-ag import-js import-popwin helm-rtags company-rtags cmake-mode rtags cmake-ide pug-mode yaml-mode web-mode twittering-mode tern-auto-complete term+ tabbar swoop spaces smartrep smartparens smart-compile robe rjsx-mode popwin php-mode pdf-tools multiple-cursors minor-mode-hack migemo markdown-mode magit lua-mode linum-relative less-css-mode jedi highlight-symbol helm-pydoc helm-proc helm-perldoc helm-ls-git helm-gtags git-gutter ggtags fringe-helper flycheck-pos-tip expand-region evil-numbers evil-matchit es-windows ensime emmet-mode elscreen-separate-buffer-list elscreen-persist elnode editorconfig edbi e2wm dropdown-list cpputils-cmake company-c-headers color-moccur auto-complete-c-headers auto-async-byte-compile ac-ispell)))
- '(safe-local-variable-values (quote ((eval c-set-offset (quote innamespace) 0)))))
+ '(safe-local-variable-values
+   (quote
+    ((cmake-ide-build-pool-use-persistent-naming . t)
+     (cmake-ide-build-pool-dir . "/home/w/git.d/othergit.d/myeditor/build-pool")
+     (cmake-ide-build-dir . "/home/w/git.d/othergit.d/myeditor/build")
+     (cmake-ide-project-dir . "/home/w/git.d/othergit.d/myeditor")
+     (eval c-set-offset
+           (quote innamespace)
+           0)))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

@@ -9,6 +9,8 @@
   (defun my_c--ccls-hook()
     (require 'ccls)
     (lsp))
+  :custom
+  (ccls-args '("--log-file=/tmp/ccls.log" "-v=1"))
   :hook ((c-mode c++-mode objc-mode) . my_c--ccls-hook))
 
 (use-package cquery

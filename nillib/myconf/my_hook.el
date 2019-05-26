@@ -38,13 +38,13 @@
 
 (defun my-c-mode-hook ()
   (require 'my_c)
-;;  (require 'cmake-ide)
-;;  (cmake-ide-setup) ; cmake-ide depends on `rtags', `irony', `flycheck'
+  ;;  (require 'cmake-ide)
+  ;;  (cmake-ide-setup) ; cmake-ide depends on `rtags', `irony', `flycheck'
 
-;;heavy  (require 'my_irony)
-;;heavy  (my_irony--setup) ; hides eldoc provided by ccls
-;;version-incompatible  (require 'my_rtags)
-;;version-incompatible  (my_rtags--setup)
+  ;;heavy  (require 'my_irony)
+  ;;heavy  (my_irony--setup) ; Irony hides eldoc provided by ccls
+  ;;version-incompatible-of-rtags_server/client  (require 'my_rtags)
+  ;;version-incompatible-of-rtags_server/client  (my_rtags--setup)
 
   (unless rtags-enabled (add-to-list 'flycheck-disabled-checkers 'rtags))
   (require 'my_company)
