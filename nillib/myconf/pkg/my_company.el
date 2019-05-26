@@ -21,28 +21,58 @@
 ;;; Commentary:
 
 ;;
-(require 'company)
-(global-company-mode 1)
-(global-set-key (kbd "C-S-o") 'company-complete)
+(use-package company
+  :config
+  (setq company-idle-delay 10) ; Make start very slow for quick input.
+  (setq company-require-match nil)
+  (define-key company-active-map (kbd "<tab>") 'company-complete-selection)
+  (define-key company-active-map (kbd "C-s") 'company-filter-candidates)
+  (make-variable-buffer-local 'company-backends)
+  (put 'company-backends 'permanent-local t)
+  (delq 'company-semantic company-backends) ; For performance.
+  (global-company-mode 1)
+  (global-set-key (kbd "C-S-o") 'company-complete)
+  (use-package company-flx
+    :config (company-flx-mode +1))
+  )
 
-(require 'company-quickhelp)
-(define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin)
+(use-package company-quickhelp
+  :disabled
+  :config
+  (defun my_company-quickhelp-toggle()
+    "Show or hide pop up shown by `company-quickhelp'.
+Under implementation. Don't work as expected.
+"
+    (interactive)
+    (message "%S[%s=>%s]" this-command my_company-quickhelp-on
+             (not my_company-quickhelp-on))
+    (when my_company-quickhelp-on
+      (message "hide %S" company-pseudo-tooltip-overlay)
+      ;; (company-quickhelp--hide) ; hide pos-tip
+      (company-quickhelp--disable)
+      (company-quickhelp-local-mode -1)
+      )
+    (unless my_company-quickhelp-on
+      (message "begin")
+      (company-quickhelp-local-mode 1)
+      (company-quickhelp-manual-begin)
+      )
+    (setq my_company-quickhelp-on (not my_company-quickhelp-on))
+    )
+  (setq company-quickhelp-delay 100)
+  (define-key company-active-map (kbd "C-h") #'my_company-quickhelp-toggle)
+  (company-quickhelp-local-mode)
+  )
 
-(require 'company-box)
-(require 'use-package)
 (use-package company-box
   :hook (company-mode . company-box-mode))
 
-(setq company-idle-delay 0.5)
-(setq company-require-match nil)
-(define-key company-active-map (kbd "C-n") 'company-select-next)
-(define-key company-active-map (kbd "C-p") 'company-select-previous)
-(define-key company-search-map (kbd "C-n") 'company-select-next)
-(define-key company-search-map (kbd "C-p") 'company-select-previous)
-(define-key company-active-map (kbd "<tab>") 'company-complete-selection)
-
-(require 'company-c-headers)
-(add-to-list 'company-backends 'company-c-headers)
+(use-package company-c-headers
+  :after cc-mode
+  :config
+  (defun my_company_company-c-headers-hook()
+    (add-to-list 'company-backends 'company-c-headers))
+  )
 
 (require 'company-lsp)
 (push 'company-lsp company-backends)

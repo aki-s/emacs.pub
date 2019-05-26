@@ -195,7 +195,8 @@ Has bad effect to scaling feature for font on Linux."
     ) ; system-name 'darwin
 
   ((and (eq system-type 'gnu/linux) (eq window-system 'x ))
-    (my_font-setup_for_linux)
+;;    (my_font-setup_for_linux)
+;;(set-frame-font "Liberation Mono-14:antialias=1")
     )
   )
 (my_font--increase-by-screen-resolution)

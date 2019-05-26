@@ -23,7 +23,7 @@
   ;;   (setq interprogram-paste-function 'copy-from-x)
   ;;
   (eval-and-compile (require 'xclip))
-  (turn-on-xclip)
+  (xclip-mode 1)
   )
 (setenv "C_INCLUDE_PATH"
         (concat (getenv "$C_INCLUDE_PATH" )

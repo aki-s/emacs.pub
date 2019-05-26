@@ -33,10 +33,10 @@
 ;;;;
 ;; ref. http://stackoverflow.com/questions/151945/how-do-i-control-how-emacs-makes-backup-files
 
-(defvar my_backupdir (expand-file-name "~/.emacs.d/backup/") "Must ends with /.")
+(defvar my_files--backupdir (expand-file-name "~/.emacs.d/backup/") "Must ends with /.")
 (setq backup-inhibited nil)
 (setq make-backup-files t) ; Non-nil means make a backup of a file the first time it is saved.
-(add-to-list 'backup-directory-alist (cons ".*" my_backupdir))
+(add-to-list 'backup-directory-alist (cons ".*" my_files--backupdir))
 
 ;; (debug-on-entry make-backup-file-name-function)
 ;; (cancel-debug-on-entry make-backup-file-name-function)
@@ -87,7 +87,7 @@ Once `backup-buffer' is called `buffer-backed-up' is set to 't.
 (setq auto-save-timeout 30) ; Number of seconds idle time before auto-save.
 (setq delete-auto-save-files t) ; when save-buffer was called
 (setq auto-save-file-name-transforms ;; Don't create #file# at the same location of original file was.
-  `((".*" ,my_backupdir t))) ;; All auto saved file also goes to `my_backupdir'
+  `((".*" ,my_files--backupdir t))) ;; All auto saved file also goes to `my_files--backupdir'
 
 ;;------------------------------------------------
 ;; Unload function:

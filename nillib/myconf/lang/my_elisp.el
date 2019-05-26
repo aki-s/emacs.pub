@@ -5,11 +5,13 @@
 ;; |モダン hook 入門。 - 日々、とんは語る。 | http://d.hatena.ne.jp/tomoya/20100112/1263298132|
 
 ;;; Code:
-(eval-and-compile (require 'cl))
+(eval-and-compile
+  (require 'lisp-mode)
+  (require 'mode-local)
+  (require 'cl))
 
+(require 'company-elisp)
 (defun my_elisp-mode-hook ()
-  "."
-  ;;(require 'eldoc nil t)
   (eldoc-mode)
   ;; (auto-install-from-emacswiki "eldoc-extension.el")
   ;;(require 'eldoc-extension nil t)
@@ -23,44 +25,41 @@
   ;;    (defvar ecb-layout-name "emacs-lisp"); my custom layout.
   (setq mode-name "el");
   (unless default-directory (cd "~/.emacs.d/")) ; For gtags to search tag files
+  (when (boundp 'company-backends)
+    (add-to-list 'company-backends 'company-elisp))
   )
 
 (find-function-setup-keys);; jump func definition when in elisp mode
-(require 'eldoc)
-(setq eldoc-minor-mode-string " eld")
 (add-hook 'emacs-lisp-mode-hook 'my_elisp-mode-hook)
 
-(defun my_elisp:reset-eldoc()
-  "Apply function  to \"el\" files, which is adding documentation-function."
-  (interactive)
-  (cl-loop for el-file in (remove-if-not (apply-partially 'string-suffix-p "el")
-                         (mapcar 'buffer-name (buffer-list)))
-    do (with-current-buffer (set-buffer el-file)
-         (add-function :before-until (local 'eldoc-documentation-function)
-           #'elisp-eldoc-documentation-function)
-         )
-    )
+(use-package eldoc
+  :config
+  (setq eldoc-minor-mode-string " eld")
+  (defun toggle-eldoc-mode ()
+    "Toggle eldoc mode"
+    (interactive)
+    (if eldoc-mode
+        (setq eldoc-mode nil)
+      (setq eldoc-mode 1)))
+  (defun my_elisp:reset-eldoc()
+    "Apply function  to \"el\" files, which is adding documentation-function."
+    (interactive)
+    (cl-loop for el-file
+             in (remove-if-not (apply-partially 'string-suffix-p "el")
+                               (mapcar 'buffer-name (buffer-list)))
+             do (with-current-buffer (set-buffer el-file)
+                  (add-function :before-until (local 'eldoc-documentation-function)
+                                #'elisp-eldoc-documentation-function)
+                  )))
   )
-
-(defun toggle-eldoc-mode ()
-  "Toggle eldoc mode"
-  (interactive)
-  (if eldoc-mode
-      (setq eldoc-mode nil)
-    (setq eldoc-mode 1)
-    )
-  )
-
-(eval-and-compile
-  (require 'lisp-mode)
-  (require 'mode-local))
 
 (defun my_elisp-reset_eldoc-documentation-function()
-  "Reset to default documentation function when ggtags-eldoc-function or something
+  "Reset to default documentation function.
+When ggtags-eldoc-function or something
 has broken documentation of eldoc."
   (interactive)
   (setq-mode-local emacs-lisp-mode
-    eldoc-documentation-function #'elisp-eldoc-documentation-function)
+                   eldoc-documentation-function #'elisp-eldoc-documentation-function)
   )
 
 (defadvice eldoc-print-current-symbol-info (around turn-off-eldoc-if-err last nil activate)
@@ -80,8 +79,6 @@ has broken documentation of eldoc."
 ;;; If you don't want to compile elisp file automatically,
 ;;; reffer and add the next line at the headings.
 ;;;" wyse50.el --- terminal support code for Wyse 50 -*- no-byte-compile: t -*- "
-
-
 ;; common-lisp-indent-function
 ;; lisp-indent-function
 
@@ -95,8 +92,21 @@ has broken documentation of eldoc."
  tags-table-list
  )
 
-(eval-after-load 'flycheck
-  '(flycheck-package-setup))
+(use-package flycheck-package
+  :after flycheck
+  :config
+  (setq flycheck-emacs-lisp-package-user-dir
+        (mapconcat #'identity
+         (list user-emacs-directory
+               ".cask"
+               (concat (number-to-string emacs-major-version)
+                       "."
+                       (number-to-string emacs-minor-version)
+                       )
+               "elpa")
+         "/"))
+  (flycheck-package-setup)
+  )
 
 (provide 'my_elisp)
 ;;; my_elisp ends here

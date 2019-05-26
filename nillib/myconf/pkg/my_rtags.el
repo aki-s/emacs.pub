@@ -9,7 +9,7 @@
 ;; Package-Requires:
 ;; Keywords:
 ;; Created: 2019-02-10
-;; Updated: 2019-02-14T00:25:14Z; # UTC
+;; Updated: 2019-05-19T14:26:56Z; # UTC
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -41,6 +41,7 @@
   (add-to-list 'company-backends 'company-rtags)
   (flycheck-select-checker 'rtags)
   (rtags-start-process-unless-running)
+  (setq-local rtags-enabled t)
   )
 
 (require 'flycheck-rtags)
@@ -50,6 +51,8 @@
   (setq-local flycheck-check-syntax-automatically nil)
   (setq-local flycheck-highlighting-mode nil))
 
+(setq-default rtags-enabled nil)
+(make-local-variable 'rtags-enabled) ; Prevent `rtags-update-current-project' is called everywhere.
 (setq rtags-verbose-results nil) ; `rtags-format-results' (match-end 4) returned nil
 (setq rtags-completions-enabled t)
 (setq rtags-imenu-syntax-highlighting t)

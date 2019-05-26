@@ -73,13 +73,18 @@
 (defvar close-after-sec-default 1 "Close compilation window after this second.")
 (defvar close-after-sec-penalty 5 "Plus another this sec if warning is shown.")
 
+(defun my_aabc--count-windows-non-dedicated ()
+  (interactive)
+  (length (delq t (mapcar 'window-dedicated-p (window-list-1))))
+  )
+
 (defadvice aabc/display-function (around my_aabc-hide-buf last nil activate)
   "Hide *auto-async-byte-compile* result-buffer if  status is 'normal."
   (let* (
          aabc-win
          (current-buf (buffer-name))
          (current-win (get-buffer-window current-buf t))
-         (num_win (or (count-windows-non-dedicated)(one-window-p))) ;; @TODO should consider dedicated window
+         (num_win (or (my_aabc--count-windows-non-dedicated) (one-window-p))) ;; @TODO should consider dedicated window
          ;; walk-windows
          ;; (verbose t)
          ;;(verbose nil) ;; debug purpose

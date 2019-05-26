@@ -34,11 +34,28 @@
 (elscreen-separate-buffer-list-mode)
 
 (require 'my_global-vars)
-(require 'elscreen-persist nil t) ; 'elscreen-persist doesn't exist on Elpa.
-(setq elscreen-persist-file (concat user-emacs-tmp-dir "/elscreen.lst"))
+(require 'elscreen-persist)
+(setq elscreen-persist-file
+      (concat my_global-vars--user-emacs-tmp-dir "/elscreen.lst"))
 
 (require 'elscreen-tab)
+(defun my_elscreen-kill-hook()
+  ;; Because width or height of the window for elscreen-tab is too small,
+  ;; `elscreen-persist' would fail to restore it.
+  (elscreen-persist-mode -1)
+  (elscreen-tab-mode -1)
+  ;; (Invalid read syntax: "#") is caused by reading (xx . #<frame>) which is obtained by (frame-parameters)
+  (elscreen-persist-store)
+  )
 
+(defun elscreen-persist-get-frame-params ()
+  "Don't save frame-parameters, because some parameter cause
+ `Invalid read syntax: \"#\"'.
+e.g. (company-box-doc-frame . #<frame  0x9d00a20>)
+Overwrited by `my_elscreen'"
+  nil)
+
+(add-hook 'kill-emacs-hook 'my_elscreen-kill-hook)
 ;;; Configure desktop for elscreen
 (defun my_elscreen:start()
   "Start elscreen.

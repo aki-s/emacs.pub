@@ -33,10 +33,8 @@
     (require 'dap-lldb)
     (dap-mode 1)
     (dap-ui-mode 1)
-    (dap-ui-sessions-mode))
+    )
   :hook ((c-mode c++-mode objc-mode) . my_c--dap-mode-hook))
-
-;;;; http://www.info.kochi-tech.ac.jp/y-takata/index.php?%A5%E1%A5%F3%A5%D0%A1%BC%2Fy-takata%2FFlymake
 
 ;;; compile command
 ;;  M-h v compile-command
@@ -52,8 +50,6 @@
 
 (add-hook 'c-mode-hook 'my-c-compile-command)
 
-;;test_comment_out;; (require 'my_auto-complete-clang-async) ;; Don't know why, auto-async-byte-compile vomit error here.
-
 ;;;; useful
 (require 'google-c-style) ;; set of configs to override properties
 (add-hook 'c-mode-common-hook 'google-set-c-style)
@@ -63,9 +59,6 @@
   (require 'hideshow)
   (hs-minor-mode 1)
 
-  (require 'flyspell)
-  (flyspell-prog-mode)
-
   (require 'my_company)
   (company-mode 1)
 
@@ -73,25 +66,6 @@
   (modify-syntax-entry ?_ "w")
   (setq truncate-lines 0)
   (local-set-key (kbd "C-c o") 'ff-find-other-file)
-
-  ;; (setq doxymacs-doxygen-dirs '(("^/Users/grant/Development/Licenser/"
-  ;; "http://oldclicker.cedrus.sp/licenser-html/licenser.xml"
-  ;; "http://oldclicker.cedrus.sp/licenser-html/")
-  ;;("^/Users/grant/Development/svn/SuperLab_4.0.x/"
-  ;; "http://oldclicker.cedrus.sp/superlab-html/superlab.xml"
-  ;; "http://oldclicker.cedrus.sp/superlab-html/")
-  ;;)
-  ;;    )
-;;TOOSLOW;;  (when (and (not (string-match "/usr/include" (expand-file-name default-directory)))
-;;TOOSLOW;;             (and (not (string-match "/usr/local" (expand-file-name default-directory)))
-;;TOOSLOW;;                  (and (not (string-match "/Library" (expand-file-name default-directory)))
-;;TOOSLOW;;                       (and (not (string-match "/System" (expand-file-name default-directory)))
-;;TOOSLOW;;                            (and (not (string-match "/Developer" (expand-file-name default-directory)))
-;;TOOSLOW;;                                 (and (not (string-match "/Users/grant/Development/RCX/External" (expand-file-name default-directory)))
-;;TOOSLOW;;                                      (and (not (string-match "/var" (expand-file-name default-directory)))
-;;TOOSLOW;;                                           (and (not (string-match "/tmp" (expand-file-name default-directory)))
-;;TOOSLOW;;                                                (not (string-match "/opt" (expand-file-name default-directory)))))))))))
-;;TOOSLOW;;    (gl-gtags-create-or-update))
   )
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
@@ -120,8 +94,9 @@
 
 (define-mode-local-override my_imenu-jump c-mode (target) "Overridden `my_imenu-jump'"
   (interactive)
-  (let ((ret (if target (or (rtags-find-symbol-at-point)
-                            (rtags-find-references-at-point)
+  (let ((ret (if target (or (and rtags-enabled
+                                 (or (rtags-find-symbol-at-point)
+                                     (rtags-find-references-at-point)))
                             (helm-imenu))
                (helm-imenu))))
     (my_imenu--debug-message "my_imenu-jump-c-mode => %S" ret)

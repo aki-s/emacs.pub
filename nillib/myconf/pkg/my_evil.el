@@ -28,80 +28,87 @@
 ;;; ref. http://d.hatena.ne.jp/tarao/20130305/evil_ext#seeall
 (eval-when-compile (require 'cl ))
 
-(require 'evil) ; evil require undo-tree.el
-(evil-mode 1)
+(use-package evil
+  ;; [motion] motion ∈ normal ∈ visual
+  :config
+  ;; evil requires undo-tree.el
+  (evil-mode 1)
 
-;; (setq evil-mode-line-format (cons 'before "") )
-;;;; evil-vars.el
-(setq
- evil-search-wrap  nil
- evil-flash-delay  10
- evil-fold-level   1
- evil-esc-delay    0
- )
-;; (setq (kbd M-.) find-tag
-;; (setq (kbd C-r backward-search
-
-;;$;; evil-vars
-(setq
- evil-buffer-regexps ;   Its value is (("^ \\*load\\*"))
- '(
-   ("^ \\*load\\*" . nil)
-   ("\\*Backtrace*" . motion)
-   ("\\*Completions*" . normal)
-   ("\\*calculator" . nil)
-   ("\\*GTAGS*" . motion)
-   ("\\*Occur*" . motion)
-   ("\\*sdic*" . motion)
-   ("\\*terminal*" . emacs)
-   ("\\*vc-diff*" . emacs)
-   ("\\*w3m*" . nil)
-   ("\\.zip$" . motion)
+  ;; evil-vars.el
+  (setq
+   evil-search-wrap  nil
+   evil-flash-delay  10
+   evil-fold-level   1
+   evil-esc-delay    0
    )
- )
-(push 'edebug-mode evil-emacs-state-modes)
 
-(define-key evil-normal-state-map (kbd "M-.") nil) ; Disable `evil-repeat-pop-next'.
+  ;;$;; evil-vars
+  (setq
+   evil-buffer-regexps ;   Its value is (("^ \\*load\\*"))
+   '(
+     ("^ \\*load\\*" . nil)
+     ("\\*Backtrace*" . motion)
+     ("\\*Completions*" . normal)
+     ("\\*calculator" . nil)
+     ("\\*GTAGS*" . motion)
+     ("\\*Occur*" . motion)
+     ("\\*sdic*" . motion)
+     ("\\*terminal*" . emacs)
+     ("\\*vc-diff*" . emacs)
+     ("\\*w3m*" . nil)
+     ("\\.zip$" . motion)
+     )
+   )
+  (push 'edebug-mode evil-emacs-state-modes)
 
-;;(when (featurep 'auto-complete)
-;;  (define-key evil-insert-state-map (keb "\C-p") ac-dwim)
+  (define-key evil-normal-state-map (kbd "M-.") nil) ; Disable `evil-repeat-pop-next'.
 
-;;;;$ Overwrite keymap
-(define-key evil-insert-state-map (kbd "\C-S-p") 'ac-quick-help)
-(define-key evil-insert-state-map (kbd "\C-e") 'move-end-of-line)
-(define-key evil-insert-state-map (kbd "\C-d") 'delete-char)
-(define-key evil-insert-state-map (kbd "\C-k") 'kill-line)
-(define-key evil-emacs-state-map (kbd "<M-escape> <M-escape>") 'evil-exit-emacs-state)
+  (defun my_evil--find-file-other-window()
+    (interactive)
+    (let ((guess (ffap-guess-file-name-at-point)))
+      (if guess (find-file-other-window guess)
+        (message "No file is found."))))
+  (define-key evil-normal-state-map (kbd "g F")
+    #'my_evil--find-file-other-window)
+  (use-package avy
+    :config
+    (define-key evil-normal-state-map (kbd "g o") #'avy-goto-char-timer))
 
-;; evil-default-cursor overwrite default cursor-color
-(setq evil-default-cursor nil)
+  ;;$ Overwrite keymap
+  (define-key evil-insert-state-map (kbd "\C-S-p") 'ac-quick-help)
+  (define-key evil-insert-state-map (kbd "\C-e") 'move-end-of-line)
+  (define-key evil-insert-state-map (kbd "\C-d") 'delete-char)
+  (define-key evil-insert-state-map (kbd "\C-k") 'kill-line)
+  (define-key evil-emacs-state-map (kbd "<M-escape> <M-escape>") 'evil-exit-emacs-state)
 
-
+  ;; evil-default-cursor overwrite default cursor-color
+  (setq evil-default-cursor nil)
+  )
 
-(require 'evil-numbers)
-(define-key evil-normal-state-map (kbd "C-c +") 'evil-numbers/inc-at-pt)
-(define-key evil-normal-state-map (kbd "C-c -") 'evil-numbers/dec-at-pt)
+(use-package evil-numbers
+  :config
+  (define-key evil-normal-state-map (kbd "C-c +") 'evil-numbers/inc-at-pt)
+  (define-key evil-normal-state-map (kbd "C-c -") 'evil-numbers/dec-at-pt)
 
-(define-key evil-visual-state-map (kbd "C-c +") 'evil-numbers/inc-at-pt)
-(define-key evil-visual-state-map (kbd "C-c -") 'evil-numbers/dec-at-pt)
+  (define-key evil-visual-state-map (kbd "C-c +") 'evil-numbers/inc-at-pt)
+  (define-key evil-visual-state-map (kbd "C-c -") 'evil-numbers/dec-at-pt)
+  )
 
 ;;;; Prioritize mode-local keybind.
 ;; emulation-mode-map-alists
 ;; evil-overriding-maps
 
+(use-package evil-matchit
+  :config
+  (global-evil-matchit-mode 1))
 
-
-
-(require 'evil-matchit)
-(global-evil-matchit-mode 1)
-
-
+(use-package evil-avy :config (evil-avy-mode))
 
 (defun my_evil-unload-function ()
-   ""
-   (interactive)
-   ;;(remove-hook)
-)
+  ""
+  (interactive)
+  ;;(remove-hook)
+  )
 
 (provide 'my_evil)
 ;;; my_evil.el ends here

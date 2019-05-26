@@ -4,9 +4,9 @@
 
 
 (eval-and-compile (load-file "~/.emacs.d/nillib/my_load-path.el"))
+(load-library "my_cask")
 (load-library "my_files")
 (load-library "my_package")
-(load-library "my_cask")
 ;; (load-library "my_profiler")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; == EMACS ==
@@ -16,7 +16,6 @@
 ;; (load-library "my_server-start")
 ;;;; == DEBUG ==
 ;;(load-library "my_debug_init")
-(require 'my_evil)
 ;; == EMACS::CUSTOM ==
 (let ((file "~/.emacs.d/nillib/emacs-custom-nil.el"))
   (if (file-exists-p file)
@@ -40,17 +39,12 @@
 (load-library "my_autoinsert")
 (load-library "my_mode-line")
 (load-library "my_header-line")
-(load-library "my_highlight-indent-guides")
-(load-library "my_helm") ;ffap-find-file don't work?
-(load-library "my_multiple-cursors")
 (load-library "my_vc")
 (load-library "my_window")
 (eval-after-load 'pdf-view-mode (require 'my_pdf-tools))
-;; (load-library "my_popwin") ;; popwin collapse ecb window layout.
 (load-library "my_system-type")
 (load-library "my_simple")
 (load-library "my_tempbuf")
-(load-library "my_highlight-symbol")
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -58,15 +52,14 @@
 ;;; language mode file like as `sql.el' seems to be loaded when Emacs boots, even if related file is not opened.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(eval-after-load 'c-mode (require 'my_c))
-;;unused (eval-after-load 'c++-mode (load-library "my_c++")) ;; Don't know why but c++-mode-hook is not working
-
-;;unused (eval-after-load 'cc-mode (load-library "my_gtk-look"))
+(use-package my_c :mode ("\\.c\\'" . c-mode))
+(use-package my_c++ :mode ("\\.\\(cpp\\|c++\\)\\'" . c++-mode))
 
 ;;(load-library "my_clisp")
 (eval-after-load 'lisp-mode (load-library "my_elisp"))
-(use-package my_go :mode "\\.go\\'")
+(use-package my_go :mode ("\\.go\\'" . go-mode))
 (use-package my_typescript :mode "\\.ts\\'")
+(use-package my_ensime :mode ("\\.scala\\'" . ensime-mode))
 
 ;;(load-library "my_mysql")
 ;;(eval-after-load 'java-mode "my_java") ; unloeded
@@ -83,38 +76,37 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Package
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package amx
-  :config
-  (amx-mode))
-(use-package anzu
-  :config (global-anzu-mode +1))
-(use-package projectile)
+(use-package avy)
+(use-package amx :config (amx-mode))
+(use-package anzu :config (global-anzu-mode +1))
+(use-package projectile :config (projectile-mode 1))
 (use-package restclient :mode ("\\.api\\.md\\'" . restclient-mode))
 (use-package swiper-helm
-  :config (defun swiper-helm--switch-isearch-to-swiper() (interactive) (isearch-done) (swiper-helm isearch-string))
   :bind (:map isearch-mode-map
-         ("C-s" . swiper-helm--switch-isearch-to-swiper)))
+              ;; `swiper-helm-from-isearch' has a bug to split pop-up window unlimited times.
+              ("C-s" . swiper-from-isearch)))
 (load-library "my_ace-window")
 (load-library "my_diff-hl")
 (load-library "my_editorconfig")
 (load-library "my_eijirou")
+(load-library "my_evil")
 (load-library "my_expand-region")
 (load-library "my_face")
 (load-library "my_font")
 (load-library "my_keybind")
-;; (load-library "my_printer")
-;;test (load-library "my_anything")
+(load-library "my_helm")
+(load-library "my_multiple-cursors")
+(load-library "my_highlight-indent-guides")
+;;use symbol-overlay ; (load-library "my_highlight-symbol")
 
 (load-library "my_all-the-icons")
 (load-library "my_auto-install")
 (load-library "my_buffer-menu")
 (eval-after-load 'company-mode (require 'my_company))
-(load-library "my_cedet")
-(load-library "my_ecb")
-(eval-after-load 'scala-mode (lambda () (require 'my_ensime)))
+;; (load-library "my_cedet") ; Disabled because `semantic-idle-scheduler-work-function' is terribly slow when which is used for C++/Java. `semantic-idle-scheduler-function' reports unlimited error.
+(use-package my_ecb :commands my_ecb)
 (load-library "my_flycheck")
-;; (load-library "my_flymake") ;use flyspell instead
-(load-library "my_flyspell")
+(load-library "my_flyspell") ; Preconfigure flyspell.
 (eval-after-load 'gdb (load-library "my_gdb"))
 (load-library "my_git-gutter")
 (load-library "my_grep")
@@ -135,8 +127,9 @@
 (load-library "my_lsp-mode")
 (load-library "my_persistent-scratch")
 (load-library "my_replace")
-(load-library "my_smart-compile")
 (load-library "my_rect")
+(load-library "my_smart-compile")
+(load-library "my_symbol-overlay")
 (load-library "my_elscreen")
 (load-library "my_tramp");; I want to make this autoload.
 (load-library "my_undo-tree")
@@ -152,18 +145,9 @@
 (if (not (eq window-system nil) )
     (load-library "my_frame")
   )
-;;;; ===== pukiwiki-mode =====
-;; (defadvice pukiwiki-mode (after pukiwiki-mode-hook (arg))
-;;   "run hook as after advice"
-;;   (run-hooks 'pukiwiki-mode-hook))
-;; (ad-activate 'pukiwiki-mode)
-;; (add-hook 'pukiwiki-mode-hook) ; Thers seems no pukiwiki-mode-hook
-;;(require 'my_pukiwiki)
-;;(autoload 'my_pukiwiki "my_pukiwiki" nil);++test
 
 (load-library "my_hook") ; `my_hook' is loaded to override hooks of the other libraries.
 ;;-----------------------------------------------
-;;(message (format " read %s" (c-get-current-file)))
 (let ((jobenv "~/.jobenv.el"))
   (if (file-exists-p jobenv) ;; write job specific env, like as CLASSPATH, INCLUDE_DIR, etc here.
     (progn

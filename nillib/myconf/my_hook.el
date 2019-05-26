@@ -38,12 +38,20 @@
 
 (defun my-c-mode-hook ()
   (require 'my_c)
-  (require 'cmake-ide)
-  (cmake-ide-setup)
-  (require 'my_irony)
-  (my_irony--setup)
-  (require 'my_rtags)
-  (my_rtags--setup)
+;;  (require 'cmake-ide)
+;;  (cmake-ide-setup) ; cmake-ide depends on `rtags', `irony', `flycheck'
+
+;;heavy  (require 'my_irony)
+;;heavy  (my_irony--setup) ; hides eldoc provided by ccls
+;;version-incompatible  (require 'my_rtags)
+;;version-incompatible  (my_rtags--setup)
+
+  (unless rtags-enabled (add-to-list 'flycheck-disabled-checkers 'rtags))
+  (require 'my_company)
+  (my_company_company-c-headers-hook)
+  ;; The other package such as `evil-commands' requires flyspell.
+  ;; This means to avoid using `flyspell-prog-mode'.
+  (flyspell-mode -1) ; Assure flyspell is disabled for performance.
   (message "my-c-mode-hook is called")
   )
 (add-hook 'c-mode-hook 'my-c-mode-hook t)

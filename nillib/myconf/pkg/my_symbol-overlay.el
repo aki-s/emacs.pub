@@ -1,4 +1,4 @@
-;;; my_highlight-indent-guides.el ---                -*- lexical-binding: t; -*-
+;;; my_symbol-overlay.el ---                         -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019
 
@@ -8,8 +8,8 @@
 ;; Package-Version: 0.0.0
 ;; Package-Requires:
 ;; Keywords:
-;; Created: 2019-03-03
-;; Updated: 2019-05-25T12:07:22Z; # UTC
+;; Created: 2019-05-25
+;; Updated: 2019-05-26T11:20:44Z; # UTC
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -29,27 +29,24 @@
 ;;
 
 ;;; Code:
-(require 'use-package)
-(use-package highlight-indent-guides
-  :diminish
-  :hook
-  ((prog-mode yaml-mode) . highlight-indent-guides-mode)
-  :custom
-  (highlight-indent-guides-auto-enabled t)
-  (highlight-indent-guides-responsive 'top)
-  (highlight-indent-guides-delay .5)
-  (highlight-indent-guides-method 'character)
-  )
+(use-package symbol-overlay
+  :config
+  (global-set-key (kbd "M-s h") 'symbol-overlay-put)
+  (global-set-key (kbd "M-s o") 'my_replace-symbol-occur)
+  ;; Disable `symbol-overlay-map-help' for `evil-backward-char'
+  (define-key symbol-overlay-map (kbd "h") nil)
+  (define-key symbol-overlay-map (kbd "o") 'my_replace-symbol-occur))
+
 ;;------------------------------------------------
 ;; Unload function:
 
-(defun my_highlight-indent-guides-unload-function ()
-   "Unload function to ensure normal behavior when feature 'my_highlight-indent-guides is unloaded."
+(defun my_symbol-overlay-unload-function ()
+   "Unload function to ensure normal behavior when feature 'my_symbol-overlay is unloaded."
    (interactive)
 )
 
-(provide 'my_highlight-indent-guides)
-;;; my_highlight-indent-guides.el ends here
+(provide 'my_symbol-overlay)
+;;; my_symbol-overlay.el ends here
 
 ;; Local variables:
 ;; eval: (add-hook 'write-file-functions 'time-stamp)

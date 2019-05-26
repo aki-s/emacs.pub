@@ -84,6 +84,7 @@
 
 (require 'ecb nil t)
 
+;;;###autoload
 (defun my_ecb ()
   (interactive)
   "Customize and activate ecb."
@@ -195,7 +196,6 @@
      ))
   (message "my_ecb_select-layout was called")
   )
-(add-hook 'ecb-activate-hook 'my_ecb_select-layout )
 
 ;;
 ;;; (defface my_ecb-tag-header-face (ecb-face-default nil nil nil nil
@@ -218,12 +218,13 @@
       )
     ))
 
-(defun ecb-toggle ()
+;;;###autoload
+(defun my_ecb-toggle ()
   (interactive)
   (if ecb-minor-mode
       (ecb-deactivate)
     (ecb-activate)))
-(define-key global-map [f2 f2] 'ecb-toggle)
+(define-key global-map [f2 f2] 'my_ecb-toggle)
 
 (cond ((eq system-type 'darwin)
        '(ecb-source-path (quote (
@@ -299,10 +300,13 @@ ecb-update-methods-buffer--internal is called when updating
   )
 
 ;; (add-hook 'window-configuration-change-hook 'my_ecb-update-ecb-frame) ;; not proper solution.
-(add-hook 'pre-command-hook 'my_ecb-update-ecb-frame) ;; may heavy?
-;; (remove-hook 'pre-command-hook 'my_ecb-update-ecb-frame) ;; debug
 ;; (add-hook 'kill-buffer-hook 'my_ecb-update-ecb-frame)
 ;;(add-hook 'ecb-basic-buffer-sync-hook 'my_ecb-update-ecb-frame)
+(defun my_ecb-activate-hook()
+  (my_ecb_select-layout)
+  (add-hook 'pre-command-hook 'my_ecb-update-ecb-frame)
+  )
+(add-hook 'ecb-activate-hook 'my_ecb-activate-hook)
 
 (defun my_ecb-deactivate-hook ()
   ""
@@ -310,6 +314,7 @@ ecb-update-methods-buffer--internal is called when updating
    ecb-frame nil
    ecb-last-window-config-before-deactivation nil
    )
+  (remove-hook 'pre-command-hook 'my_ecb-update-ecb-frame)
   )
 
 (add-hook 'ecb-deactivate-hook 'my_ecb-deactivate-hook)

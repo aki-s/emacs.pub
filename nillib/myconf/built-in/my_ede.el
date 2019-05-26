@@ -26,7 +26,8 @@
 
 (require 'ede)
 (require 'my_global-vars)
-(setq ede-project-placeholder-cache-file (concat user-emacs-tmp-dir "/ede-projects.el"))
+(setq ede-project-placeholder-cache-file
+      (concat my_global-vars--user-emacs-tmp-dir "/ede-projects.el"))
 (global-ede-mode 1) ;; EDE only manages Makefile and Automake? @see `ede-new'
 
 ;;; --------------------------------------------------------------------------------

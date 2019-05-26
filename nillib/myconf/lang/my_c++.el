@@ -8,10 +8,13 @@
 
 (define-mode-local-override my_imenu-jump c++-mode (target) "Overridden `my_imenu-jump'"
   (interactive)
-  (let ((ret (if target (or (rtags-find-symbol-at-point)
-                            (rtags-find-references-at-point)
-                            (helm-imenu))
-               (rtags-imenu))))
+  (let ((ret (if target
+                 (or (and rtags-enabled
+                          (or (rtags-find-symbol-at-point)
+                              (rtags-find-references-at-point)))
+                     (helm-imenu))
+               (or (and rtags-enabled (rtags-imenu))
+                   (helm-imenu)))))
     (my_imenu--debug-message "my_imenu-jump-c++-mode => %S" ret)
     (setq my_simple--current-buffer (current-buffer))
     (setq my_simple--current-point-marker (point-marker))
@@ -20,8 +23,6 @@
 
 (require 'clang-format)
 (define-key c++-mode-map (kbd "C-M-\\") 'clang-format-region)
-
-(load-library-nodeps "my_auto-complete" 'my_auto-complete)
 
 ;;-----------------------------------------------------------
 ;; semantic

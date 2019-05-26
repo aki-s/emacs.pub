@@ -26,10 +26,10 @@
 
 (defvar my_global-startup-time (format-time-string "%d-%m-%Y_%Hh%Mm") "Startup time of Emacs is started.")
 
-(defvar user-emacs-tmp-dir
+(defvar my_global-vars--user-emacs-tmp-dir
   (locate-user-emacs-file (concat "tmp/" system-configuration))
   "User specific temporary directory of Emacs.")
-(mkdir user-emacs-tmp-dir t)
+(mkdir my_global-vars--user-emacs-tmp-dir t)
 ;;#;;  auto-install
 ;;#;;  auto-save-list
 ;;#;;  backup

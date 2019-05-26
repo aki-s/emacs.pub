@@ -28,17 +28,10 @@
 ;;--------------------------------------------------------------------------------
 ;; Basic func
 ;;--------------------------------------------------------------------------------
-(defun my_flycheck-keybind ()
-  "Append keybinding if flycheck is enabled."
-  (interactive)
-  (when flycheck-mode  ; (boundp nil) returns t
-    (local-set-key (kbd "M-P") 'flycheck-previous-error)
-    (local-set-key (kbd "M-N") 'flycheck-next-error)
-    )
-  )
+(define-key flycheck-mode-map (kbd "M-P") 'flycheck-previous-error)
+(define-key flycheck-mode-map (kbd "M-N") 'flycheck-next-error)
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
-(add-hook 'find-file-hook #'my_flycheck-keybind t)
 
 (defvar my_flycheck-debug nil "Flag for debug message.")
 (defun toggle-my_flycheck-debug ()
@@ -512,9 +505,6 @@ define-checker -> judge project type -> handle each-project type && return gener
 (defun my_flycheck-unload-function ()
   "Unload function for my_flycheck.el."
   (interactive)
-  (local-unset-key (kbd "M-P"))
-  (local-unset-key (kbd "M-N"))
-  (remove-hook 'find-file-hook 'my_flycheck-keybind)
   )
 
 (setq-default flycheck-emacs-lisp-load-path load-path)

@@ -10,13 +10,8 @@
 
 (load-library-nodeps "my_rotate")
 
-(if (> emacs-major-version 23)
-    (progn
-      (load-library-nodeps "es-windows") ; enable jump to specified window
-      (global-set-key (kbd "C-x O") 'esw/select-window)
-      (setq esw/be-helpful nil)
-      ;; es-windows not working well...
-      ))
+(load-library-nodeps "es-windows") ; enable jump to specified window
+(global-set-key (kbd "C-x O") 'esw/select-window)
 
 (defun my_window-popwin-bellow (&optional height target_window)
   "@dev
@@ -87,77 +82,11 @@ Stingy on display-buffer at least show in less than half size of original size.
 ;; face mode-line
 ;; face mode-line-inactive
 (defun my_window-toggle-modeline-color(&optional fore back)
-  "@dev Change foreground color and background color of mode-line color of selected window.
+  "Change foreground color and background color of mode-line color of selected window.
 "
   (face-remap-add-relative
-   ;; 'mode-line '((:foreground "ivory" :background "DarkOrange2") mode-line))
-    'mode-line `((:foreground ,fore :background ,back ) mode-line))
-  )
+   'mode-line `((:foreground ,fore :background ,back ) mode-line)))
 
-;; sticky-buffer-previous-header-line-format
-
-(defvar sticky-buffer-previous-header-line-format)
-(define-minor-mode sticky-buffer-mode
-  "@dev
-Make the current window always display this buffer."
-  nil " sticky" nil
-  (if sticky-buffer-mode
-      (progn
-        (set (make-local-variable 'sticky-buffer-previous-header-line-format)
-             header-line-format)
-        (set-window-dedicated-p (selected-window) sticky-buffer-mode)
-        (my_window-toggle-modeline-color "ivory" "DarkOrange2")
-        )
-    (progn
-      (set-window-dedicated-p (selected-window) sticky-buffer-mode)
-      (setq header-line-format sticky-buffer-previous-header-line-format)
-
-      ))
-  )
-
-
-;; (defvar my_window-dedicated nil)
-;; (make-variable-buffer-local my_window-dedicated)
-
-;; (defun my_window-toggle-window-dedicated ()
-;;   "Toggle whether the current active window is dedicated or not"
-;;   (interactive)
-;;   (message "%s" (window-dedicated-p (get-buffer-window (current-buffer))) )
-;;   (setq my_window-dedicated
-;;         (set-window-dedicated-p (get-buffer-window (current-buffer)) (not (window-dedicated-p (get-buffer-window (current-buffer)))))
-;;         )
-;;   (message
-;;   (if my_window-dedicated
-;;       (prog1
-;;         "Window '%s' is dedicated"
-;;         (my_window-change-modeline-color)
-;;         )
-;;     (prog1
-;;           "Window '%s' is normal"
-;;       (my_window-change-modeline-color)
-;;       )
-;;     )
-;;   (current-buffer)))
-
-;; window.el is not provided
-;; (window-dedicated-p )
-;; set-window-dedicated-p
-;; get-largest-window
-;; get-lru-window
-
-;; (defun win-swap ()
-;;  "@DEV
-;; Swap windows using buffer-move.el"
-;; (interactive)
-;; (let (
-;;       (bright (windmove-find-other-window 'right))
-;;       (bleft (windmove-find-other-window 'left))
-;;       (cur (selected-window))
-;;        )
-;; (if (null
-;;    (windmove-left)
-;;    ()
-;; )
 (require 'windmove)
 (setq windmove-wrap-around t)
 (windmove-default-keybindings)
@@ -173,47 +102,38 @@ Make the current window always display this buffer."
 (global-set-key (kbd "C-M-S-h")   'buf-move-left)
 (global-set-key (kbd "C-M-S-l")  'buf-move-right)
 
-;;;; customize window.el
-;; (setq display-buffer-alist
-;;       (.)
-;; )
+(defun my_window--delete-forcibly(&optional window)
+  "Forcibly delete WINDOW.
+If you want to delete side windows, see `window-toggle-side-windows'"
+  (interactive (list (get-buffer-window)))
+  (setf (window-parameter window 'delete-window) nil)
+  (let ((ignore-window-parameters nil) (buff-name (window-buffer)))
+    (delete-window window)
+    (message "Window %s bound to `%s' is deleted forcibly" window buff-name)))
+(define-key global-map (kbd "C-x 9") #'my_window--delete-forcibly)
 
+(defvar my_window--sticky-buffer-mode--mode-line-color-cookie nil)
+(define-minor-mode my_window--sticky-buffer-mode
+  "`my_window--sticky-buffer-mode' is the mode to avoid unwanted change of buffer.
 
-(defun count-windows-non-dedicated ()
-  "@dev Extension of one-window-p
-Consider only non dedicated windows on current frame.
-mini-buffer is ignored.
-Return the number of non-dedicated windows.
-"
-  (interactive)
-  ;;ver00  (let (
-  ;;ver00        (yes 0)
-  ;;ver00        (no 0)
-  ;;ver00        )
-  ;;ver00    (dolist (w (window-list-1))
-  ;;ver00      (if (window-dedicated-p w)
-  ;;ver00          (incf yes)
-  ;;ver00        (incf no)
-  ;;ver00        )
-  ;;ver00      )
-  ;;ver00  no)
-  (length (delq t (mapcar 'window-dedicated-p (window-list-1))))
-  )
-
-
-;;(window-tree)
-;;
-;;(current-window-configuration)
-;;;; redirect-frame-focus
-;;;; window-persistent-parameters
-;;(window-state-put (window-state-get))
-
-(defun my_window-switch-to-buffer-visible (name)
-  "@dev
-Switch to already visible buffer on some frame."
-  ;; get-buffer-window-list
-  ;; gnus-select-frame-set-input-focus
-  )
+Toggle result of `window-dedicated-p' for a buffer."
+  :init-value nil
+  :lighter " sticky"
+  nil
+  :global nil
+  (let ((buf (current-buffer))
+        (win (selected-window)))
+    (if my_window--sticky-buffer-mode
+        (progn
+          (set-window-dedicated-p win t)
+          (setq my_window--sticky-buffer-mode--mode-line-color-cookie
+                (my_window-toggle-modeline-color "ivory" "DarkOrange2"))
+          )
+      (progn
+        (set-window-dedicated-p win nil)
+        (face-remap-remove-relative my_window--sticky-buffer-mode--mode-line-color-cookie)
+        ))
+    ))
 
 (provide 'my_window)
 ;;; my_window.el ends here

@@ -26,11 +26,8 @@
 
 (require 'desktop) ;; For `elscreen-persist-restore'
 (eval-when-compile (require 'cl))
-;; (pushnew user-emacs-tmp-dir desktop-path :test 'equal)
-(setq desktop-path (list user-emacs-tmp-dir))
-(setq desktop-base-file-name "desktop")
-(setq desktop-base-lock-name "desktop.lock")
-(setq desktop-load-locked-desktop t)
+(require 'my_global-vars)
+(setq desktop-path (list my_global-vars--user-emacs-tmp-dir))
 
 ;;------------------------------------------------
 ;; Unload function:

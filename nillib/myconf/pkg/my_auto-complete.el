@@ -239,7 +239,7 @@
 (setq
   ac-comphist-file
   (expand-file-name
-    (concat user-emacs-tmp-dir
+    (concat my_global-vars--user-emacs-tmp-dir
       "/ac-comphist.dat"))
   )
 

@@ -13,9 +13,8 @@
 ;; (setq helm-exit-idle-delay nil)
 
 (global-set-key (kbd "C-h C-h") 'helm-mini)
-(global-set-key (kbd "C-h C-s") 'helm-occur-from-isearch) ; require helm-regexp
-(global-set-key (kbd "C-s") 'isearch-forward)
-;;(global-set-key (kbd "M-o M-o") 'helm-imenu)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "M-x") 'helm-M-x)
 
 ;; Enable helm-gtags-mode
 (add-hook 'c-mode-hook 'helm-gtags-mode)

@@ -164,11 +164,11 @@
 ;;; Increase the number of history
 ;;(setq history-length 10000)
 ;;; Save history of mini buffer
-(setq savehist-file (concat user-emacs-tmp-dir "/history"))
+(setq savehist-file (concat my_global-vars--user-emacs-tmp-dir "/history"))
 (savehist-mode 1)
 
 (setq ;; set custom variables before loading recentf.el
- recentf-save-file (concat user-emacs-tmp-dir "/recentf" )
+ recentf-save-file (concat my_global-vars--user-emacs-tmp-dir "/recentf" )
  recentf-max-saved-items 4000 ; Increase number of recently opened files
  recentf-exclude '("/TAGS$" "~" "#.*#")
 ;;;; recentf + tramp makes reaction too slow.
@@ -329,38 +329,12 @@ Internally calls `delete-other-windows.'
 (require 'grep-a-lot);; Each result of grep to separate buffer
 (grep-a-lot-setup-keys)
 
-;;$debug (require 'open-junk-file)
-;;$debug (when (require 'my_global-vars)
-;;$debug   (setq open-junk-file-format (concat user-emacs-tmp-dir "%Y-%m-%d-%H%M%S.")) ;;
-;;$debug )
-;;$debug (require 'tempbuf)
-;;$debug (add-hook 'find-file-hooks 'turn-on-tempbuf-mode)
-
-(defconst original-max-lisp-eval-depth max-lisp-eval-depth "Original value at boot time.")
-(defvar my_max-lisp-eval-depth 7000)
-(if (< max-lisp-eval-depth my_max-lisp-eval-depth)  ;; making this value too large have not benefit
-    (progn
-      (setq max-lisp-eval-depth my_max-lisp-eval-depth);; avoid 'Variable binding depth exceeds max-specpdl-size'
-      (message "max-lisp-eval-depth is now set to %s" max-lisp-eval-depth)
-      )
-  )
-(if (< max-specpdl-size 600000)
-    (progn
-      ;;(setq gc-cons-threshold (* gc-cons-threshold 100));; test1
-      ;; (setq gc-cons-threshold (* gc-cons-threshold 40));; test2
-      ;;nottested (setq gc-cons-threshold  128000000);;
-      ;; (setq gc-cons-threshold  256000000);;
-      ;; (setq gc-cons-threshold  512000000);;
-      ;; (setq max-specpdl-size      600000) ;; enlarge stack size.
-      ;; (setq max-specpdl-size      1200000) ;; enlarge stack size.
-      ;;      (setq max-specpdl-size      2400000) ;; enlarge stack size.
-      ;; (setq max-specpdl-size      4800000) ;; enlarge stack size.
-      (setq max-specpdl-size      9600000) ;; enlarge stack size.
-      (message "max-specpdl-size is now set to %s" max-specpdl-size)
-      )
-  )
-;;(setq garbage-collection-messages t);To judge if freeze is caused by garbage-collection.
+;(setq gc-cons-threshold (* 256 1024 1024))
+(setq gc-cons-threshold (* 128 1024 1024))
+(setq max-lisp-eval-depth 7000)
+(setq max-specpdl-size 9600000)
 (setq garbage-collection-messages nil)
+
 ;; last-command, this-command, pre-command-hook, post-command-hook
 ;; (setq gc-cons-percentage 0.1);;
 ;; gc-elapsed gc-cons-percentage gcs-done

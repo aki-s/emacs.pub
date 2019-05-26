@@ -2,17 +2,14 @@
 (source melpa) ; Latest version (possibly unstable). @see http://melpa.org/#/
 (source melpa-stable)
 
-(depends-on "ac-ispell")
-(depends-on "ace-window")
+(depends-on "ace-window") ; Jump per window.
+(depends-on "avy") ; Jump per char/word in any window.
 (depends-on "add-node-modules-path")
 (depends-on "all-the-icons")
 (depends-on "amx")
 (depends-on "anzu") ; Show number of muched string
-;; Deprecated (depends-on "ac-R")
 (depends-on "async")
 (depends-on "auto-async-byte-compile")
-(depends-on "auto-complete")
-(depends-on "auto-complete-c-headers")
 (depends-on "ccls") ; C++ of LSP
 (depends-on "clang-format")   ; For c++ development.
 (depends-on "cmake-ide")   ; For c++ development.
@@ -21,6 +18,7 @@
 (depends-on "company") ; Plan to migrate from auto-complete
 (depends-on "company-box")
 (depends-on "company-c-headers" "20150801.901") ; only-exists on 'melpa
+(depends-on "company-flx") ; fuzzy completion
 (depends-on "company-go") ; golang
 (depends-on "company-irony") ; c++
 (depends-on "company-lsp")
@@ -44,13 +42,14 @@
 (depends-on "elscreen")
 (depends-on "elscreen-persist" :git "https://github.com/aki-s/elscreen-persist")
 (depends-on "elscreen-separate-buffer-list")
-;; Deprecated (depends-on "emacs-eclim")
+(depends-on "elscreen-tab" :git "https://github.com/aki-s/elscreen-tab")
 (depends-on "emmet-mode")
 (depends-on "ensime") ; scala
-(depends-on "es-windows")
+(depends-on "es-windows") ; Jump or split windows. "C-x O"(shows window split status.) + Create window at "<^>v".
 (depends-on "evil")
+(depends-on "evil-avy")
 (depends-on "evil-numbers")
-(depends-on "evil-matchit" "2.2.1")
+(depends-on "evil-matchit")
 (depends-on "expand-region") ;; raw git repo also exists in share/
 ;;test (depends-on "fakir") ; elnode
 (depends-on "flycheck")
@@ -60,11 +59,8 @@
 (depends-on "flycheck-rtags") ; c++
 (depends-on "fringe-helper")
 (depends-on "ggtags")
-;;test (depends-on "git-commit-mode")
 (depends-on "git-gutter")
-;;test (depends-on "git-rebase-mode")
 (depends-on "go-mode") ; golang
-
 (depends-on "helm")
 (depends-on "helm-dash") ; doc
 (depends-on "helm-gtags")
@@ -76,7 +72,6 @@
 (depends-on "helm-rtags") ;; c++
 (depends-on "helm-xref")
 (depends-on "highlight-indent-guides")
-
 (depends-on "ht")
 (depends-on "highlight-symbol")
 (depends-on "import-js") ; for js
@@ -85,19 +80,14 @@
 (depends-on "jedi")
 (depends-on "kv")
 (depends-on "less-css-mode")
-(depends-on "linum-relative")
 (depends-on "lsp-mode")
 (depends-on "lsp-ui")
 (depends-on "lua-mode")
 (depends-on "magit")
-;; Deprecated (depends-on "malabar-mode")
 (depends-on "markdown-mode")
 (depends-on "migemo")
-(depends-on "minor-mode-hack")
 (depends-on "mozc") ; mozc.el for Linux
 (depends-on "multiple-cursors")
-(depends-on "noflet")
-(depends-on "pcre2el")
 (depends-on "pdf-tools") ; Alternative to doc-view. requires poppler
 (depends-on "persistent-scratch")
 (depends-on "php-mode")
@@ -107,32 +97,25 @@
 (depends-on "pug-mode")
 (depends-on "restclient") ; web-development
 (depends-on "robe") ;ruby
-(depends-on "rtags") ;c++
+(depends-on "rtags") ;c++ ;; Fixme: Specify version to match protocols between server and client.
 (depends-on "rjsx-mode" "20170422.832") ; For .jsx files.
-(depends-on "s")   ; elnode
-;; (depends-on "sbt-mode") ;test <-scala-mode2 includes sbt?
+(depends-on "symbol-overlay") ; Replace `highlight-symbol'
 (depends-on "smart-compile")
 (depends-on "smartparens")
 (depends-on "smartrep")
-(depends-on "spaces")
 (depends-on "spaceline-all-the-icons" "1.4.0")
 (depends-on "swiper-helm")
-(depends-on "tabbar")
 (depends-on "term+") ; To make term + tmux zero configuration.
 ;; (depends-on "tern") ; Use raw git repository
 (depends-on "tern-auto-complete")
 (depends-on "tide") ; Typescript
-(depends-on "twittering-mode")
 (depends-on "use-package")
 (depends-on "web")
 (depends-on "web-mode") ;; raw git repo also exists in share/
 (depends-on "which-key")
+(depends-on "xclip") ; For Linux
 (depends-on "xref-js2") ; js
 (depends-on "w3m")
 (depends-on "yaml-mode")
 (depends-on "yasnippet")
 (depends-on "zeal-at-point") ; doc
-;;
-
-;; (depends-on "ac-mozc" :git "https://github.com/igjit/ac-mozc.git")
-;;(depends-on "ess-site" :git  "https://github.com/emacs-ess/ESS.git")

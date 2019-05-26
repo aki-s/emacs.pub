@@ -9,7 +9,7 @@
 ;; Package-Requires:
 ;; Keywords:
 ;; Created: 2019-04-27
-;; Updated: 2019-04-28T12:32:44Z; # UTC
+;; Updated: 2019-05-26T11:58:13Z; # UTC
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -33,13 +33,45 @@
 
 (use-package powerline
   :config
+  (defvar powerline-set-selected-window-timer nil "Mutext object")
+  (defadvice powerline-set-selected-window
+      (around my_spaceline--powerline-set-selected-window activate)
+    "Advice to prevent frequent call of `force-mode-line-update.'"
+    (block undate-mutex
+      (when powerline-set-selected-window-timer
+        (when (not (minibuffer-window-active-p (frame-selected-window)))
+          (setq powerline-selected-window (frame-selected-window)))
+        (return-from undate-mutex nil))
+      (setq powerline-set-selected-window-timer
+            (run-with-timer 1 nil (lambda() nil)))
+      ad-do-it
+      (setq powerline-set-selected-window-timer nil)
+      )
+    )
+
+  ;; (ad-deactivate 'powerline-set-selected-window)
+  (defvar powerline-unset-selected-window-timer nil "Mutext object")
+  (defadvice powerline-unset-selected-window
+      (around my_spaceline--powerline-unset-selected-window activate)
+    "Advice to prevent frequent call of `force-mode-line-update.'"
+    (block undate-mutex
+      (when powerline-unset-selected-window-timer
+        (setq powerline-selected-window nil)
+        (return-from undate-mutex nil))
+      (setq powerline-unset-selected-window-timer
+            (run-with-timer 1 nil (lambda() nil)))
+      ad-do-it
+      (setq powerline-unset-selected-window-timer nil)
+      )
+    )
+  ;; (ad-deactivate 'powerline-unset-selected-window)
   (powerline-default-theme))
 
 (use-package spaceline-config
   :config
   (spaceline-emacs-theme))
 
-(use-package spaceline
+(use-package spaceline ; depends-on `powerline'
   :config
   ;; ref. http://stackoverflow.com/questions/8190277/how-do-i-display-the-total-number-of-lines-in-the-emacs-modeline
   (defvar-local my_spaceline-buffer-line-count nil)
@@ -49,7 +81,7 @@
 
   (spaceline-define-segment my_input-info
     "Line & Total lines & Column indicator"
-    (propertize (format-mode-line (concat current-input-method-title "%Z" my_spaceline-buffer-line-count ":%2c"))
+    (propertize (format-mode-line (concat current-input-method-title "%Z" (or my_spaceline-buffer-line-count (my_spaceline--count-lines)) ":%2c"))
                 'face `(:height ,(spaceline-all-the-icons--height 0.9) :inherit)
                 'display '(raise 0.1))
     :tight t)
@@ -60,7 +92,6 @@
 (use-package spaceline-all-the-icons
   :after (powerline spaceline spaceline-config)
   :config
-  (setq spaceline-all-the-icons-clock-always-visible nil)
   (setq spaceline-always-show-segments t)
   (setq spaceline-highlight-face-func #'spaceline-highlight-face-evil-state)
   (set-face-attribute
@@ -69,6 +100,36 @@
    :foreground "SpringGreen"
    :weight 'ultra-bold
    )
+  (defvar-local my_spaceline--projectile-cache nil
+    "Nil if no cache is created.")
+  (defun my_spaceline--projectile-skip-p()
+    "Return t if cache of projectile is found for current buffer."
+    ;; Uing (map-keys projectile-projects-cache) may be better.
+    (or (null (boundp 'projectile-mode))
+        (null projectile-mode)
+        (and projectile-mode my_spaceline--projectile-cache)
+        t))
+  (spaceline-define-segment my_spaceline--all-the-icons-projectile-cached
+    ;; ref. Cached version of func defined spaceline-all-the-icons-segments.el
+    (let ((help-echo "Switch Project")
+          (raise (if spaceline-all-the-icons-slim-render 0.1 0.2))
+          (height (if spaceline-all-the-icons-slim-render 1.0 0.8))
+          (local-map (make-mode-line-mouse-map 'mouse-1 'projectile-switch-project))
+          (project-id (or (and (my_spaceline--projectile-skip-p)
+                               my_spaceline--projectile-cache)
+                          (setq my_spaceline--projectile-cache
+                                (projectile-project-name)))))
+
+      (concat
+       (spaceline-all-the-icons--separator spaceline-all-the-icons-primary-separator nil " ")
+       (propertize project-id
+                   'face `(:height ,(spaceline-all-the-icons--height height) :inherit)
+                   'mouse-face (spaceline-all-the-icons--highlight)
+                   'display `(raise ,raise)
+                   'help-echo help-echo
+                   'local-map local-map)
+       (spaceline-all-the-icons--separator spaceline-all-the-icons-primary-separator " " "")))
+    :tight t)
   (defconst my_spaceline-all-the-icons-theme
     '("%e" (:eval (progn (my_spaceline-dynaic-width)
                          (spaceline-ml-my_all-the-icons)))))
@@ -96,7 +157,12 @@
           all-the-icons-eyebrowse-workspace
           ) :face highlight-face :skip-alternate t)
 
-        ((all-the-icons-projectile
+        ("S" :when (and (boundp 'my_window--sticky-buffer-mode)
+                        my_window--sticky-buffer-mode))
+
+        ;; `all-the-icons-projectile' defined in spaceline-all-the-icons-segments.el
+        ;; is very slow if buffer is not in a project.
+        ((my_spaceline--all-the-icons-projectile-cached
          all-the-icons-mode-icon
          ((all-the-icons-buffer-path
            all-the-icons-buffer-id) :separator "")))
@@ -125,13 +191,14 @@
          :when spaceline-all-the-icons-minor-modes-p))
       ;; right
       '(((all-the-icons-org-clock-current-task
-          all-the-icons-battery-status
-          all-the-icons-time)
+          all-the-icons-battery-status)
          :separator (spaceline-all-the-icons--separator spaceline-all-the-icons-primary-separator " ")
          :face default-face)))
       (setq-default mode-line-format my_spaceline-all-the-icons-theme))
+
   (my_spaceline-all-the-icons-theme)
   )
+
 
 ;;------------------------------------------------
 ;; Unload function:

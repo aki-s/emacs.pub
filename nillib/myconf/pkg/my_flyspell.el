@@ -4,7 +4,6 @@
 
 (setq-default flyspell-auto-correct-binding   (kbd "C-c C-c")) ; Avoid being set "C-;" by `defcustom' in flyspell.el
 (require 'flyspell)
-(define-key flyspell-mode-map (kbd "C-;") nil) ; Reserve C-; for the other usage.
 
 ;;http://d.hatena.ne.jp/o0cocoron0o/20101006/1286354957
 (defun flyspell-correct-word-popup-el ()
@@ -55,11 +54,6 @@
 (define-key flyspell-mode-map (kbd "C-c s") 'flyspell-correct-word-popup-el)
 (define-key flyspell-mode-map (kbd "C-;") nil) ; Reserve for elscreen.
 
-;; (defun flyspell-mode-hooks ()
-;;   (flyspell-correct-word-popup-el)
-;;   )
-;; (add-hook 'flyspell-mode-hook 'flyspell-mode-hooks)
-
 (defface flyspell-incorrect
   '((((supports :underline (:style wave)))
      :underline (:style wave :color "#0000FF"))
@@ -68,8 +62,6 @@
   "Flyspell face for misspelled words. Overwrote by my_flyspell"
   :version "24.4"
   :group 'flyspell)
-
-(add-hook 'find-file-hook 'flyspell-prog-mode)
 
 (provide 'my_flyspell)
 ;;; my_flyspell ends here

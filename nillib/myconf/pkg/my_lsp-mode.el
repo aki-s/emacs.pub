@@ -9,7 +9,7 @@
 ;; Package-Requires:
 ;; Keywords:
 ;; Created: 2019-03-02
-;; Updated: 2019-03-21T00:03:54Z; # UTC
+;; Updated: 2019-05-25T17:18:54Z; # UTC
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -38,21 +38,34 @@
    (lsp-mode . lsp-ui-mode))
   :bind
   (:map lsp-mode-map
-  ("C-c r"   . lsp-rename))
+  ("C-c r" . lsp-rename) ("g r" . lsp-rename))
+  :custom
+  (lsp-eldoc-enable-hover nil) ; Using mini-buffer cause flicker.
+  (lsp-enable-symbol-highlighting t)
   :config
   (require 'lsp-clients)
   (use-package lsp-ui
     :custom-face (lsp-ui-sideline-global ((t (:background "blue"))))
     :custom
-    (lsp-ui-doc-use-webkit t)
+    (lsp-ui-doc-use-webkit nil)
+    (lsp-ui-doc-use-childframe nil)
+    (lsp-ui-doc-delay 0.2)
+    :bind (:map lsp-mode-map ("g h" . my_lsp-mode--lsp-ui-bulk-toggle))
     :preface
-    (defun my_lsp-mode--toggle-lsp-ui-doc ()
+    (defun my_lsp-mode--lsp-ui-bulk-toggle ()
       (interactive)
       (if lsp-ui-doc-mode
           (progn
             (lsp-ui-doc-mode -1)
-            (lsp-ui-doc--hide-frame))
-        (lsp-ui-doc-mode 1))))
+            (lsp-ui-doc--hide-frame)
+            (lsp-ui-sideline-mode -1)
+            (message "Disable lsp-ui-doc-mode"))
+        (lsp-ui-doc-mode 1)
+        (lsp-ui-sideline-mode 1)
+        (setq lsp-ui-sideline-show-hover t)
+        (lsp-ui-sideline--run)
+        (message "Enable lsp-ui-doc-mode")))
+    )
   (use-package company-lsp
     :custom
     (company-lsp-cache-candidates 'auto) ;; always use cache

@@ -78,6 +78,7 @@
               (with-demoted-errors "%S" (require 'mozc))
               )
      (set-input-method "japanese-mozc")
+     (setq mozc-candidate-style 'echo-area) ; For performance.
      )
    (message "Configured input method for Linux")
    )

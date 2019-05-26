@@ -23,9 +23,7 @@
 ;;
 
 ;;; Code:
-
-;; (defvar my_occur-max-buf 2 "Maximun number of occur buffer to be maintained.")
-;; (defvar my_occur-buf-register nil "List of buffer name of occur")
+(require 'my_window)
 
 (eval-when-compile (load-library "replace"))
 ;;;; occur is defined at replace.el
@@ -115,6 +113,19 @@ shrink-window-if-larger-than-buffer would be sufficient...
             (save-selected-window
               (pop-to-buffer "*Occur*")
               (fit-window-to-buffer))))
+
+(defun* my_replace-symbol-occur(target &optional nlines)
+  "Call `occur' with the symbol at point.
+Each line is displayed with NLINES lines before and after, or -NLINES
+before if NLINES is negative."
+  (interactive (list (thing-at-point 'symbol t)))
+  (unless target (error "No symbol at point")
+          (return-from my_replace-symbol-occur))
+  (unless (get-buffer "*Occur*") ; Usually buffer is named "*Occur: XXX"
+    (setq win (my_window-popwin-bellow)))
+  (occur (concat "\\_<" (regexp-quote target) "\\_>") nlines)
+  (setq truncate-lines nil))
+
 
 (provide 'my_replace)
 ;;; my_replace.el ends here

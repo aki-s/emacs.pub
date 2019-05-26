@@ -29,7 +29,8 @@
 
 (require 'persistent-scratch)
 (persistent-scratch-setup-default)
-
+(require 'my_files)
+(setq persistent-scratch-backup-directory my_files--backupdir)
 ;;------------------------------------------------
 ;; Unload function:
 
