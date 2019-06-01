@@ -1,4 +1,4 @@
-;;; my_all-th-icons.el ---                           -*- lexical-binding: t; -*-
+;;; my_dap-mode.el ---                               -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019
 
@@ -8,8 +8,8 @@
 ;; Package-Version: 0.0.0
 ;; Package-Requires:
 ;; Keywords:
-;; Created: 2019-03-03
-;; Updated: 2019-03-04T04:05:51Z; # UTC
+;; Created: 2019-05-29
+;; Updated: 2019-05-29T13:51:59Z; # UTC
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -26,23 +26,45 @@
 
 ;;; Commentary:
 
-;; [Setup]
-;; - Call (all-the-icons-install-fonts)
-;;  for first time of installation.
+;;
 
 ;;; Code:
-(require 'all-the-icons)
 
+(use-package dap-mode
+  :custom
+  ;(dap-print-io t)
+  (dap-print-io nil) ; default
+  (dap-inhibit-io nil)
+  :preface
+  (defun my_c--dap-mode-hook()
+    (require 'dap-lldb)
+    (dap-mode 1)
+    (dap-ui-mode 1)
+    )
+  :config
+  (define-key dap-mode-map (kbd "<f7>") #'dap-step-in)
+  (define-key dap-mode-map (kbd "<S-f8>") #'dap-step-out)
+  (define-key dap-mode-map (kbd "<f8>") #'dap-next)
+  (define-key dap-mode-map (kbd "<f9>") #'dap-continue)
+
+  (setq dap-lldb-debugged-program-function
+        (lambda ()
+          (pcase major-mode
+            ((or c-mode c++-mode)
+             (file-name-sans-extension (buffer-file-name)))
+            (_ (read-file-name "Select target file: ")) )))
+
+  :hook ((c-mode c++-mode objc-mode) . my_c--dap-mode-hook))
 ;;------------------------------------------------
 ;; Unload function:
 
-(defun my_all-th-icons-unload-function ()
-   "Unload function to ensure normal behavior when feature 'my_all-th-icons is unloaded."
+(defun my_dap-mode-unload-function ()
+   "Unload function to ensure normal behavior when feature 'my_dap-mode is unloaded."
    (interactive)
 )
 
-(provide 'my_all-th-icons)
-;;; my_all-th-icons.el ends here
+(provide 'my_dap-mode)
+;;; my_dap-mode.el ends here
 
 ;; Local variables:
 ;; eval: (add-hook 'write-file-functions 'time-stamp)

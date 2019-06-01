@@ -25,18 +25,6 @@
     (lsp))
   :hook ((c-mode c++-mode objc-mode) .
          my_c--cquery-hook))
-(use-package dap-mode
-  :custom
-  ;(dap-print-io t)
-  (dap-print-io nil) ; default
-  (dap-inhibit-io nil)
-  :preface
-  (defun my_c--dap-mode-hook()
-    (require 'dap-lldb)
-    (dap-mode 1)
-    (dap-ui-mode 1)
-    )
-  :hook ((c-mode c++-mode objc-mode) . my_c--dap-mode-hook))
 
 ;;; compile command
 ;;  M-h v compile-command

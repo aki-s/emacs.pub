@@ -9,7 +9,7 @@
 ;; Package-Requires:
 ;; Keywords:
 ;; Created: 2019-04-27
-;; Updated: 2019-05-26T11:58:13Z; # UTC
+;; Updated: 2019-05-29T00:19:10Z; # UTC
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -43,7 +43,7 @@
           (setq powerline-selected-window (frame-selected-window)))
         (return-from undate-mutex nil))
       (setq powerline-set-selected-window-timer
-            (run-with-timer 1 nil (lambda() nil)))
+            (run-with-idle-timer 1 nil (lambda() nil)))
       ad-do-it
       (setq powerline-set-selected-window-timer nil)
       )
@@ -59,7 +59,7 @@
         (setq powerline-selected-window nil)
         (return-from undate-mutex nil))
       (setq powerline-unset-selected-window-timer
-            (run-with-timer 1 nil (lambda() nil)))
+            (run-with-idle-timer 1 nil (lambda() nil)))
       ad-do-it
       (setq powerline-unset-selected-window-timer nil)
       )

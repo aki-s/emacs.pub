@@ -8,6 +8,7 @@
 ;; cask update --debug --verbose
 (autoload 'eieio-defclass-autoload "eieio") ; For ubuntu  emacs 24.3.1
 
+(defun shut-up-current-output ())
 (let ((bundle (cask-initialize)))
   ;;;
   ;;; $ cask package-directory # @ x86_64-apple-darwin14.5.0, emacs24.5.1
@@ -16,7 +17,7 @@
   ;; - since cask0.7.4 is .cask/(emacs-major-version).(emacs-minor-version)/elpa
   ;; When cask directory has changed you have to run cask command where Cask file exists.
   ;; For example if `load-path' doesn't have .cask/package/path/ check this fact.
-
+;  (cask-install bundle)
   (setq load-path (-uniq (cask-load-path bundle)))
 
   ;;;bug?
@@ -30,7 +31,7 @@
   ;; Presume that if there are 2 file having the same name
   ;; under .cask directory,
   ;; cask doesn't set load-path for both of them.
- )
+  )
 
 (defun my_cask-check-path ()
   "Check if setup `load-path' by Cask is done successfully."
