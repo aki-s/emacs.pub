@@ -20,7 +20,8 @@
 
 ;;; Commentary:
 
-;; 
+;; 1. LSP-mode natively provides support of SCSS.
+;; 2. `ruby-sass' provides command named `sass' in Ubuntu.
 
 ;;; Code:
 

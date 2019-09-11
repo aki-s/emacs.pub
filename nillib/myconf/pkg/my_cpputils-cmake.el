@@ -21,7 +21,7 @@
 ;;; Commentary:
 
 ;; https://github.com/redguardtoo/cpputils-cmake
-;; CMakeLists.txt
+ CMakeLists.txt
 
 ;;; Code:
 (require 'cpputils-cmake)

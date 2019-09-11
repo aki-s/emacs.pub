@@ -24,6 +24,7 @@
 
 ;;; Code:
 
+(setq-default js-indent-level 2)
 (require 'js2-mode) ;; js2-mode require prog-mode.el of emacs24
 (unless (executable-find "ag")
   (message "[config-error] xref-js2 requires `ag (a.k.a. silversearcher-ag)`'")

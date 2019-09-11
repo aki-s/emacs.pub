@@ -34,6 +34,7 @@
 (depends-on "deferred")
 (depends-on "diff-hl")
 (depends-on "dropdown-list")
+(depends-on "dumb-jump")
 (depends-on "e2wm")
 (depends-on "edbi") ; sql
 (depends-on "editorconfig") ; You also need to install binary `editorconfig` additionally.
@@ -99,6 +100,7 @@
 (depends-on "robe") ;ruby
 (depends-on "rtags") ;c++ ;; Fixme: Specify version to match protocols between server and client.
 (depends-on "rjsx-mode" "20170422.832") ; For .jsx files.
+(depends-on "scss-mode" "20180123.1708") ; CSS
 (depends-on "symbol-overlay") ; Replace `highlight-symbol'
 (depends-on "smart-compile")
 (depends-on "smartparens")
@@ -110,6 +112,7 @@
 (depends-on "tern-auto-complete")
 (depends-on "tide") ; Typescript
 (depends-on "use-package")
+(depends-on "vue-mode") ; js
 (depends-on "web")
 (depends-on "web-mode") ;; raw git repo also exists in share/
 (depends-on "which-key")

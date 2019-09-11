@@ -58,8 +58,10 @@
 ;;(load-library "my_clisp")
 (eval-after-load 'lisp-mode (load-library "my_elisp"))
 (use-package my_go :mode ("\\.go\\'" . go-mode))
-(use-package my_typescript :mode "\\.ts\\'")
+(use-package my_typescript :mode ("\\.ts\\'" . typescript-mode))
 (use-package my_ensime :mode ("\\.scala\\'" . ensime-mode))
+(use-package vue :mode ("\\.vue\\'" . vue-mode)
+  :hook (vue-mode . (lambda () (setq syntax-ppss-table nil))))
 
 ;;(load-library "my_mysql")
 ;;(eval-after-load 'java-mode "my_java") ; unloeded
@@ -79,6 +81,9 @@
 (use-package avy)
 (use-package amx :config (amx-mode))
 (use-package anzu :config (global-anzu-mode +1))
+(use-package dumb-jump :config
+  (setq-default dumb-jump-selector 'ivy)
+  (dumb-jump-mode 1))
 (use-package projectile :config (projectile-mode 1))
 (use-package restclient :mode ("\\.api\\.md\\'" . restclient-mode))
 (use-package swiper-helm

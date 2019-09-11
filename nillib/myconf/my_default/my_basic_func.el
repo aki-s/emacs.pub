@@ -329,7 +329,7 @@ Internally calls `delete-other-windows.'
 (require 'grep-a-lot);; Each result of grep to separate buffer
 (grep-a-lot-setup-keys)
 
-(setq gc-cons-threshold (* 256 1024 1024))
+(setq gc-cons-threshold 100000000)
 (setq max-lisp-eval-depth 7000)
 (setq max-specpdl-size 9600000)
 (setq garbage-collection-messages nil)

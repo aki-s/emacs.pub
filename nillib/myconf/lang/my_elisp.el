@@ -25,8 +25,6 @@
   ;;    (defvar ecb-layout-name "emacs-lisp"); my custom layout.
   (setq mode-name "el");
   (unless default-directory (cd "~/.emacs.d/")) ; For gtags to search tag files
-  (when (boundp 'company-backends)
-    (add-to-list 'company-backends 'company-elisp))
   )
 
 (find-function-setup-keys);; jump func definition when in elisp mode
@@ -96,7 +94,7 @@ has broken documentation of eldoc."
   :after flycheck
   :config
   (setq flycheck-emacs-lisp-package-user-dir
-        (mapconcat #'identity
+        (c-concat-separated
          (list user-emacs-directory
                ".cask"
                (concat (number-to-string emacs-major-version)
