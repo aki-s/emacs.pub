@@ -126,7 +126,7 @@
   (copy-file my_tern:config-template-file-name (concat at-dir "/" my_tern:config-file-name) nil)
   )
 
-(my_tern:locate-config (from-path)
+(defun my_tern:locate-config (from-path)
   "Locate directory having `my_tern:config-file-name'\
 in parent directories of FROM-PATH.  Return nil if nothing is found."
   (let* ((parent-dir (locate-dominating-file from-path my_tern:config-file-name)))
@@ -171,7 +171,7 @@ in parent directories of FROM-PATH.  Return nil if nothing is found."
         (message "Skip tern-mode.")
         ))
     (message "[my_tern:setup] is called")
-    )
+    ))
 
 (defun my_tern:toggle-by-project-file()
   (interactive)
