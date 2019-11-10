@@ -62,9 +62,12 @@
 ;;- tern-do-complete
 ;;@ref (tern-run-query #'tern-do-complete '((type . "completions") (includeKeywords . t)) (point)))
 
-(require 'vc)
-(require 'dash)
 (require 'cl-lib)
+(require 'dash)
+(require 'json)
+(require 'prettier-js)
+(require 'subr-x)
+(require 'vc)
 
 (defvar my_tern:config-file-name ".tern-project")
 (defvar my_tern:config-template-file-name "~/.emacs.d/share/insert/tern-project.json")
@@ -123,7 +126,7 @@
   (copy-file my_tern:config-template-file-name (concat at-dir "/" my_tern:config-file-name) nil)
   )
 
-(defun my_tern:locate-config (from-path)
+(my_tern:locate-config (from-path)
   "Locate directory having `my_tern:config-file-name'\
 in parent directories of FROM-PATH.  Return nil if nothing is found."
   (let* ((parent-dir (locate-dominating-file from-path my_tern:config-file-name)))
@@ -141,28 +144,57 @@ in parent directories of FROM-PATH.  Return nil if nothing is found."
   (unless (getenv "NODE_PATH") ; NODE_PATH becoming obsolute. See https://nodejs.org/api/modules.html
     ;; Set default
     (setenv "NODE_PATH"
-      (mapconcat
-        'expand-file-name (list
-                            "~/local/lib/node_modules/"
-                            "~/.emacs.d/share/"
-                            )
-        ":")))
+            (mapconcat
+             'expand-file-name (list
+                                "~/local/lib/node_modules/"
+                                "~/.emacs.d/share/"
+                                )
+             ":")))
     ;;; npm install -g jshint jslint # Only jshint was automatically chosen by flycheck?
 
-     (require 'company)
-     (require 'company-tern)
-     (cl-pushnew 'company-tern company-backends)
-     (define-key tern-mode-keymap (kbd "C-S-p") 'company-tern)
-     ;; Disable completion keybindings, as we use xref-js2 instead
-     (define-key tern-mode-keymap (kbd "M-.") nil)
-     (define-key tern-mode-keymap (kbd "M-,") nil)
+  (require 'company)
+  (require 'company-tern)
+  (cl-pushnew 'company-tern company-backends)
+  (define-key tern-mode-keymap (kbd "C-S-p") 'company-tern)
+  ;; Disable completion keybindings, as we use xref-js2 instead
+  (define-key tern-mode-keymap (kbd "M-.") nil)
+  (define-key tern-mode-keymap (kbd "M-,") nil)
 
-     (my_tern:prompt-if-no-config-found)
-     (company-mode 1)
-     (when my_tern:debug-flag (my_tern:start-tern))
-     (tern-mode 1)
-     (message "[my_tern:setup] is called")
-     )
+  (if (called-interactively-p 'interactive)
+      (progn
+        (my_tern:prompt-if-no-config-found)
+        (company-mode 1)
+        (when my_tern:debug-flag (my_tern:start-tern))
+        (tern-mode 1))
+    (let ((fname (my_tern:locate-config (pwd))))
+      (if (and fname (assoc 'isEnabled (json-read-file fname))) (tern-mode 1)
+        (message "Skip tern-mode.")
+        ))
+    (message "[my_tern:setup] is called")
+    )
+
+(defun my_tern:toggle-by-project-file()
+  (interactive)
+  (let ((fname (my_tern:locate-config)))
+    (when fname (my_tern:--toggle-by-project-file fname)))
+  )
+
+(defun my_tern:--toggle-by-project-file(fname)
+  (let* ((json-obj (json-read-file fname))
+         (prop (assoc 'isEnabled json-obj))
+         (buf (find-file-existing fname)))
+    (unless prop
+      (setq prop '(isEnabled . t))
+      (push prop json-obj))
+    (if (eq (cdr prop) t)
+        (setf (cdr prop) :json-false)
+      (setf (cdr prop) t))
+    (with-current-buffer buf
+      (erase-buffer)
+      (princ (json-encode json-obj) buf)
+      (prettier-js)
+      (save-buffer)
+      )))
 
 ;;;; tern-explicit-port may be O.K.
 ;;;; 49152 <= dynamic or private ports <= 65535
@@ -205,21 +237,21 @@ in parent directories of FROM-PATH.  Return nil if nothing is found."
   (set (make-local-variable 'tern-server-proc) nil)
   (set (make-local-variable 'tern-server-proc-obj) nil)
   (if (symbol-value tern-server-proc)
-    (progn
-      (message "Tern is already running: %s" tern-server-proc)
-      )
+      (progn
+        (message "Tern is already running: %s" tern-server-proc)
+        )
     (progn
       (if (null tern-explicit-port) (my_tern:set-private-port-num 'tern-explicit-port))
       (tern-use-server tern-explicit-port "127.0.0.1")
       ;; (setq tern-command (expand-file-name (concat user-emacs-directory "/share/tern/bin/tern")))
       (let ( (port (number-to-string tern-explicit-port)) )
         (if (and (boundp 'tern-bin) (atom 'tern-bin) )
-          ;;             (setq tern-command `(,tern-command "--persistent" "--port" (number-to-string ,tern-explicit-port)))
-          (setq tern-command (list tern-bin
-                               "--persistent"  "--verbose"
-                               "--port" port
+            ;;             (setq tern-command `(,tern-command "--persistent" "--port" (number-to-string ,tern-explicit-port)))
+            (setq tern-command (list tern-bin
+                                     "--persistent"  "--verbose"
+                                     "--port" port
                                         ; --no-port-file
-                               )))
+                                     )))
         (setf tern-server-proc (concat " *Tern" port "*" ))
         ;;(apply #'start-process "Tern" (get-buffer-create ) tern-command)
         (setf tern-server-proc-obj (apply #'start-process tern-server-proc (get-buffer-create tern-server-proc) tern-command))
@@ -244,9 +276,9 @@ in parent directories of FROM-PATH.  Return nil if nothing is found."
 (defun my_js-tern-show-params()
   (interactive)
   (let* ((buf-str " *my_js-tern-show-params*")
-          (buf (get-buffer-create buf-str)))
+         (buf (get-buffer-create buf-str)))
     (with-selected-window
-      (display-buffer buf)
+        (display-buffer buf)
       (erase-buffer))
     ;; tern.el
     (princ (format "tern-activity-since-command:%s\n" tern-activity-since-command) buf)

@@ -18,5 +18,6 @@
     "webpack": {},
     "complete_strings": {}
   },
-  "ecmaVersion": 6
+  "ecmaVersion": 6,
+  "isEnabled": false
 }
