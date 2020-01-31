@@ -19,7 +19,7 @@
     <_checkstyle.suppressions.file>${user.home}/.emacs.d/share/checkstyle/suppressions.xml</_checkstyle.suppressions.file>
     <!-- <_checkstyle.header.file>${user.home}/.emacs.d/share/checkstyle/java.header</_checkstyle.header.file> -->
 
-    <_checkstyle.version>8.19</_checkstyle.version>
+    <_checkstyle.version>8.29</_checkstyle.version>
     <_checkstyle.config>${user.home}/.emacs.d/util/setup/lang/java/checkstyle/sun_checks-checkstyle7.1.xml</_checkstyle.config>
     <!-- <checkstyle.regexp.header.file>${user.home}/.emacs.d/share/checkstyle/checkstyle/java_regexp.header</checkstyle.regexp.header.file> -->
   </properties>
