@@ -9,7 +9,7 @@
 ;; Package-Requires:
 ;; Keywords:
 ;; Created: 2019-03-02
-;; Updated: 2019-05-29T23:31:50Z; # UTC
+;; Updated: 2020-02-08T13:06:10Z; # UTC
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -37,8 +37,7 @@
   ((prog-mode . lsp)
    (lsp-mode . lsp-ui-mode))
   :bind
-  (:map lsp-mode-map
-  ("C-c r" . lsp-rename) ("g r" . lsp-rename))
+  (:map lsp-mode-map ("C-c r" . lsp-rename))
   :custom
   (lsp-eldoc-enable-hover nil) ; Using mini-buffer cause flicker.
   (lsp-enable-symbol-highlighting t)
@@ -60,7 +59,7 @@
     (lsp-ui-doc-use-webkit nil)
     (lsp-ui-doc-use-childframe nil)
     (lsp-ui-doc-delay 0.2)
-    :bind (:map lsp-mode-map ("g h" . my_lsp-mode--lsp-ui-bulk-toggle))
+    :bind (:map lsp-mode-map ("C-c h" . my_lsp-mode--lsp-ui-bulk-toggle))
     :preface
     (defun my_lsp-mode--lsp-ui-bulk-toggle ()
       (interactive)

@@ -97,7 +97,7 @@
 (load-library "my_evil")
 (load-library "my_expand-region")
 (load-library "my_face")
-(load-library "my_font")
+;test-on-ubuntu (load-library "my_font")
 (load-library "my_keybind")
 (load-library "my_helm")
 (load-library "my_multiple-cursors")
