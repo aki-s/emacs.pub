@@ -23,14 +23,14 @@ __Main files of this branch is__
 #### __Prerequisite__
 
     - Unix liked system (sh,sed,etc...)
-    - Emacs version 25
+    - Emacs version 27
     - Git    ; To install emacs
     - Python ; To install emacs package manager called 'cask'
     - cURL   ; To install emacs package manager called 'cask'
 
 #### __Setup__
 
-    $ git clone https://akis@git.codebreak.com/akis/emacs.pub.git $HOME/.emacs.d # You may need 160M of disk space
+    $ git clone https://github.com/aki-s/emacs.pub.git $HOME/.emacs.d # You may need 10M of disk space
 
 then
 

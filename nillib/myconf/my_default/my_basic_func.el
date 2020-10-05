@@ -445,5 +445,15 @@ Try to locate and open elisp library."
     )
   )
 
+(defun replace-square-braces-to-curry-ones(start end)
+  "Replace [ to {, ] to } in region START END."
+  (interactive "r")
+  (save-restriction
+    (narrow-to-region start end)
+    (cl-mapc #'(lambda (from to)
+                 (goto-char (point-min))
+                 (while (search-forward from nil t) (replace-match to nil t)))
+             '("[" "]") '("{" "}"))))
+
 (provide 'my_basic_func)
 ;;; my_basic_func.el ends here
