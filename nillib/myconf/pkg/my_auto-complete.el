@@ -164,42 +164,6 @@
 
 (add-to-list 'ac-sources 'ac-source-c-headers)
 
-;;------------------------------------------------------------------------------
-;;;; == PERL ==
-;;------------------------------------------------------------------------------
-;;; http://blog.iss.ms/2010/08/28/191049
-;;(require 'auto-complete-config)
-;;(add-to-list 'ac-dictionary-directories "~/.emacs.d/site-lisp/ac/ac-dict")
-
-;; (add-hook 'cperl-mode-hook
-;;           '(lambda ()
-;;              (progn
-;;                (setq indent-tabs-mode nil)
-;;                (setq tab-width nil)
-;;
-;;                ; perl-completion
-;;                (require 'auto-complete)
-;;                (require 'perl-completion)
-;;                (add-to-list 'ac-sources 'ac-source-perl-completion)
-;;                (perl-completion-mode t)
-;;               )))
-;;
-;;------------------------------------------------------------------------------
-
-;; interactively call auto-complete-mode
-;;(define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
-
-;;;;If autoComplete stops working as soon as I enable Flymake.
-;;;;  coexist with flyspell
-;;(ac-flyspell-workaround)
-
-                                        ;(if ((eq system-type 'darwin))
-;;$;;(if (eq system-type 'darwin)
-;;$;;    (setq ac-auto-start 2)
-;;$;;  (setq ac-auto-start 4))
-;; ref. official. http://cx4a.org/software/auto-complete/manual.ja.html#ac-source-filename
-;;
-;;(ac-config-default) ;; initialize ac-sources. auto-complete-default-hooks
 ;;;
 (defun my_ac-sources-sans-directory ()
   "For slow CPU, prevent directory completion"

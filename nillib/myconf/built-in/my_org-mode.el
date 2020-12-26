@@ -9,8 +9,6 @@
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-ca" 'org-agenda)
-;; (global-set-key "\C-cb" 'org-iswitchb)  ;; destroy sync between anything and iswitchb.
-                                        ;
 ;;(define-key global-map "\C-cl" 'org-store-link)
 ;;(define-key global-map "\C-ca" 'org-agenda)
 ;;(define-key global-map "\C-cr" 'org-remember)
@@ -53,7 +51,7 @@
 ;;(setq org-directory "~/org")
 ;; Set to the name of the file where new notes will be stored
 ;;(setq org-mobile-inbox-for-pull "~/org/flagged.org")
-;;  
+;;
 (setq org-mobile-inbox-for-pull "~/Dropbox/ToDo/flagged.org")
 ;; Set to <your Dropbox root directory>/MobileOrg.
 (setq org-mobile-directory "~/Dropbox/MobileOrg")
@@ -76,12 +74,12 @@
                                         ;			   )
       )
 ;;------------------------------------------------------------
-;; basic 
+;; basic
 ;;------------------------------------------------------------
 ;; http://stackoverflow.com/questions/10867199/emacs-in-terminal-meta-arrow-keybindings
 (define-key input-decode-map "\e[1;2A" [S-up] )
 (if (equal "xterm" (tty-type))
-    (progn 
+    (progn
       (define-key function-key-map "\e[1;9A" [M-up]   )
       (define-key function-key-map "\e[1;9B" [M-down] )
       (define-key function-key-map "\e[1;9C" [M-right])

@@ -13,7 +13,6 @@
 ;;(defvar migemo-directory nil) ;; Need to be set before (require 'migemo)
 (if (null (and (executable-find "cmigemo") (locate-library "migemo")))
     (message "ERROR: no executable found, cmigemo")
-    ;; anyanything-*.el like anything-migemo.el is doing bad.
     (progn
 ;;;; cmigemo
       (setq migemo-command "cmigemo")

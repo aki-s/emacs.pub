@@ -67,15 +67,17 @@ Has bad effect to scaling feature for font on Linux."
 
 (defun my_font--increase-by-screen-resolution()
   "Set default font size based on screen resolution."
-  (let (fsize)
-    (setq fsize
-      (pcase `(,(x-display-pixel-width) ,(x-display-pixel-height))
-        (`(3840 2160) ; XPS-15
-          32)
-        (_ 32)))
-    (set-frame-font (font-spec :family "Monospace" :size fsize) nil t)
-    ;;(set-frame-font "mono" nil t)
-    )
+  ;; x-display-pixel-width doesn't support a character-only terminal.
+  (unless (eq window-system nil)
+    (let (fsize)
+      (setq fsize
+        (pcase `(,(x-display-pixel-width) ,(x-display-pixel-height))
+          (`(3840 2160) ; XPS-15
+            32)
+          (_ 32)))
+      (set-frame-font (font-spec :family "Monospace" :size fsize) nil t)
+      ;;(set-frame-font "mono" nil t)
+      ))
   )
 
 (defun my_font-setup_for_darwin()
@@ -208,43 +210,6 @@ Has bad effect to scaling feature for font on Linux."
   (mapcar (lambda(x) (message x "\n")) (x-list-fonts "*"))
   )
 
-(defun anything-font-families ()
-  "Preconfigured `anything' for font family."
-  (interactive)
-  ;;(flet ((anything-mp-highlight-match () nil))
-  (cl-flet ((anything-mp-highlight-match () nil))
-    (anything-other-buffer
-      '(anything-c-source-font-families)
-      "*anything font families*")))
-
-(defun anything-font-families-create-buffer ()
-  (with-current-buffer
-    (get-buffer-create "*Fonts*")
-    (loop for family in (sort (delete-duplicates (font-family-list)) 'string<)
-      do (insert
-           (propertize (concat family "\n")
-             'font-lock-face
-             (list :family family :height 2.0 :weight 'bold))))
-    (font-lock-mode 1)))
-
-(defvar anything-c-source-font-families
-  '((name . "Fonts")
-     (init lambda ()
-       (unless (anything-candidate-buffer)
-         (save-window-excursion
-           (anything-font-families-create-buffer))
-         (anything-candidate-buffer
-           (get-buffer "*Fonts*"))))
-     (candidates-in-buffer)
-     (get-line . buffer-substring)
-     (action
-       ("Copy Name" lambda
-         (candidate)
-         (kill-new candidate))
-       ("Insert Name" lambda
-         (candidate)
-         (with-current-buffer anything-current-buffer
-           (insert candidate))))))
 ;;;
 (provide 'my_font)
 ;;; my_font.el ends here

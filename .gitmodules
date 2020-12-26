@@ -71,12 +71,6 @@
 [submodule "share/global-pygments-plugin"]
 	path = share/global-pygments-plugin
 	url = https://github.com/yoshizow/global-pygments-plugin.git
-[submodule "share/expand-region"]
-	path = share/expand-region
-	url = https://github.com/magnars/expand-region.el.git
-# [submodule "share/helm"]
-# 	path = share/helm
-# 	url = https://github.com/emacs-helm/helm.git
 [submodule "src/node"]
 	path = share/node
 	url = https://github.com/joyent/node.git

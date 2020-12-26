@@ -9,7 +9,7 @@
 ;; Package-Requires:
 ;; Keywords:
 ;; Created: 2019-04-27
-;; Updated: 2019-05-29T00:19:10Z; # UTC
+;; Updated: 2020-11-15T09:20:51Z; # UTC
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -88,6 +88,23 @@
 
   :hook ((find-file after-save after-revert dired-after-readin)
          . 'my_spaceline--count-lines))
+
+(use-package all-the-icons
+  :config
+  ;; If no font is installed, then install once.
+  (require 'cl-macs)
+  (let* ((font-dest
+          (cl-case window-system
+            (x  (concat (or (getenv "XDG_DATA_HOME") ;; Default Linux install directories
+                            (concat (getenv "HOME") "/.local/share"))
+                        "/fonts/"))
+            (ns (concat (getenv "HOME") "/Library/Fonts/" ))))
+         (has-dest (stringp font-dest)))
+    (if (and has-dest
+             (unless (file-exists-p (format "%s/all-the-icons.ttf" font-dest))))
+             (progn
+               (message "Install fonts for all-the-icons to %s" font-dest)
+               (all-the-icons-install-fonts t)))))
 
 (use-package spaceline-all-the-icons
   :after (powerline spaceline spaceline-config)

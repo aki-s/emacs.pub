@@ -24,6 +24,8 @@
 
 (require 'auto-async-byte-compile)
 
+(defvar my_aabc/debug-msg nil "If t then debug message is shown.")
+
 (defun my_aabc-display-buffer (buffer-or-name)
   ""
   (let ( (num_win
@@ -138,8 +140,6 @@
         ))
     );when
   ); aabc/display-function
-
-(defvar my_aabc/debug-msg nil "If t then debug message is shown.")
 
 (defun my_aabc/debug-msg (verbose num_win case )
   (if verbose (message "[%2d] case %2d" num_win case))

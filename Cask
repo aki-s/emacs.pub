@@ -24,7 +24,7 @@
 (depends-on "company-lsp")
 (depends-on "company-rtags") ; c++
 (depends-on "company-quickhelp")
-(depends-on "company-tern") ; js
+(depends-on "company-tern" :git "https://github.com/kevinushey/company-tern") ; js
 (depends-on "cpputils-cmake" "5.5")
 (depends-on "cquery") ; C++ of LSP
 (depends-on "creole")
@@ -33,7 +33,6 @@
 (depends-on "db")
 (depends-on "deferred")
 (depends-on "diff-hl")
-(depends-on "dropdown-list")
 (depends-on "dumb-jump")
 (depends-on "e2wm")
 (depends-on "edbi") ; sql
@@ -45,13 +44,12 @@
 (depends-on "elscreen-separate-buffer-list")
 (depends-on "elscreen-tab" :git "https://github.com/aki-s/elscreen-tab")
 (depends-on "emmet-mode")
-(depends-on "ensime") ; scala
 (depends-on "es-windows") ; Jump or split windows. "C-x O"(shows window split status.) + Create window at "<^>v".
 (depends-on "evil")
 (depends-on "evil-avy")
 (depends-on "evil-numbers")
 (depends-on "evil-matchit")
-(depends-on "expand-region") ;; raw git repo also exists in share/
+(depends-on "expand-region")
 ;;test (depends-on "fakir") ; elnode
 (depends-on "flycheck")
 (depends-on "flycheck-irony") ; c++
@@ -112,6 +110,7 @@
 (depends-on "tern-auto-complete")
 (depends-on "tide") ; Typescript
 (depends-on "use-package")
+(depends-on "undo-tree"); util
 (depends-on "vue-mode") ; js
 (depends-on "web")
 (depends-on "web-mode") ;; raw git repo also exists in share/

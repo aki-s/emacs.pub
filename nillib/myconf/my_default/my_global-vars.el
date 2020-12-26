@@ -30,18 +30,6 @@
   (locate-user-emacs-file (concat "tmp/" system-configuration))
   "User specific temporary directory of Emacs.")
 (mkdir my_global-vars--user-emacs-tmp-dir t)
-;;#;;  auto-install
-;;#;;  auto-save-list
-;;#;;  backup
-;;#;;  image-dired
-;;#;;	.anything-c-javadoc-classes.cache
-;;#;;	.anything-c-javadoc-indexes.cache
-;;o;;	ac-comphist.dat
-;;#;;	ede-projects.el
-;;#;; history
-;;#;;	semanticdb/
-;;#;;	session.104d7d06bc4e5ff736137551565058894100000038170057
-;;#;;	tramp
 
 (provide 'my_global-vars)
 ;;; my_global-vars.el ends here

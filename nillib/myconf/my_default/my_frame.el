@@ -15,15 +15,11 @@
 ;;; Define utility functions
 ;;;==============================================================
 
-;;; 'frame-cmd is usefull to move frame with keybind.
-;; (require 'frame-cmds);; require frame-fns
-;; ref. (frame-parameter-names) of frame-cmds ;; Return an alist of all available frame-parameter names.
-
 (eval-when-compile (require 'frame))
 
 (defun my_frame-toggle-frame-maximized (&optional frame)
-  "@dev
- Copied from frame.el:toggle-frame-maximized
+  "
+ Copied from `frame.el:toggle-frame-maximized'
 Toggle maximization state of the selected frame.
 Maximize the selected FRAME or un-maximize if it is already maximized.
 Respect window manager screen decorations.
@@ -59,9 +55,11 @@ See also `toggle-frame-fullscreen'."
     ))
 
 (defun my_frame:fullscreen-fullboth ()
+  "`toggle-frame-fullscreen'."
   (interactive)
   ;;$bug;;  (x-send-client-message nil 0 nil "_NET_WM_STATE" 32 '(2 "_NET_WM_STATE_FULLSCREEN" 0))
-  (set-frame-parameter nil 'fullscreen 'fullboth);; hides frame (Hides apple mark on top left corner on Darwin)
+  (set-frame-parameter nil 'fullscreen 'fullboth)
+  ;; hides frame (Hides apple mark on top left corner on Darwin)
   )
 
 (defun my_frame:toggle-X11-fullscreen ()

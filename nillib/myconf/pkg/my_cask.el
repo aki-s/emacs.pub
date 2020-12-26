@@ -18,7 +18,10 @@
   ;; When cask directory has changed you have to run cask command where Cask file exists.
   ;; For example if `load-path' doesn't have .cask/package/path/ check this fact.
 ;  (cask-install bundle)
-  (setq load-path (-uniq (cask-load-path bundle)))
+  (setq load-path
+        ;; Remove ~/.emacs.d
+        (-remove-item (expand-file-name default-directory)
+                      (-uniq (cask-load-path (cask-initialize)))))
 
   ;;;bug?
   ;;[env] ubuntu emacs24.3.1 cask0.7.3

@@ -2,10 +2,10 @@
 ;; http://d.hatena.ne.jp/ryo1miya/20110613/1307980874
 ;;=============================================================================
 ;; etags の TAGS ファイルを下層のディレクトリにわたって作る。
-;; 
+;;
 ;; .emacs.el あるいは .emacs.d/init.el などに以下を記述。
-;; 
-(defvar etags-mode-extension-alist 
+;;
+(defvar etags-mode-extension-alist
   '((c-mode          . "\\.[hc]$")
     (c++-mode        . "\\.\\(hh\\?\\|cc\\|[ch][+px]\\{2\\}\\)$")
     (objc-mode       . "\\.[hm]m\\?$")
@@ -50,14 +50,5 @@
 
 (global-set-key (kbd "C-M-.") 'etags-create-tags)
 
-;; C-M-. だとモード特有のキーバインドにぶつかることがある。slimeとか。個人的に anything-c-etags-select を M-. にあてているので近い所にあてただけ。
-;; 
-;; etags-mode-extension-alist の該当するファイルを開いている場合は拡張子を入力する必要はない。 eshell,dired では拡張子の正規表現を手動で入力する。
-;; 
-;; これで anything-c-etags-select が快適になった。 gtags みたいに参照元にジャンプできないのでそこは moccur-grep と併用する。
-;; 
-;; 追記
-;; 
-;; eshell ではコマンドラインで
-;; 
-;;     etags **/*.[hc]
+(provide 'my_etags)
+;;; my_etags.el ends here
