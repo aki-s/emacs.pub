@@ -17,5 +17,13 @@
     )
   )
 
+(defun my-browse-url:external-browser (url &rest args)
+  (cond
+   ((eq system-type 'darwin) (browse-url-default-macosx-browser url))
+   ((member system-type '(windows-nt cygwin))     (browse-url-generic url))
+   ((eq system-type 'gnu/linux) (browse-url-generic url))
+   (t (message "No matching system-type %s" system-type))
+   ))
+
 (provide 'my_browse-url)
 ;;; my_browse-url ends here

@@ -31,19 +31,11 @@
 
       (setq w3m-command "w3m")
 
-      (defun choose-browser (url &rest args)
+      (defun my_w3m:choose-browser (url &rest args)
         (interactive "sURL: ")
         (if (y-or-n-p "Use external browser? ")
-            (my-external-browser url)
+            (my-browse-url:external-browser url)
           (w3m-browse-url url)))
-
-      (defun my-external-browser (url &rest args)
-        (cond
-         ((eq system-type 'darwin) (browse-url-default-macosx-browser url))
-         ((member system-type '(windows-nt cygwin))     (browse-url-generic url))
-         ((eq system-type 'gnu/linux) (browse-url-generic url))
-         (t (message "No matching system-type %s" system-type))
-         ))
 
       (cond
        ((eq system-type 'darwin)
@@ -68,9 +60,9 @@
           ))
 
       (defvar my_w3m-browser-url-browser-function
-            `((,(concat "^" (regexp-opt browse-url-dhtml-url-list)) . my-external-browser)
+            `((,(concat "^" (regexp-opt browse-url-dhtml-url-list)) . my-browser-url:choose-browser)
               ("file:" . w3m-browse-url) ; Open URL in buffer.
-              ("." . choose-browser)
+              ("." . my_w3m:choose-browser)
               ))
       (setq browse-url-browser-function ;; "Overwrite default func provided by browse-url.el
         my_w3m-browser-url-browser-function)
@@ -80,8 +72,8 @@
         (interactive)
         (let ((func (ido-completing-read "Select from list: "
                                          '(
-                                           "my-external-browser"
-                                           "choose-browser"
+                                           "my-browser-url:choose-browser"
+                                           "my_w3m:choose-browser"
                                            "w3m-browse-url"
                                            ))))
           (setq-default browse-url-browser-function (intern func)) ; setq didn't work

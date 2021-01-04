@@ -74,6 +74,8 @@ Has bad effect to scaling feature for font on Linux."
         (pcase `(,(x-display-pixel-width) ,(x-display-pixel-height))
           (`(3840 2160) ; XPS-15
             32)
+          (`(1680 1050) ; OSX-15-inch
+            18)
           (_ 32)))
       (set-frame-font (font-spec :family "Monospace" :size fsize) nil t)
       ;;(set-frame-font "mono" nil t)

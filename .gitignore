@@ -19,6 +19,8 @@ ac-comphist.dat
 eshell/
 kkcrc
 network-security.data
+node_modules
+package-lock.json
 tramp
 /auto-save-list
 /backup

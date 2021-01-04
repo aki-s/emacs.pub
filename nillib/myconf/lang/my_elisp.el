@@ -91,7 +91,7 @@ has broken documentation of eldoc."
  )
 
 (use-package flycheck-package
-  :after flycheck
+  :after (flycheck cc-defs)
   :config
   (setq flycheck-emacs-lisp-package-user-dir
         (c-concat-separated

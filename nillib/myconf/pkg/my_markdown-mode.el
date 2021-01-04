@@ -20,28 +20,18 @@
      );cond
 
     (progn
-      (require 'my_w3m nil t)
-      ;; I don't want to use w3m for  markdown-preview
-      ;; browse-url in browse-url.el
-
-;;;;<notworking> @TBD make mode-local variable browse-url-browser-function work in markdown-mode
-      (defvar-mode-local markdown-mode browse-url-browser-function 'my-external-browser) ;; notwork?
-      ;;break-my_w3m.el (setq browse-url-browser-function 'my-external-browser)
-      ;;(setq browse-url-browser-function 'browse-url-default-browser)
+      (require 'browse-url nil t)
+      (defvar-mode-local markdown-mode browse-url-browser-function 'browse-url-default-browser)
       (setq-mode-local markdown-mode
                        ;; browse-url-browser-function 'browse-url-default-browser  ; noworking
                        ;; browse-url-browser-function 'browse-url-generic
                        ;; browse-url-generic-program  'choose-browser
-
-                       browse-url-browser-function '(("file:" . my-external-browser)) ; setq-mode-local noworking?
-                       )
-;;;;</notworking>
+                       browse-url-browser-function '(("." . browse-url-default-browser)))
       (cond ((eq system-type 'darwin)
-            (setq markdown-open-command "open"))
+             (setq markdown-open-command "open"))
             ((eq system-type 'gnu/linux)
              (setq markdown-open-command "xdg-open")
-             )
-            )
+             ))
       )
   (progn
     (t (message "No markdwon-command."))

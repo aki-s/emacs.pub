@@ -1,0 +1,26 @@
+{
+  "name": "dot-emacs-runtime",
+  "version": "1.0.0",
+  "description": "Manage .emacs.d specific runtime",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/syunsuke_aki/emacs-config.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/syunsuke_aki/emacs-config#readme",
+  "dependencies": {
+    "fb-watchman": "^2.0.1",
+    "import-js": "^4.0.2",
+    "prettier": "^2.2.0",
+    "typescript": "^4.1.3",
+    "typescript-language-server": "^0.4.0"
+  },
+  "engines": {
+    "node": "v14.15.3"
+  }
+}

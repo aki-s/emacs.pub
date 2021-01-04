@@ -6,6 +6,7 @@
 (depends-on "avy") ; Jump per char/word in any window.
 (depends-on "add-node-modules-path")
 (depends-on "all-the-icons")
+(depends-on "ag")
 (depends-on "amx")
 (depends-on "anzu") ; Show number of muched string
 (depends-on "async")
@@ -62,6 +63,7 @@
 (depends-on "go-mode") ; golang
 (depends-on "helm")
 (depends-on "helm-dash") ; doc
+(depends-on "helm-elscreen")
 (depends-on "helm-gtags")
 (depends-on "helm-ls-git")
 (depends-on "helm-proc")

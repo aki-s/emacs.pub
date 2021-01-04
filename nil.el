@@ -27,6 +27,12 @@
 ;; Built-in
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (load-library "my_global-vars")
+(use-package my_shell-env-vars
+  :config
+  (import-shell-env)
+  (import-from-shell "PATH" 'exec-path)
+  (push (expand-file-name "~/.emacs.d/node_modules/.bin/") exec-path)
+  )
 (load-library "my_emacs-version")
 (load-library "my_basic_func")
 (load-library "my_dired")
@@ -84,7 +90,7 @@
 (use-package dumb-jump :config
   (setq-default dumb-jump-selector 'ivy)
   (dumb-jump-mode 1))
-(use-package projectile :config (projectile-mode 1))
+(use-package my_projectile)
 (use-package restclient :mode ("\\.api\\.md\\'" . restclient-mode))
 (use-package swiper-helm
   :bind (:map isearch-mode-map

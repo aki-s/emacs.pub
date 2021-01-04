@@ -23,39 +23,74 @@
 ;;
 
 ;;; Code:
-(require 'elscreen)
-;;; Avoid startup error for version '(Revised:  April 11, 2012 by Emanuel Evans).
-;;; This may cause `helm-elscreen' not work.
-;; (setq elscreen-display-screen-number nil)
-(setq elscreen-prefix-key (kbd "C-;"))
-(setq elscreen-tab-display-control nil)
+
+(use-package elscreen
+  :config
+  (setq elscreen-prefix-key (kbd "C-;"))
+  (setq elscreen-tab-display-control nil)
+
+  ;; <override elscreen.el>
+  (defvar elscreen--update-unlock-idle-timer nil)
+  (defun elscreen--unlock-update-lock()
+    (setq elscreen--update-unlock-idle-timer nil))
+  (defun elscreen-run-screen-update-hook ()
+    "Override function of elscreen.el to prevent huge performance issue of redisplay."
+    (unless elscreen--update-unlock-idle-timer
+      (setq elscreen--update-unlock-idle-timer
+            (run-with-idle-timer 1 nil #'elscreen--unlock-update-lock))
+      (when elscreen-frame-confs
+        (elscreen-notify-screen-modification-suppress
+         (run-hooks 'elscreen-screen-update-hook)))
+      (remove-hook 'post-command-hook 'elscreen-run-screen-update-hook)
+      ))
+  (defun elscreen-set-screen-modified ()
+    "Override function of elscreen.el to prevent huge performance issue of redisplay."
+    (unless elscreen--update-unlock-idle-timer
+      (elscreen-set-conf-list 'modified-inquirer nil)
+      (add-hook 'post-command-hook 'elscreen-run-screen-update-hook)))
+  ;; </override elscreen.el>
+
+  (use-package helm-elscreen
+    :bind (:map elscreen-map ("'" . helm-elscreen)))
+
+  (use-package elscreen-tab
+    :config
+    ;; In case elscreen couldn't remove 'elscreen-run-screen-update-hook.
+    (defun my_elscreen:clear-post-command-hook()
+      (remove-hook 'post-command-hook 'elscreen-run-screen-update-hook)
+      )
+    (add-hook 'elscreen-tab--update-buffer-post-hooks #'my_elscreen:clear-post-command-hook)
+    )
+  )
 
 (require 'elscreen-separate-buffer-list)
 (elscreen-separate-buffer-list-mode)
 
 (require 'my_global-vars)
-(require 'elscreen-persist)
-(setq elscreen-persist-file
-      (concat my_global-vars--user-emacs-tmp-dir "/elscreen.lst"))
+(use-package elscreen-persist
+  :config
+  (setq elscreen-persist-file
+        (concat my_global-vars--user-emacs-tmp-dir "/elscreen.lst"))
 
-(require 'elscreen-tab)
-(defun my_elscreen-kill-hook()
-  ;; Because width or height of the window for elscreen-tab is too small,
-  ;; `elscreen-persist' would fail to restore it.
-  (elscreen-persist-mode -1)
-  (elscreen-tab-mode -1)
-  ;; (Invalid read syntax: "#") is caused by reading (xx . #<frame>) which is obtained by (frame-parameters)
-  (elscreen-persist-store)
-  )
+  (defun my_elscreen-kill-hook()
+    ;; Because width or height of the window for elscreen-tab is too small,
+    ;; `elscreen-persist' would fail to restore it.
+    (elscreen-persist-mode -1)
+    (elscreen-tab-mode -1)
+    ;; (Invalid read syntax: "#") is caused by reading (xx . #<frame>) which is obtained by (frame-parameters)
+    (elscreen-persist-store)
+    )
 
-(defun elscreen-persist-get-frame-params ()
-  "Don't save frame-parameters, because some parameter cause
- `Invalid read syntax: \"#\"'.
-e.g. (company-box-doc-frame . #<frame  0x9d00a20>)
-Overwrited by `my_elscreen'"
-  nil)
+  (defun elscreen-persist-get-frame-params ()
+    "Don't save frame-parameters, because some parameter cause
+   `Invalid read syntax: \"#\"'.
+  e.g. (company-box-doc-frame . #<frame  0x9d00a20>)
+  Overwrited by `my_elscreen'"
+    nil)
 
-(add-hook 'kill-emacs-hook 'my_elscreen-kill-hook)
+  (add-hook 'kill-emacs-hook 'my_elscreen-kill-hook)
+)
+
 ;;; Configure desktop for elscreen
 (defun my_elscreen:start()
   "Start elscreen.
