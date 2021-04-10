@@ -129,7 +129,7 @@
 (load-library "my_migemo")
 (load-library "my_markdown-mode")
 ;;(load-library "my_hl-line")
-(eval-after-load 'org-mode (load-library "my_org-mode"))
+(load-library "my_org-mode")
 ;;(load-library "my_twitter")
 ;;(load-library "my_web-mode")
 (load-library "my_yasnippet")

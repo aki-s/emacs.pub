@@ -22,7 +22,6 @@
 (depends-on "company-flx") ; fuzzy completion
 (depends-on "company-go") ; golang
 (depends-on "company-irony") ; c++
-(depends-on "company-lsp")
 (depends-on "company-rtags") ; c++
 (depends-on "company-quickhelp")
 (depends-on "company-tern" :git "https://github.com/kevinushey/company-tern") ; js

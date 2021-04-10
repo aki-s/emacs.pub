@@ -42,7 +42,7 @@
 ;; (add-to-list 'auto-mode-alist '("\\.java\\'" . malabar-mode))
 ;; If your template extension is tpl, "\\.phtml" becomes "\\.tpl"
 ;;(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode)) ;; <-conflict w3m?
-;;(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 ;;(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 ;;--------------------------------------------------------------
 

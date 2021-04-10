@@ -74,8 +74,7 @@ Under implementation. Don't work as expected.
     (add-to-list 'company-backends 'company-c-headers))
   )
 
-(require 'company-lsp)
-(push 'company-lsp company-backends)
+(setq lsp-prefer-capf t) ; (push 'company-capf company-backends)
 
 ;;; Code:
 
