@@ -9,7 +9,7 @@
 ;; Package-Requires:
 ;; Keywords:
 ;; Created: 2019-03-02
-;; Updated: 2020-11-15T07:50:39Z; # UTC
+;; Updated: 2021-04-10T08:14:14Z; # UTC
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -47,6 +47,7 @@
   ;; Use checker named `lsp-ui'.
   (setq-default flycheck-disabled-checkers
                 '(c/c++-clang c/c++-cppcheck c/c++-gcc))
+  (setq read-process-output-max (* 256 4096)) ; 1mb. ref. `lsp-doctor'
   (use-package lsp-clients
     :config
     ;; Prevent 'clangd only to use 'ccls, because finding header
