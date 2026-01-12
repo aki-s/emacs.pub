@@ -41,7 +41,7 @@ or
 
     # Manual setup
     $ cd $HOME/.emacs.d
-    $ #OPTIONAL: brew install git-lfs
+    $ #OPTIONAL: brew install git-lfs age
     $ #OPTIONAL: git lfs pull
     $ git submodule update --init
     $ git submodule foreach --recursive git submodule update --init
@@ -53,14 +53,16 @@ or
 
 #### _To help somebody who may google for what he/she want to improve about his/her emacs._
 
+    - My past shames of customizing Emacs (terrible codes) is intentionally exposed.
+      My main editor is IntelliJ (sometimes VSCode) since around 2014 actually. I only use Emacs as a simple notepad now...
+      I recommend niewbies to use Qauamacs or Apacemacs at least, although I dont' recomment using Emacs.
+      This editor is too old fashioned...
+      But I sometimes tries new features Emacs or tidy up past configurations by whim as my hobbie...
+
     - This repository is extracted from my private repository.
       Some files like as under share/dict/ is omitted from the view point of license.
 
-    - This repository would work on the mixture of cygwin/LINUX/MacOSX and various version of emacs.
-
-    - I have recently started to use
-      - 'cask' to maintain repository instead of git for some libraries. (under migration)
-      - 'evil-mode' (vim like keybinding) to be free from emacs keybinding.
+    - This repository would work on the mixture of MacOSX and version of emacs 30.
 
     - I have recommitted to this git repository to clear private or secret information from source codes, so no history would be visible.
 
