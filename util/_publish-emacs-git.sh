@@ -82,7 +82,7 @@ else
     git remote -v
 
     echo "Push the current branch and set the remote as upstream"
-#tmp    git push -vf --progress -u origin master
+    git push -vf --progress -u origin master
 fi
 
 cd $CWD
