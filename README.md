@@ -1,12 +1,15 @@
-## About this repository (Main artifacts are not html but elisp files.)
-This branch is my emacs configuration (.emacs.d ) extracted from private .emacs.d !
+## About this repository
+This branch is my emacs configuration (.emacs.d ) extracted from private .emacs.d .
 
 - Pushing to this repository is almostly automated with `util/push-emacs.sh` (auto commit by destroying all history).
+  - I have recommitted to this git repository to clear private or secret information from source code, so no actual history would be visible.
 - Just clone and placing `.emacs.d` is not sufficient because of the following reasons.
 
 1. Error handling in config file for missing `shell environmental variable` is not done (I use my private .bashrc).
 1. Some config file enforce you have already installed binary commands
 such as [git-crypt](https://github.com/AGWA/git-crypt) (I also privately manage this setup).
+1. This repository is extracted from my private repository.
+   Some files like as under share/dict/ is omitted from the view point of license.
 
 __Main files of this branch is__
 
@@ -43,7 +46,7 @@ or
     $ #OPTIONAL: git lfs pull
     $ git submodule update --init
     $ git submodule foreach --recursive git submodule update --init
-    $ $HOME/.cask/bin/cask
+    $ $HOME/.cask/bin/cask # or `$ brew install cask`
 
 -----------
 
@@ -51,17 +54,18 @@ or
 
 #### _To help somebody who may google for what he/she want to improve about his/her emacs._
 
-- <p style="color: red;">Important Notes</p> My past shames of customizing Emacs (terrible codes) is intentionally exposed.
-  My main editor is IntelliJ (sometimes VSCode) since around 2014 actually. I only use Emacs as a simple notepad now...
-  I recommend niewbies to use [Spacemacs](https://github.com/syl20bnr/spacemacs) or Aquamacs at least, although I dont' recomment using Emacs.
-  This editor is too old fashioned...
-  But I sometimes tries new features Emacs or tidy up past configurations by whim as my hobbie...
+> [!WARNING]
+> My SHAMES of customizing Emacs (terrible codes) is intentionally exposed only for this reason.
 
-- This repository is extracted from my private repository.
-  Some files like as under share/dict/ is omitted from the view point of license.
+> [!NOTE]
+> The conventional manner of writing ELisp is NOT intentionally followed just only for my tastes.
+> Some files recently added are not yet tidy up, because this repo is just a snapshot and it could be a draft version.
 
-- This repository would work on the mixture of MacOSX and version of emacs 30.
-
-- I have recommitted to this git repository to clear private or secret information from source codes, so no history would be visible.
+> [!IMPORTANT]
+> My main editor is IntelliJ (sometimes VSCode) since around 2014 actually. I only use Emacs as a simple notepad now...
+>
+>  I recommend niewbies to use [Spacemacs](https://github.com/syl20bnr/spacemacs) or Aquamacs at least, although I dont' recommend using Emacs.
+>  This editor is too old fashioned...
+>  But I sometimes tries new features of Emacs or tidy up past configurations by whim as my hobbie...
 
 -----------
