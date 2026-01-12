@@ -1,0 +1,15 @@
+#!/bin/sh
+#-----------------------------------------------------------------------
+check_prerequisite() {
+  if [ `which checkstyle` ]; then
+    return
+  fi
+  echo "No checkstyle command is found. Please install it." \
+    && exit 1
+}
+
+check_prerequisite
+checkstyle "$@"
+echo "$@" >/tmp/my_java-checkstyle.out
+
+exit 0

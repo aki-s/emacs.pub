@@ -1,0 +1,4 @@
+/elnode  filter=git-crypt diff=git-crypt
+*.creole filter=git-crypt diff=git-crypt
+share/dict/waeijirou118.sdic.enc filter=lfs diff=lfs merge=lfs -text
+share/dict/eijirou118.sdic.enc filter=lfs diff=lfs merge=lfs -text

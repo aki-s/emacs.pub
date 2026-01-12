@@ -1,0 +1,10 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: vmain
+# key: vmain
+# binding: direct-keybinding
+# --
+int main () {
+    $0
+
+    return 0;
+}

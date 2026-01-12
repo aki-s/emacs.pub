@@ -1,0 +1,44 @@
+[submodule "share/yas/snippets_AndreaCrotti"]
+	path = share/yas/snippets_AndreaCrotti
+	url = https://github.com/AndreaCrotti/yasnippet-snippets.git
+	branch = 1.1
+
+[submodule "src/yasnippet.git/java-mode"]
+ path = src/yasnippet.git/java-mode
+ url = https://github.com/nekop/yasnippet-java-mode.git
+	branch = master
+
+[submodule "src/yasnippet.git/css-scss-yasnippet"]
+ path = src/yasnippet.git/css-scss-yasnippet
+ url = https://github.com/ShingoFukuyama/css-scss-yasnippet.git
+	branch = master
+
+[submodule "share/evil-plugins"]
+	path = share/evil-plugins
+	url = https://github.com/tarao/evil-plugins.git
+	branch = master
+
+[submodule "share/tern"]
+	path = share/tern
+	url = https://github.com/marijnh/tern.git
+	branch = 0.24.3
+
+[submodule "share/cask"]
+	path = share/cask
+	url = https://github.com/cask/cask.git
+	branch = master
+
+[submodule "share/cmigemo"]
+	path = share/cmigemo
+	url = https://github.com/koron/cmigemo
+	branch = master
+
+[submodule "src/emacs"]
+	path = src/emacs
+	url = git@github.com:emacs-mirror/emacs.git
+	branch = emacs-29.3
+
+[submodule "share/elscreen-persist"]
+	path = share/elscreen-persist
+	url = git@github.com:aki-s/elscreen-persist.git
+	branch = master

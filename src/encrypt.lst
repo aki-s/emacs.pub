@@ -1,0 +1,4 @@
+# List of files to be encrypted
+$HOME/.emacs.d/share/dict/eijirou118.sdic
+$HOME/.emacs.d/share/dict/waeijirou118.sdic
+$HOME/.emacs.d/elnode

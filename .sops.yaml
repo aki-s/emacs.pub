@@ -1,0 +1,6 @@
+creation_rules:
+  #; age[0]: private MBAir15
+  - path_regex: share/dict/.*eijirou118.sdic$
+    age: >-
+      age19hd8tzm07duq0fh44cx29qdxwxawwvcp98a25ya9mgfamm7alacs5wv80v
+

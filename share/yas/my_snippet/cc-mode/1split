@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: 1split
+# key: 1split
+# --
+vector< string > split(const string &str, const string &delim){
+  vector< string > res;
+  size_t current = 0, found;
+  while((found = str.find_first_of(delim, current)) != string::npos){
+    res.push_back(string(str, current, found - current));
+    current = found + 1;
+  }
+  res.push_back(string(str, current, str.size() - current));
+  return res;
+}
